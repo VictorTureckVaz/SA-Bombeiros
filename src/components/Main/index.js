@@ -1,12 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Form from '../Form';
+import Button from '../Button'
 
 export default function Main(){
     return(
-        <View>
+        <View style={styles.Container}>
             <Form/>
         </View>
     )
 
 }
+
+const styles = StyleSheet.create({
+    Container: {
+        gap: 10,
+    },
+
+});

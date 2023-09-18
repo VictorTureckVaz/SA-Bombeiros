@@ -5,7 +5,7 @@ import Main from './src/components/Main';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={styles.Container}>
       <Title/>
       <Main/>
     </View>
@@ -13,11 +13,11 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  Container: {
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
     padding: 50,
-    gap: 10,
+    gap: 44,
   },
 });
