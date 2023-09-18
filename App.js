@@ -1,13 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Title from './src/components/Title';
-import Main from './src/components/Main';
+import TitleLogin from './src/components/Title';
+import MainLogin from './src/components/Main';
 
 export default function App() {
+  // Tela de Login
+  // return (
+  //   <View style={styles.Container}>
+  //     <TitleLogin/>
+  //     <MainLogin/>
+  //   </View>
+  // );
   return (
     <View style={styles.Container}>
-      <Title/>
-      <Main/>
+      <TitleHome/>
+      <MainHome/>
     </View>
   );
 }

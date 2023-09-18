@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './style'
 
-export default function Title(){
+export default function TitleLogin(){
     return(
         <View>
             <Text style={styles.BigTextTitle}>OLÁ, SEJA</Text>

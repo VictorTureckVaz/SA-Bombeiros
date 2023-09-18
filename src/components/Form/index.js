@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
-import styles from './style'
-import Button from '../Button'
+import styles from './style';
+import Button from '../Button';
 
-export default function Form(){
+export default function FormLogin(){
     return(
         <View style={styles.Container}>
             <View>

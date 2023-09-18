@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Form from '../Form';
-import Button from '../Button'
 
-export default function Main(){
+
+export default function MainLogin(){
     return(
         <View style={styles.Container}>
             <Form/>
