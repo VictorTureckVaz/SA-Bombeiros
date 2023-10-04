@@ -8,9 +8,10 @@ export default function MainLogin(){
         <View style={styles.Container}>
             <Form/>
         </View>
-    )
+    );
 
-}
+};
+
 
 const styles = StyleSheet.create({
     Container: {

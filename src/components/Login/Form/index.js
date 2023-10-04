@@ -11,7 +11,7 @@ export default function FormLogin(){
             </View>
             
             <View style={styles.SecondSection}>
-                <TextInput placeholder = 'Senha' keyboardType='default' style={styles.TextInput}/>
+                <TextInput secureTextEntry={true} placeholder = 'Senha' keyboardType='default' style={styles.TextInput}/>
                 <View style={styles.SmallText}>
                     <Text >ESQUECEU A SENHA?</Text>
                 </View>
