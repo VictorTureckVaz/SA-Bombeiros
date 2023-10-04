@@ -1,20 +1,22 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './style';
 
 export default function Footer(){
     return(
         <View style={styles.Footer}>
-            <View style={styles.FooterSection}>
-                <Image source={require("../../../assets/home.png")}/>
+            <TouchableOpacity style={styles.FooterSection}>
+                <Image source={require("../../../assets/home.png")} style={styles.HomeImage}/>
                <Text>Início</Text>
-            </View>
-            <View>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.FooterSection}>
+            <Image source={require("../../../assets/home.png")} style={styles.HomeImage}/>
                <Text>Ocorrência</Text>
-            </View>
-            <View>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.FooterSection}>
+                <Image source={require("../../../assets/historic.png")} style={styles.HomeImage}/>
                <Text>Histórico</Text>
-            </View>
+            </TouchableOpacity>
         </View>
     );
 

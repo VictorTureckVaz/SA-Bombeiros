@@ -10,12 +10,13 @@ const styles = StyleSheet.create({
      },
 
      FooterSection: {
-        
+        gap: 5,
+        alignItems: 'center',
      },
 
      HomeImage: {
-        width: 36,
-        height: 34,
+        width: 32,
+        height: 30,
      }
 
  })
