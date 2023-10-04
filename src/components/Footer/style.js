@@ -6,8 +6,17 @@ const styles = StyleSheet.create({
          flexDirection: 'row',
          justifyContent: 'space-around',
          alignItems: 'flex-end',
-         
+         padding: 17,
      },
+
+     FooterSection: {
+        
+     },
+
+     HomeImage: {
+        width: 36,
+        height: 34,
+     }
 
  })
 
