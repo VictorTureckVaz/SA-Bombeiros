@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
 import SelectDropdown from 'react-native-select-dropdown';
 
@@ -33,7 +33,16 @@ export default function MainInfoPac(){
                 <TextInput placeholder = 'Idade do Acompanhante' keyboardType = 'number-pad' style={styles.TextInput}/>
             </View>
             <View>
-                // vitima era
+                {/* vitima era */}
+            </View>
+            <View style={styles.ButtonContainer}>
+                <TouchableOpacity style={styles.Button}>
+                    <Image
+                    style={styles.Icon}
+                    source={require('../../../../assets/previous.png')}
+                    />
+                    <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
+                </TouchableOpacity>
             </View>
             
 

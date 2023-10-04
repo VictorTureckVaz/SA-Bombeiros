@@ -33,7 +33,7 @@ export default function MainInfoPac(){
                 <TextInput placeholder = 'Idade do Acompanhante' keyboardType = 'number-pad' style={styles.TextInput}/>
             </View>
             <View>
-                // vitima era
+                {/* vitima era */}
             </View>
             
 

@@ -13,16 +13,35 @@ const styles = StyleSheet.create({
 
       Container: {
         gap: 23,
+        padding: 27,
       },
 
-      SmallText: {
-        fontSize: 15,
-        alignItems: "flex-end",
+      ButtonText: {
+        fontSize: 17,
         fontWeight: "bold",
+        color: "#313131",
+        width: 222,
       },
 
       SecondSection: {
         gap: 12,
+      },
+      
+      ButtonContainer: {
+        flex: 1,
+        alignItems: "flex-end",
+      },
+      
+      Icon: {
+        width: 32,
+        height: 32,
+      },
+
+      Button: {
+        flex: 1,
+        flexDirection: "row",
+        gap: 10,
+        alignItems: "center",
       },
 
   });
