@@ -10,7 +10,7 @@ export default function Footer(){
                <Text>Início</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.FooterSection}>
-            <Image source={require("../../../assets/home.png")} style={styles.HomeImage}/>
+            <Image source={require("../../../assets/document.png")} style={styles.HomeImage}/>
                <Text>Ocorrência</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.FooterSection}>

@@ -8,12 +8,21 @@ const styles = StyleSheet.create({
         width: 'auto',
         borderBottomColor: '#313131',
         borderBottomWidth: 3,
-        marginLeft: 27,
-        marginRight: 27,
-        marginTop: 54,
+        marginTop: 22,
      },
      Teste: {
         fontSize: 12,
+     },
+
+     Menu: {
+      flex: 1,
+      padding: 27,
+      paddingBottom: 0,
+     },
+
+     Image: {
+        width: 37.5,
+        height: 37.5,
      },
  
  });

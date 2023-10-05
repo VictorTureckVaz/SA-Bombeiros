@@ -9,6 +9,8 @@ import MainProfile from './src/components/Profile/Main';
 import MainOcorrencia from './src/telas/Ocorrencia/Principal';
 import LoadingDots from './src/components/Loading'
 import MainInfoPac from './src/telas/Ocorrencia/Info Pac';
+import MainInfoAmb from './src/telas/Ocorrencia/Info Ambu';
+import MainTipoOc from './src/telas/Ocorrencia/Tipo';
 
 export default function App() {
   // Tela de Login
@@ -49,13 +51,27 @@ export default function App() {
   //     <Footer/>
   //   </View>
   // );
+  // return (
+  //   <View style={styles.Container}>
+  //     <Header/>
+  //     <MainInfoPac/>
+  //     <Footer/>
+  //   </View>
+  // );
   return (
     <View style={styles.Container}>
       <Header/>
-      <MainInfoPac/>
+      <MainInfoAmb/>
       <Footer/>
     </View>
   );
+  // return (
+  //   <View style={styles.Container}>
+  //     <Header/>
+  //     <MainTipoOc/>
+  //     <Footer/>
+  //   </View>
+  // );
 }
 
 const styles = StyleSheet.create({
@@ -66,13 +82,20 @@ const styles = StyleSheet.create({
     padding: 50,
     gap: 44,
   },
+
   Container: {
     flex: 1,
     justifyContent: 'top',
   },
+
   LoadingContainer: {
     flex: 1,
     justifyContent: 'center',
     padding: 90,
+  },
+
+  Header: {
+    flex: 1,
+    gap: 21,
   },
 });

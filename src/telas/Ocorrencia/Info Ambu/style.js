@@ -8,11 +8,32 @@ const styles = StyleSheet.create({
         width: "100%",
         borderWidth: 2,
         padding: 10,
-        borderRadius: 10,
+        borderRadius: 12.5,
       },
 
       Container: {
         gap: 23,
+        padding: 27,
+        marginTop: 21, 
+      },
+
+      ButtonText: {
+        fontSize: 17,
+        fontWeight: "bold",
+        color: "#313131",
+        width: 222,
+      },
+      
+      Icon: {
+        width: 32,
+        height: 32,
+      },
+
+      Button: {
+        flex: 1,
+        flexDirection: "row",
+        gap: 10,
+        alignItems: "center",
       },
 
       SmallText: {
@@ -23,6 +44,11 @@ const styles = StyleSheet.create({
 
       SecondSection: {
         gap: 12,
+      },
+
+      ButtonContainer: {
+        flex: 1,
+        alignItems: "flex-end",
       },
 
   });

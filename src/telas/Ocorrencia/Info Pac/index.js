@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
-import SelectDropdown from 'react-native-select-dropdown';
 
 
 export default function MainInfoPac(){
