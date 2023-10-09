@@ -2,17 +2,17 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import TitleLogin from './src/components/Login/Title';
 import MainLogin from './src/components/Login/Main';
-import Header from './src/components/Header';
+import Header from './src/pages/Header';
 import MainHome from './src/components/Home/Main';
-import Footer from './src/components/Footer';
+import Footer from './src/pages/Footer';
 import MainProfile from './src/components/Profile/Main';
-import MainOcorrencia from './src/telas/Ocorrencia/Principal';
-import LoadingDots from './src/components/Loading'
-import MainInfoPac from './src/telas/Ocorrencia/Info Pac';
-import MainInfoAmb from './src/telas/Ocorrencia/Info Ambu';
-import MainTipoOc from './src/telas/Ocorrencia/Tipo';
-import MainTransporte from './src/telas/Ocorrencia/Transporte';
-import MainConsciencia from './src/telas/Ocorrencia/Consciencia';
+import MainOcorrencia from './src/pages/Ocorrencia/Principal';
+import LoadingDots from './src/pages/Loading'
+import MainInfoPac from './src/pages/Ocorrencia/Info Pac';
+import MainInfoAmb from './src/pages/Ocorrencia/Info Ambu';
+import MainTipoOc from './src/pages/Ocorrencia/Tipo';
+import MainTransporte from './src/pages/Ocorrencia/Transporte';
+import MainConsciencia from './src/pages/Ocorrencia/Consciencia';
 
 export default function App() {
   // Tela de Login
