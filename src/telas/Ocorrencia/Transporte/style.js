@@ -11,9 +11,38 @@ const styles = StyleSheet.create({
         borderRadius: 10,
       },
 
-      Text: {
-        color: "gray",
-        fontSize: 20,
+      ToggleButtonContainer: {
+          flex: 1,
+          flexDirection: "row",
+          flexWrap: "wrap",
+          borderColor: "#555555",
+          width: "100%",
+          height: 800,
+          borderWidth: 2,
+          padding: 10,
+          borderRadius: 10,
+          height: "100%",
+      },
+
+      ToggleButton: {
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 42,
+          width: 166,
+          height: 146,
+          backgroundColor: "#D2EBCE",
+          borderRadius: 10,
+      },
+
+      ToggleButtonIcon: {
+          height: 69,
+          width: 69,
+      },
+
+      ToggleButtonText: {
+          color: "#4AAE39",
+          fontSize: 17,
       },
 
       UsingMenu: {

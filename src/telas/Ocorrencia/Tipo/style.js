@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
       Container: {
         gap: 23,
         padding: 27,
+        height: "100%",
       },
 
       ButtonText: {

@@ -32,7 +32,9 @@ export default function MainInfoPac(){
                 <TextInput placeholder = 'Idade do Acompanhante' keyboardType = 'number-pad' style={styles.TextInput}/>
             </View>
             <View>
-                {/* vitima era */}
+                <TouchableOpacity style={styles.UsingMenu}>
+                    <Text style={styles.Text}>Vítima Era</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.ButtonContainer}>
                 <TouchableOpacity style={styles.Button}>

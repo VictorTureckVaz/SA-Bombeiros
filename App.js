@@ -11,6 +11,8 @@ import LoadingDots from './src/components/Loading'
 import MainInfoPac from './src/telas/Ocorrencia/Info Pac';
 import MainInfoAmb from './src/telas/Ocorrencia/Info Ambu';
 import MainTipoOc from './src/telas/Ocorrencia/Tipo';
+import MainTransporte from './src/telas/Ocorrencia/Transporte';
+import MainConsciencia from './src/telas/Ocorrencia/Consciencia';
 
 export default function App() {
   // Tela de Login
@@ -58,13 +60,13 @@ export default function App() {
   //     <Footer/>
   //   </View>
   // );
-  return (
-    <View style={styles.Container}>
-      <Header/>
-      <MainInfoAmb/>
-      <Footer/>
-    </View>
-  );
+  // return (
+  //   <View style={styles.Container}>
+  //     <Header/>
+  //     <MainInfoAmb/>
+  //     <Footer/>
+  //   </View>
+  // );
   // return (
   //   <View style={styles.Container}>
   //     <Header/>
@@ -72,6 +74,20 @@ export default function App() {
   //     <Footer/>
   //   </View>
   // );
+  // return (
+  //   <View style={styles.Container}>
+  //       <Header/>
+  //       <MainTransporte/>
+  //       <Footer/>
+  //   </View>
+  // );
+  return (
+    <View style={styles.Container}>
+        <Header/>
+        <MainConsciencia/>
+        <Footer/>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -85,7 +101,8 @@ const styles = StyleSheet.create({
 
   Container: {
     flex: 1,
-    justifyContent: 'top',
+    justifyContent: 'center',
+    gap: 44,
   },
 
   LoadingContainer: {
