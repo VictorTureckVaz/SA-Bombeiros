@@ -74,13 +74,13 @@ export default function App() {
   //     <Footer/>
   //   </View>
   // );
-  return (
-    <View style={styles.Container}>
-        <Header/>
-        <MainTransporte/>
-        <Footer/>
-    </View>
-  );
+  // return (
+  //   <View style={styles.Container}>
+  //       <Header/>
+  //       <MainTransporte/>
+  //       <Footer/>
+  //   </View>
+  // );
   // return (
   //   <View style={styles.Container}>
   //       <Header/>
