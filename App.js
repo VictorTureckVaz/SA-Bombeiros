@@ -16,12 +16,12 @@ import MainConsciencia from './src/telas/Ocorrencia/Consciencia';
 
 export default function App() {
   // Tela de Login
-  // return (
-  //   <View style={styles.ContainerLogin}>
-  //     <TitleLogin/>
-  //     <MainLogin/>
-  //   </View>
-  // );
+  return (
+    <View style={styles.ContainerLogin}>
+      <TitleLogin/>
+      <MainLogin/>
+    </View>
+  );
   // return (
   //   <View style={styles.Header}>
   //     <Header/>
@@ -81,13 +81,13 @@ export default function App() {
   //       <Footer/>
   //   </View>
   // );
-  return (
-    <View style={styles.Container}>
-        <Header/>
-        <MainConsciencia/>
-        <Footer/>
-    </View>
-  );
+  // return (
+  //   <View style={styles.Container}>
+  //       <Header/>
+  //       <MainConsciencia/>
+  //       <Footer/>
+  //   </View>
+  // );
 }
 
 const styles = StyleSheet.create({
