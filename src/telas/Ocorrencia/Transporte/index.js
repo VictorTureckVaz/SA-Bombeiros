@@ -1,52 +1,63 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
-
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faFaceFrownOpen } from '@fortawesome/free-solid-svg-icons/faFaceFrownOpen'
 
 export default function MainTransporte(){
     
     return(
         <View style={styles.Container}>
-            <View style={styles.ToggleButtonContainer}>
+            <View>
                <Text>Decisão de Transporte:</Text>
+               <View style={styles.ToggleButtonContainer}>
+                    <TouchableOpacity style={styles.GreenToggleButton}>
+                        
+                        <Image
+                        style={styles.ToggleButtonIcon}
+                        source={require('../../../../assets/happy.png')}
+                        />
+                        <Text style={styles.GreenToggleButtonText}>Estável</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.OrangeToggleButton}>
+                        <FontAwesomeIcon icon={faFaceFrownOpen} size={68} style={{color: "#e74428",}} />
+                        <Text style={styles.OrangeToggleButtonText}>Instável</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.YellowToggleButton}>
+                        <View>
+                            <Image
+                            style={styles.ToggleButtonIcon}
+                            source={require('../../../../assets/happy.png')}
+                            />
+                        </View>
+                        <View>
+                            <Text style={styles.YellowToggleButtonText}>Potencialmente Instável</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.RedToggleButton}>
+                        <Image
+                        style={styles.ToggleButtonIcon}
+                        source={require('../../../../assets/happy.png')}
+                        />
+                        <Text style={styles.RedToggleButtonText}>Crítico</Text>
+                    </TouchableOpacity>
+                        
+               </View>
                
-               <TouchableOpacity style={styles.ToggleButton}>
-                    <Image
-                    style={styles.ToggleButtonIcon}
-                    source={require('../../../../assets/happy.png')}
-                    />
-                    <Text style={styles.ToggleButtonText}>Estável</Text>
-               </TouchableOpacity>
-               <TouchableOpacity style={styles.ToggleButton} backgroundColor="red">
-                    <Image
-                    style={styles.ToggleButtonIcon}
-                    source={require('../../../../assets/happy.png')}
-                    />
-                    <Text style={styles.ToggleButtonText}>Estável</Text>
-               </TouchableOpacity>
-               <TouchableOpacity style={styles.ToggleButton}>
-                    <Image
-                    style={styles.ToggleButtonIcon}
-                    source={require('../../../../assets/happy.png')}
-                    />
-                    <Text style={styles.ToggleButtonText}>Estável</Text>
-               </TouchableOpacity>
-               <TouchableOpacity style={styles.ToggleButton}>
-                    <Image
-                    style={styles.ToggleButtonIcon}
-                    source={require('../../../../assets/happy.png')}
-                    />
-                    <Text style={styles.ToggleButtonText}>Estável</Text>
-               </TouchableOpacity>
-                
             
             </View>
             <View>
                 <TouchableOpacity style={styles.UsingMenu}>
                     <Text style={styles.Text}>Forma de Condução</Text>
+                    <View style={styles.UsingMenuIconContainer}>
+                        <Image
+                        style={styles.UsingMenuIcon}
+                        source={require('../../../../assets/downArrow.png')}
+                        />
+                    </View>
                 </TouchableOpacity>
             </View>
-            
+            <Text style={styles.Text}>Equipe de Atendimento</Text>
             <View>
                 <TextInput placeholder = 'Motorista' keyboardType = 'default' style={styles.TextInput}/>
             </View>

@@ -22,27 +22,89 @@ const styles = StyleSheet.create({
           padding: 10,
           borderRadius: 10,
           height: "100%",
+          gap: 10,
+          flexGrow: 1,
       },
 
-      ToggleButton: {
+      GreenToggleButton: {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
           padding: 42,
           width: 166,
           height: 146,
+          minWidth: "45%",
           backgroundColor: "#D2EBCE",
           borderRadius: 10,
       },
+
+      YellowToggleButton: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 42,
+        width: 166,
+        height: 146,
+        minWidth: "45%",
+        backgroundColor: "#F9EDCB",
+        borderRadius: 10,
+    },
+
+      OrangeToggleButton: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 42,
+        width: 166,
+        height: 146,
+        minWidth: "45%",
+        backgroundColor: "#FBE6CD",
+        borderRadius: 10,
+    },
+
+      RedToggleButton: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 42,
+        width: 166,
+        height: 146,
+        minWidth: "45%",
+        backgroundColor: "#F9D0C9",
+        borderRadius: 10,
+    },
 
       ToggleButtonIcon: {
           height: 69,
           width: 69,
       },
 
-      ToggleButtonText: {
+      GreenToggleButtonText: {
           color: "#4AAE39",
+          flex: 1,
           fontSize: 17,
+          textAlign: "center",
+      },
+
+      YellowToggleButtonText: {
+          color: "#C59203",
+          flex: 1,
+          fontSize: 17,
+          textAlign: "center",
+      },
+
+      OrangeToggleButtonText: {
+          color: "#D97600",
+          flex: 1,
+          fontSize: 17,
+          textAlign: "center",
+      },
+
+      RedToggleButtonText: {
+          color: "#E74428",
+          flex: 1,
+          fontSize: 17,
+          textAlign: "center",
       },
 
       UsingMenu: {
@@ -53,6 +115,18 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         padding: 10,
         borderRadius: 10,
+        flexDirection: "row",
+        alignItems: "center",
+      },
+
+      UsingMenuIcon: {
+        width: 36,
+        height: 36,
+      },
+
+      UsingMenuIconContainer: {
+        flex: 1,
+        alignItems: "flex-end",
       },
 
       Container: {
@@ -66,6 +140,10 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#313131",
         width: 222,
+      },
+
+      Text: {
+        fontSize: 20,
       },
 
       SecondSection: {

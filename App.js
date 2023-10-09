@@ -74,20 +74,20 @@ export default function App() {
   //     <Footer/>
   //   </View>
   // );
-  // return (
-  //   <View style={styles.Container}>
-  //       <Header/>
-  //       <MainTransporte/>
-  //       <Footer/>
-  //   </View>
-  // );
   return (
     <View style={styles.Container}>
         <Header/>
-        <MainConsciencia/>
+        <MainTransporte/>
         <Footer/>
     </View>
   );
+  // return (
+  //   <View style={styles.Container}>
+  //       <Header/>
+  //       <MainConsciencia/>
+  //       <Footer/>
+  //   </View>
+  // );
 }
 
 const styles = StyleSheet.create({
