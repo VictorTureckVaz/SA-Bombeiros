@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import TitleLogin from './src/components/Login/Title';
-import MainLogin from './src/components/Login/Main';
+import TitleLogin from './src/pages/Login/Title';
+import MainLogin from './src/pages/Login/Main';
 import Header from './src/pages/Header';
-import MainHome from './src/components/Home/Main';
+import MainHome from './src/pages/Home/Main';
 import Footer from './src/pages/Footer';
-import MainProfile from './src/components/Profile/Main';
+import MainProfile from './src/pages/Profile/Main';
 import MainOcorrencia from './src/pages/Ocorrencia/Principal';
 import LoadingDots from './src/pages/Loading'
 import MainInfoPac from './src/pages/Ocorrencia/Info Pac';
@@ -16,12 +16,12 @@ import MainConsciencia from './src/pages/Ocorrencia/Consciencia';
 
 export default function App() {
   // Tela de Login
-  return (
-    <View style={styles.ContainerLogin}>
-      <TitleLogin/>
-      <MainLogin/>
-    </View>
-  );
+  // return (
+  //   <View style={styles.ContainerLogin}>
+  //     <TitleLogin/>
+  //     <MainLogin/>
+  //   </View>
+  // );
   // return (
   //   <View style={styles.Header}>
   //     <Header/>

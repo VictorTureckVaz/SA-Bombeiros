@@ -5,10 +5,19 @@ import styles from './style';
 
 export default function MainInfoPac(){
     
+const [nomePac, setNomePac] = useStates(null);
+const [nomeHosp, setnomeHosp] = useStates(null);
+const [docPac, setDocPac] = useStates(null);
+const [idadePac, setIdadePac] = useStates(null);
+const [telefonePac, setTelefonePac] = useStates(null);
+const [local, setLocal] = useStates(null);
+const [acompanhante, setAcompanhante] = useStates(null);
+const [idadeAcom, setIdadeAcom] = useStates(null);
+
     return(
         <View style={styles.Container}>
             <View>
-                <TextInput placeholder = 'Nome do Paciente' keyboardType = 'default' style={styles.TextInput}/>
+                <TextInput placeholder = 'Nome do Paciente' keyboardType = 'default' style={styles.TextInput} onChangeText={setNomePac}/>
             </View>
             <View>
                 <TextInput placeholder = 'Nome do Hospital' keyboardType = 'default' style={styles.TextInput}/>
