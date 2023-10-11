@@ -5,14 +5,19 @@ import styles from './style';
 
 export default function MainInfoPac(){
     
-const [nomePac, setNomePac] = useStates(null);
-const [nomeHosp, setnomeHosp] = useStates(null);
-const [docPac, setDocPac] = useStates(null);
-const [idadePac, setIdadePac] = useStates(null);
-const [telefonePac, setTelefonePac] = useStates(null);
-const [local, setLocal] = useStates(null);
-const [acompanhante, setAcompanhante] = useStates(null);
-const [idadeAcom, setIdadeAcom] = useStates(null);
+    const [nomePac, setNomePac] = useState(null);
+    const [nomeHosp, setNomeHosp] = useState(null);
+    const [docPac, setDocPac] = useState(null);
+    const [idadePac, setIdadePac] = useState(null);
+    const [telefonePac, setTelefonePac] = useState(null);
+    const [local, setLocal] = useState(null);
+    const [acompanhante, setAcompanhante] = useState(null);
+    const [idadeAcom, setIdadeAcom] = useState(null);
+    const [vitimaEra, setVitimaEra] = useState(null);
+
+    function usingMenu(){
+        
+    }
 
     return(
         <View style={styles.Container}>
@@ -20,25 +25,25 @@ const [idadeAcom, setIdadeAcom] = useStates(null);
                 <TextInput placeholder = 'Nome do Paciente' keyboardType = 'default' style={styles.TextInput} onChangeText={setNomePac}/>
             </View>
             <View>
-                <TextInput placeholder = 'Nome do Hospital' keyboardType = 'default' style={styles.TextInput}/>
+                <TextInput placeholder = 'Nome do Hospital' keyboardType = 'default' style={styles.TextInput} onChangeText={setNomeHosp}/>
             </View>
             <View>
-                <TextInput placeholder = 'RG/CPF do Paciente' keyboardType = 'number-pad' style={styles.TextInput}/>
+                <TextInput placeholder = 'RG/CPF do Paciente' keyboardType = 'number-pad' style={styles.TextInput} onChangeText={setDocPac}/>
             </View>
             <View>
-                <TextInput placeholder = 'Idade do Paciente' keyboardType = 'number-pad' style={styles.TextInput}/>
+                <TextInput placeholder = 'Idade do Paciente' keyboardType = 'number-pad' style={styles.TextInput} onChangeText={setIdadePac}/>
             </View>
             <View>
-                <TextInput placeholder = 'Telefone do Paciente' keyboardType = 'number-pad' style={styles.TextInput}/>
+                <TextInput placeholder = 'Telefone do Paciente' keyboardType = 'number-pad' style={styles.TextInput} onChangeText={setTelefonePac}/>
             </View>
             <View>
-                <TextInput placeholder = 'Local de Ocorrência' keyboardType = 'default' style={styles.TextInput}/>
+                <TextInput placeholder = 'Local de Ocorrência' keyboardType = 'default' style={styles.TextInput} onChangeText={setLocal}/>
             </View>
             <View>
-                <TextInput placeholder = 'Acompanhante' keyboardType = 'default' style={styles.TextInput}/>
+                <TextInput placeholder = 'Acompanhante' keyboardType = 'default' style={styles.TextInput} onChangeText={setAcompanhante}/>
             </View>
             <View>
-                <TextInput placeholder = 'Idade do Acompanhante' keyboardType = 'number-pad' style={styles.TextInput}/>
+                <TextInput placeholder = 'Idade do Acompanhante' keyboardType = 'number-pad' style={styles.TextInput} onChangeText={setIdadeAcom}/>
             </View>
             <View>
                 <TouchableOpacity style={styles.UsingMenu}>
