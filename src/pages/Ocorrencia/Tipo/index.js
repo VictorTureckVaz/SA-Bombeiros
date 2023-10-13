@@ -4,7 +4,7 @@ import { RadioGroup  } from 'react-native-radio-buttons-group';
 import styles from './style';
 
 
-export default function MainTipoOc(){
+export default function mainTipoOc(){
 
      const radioButtons = useMemo(() => ([
           {

@@ -1,24 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import TitleLogin from './src/pages/Login/Title';
-import MainLogin from './src/pages/Login/Main';
-import Header from './src/pages/Header';
-import MainHome from './src/pages/Home/Main';
-import Footer from './src/pages/Footer';
-import MainProfile from './src/pages/Profile/Main';
-import MainOcorrencia from './src/pages/Ocorrencia/Principal';
-import LoadingDots from './src/pages/Loading'
-import MainInfoPac from './src/pages/Ocorrencia/Info Pac';
-import MainInfoAmb from './src/pages/Ocorrencia/Info Ambu';
-import MainTipoOc from './src/pages/Ocorrencia/Tipo';
-import MainTransporte from './src/pages/Ocorrencia/Transporte';
-import MainConsciencia from './src/pages/Ocorrencia/Consciencia';
+// import MainLogin from './src/pages/Login';
+// import Header from './src/pages/Header';
+// import MainHome from './src/pages/Home/Main';
+// import Footer from './src/pages/Footer';
+// import MainProfile from './src/pages/Profile/Main';
+// import MainOcorrencia from './src/pages/Ocorrencia/Principal';
+// import LoadingDots from './src/pages/Loading'
+// import MainInfoPac from './src/pages/Ocorrencia/Info Pac';
+// import MainInfoAmb from './src/pages/Ocorrencia/Info Ambu';
+// import MainTipoOc from './src/pages/Ocorrencia/Tipo';
+// import MainTransporte from './src/pages/Ocorrencia/Transporte';
+// import MainConsciencia from './src/pages/Ocorrencia/Consciencia';
+import { NavigationContainer } from '@react-navigation/native'
+import Routes from './src/routes';
 
 export default function App() {
   // Tela de Login
+  return(
+    <NavigationContainer style={styles.Container}>
+      <StatusBar backgroundColor='#E74428'/>
+      <Routes/>
+    </NavigationContainer>
+  )
+  
   // return (
   //   <View style={styles.ContainerLogin}>
-  //     <TitleLogin/>
   //     <MainLogin/>
   //   </View>
   // );
@@ -88,13 +95,13 @@ export default function App() {
   //       <Footer/>
   //   </View>
   // );
-  return (
-    <View style={styles.Container}>
-        <Header/>
-        <MainConsciencia/>
-        <Footer/>
-    </View>
-  );
+  // return (
+  //   <View style={styles.Container}>
+  //       <Header/>
+  //       <MainConsciencia/>
+  //       <Footer/>
+  //   </View>
+  // );
 }
 
 const styles = StyleSheet.create({
@@ -109,6 +116,7 @@ const styles = StyleSheet.create({
   Container: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
     gap: 44,
   },
 
