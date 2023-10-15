@@ -53,6 +53,21 @@ const styles = StyleSheet.create({
         color: '#313131',
       },
 
+      errorText: {
+        color: '#E74428',
+        fontSize: 20,
+        fontWeight: 'bold',
+      },
+
+      errorContainer: {
+        borderColor: '#E74428',
+        borderWidth: 3,
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 80,
+        borderRadius: 10,
+      },
+
   });
 
   export default styles;

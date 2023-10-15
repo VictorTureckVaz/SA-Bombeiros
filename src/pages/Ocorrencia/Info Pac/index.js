@@ -57,7 +57,6 @@ export default function MainInfoPac(){
             <View style={styles.ButtonContainer}>
                 <TouchableOpacity 
                 style={styles.Button} 
-                onPress={ () => message() }
                 onPress={ () => navigation.navigate('ocorrencia') }
                 >
                     <Image

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useMemo, useState} from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { RadioGroup  } from 'react-native-radio-buttons-group';
 import styles from './style';
 
 
-export default function mainTipoOc(){
+export default function MainTipoOc(){
 
      const radioButtons = useMemo(() => ([
           {

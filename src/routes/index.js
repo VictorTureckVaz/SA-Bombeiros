@@ -38,6 +38,21 @@ export default function Routes(){
                component={ MainInfoPac }
                options={ {headerShown: false}}
                />
+               <Stack.Screen
+               name="infoTrans"
+               component={ MainTransporte }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="infoAmb"
+               component={ MainInfoAmb }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="tipoOc"
+               component={ MainTipoOc }
+               options={ {headerShown: false}}
+               />
           </Stack.Navigator>
      )
 }

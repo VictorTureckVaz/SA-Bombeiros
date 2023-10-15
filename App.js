@@ -12,7 +12,7 @@ import { StyleSheet, Text, View } from 'react-native';
 // import MainTipoOc from './src/pages/Ocorrencia/Tipo';
 // import MainTransporte from './src/pages/Ocorrencia/Transporte';
 // import MainConsciencia from './src/pages/Ocorrencia/Consciencia';
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';
 
 export default function App() {
