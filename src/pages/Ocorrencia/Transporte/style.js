@@ -15,12 +15,10 @@ const styles = StyleSheet.create({
           flex: 1,
           flexDirection: "row",
           flexWrap: "wrap",
-          borderColor: "#555555",
+          
           width: "100%",
           height: 800,
-          borderWidth: 2,
-          padding: 10,
-          borderRadius: 10,
+          
           height: "100%",
           gap: 10,
           flexGrow: 1,
@@ -135,6 +133,11 @@ const styles = StyleSheet.create({
         height: "100%",
       },
 
+      Body: {
+        gap: 44,
+        height: "100%",
+      },
+
       ButtonText: {
         fontSize: 17,
         fontWeight: "bold",
@@ -165,6 +168,19 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         gap: 10,
         alignItems: "center",
+      },
+
+      BorderContainer: {
+        height: 372,
+        borderColor: "#555555",
+        borderWidth: 2,
+        padding: 10,
+        borderRadius: 10,
+        gap: 18,
+      },
+
+      TittleText: {
+        fontSize: 20,
       },
 
   });

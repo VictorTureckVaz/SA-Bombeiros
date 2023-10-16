@@ -19,7 +19,6 @@ export default function App() {
   // Tela de Login
   return(
     <NavigationContainer style={styles.Container}>
-      <StatusBar backgroundColor='#E74428'/>
       <Routes/>
     </NavigationContainer>
   )

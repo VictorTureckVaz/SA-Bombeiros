@@ -13,7 +13,17 @@ const styles = StyleSheet.create({
           color: '#FFFFFF',
           fontWeight: 'bold',
           fontSize: 20,
-     }
+     },
+
+     StepContainer: {
+          flex: 1,
+          gap: 10,
+          alignItems: 'center',
+     },
+
+     Container: {
+          gap: 20,
+     },
   });
 
   export default styles;

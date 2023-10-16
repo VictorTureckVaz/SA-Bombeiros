@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
+import Header from './../../Header';
+import Footer from './../../Footer';
 
 export default function MainInfoPac(){
     
-    const navigation = useNavigation()
+    const navigation = useNavigation();
 
     const [nomePac, setNomePac] = useState(null);
     const [nomeHosp, setNomeHosp] = useState(null);
@@ -25,6 +27,7 @@ export default function MainInfoPac(){
 
     return(
         <View style={styles.Container}>
+            <Header/>
             <View>
                 <TextInput placeholder = 'Nome do Paciente' keyboardType = 'default' style={styles.TextInput} value={nomePac} onChangeText={setNomePac}/>
             </View>

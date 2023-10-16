@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
+import { useNavigation } from '@react-navigation/native';
+import Header from './../../Header';
+import Footer from './../../Footer';
 
 
 export default function MainInfoAmb(){
+
+    const navigation = useNavigation();
+
     const [numUsb, setNumUsb] = useState(null);
     const [numOc, setNumOc] = useState(null);
     const [despachante, setDespachante] = useState(null);
@@ -14,6 +20,7 @@ export default function MainInfoAmb(){
 
     return(
         <View style={styles.Container}>
+            <Header/>
             <View>
                 <TextInput placeholder = 'Número USB' keyboardType = 'number-pad' style={styles.TextInput} value={numUsb} onChangeText={setNumUsb}/>
             </View>
@@ -30,7 +37,7 @@ export default function MainInfoAmb(){
                 <TextInput placeholder = 'COD SIA/SUS' keyboardType = 'number-pad' style={styles.TextInput} value={codSia} onChangeText={setCodSia}/>
             </View>
             <View style={styles.ButtonContainer}>
-                <TouchableOpacity style={styles.Button}>
+                <TouchableOpacity style={styles.Button} onPress={ () => navigation.navigate('ocorrencia') }>
                     <Image
                     style={styles.Icon}
                     source={require('../../../../assets/previous.png')}

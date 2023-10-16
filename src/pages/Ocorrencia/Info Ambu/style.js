@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
         gap: 23,
         padding: 27,
         marginTop: 21, 
+        height: "100%",
       },
 
       ButtonText: {

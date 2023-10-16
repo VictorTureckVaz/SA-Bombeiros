@@ -2,9 +2,14 @@ import React, {useMemo, useState} from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { RadioGroup  } from 'react-native-radio-buttons-group';
 import styles from './style';
+import { useNavigation } from '@react-navigation/native';
+import Header from './../../Header';
+import Footer from './../../Footer';
 
 
 export default function MainTipoOc(){
+
+     const navigation = useNavigation();
 
      const radioButtons = useMemo(() => ([
           {
@@ -23,6 +28,7 @@ export default function MainTipoOc(){
 
      return(
           <View style={styles.Container}>
+               <Header/>
                <View style={styles.FilterContainer}>
                <TouchableOpacity style={styles.FilterButton}>
                     <Text style={styles.FilterButtonText}>FILTRAR PESQUISA</Text>
@@ -39,7 +45,7 @@ export default function MainTipoOc(){
                </View>
                
                <View style={styles.ButtonContainer}>
-                    <TouchableOpacity style={styles.Button}>
+                    <TouchableOpacity style={styles.Button} onPress={ () => navigation.navigate('ocorrencia') }>
                          <Image
                          style={styles.Icon}
                          source={require('../../../../assets/previous.png')}

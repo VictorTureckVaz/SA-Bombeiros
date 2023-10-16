@@ -4,7 +4,7 @@ import styles from './style';
 
 export default function Header(){
     return(
-        <View>
+        <View style={styles.Container}>
             <View style={styles.Menu}>
                 <Image
                 source={require('../../../assets/menu.png')}

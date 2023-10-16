@@ -1,15 +1,22 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import styles from './style';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faFaceFrownOpen } from '@fortawesome/free-solid-svg-icons/faFaceFrownOpen'
+import { useNavigation } from '@react-navigation/native';
+import Header from './../../Header';
+import Footer from './../../Footer';
 
 export default function MainTransporte(){
+
+    const navigation = useNavigation();
     
     return(
-        <View style={styles.Container}>
-            <View>
-               <Text>Decisão de Transporte:</Text>
+        <View style={styles.Body}>
+            <Header/>
+            <View style={styles.Container}>
+            <View style={styles.BorderContainer}>
+               <Text style={styles.TittleText}>Decisão de Transporte:</Text>
                <View style={styles.ToggleButtonContainer}>
                     <TouchableOpacity style={styles.GreenToggleButton}>
                         
@@ -73,9 +80,11 @@ export default function MainTransporte(){
             <View>
                 <TextInput placeholder = 'Demandante' keyboardType = 'default' style={styles.TextInput}/>
             </View>
+            </View>
+            
             
             <View style={styles.ButtonContainer}>
-                <TouchableOpacity style={styles.Button}>
+                <TouchableOpacity style={styles.Button} onPress={ () => navigation.navigate('ocorrencia') }>
                     <Image
                     style={styles.Icon}
                     source={require('../../../../assets/previous.png')}
@@ -83,7 +92,7 @@ export default function MainTransporte(){
                     <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
                 </TouchableOpacity>
             </View>
-            
+            <Footer/>
 
         </View>
     )

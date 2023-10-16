@@ -33,7 +33,7 @@ export default function MainLogin() {
             </View>
 
             <View>
-                <TextInput placeholder = 'Email' keyboardType = 'email-address' style={styles.TextInput} value={email} onChangeText={setEmail}/>
+                <TextInput placeholder = 'Email/CPF' keyboardType = 'email-address' style={styles.TextInput} value={email} onChangeText={setEmail}/>
             </View>
             
             <View style={styles.SecondSection}>
@@ -49,11 +49,7 @@ export default function MainLogin() {
             >
                 <Text style={styles.ButtonText}>Entrar</Text>
             </TouchableOpacity>
-            <View style={styles.errorContainer}>
-                <Text style={styles.errorText}>
-                    Usuário ou senha incorreto
-                </Text>
-            </View>
+            
         </View>
     )
 }
