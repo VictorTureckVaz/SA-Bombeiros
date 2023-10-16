@@ -14,14 +14,123 @@ export default function MainTipoOc(){
      const radioButtons = useMemo(() => ([
           {
               id: '1', // acts as primary key, should be unique and non-empty string
-              label: 'Option 1',
-              value: 'option1'
+              label: 'Causado por animais',
+              value: 'Causado por animais',
           },
           {
               id: '2',
-              label: 'Option 2',
-              value: 'option2'
-          }
+              label: 'Com Meio de Transporte',
+              value: 'Com Meio de Transporte',
+          },
+          {
+              id: '3',
+              label: 'Desmoronamento',
+              value: 'Desmoronamento',
+          },
+          {
+              id: '4',
+              label: 'Emergência Médica',
+              value: 'Emergência Médica',
+          },
+          {
+              id: '5',
+              label: 'Queda de Altura 2M',
+              value: 'Queda de Altura 2M',
+          },
+          {
+              id: '6',
+              label: 'Tentativa de Suícido',
+              value: 'Tentativa de Suícido',
+          },
+          {
+              id: '7',
+              label: 'Queda Própria Altura',
+              value: 'Queda Própria Altura',
+          },
+          {
+              id: '8',
+              label: 'Afogamento',
+              value: 'Afogamento',
+          },
+          {
+              id: '9',
+              label: 'Agressão',
+              value: 'Agressão',
+          },
+          {
+              id: '10',
+              label: 'Atropelamento',
+              value: 'Atropelamento',
+          },
+          {
+              id: '11',
+              label: 'Choque Elétrico',
+              value: 'Choque Elétrico',
+          },
+          {
+              id: '12',
+              label: 'Desabamento',
+              value: 'Desabamento',
+          },
+          {
+              id: '13',
+              label: 'Doméstico',
+              value: 'Doméstico',
+          },
+          {
+              id: '14',
+              label: 'Esportivo',
+              value: 'Esportivo',
+          },
+          {
+              id: '15',
+              label: 'Intoxicação',
+              value: 'Intoxicação',
+          },
+          {
+               id: '16',
+               label: 'Queda de Bicicleta',
+               value: 'Queda de Bicicleta',
+           },
+           {
+               id: '17',
+               label: 'Queda de Moto',
+               value: 'Queda de Moto',
+           },
+           {
+               id: '18',
+               label: 'Queda de Nível 2M',
+               value: 'Queda de Nível 2M',
+           },
+           {
+               id: '19',
+               label: 'Trabalho',
+               value: 'Trabalho',
+           },
+           {
+               id: '20',
+               label: 'Queda de Nível < 2M',
+               value: 'Queda de Nível < 2M',
+           },
+           {
+               id: '21',
+               label: 'Transferência',
+               value: 'Transferência',
+           },
+           {
+               id: '22',
+               label: 'Esportivo',
+               value: 'Esportivo',
+           },
+
+
+          
+          
+          
+          
+          
+          
+
       ]), []);
   
      const [selectedId, setSelectedId] = useState();
@@ -36,11 +145,12 @@ export default function MainTipoOc(){
                          
                </View>
                     
-               <View>
+               <View >
                <RadioGroup 
                     radioButtons={radioButtons} 
                     onPress={setSelectedId}
                     selectedId={selectedId}
+                    
                />
                </View>
                

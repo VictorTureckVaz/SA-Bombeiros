@@ -20,7 +20,7 @@ export default function MainHome(){
                          <Text style={styles.Title}>PREENCHER OCORRÊNCIA</Text>
                     </TouchableOpacity>
                </View>
-               
+               <Footer/>
           </View>
     );
 

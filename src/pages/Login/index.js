@@ -47,7 +47,7 @@ export default function MainLogin() {
             style={styles.ButtonContainer}
             onPress={ login }
             >
-                <Text style={styles.ButtonText}>Entrar</Text>
+                <Text style={styles.ButtonText}>ENTRAR</Text>
             </TouchableOpacity>
             
         </View>

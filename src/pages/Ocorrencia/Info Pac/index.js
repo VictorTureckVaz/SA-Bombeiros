@@ -69,7 +69,7 @@ export default function MainInfoPac(){
                     <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
                 </TouchableOpacity>
             </View>
-            
+            <Footer/>
 
         </View>
     )

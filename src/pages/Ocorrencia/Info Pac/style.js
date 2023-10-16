@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         color: "gray",
         fontSize: 20,
       },
-
+      
       UsingMenu: {
         flex: 1,
         justifyContent: "center",
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
       ButtonContainer: {
         flex: 1,
         alignItems: "flex-end",
+        height: "100%",
       },
       
       Icon: {

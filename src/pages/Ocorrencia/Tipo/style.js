@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
       },
+      RadioGroup: {
+        
+      },
 
       GraySection: {
           fontSize: 20,
@@ -54,11 +57,10 @@ const styles = StyleSheet.create({
       },
 
       FilterButton: {
-          flex: 1,
           alignItems: "center",
           justifyContent: "center",
           width: "100%",
-          height: 62,
+          height: 2,
           borderRadius: 10,
           backgroundColor: "#E74428",
           padding: 20,
@@ -74,6 +76,12 @@ const styles = StyleSheet.create({
           fontSize: 27,
           fontWeight: "bold",
           color: "#fff",
+      },
+
+      RadioGroup: {
+          flex: 1,
+          justifyContent: "flex-start",
+          textAlign: "flex-start",
       },
 
   });

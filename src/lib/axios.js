@@ -10,9 +10,9 @@ import axios from "axios";
  */
 
 const api = axios.create({
-    baseURL: "http://192.168.3.3:15600",
+    baseURL: "http://localhost:15600",
     headers: {
-        "Access-Control-Allow-Origin": "http://192.168.3.3:15600"
+        "Access-Control-Allow-Origin": "http://localhost:15600"
     }
 });
 
