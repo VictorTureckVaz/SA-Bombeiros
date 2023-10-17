@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
           justifyContent: 'center',
           alignItems: 'center',
      },
-     Container: {
+     ButtonContainer: {
           alignItems: 'center',
           paddingTop: 67,
           width: 'auto',
@@ -27,7 +27,11 @@ const styles = StyleSheet.create({
           fontWeight: 'bold',
           fontSize: 21,
           textAlign: 'center',
-     }
+     },
+
+     Container: {
+          height: "100%",
+     },
  })
 
  export default styles;

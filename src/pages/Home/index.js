@@ -9,10 +9,10 @@ export default function MainHome(){
     const navigation = useNavigation();
 
     return(
-          <View>
+          <View style={styles.Container}>
                <Header/>
                <View style={styles.ImageContainer}/>
-               <View style={styles.Container}>
+               <View style={styles.ButtonContainer}>
                     <TouchableOpacity 
                     style={styles.Button}
                     onPress={ () => navigation.navigate('ocorrencia')}
@@ -20,7 +20,10 @@ export default function MainHome(){
                          <Text style={styles.Title}>PREENCHER OCORRÊNCIA</Text>
                     </TouchableOpacity>
                </View>
+
                <Footer/>
+
+               
           </View>
     );
 

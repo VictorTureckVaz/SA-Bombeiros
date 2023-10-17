@@ -12,8 +12,9 @@ export default function MainOcorrencia(){
 
     return(
         <View style={styles.Container}>
-            <Header/>
             <ScrollView>
+            <Header/>
+            
             <View style={styles.StepContainer}>
                 <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('infoPac')}>
                     <Text style={styles.OcStepText}>Info. do Paciente</Text>
