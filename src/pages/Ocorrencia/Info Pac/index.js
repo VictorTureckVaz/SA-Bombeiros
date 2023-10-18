@@ -17,13 +17,8 @@ export default function MainInfoPac(){
     const [local, setLocal] = useState(null);
     const [acompanhante, setAcompanhante] = useState(null);
     const [idadeAcom, setIdadeAcom] = useState(null);
-    const [vitimaEra, setVitimaEra] = useState(null);
-    const [messageText, setMessageText] = useState(null);
+    const [VitimaEra, setVitimaEra] = useState(null);
 
-    function message(){
-        // return setMessageText(nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom);
-        return console.log(nomePac);
-    }
     async function submit() {
         try {
             const apiReply = await api.post("/submit", {
@@ -34,9 +29,14 @@ export default function MainInfoPac(){
                  telefonePac,
                  local, 
                  acompanhante, 
-                 setIdadeAcom 
+                 idadeAcom,
+                 VitimaEra
                 });
-            // if (apiReply.data === "Logado") navigation.navigate('home');
+            if (apiReply.data === "Enviado com sucesso"){
+                navigation.navigate('home');
+            } else {
+                navigation.navigate('home');
+            };
             
         } catch (error) {
             console.error(error);
@@ -47,7 +47,7 @@ export default function MainInfoPac(){
     return(
         <View style={styles.Container}>
             <Header/>
-                <TextInput placeholder = 'Nome do Paciente' keyboardType = 'default' style={styles.TextInput} value={nomePac} onChangeText={setNomePac}/>
+                <TextInput placeholder = 'Nome do Paciente' keyboardType = 'default' style={styles.TextInput} value={NomePac} onChangeText={setNomePac}/>
             
                 <TextInput placeholder = 'Nome do Hospital' keyboardType = 'default' style={styles.TextInput} value={nomeHosp} onChangeText={setNomeHosp}/>
             
@@ -64,8 +64,14 @@ export default function MainInfoPac(){
                 <TextInput placeholder = 'Idade do Acompanhante' keyboardType = 'number-pad' style={styles.TextInput} value={idadeAcom} onChangeText={setIdadeAcom}/>
                 
                 <TouchableOpacity style={styles.UsingMenu}>
-                    <Text style={styles.Text}>Vítima Era</Text>
+                    <Text style={styles.Text} value={VitimaEra} onChangeText={setVitimaEra}>Vítima Era</Text>
                 </TouchableOpacity>
+                <TouchableOpacity 
+                    style={styles.ButtonContainer}
+                    onPress={ submit }
+                >
+                <Text style={styles.ButtonText}>ENVIAR</Text>
+            </TouchableOpacity>
 
             <View style={styles.ButtonContainer}>
                 <TouchableOpacity 
