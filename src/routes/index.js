@@ -12,6 +12,7 @@ import MainInfoAmb from '../pages/Ocorrencia/Info Ambu';
 import MainTipoOc from '../pages/Ocorrencia/Tipo';
 import MainTransporte from '../pages/Ocorrencia/Transporte';
 import MainConsciencia from '../pages/Ocorrencia/Consciencia';
+import MainProblemasEncontrados from '../pages/Ocorrencia/ProblemasEncontrados';
 
 const Stack = createNativeStackNavigator()
 
@@ -51,6 +52,11 @@ export default function Routes(){
                <Stack.Screen
                name="tipoOc"
                component={ MainTipoOc }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="ProblemasEncontrados"
+               component={ MainProblemasEncontrados }
                options={ {headerShown: false}}
                />
           </Stack.Navigator>
