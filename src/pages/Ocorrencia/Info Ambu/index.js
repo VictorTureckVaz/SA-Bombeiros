@@ -21,21 +21,16 @@ export default function MainInfoAmb(){
     return(
         <View style={styles.Container}>
             <Header/>
-            <View>
-                <TextInput placeholder = 'Número USB' keyboardType = 'number-pad' style={styles.TextInput} value={numUsb} onChangeText={setNumUsb}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'Número da Ocorrência' keyboardType = 'number-pad' style={styles.TextInput} value={numOc} onChangeText={setNumOc}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'Despachante' keyboardType = 'default' style={styles.TextInput} value={despachante} onChangeText={setDespachante}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'KM Final' keyboardType = 'number-pad' style={styles.TextInput} value={kmFinal} onChangeText={setKmFinal}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'COD SIA/SUS' keyboardType = 'number-pad' style={styles.TextInput} value={codSia} onChangeText={setCodSia}/>
-            </View>
+            <TextInput placeholder = 'Número USB' keyboardType = 'number-pad' style={styles.TextInput} value={numUsb} onChangeText={setNumUsb}/>
+
+            <TextInput placeholder = 'Número da Ocorrência' keyboardType = 'number-pad' style={styles.TextInput} value={numOc} onChangeText={setNumOc}/>
+
+            <TextInput placeholder = 'Despachante' keyboardType = 'default' style={styles.TextInput} value={despachante} onChangeText={setDespachante}/>
+
+            <TextInput placeholder = 'KM Final' keyboardType = 'number-pad' style={styles.TextInput} value={kmFinal} onChangeText={setKmFinal}/>
+
+            <TextInput placeholder = 'COD SIA/SUS' keyboardType = 'number-pad' style={styles.TextInput} value={codSia} onChangeText={setCodSia}/>
+
             <View style={styles.ButtonContainer}>
                 <TouchableOpacity style={styles.Button} onPress={ () => navigation.navigate('ocorrencia') }>
                     <Image

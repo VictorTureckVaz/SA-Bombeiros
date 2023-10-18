@@ -52,7 +52,7 @@ export default function MainOcorrencia(){
                 <TouchableOpacity style={styles.OcStep}>
                     <Text style={styles.OcStepText}>Anamnese Gestacional</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.OcStep}>
+                <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('CinamaticaObjetos')}>
                     <Text style={styles.OcStepText}>Cinemática e Objetos recolhidos</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.OcStep}>

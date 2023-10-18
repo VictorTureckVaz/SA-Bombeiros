@@ -9,10 +9,11 @@ import MainOcorrencia from '../pages/Ocorrencia/Principal';
 import LoadingDots from '../pages/Loading'
 import MainInfoPac from '../pages/Ocorrencia/Info Pac';
 import MainInfoAmb from '../pages/Ocorrencia/Info Ambu';
-import MainTipoOc from '../pages/Ocorrencia/Tipo';
+import MainTipoOc from '../pages/Ocorrencia/Tipo de Ocorrencia';
 import MainTransporte from '../pages/Ocorrencia/Transporte';
 import MainConsciencia from '../pages/Ocorrencia/Consciencia';
-import MainProblemasEncontrados from '../pages/Ocorrencia/ProblemasEncontrados';
+import MainProblemasEncontrados from '../pages/Ocorrencia/Problemas Encontrados';
+import MainCinematicaObjetos from '../pages/Ocorrencia/Cinematica e Objetos';
 
 const Stack = createNativeStackNavigator()
 
@@ -57,6 +58,11 @@ export default function Routes(){
                <Stack.Screen
                name="ProblemasEncontrados"
                component={ MainProblemasEncontrados }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="CinamaticaObjetos"
+               component={ MainCinematicaObjetos }
                options={ {headerShown: false}}
                />
           </Stack.Navigator>

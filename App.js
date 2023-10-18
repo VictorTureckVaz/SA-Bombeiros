@@ -18,7 +18,7 @@ import Routes from './src/routes';
 export default function App() {
   // Tela de Login
   return(
-    <NavigationContainer style={styles.Container}>
+    <NavigationContainer>
       <Routes/>
     </NavigationContainer>
   )

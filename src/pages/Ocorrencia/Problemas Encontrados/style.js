@@ -1,26 +1,30 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-      WhiteSection: {
-        fontSize: 20,
+      Checkbox: {
         height: 56,
-        backgroundColor: "#ffffff",
+        borderColor: "#555555",
         width: "100%",
+        borderWidth: 2,
         padding: 10,
-        borderRadius: 5,
-      },
-      RadioGroup: {
-        
+        borderRadius: 10,
       },
 
-      GraySection: {
-          fontSize: 20,
+      Text: {
+        color: "gray",
+        fontSize: 20,
+      },
+      
+      UsingMenu: {
+
+          flexDirection: "row",
           height: 56,
-          backgroundColor: "#d9d9d9",
+          borderColor: "#555555",
           width: "100%",
+          borderWidth: 2,
           padding: 10,
-          borderRadius: 5,
-        },
+          borderRadius: 10,
+      },
 
       Container: {
         gap: 23,
@@ -42,6 +46,7 @@ const styles = StyleSheet.create({
       ButtonContainer: {
         flex: 1,
         alignItems: "flex-end",
+        height: "100%",
       },
       
       Icon: {
@@ -56,34 +61,30 @@ const styles = StyleSheet.create({
         alignItems: "center",
       },
 
-      FilterButton: {
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          height: 2,
-          borderRadius: 10,
-          backgroundColor: "#E74428",
-          padding: 20,
-      },
-
-      FilterContainer: {
+      UsingMenuIconContainer: {
           flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-      },
-      
-      FilterButtonText: {
-          fontSize: 27,
-          fontWeight: "bold",
-          color: "#fff",
+          alignItems: "flex-end",
       },
 
-      RadioGroup: {
-          flex: 1,
-          justifyContent: "flex-start",
-          textAlign: "flex-start",
+      UsingMenuIcon: {
+          width: 32,
+          height: 32,
       },
 
+      Body: {
+        gap: 44,
+        height: "100%",
+      },
+
+      TextInput: {
+        fontSize: 20,
+        height: 56,
+        borderColor: "#555555",
+        width: "100%",
+        borderWidth: 2,
+        padding: 10,
+        borderRadius: 10,
+      },
   });
 
   export default styles;

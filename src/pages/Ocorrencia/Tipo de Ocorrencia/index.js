@@ -122,15 +122,6 @@ export default function MainTipoOc(){
                label: 'Esportivo',
                value: 'Esportivo',
            },
-
-
-          
-          
-          
-          
-          
-          
-
       ]), []);
   
      const [selectedId, setSelectedId] = useState();
@@ -145,12 +136,11 @@ export default function MainTipoOc(){
                          
                </View>
                     
-               <View >
-               <RadioGroup 
+               <View style={styles.Butaons}>
+               <RadioGroup
                     radioButtons={radioButtons} 
                     onPress={setSelectedId}
                     selectedId={selectedId}
-                    
                />
                </View>
                

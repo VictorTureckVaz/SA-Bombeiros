@@ -12,3 +12,11 @@ module.exports.GET_BOMBEIRO = (email, cpf) => {
         WHERE email="${email}" OR cpf="${cpf}";
     `;
 };
+
+module.exports.SUBMIT = (email, cpf) => {
+    return `
+        
+    `;
+};
+
+module
