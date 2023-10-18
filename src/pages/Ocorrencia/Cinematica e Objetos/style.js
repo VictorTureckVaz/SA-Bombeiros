@@ -1,6 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    Container: {
+      gap: 23,
+      padding: 27,
+      height: "100%",
+    },
+
     TextInput: {
         fontSize: 20,
         height: 56,
@@ -10,6 +16,11 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 10,
       },
+
+    Text: {
+      color: "gray",
+      fontSize: 20,
+    },
 
     Buttons: {
       alignItems: "flex-start",

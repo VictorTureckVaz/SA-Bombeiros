@@ -3,12 +3,18 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
      OcStep: {
           backgroundColor: '#313131',
-          width: 396,
+          width: "100%",
           height: 54,
           borderRadius: 12.5,
           justifyContent: 'center',
+          padding: 10,
      },
 
+     Body: {
+          gap: 27,
+          height: "100%",
+     },
+     
      OcStepText: {
           color: '#FFFFFF',
           fontWeight: 'bold',
@@ -22,7 +28,8 @@ const styles = StyleSheet.create({
      },
 
      Container: {
-          gap: 20,
+          gap: 23,
+          padding: 27,
      },
   });
 

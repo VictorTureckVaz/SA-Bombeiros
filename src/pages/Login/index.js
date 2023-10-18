@@ -5,16 +5,21 @@ import { useNavigation } from '@react-navigation/native';
 import api from './../../lib/axios';
 
 export default function MainLogin() {
+
     const navigation = useNavigation();
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
-    var displayValue = "none";
+    const [loginError, setLoginError] = useState(false);
 
     async function login() {
         try {
             const apiReply = await api.post("/login", { user: email, pass: password });
-            if (apiReply.data === "Logado") navigation.navigate('home');
+            if (apiReply.data === "Logado"){ 
+                navigation.navigate('home')
+            }else{
+                setLoginError(current => !current)
+            }
             
         } catch (error) {
             console.error(error);
@@ -49,6 +54,10 @@ export default function MainLogin() {
             >
                 <Text style={styles.ButtonText}>ENTRAR</Text>
             </TouchableOpacity>
+
+            <View style={[styles.ErrorContainer, {display: loginError ? 'flex' : 'none'}]}>
+                <Text style={styles.ErrorText}>Email ou Senha incorretos</Text>
+            </View>
             
         </View>
     )

@@ -53,13 +53,14 @@ const styles = StyleSheet.create({
         color: '#313131',
       },
 
-      errorText: {
+      ErrorText: {
         color: '#E74428',
         fontSize: 20,
         fontWeight: 'bold',
       },
 
-      errorContainer: {
+      ErrorContainer: {
+        display: 'none',
         borderColor: '#E74428',
         borderWidth: 3,
         justifyContent: 'center',

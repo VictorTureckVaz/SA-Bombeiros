@@ -9,16 +9,16 @@ export default function MainInfoPac(){
     
     const navigation = useNavigation();
 
-    // const [nomePac, setNomePac] = useState(null);
-    // const [nomeHosp, setNomeHosp] = useState(null);
-    // const [docPac, setDocPac] = useState(null);
-    // const [idadePac, setIdadePac] = useState(null);
-    // const [telefonePac, setTelefonePac] = useState(null);
-    // const [local, setLocal] = useState(null);
-    // const [acompanhante, setAcompanhante] = useState(null);
-    // const [idadeAcom, setIdadeAcom] = useState(null);
-    // const [vitimaEra, setVitimaEra] = useState(null);
-    // const [messageText, setMessageText] = useState(null);
+    const [nomePac, setNomePac] = useState(null);
+    const [nomeHosp, setNomeHosp] = useState(null);
+    const [docPac, setDocPac] = useState(null);
+    const [idadePac, setIdadePac] = useState(null);
+    const [telefonePac, setTelefonePac] = useState(null);
+    const [local, setLocal] = useState(null);
+    const [acompanhante, setAcompanhante] = useState(null);
+    const [idadeAcom, setIdadeAcom] = useState(null);
+    const [vitimaEra, setVitimaEra] = useState(null);
+    const [messageText, setMessageText] = useState(null);
 
     function message(){
         // return setMessageText(nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom);

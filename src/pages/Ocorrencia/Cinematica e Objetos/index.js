@@ -52,23 +52,24 @@ export default function MainCinematicaObjetos(){
     const [selectedId, setSelectedId] = useState();
 
     return(
-        <ScrollView>
-        <Header/>
-
-        <View>
-            <TextInput placeholder = 'Objetos Recolhidos' keyboardType = 'default'  style={styles.TextInput} value={OR} onChangeText={setOR}/>
-        </View>
+        <View style={styles.Container}>
+            <ScrollView>
+            <Header/>
         
-        <View style={styles.Buttons}>
-               <RadioGroup
-                    radioButtons={radioButtons} 
-                    onPress={setSelectedId}
-                    selectedId={selectedId}
-               />
+            <View>
+                <TextInput placeholder = 'Objetos Recolhidos' keyboardType = 'default'  style={styles.TextInput} value={OR} onChangeText={setOR}/>
+            </View>
+            
+            <View style={styles.Buttons}>
+                   <RadioGroup
+                        radioButtons={radioButtons} 
+                        onPress={setSelectedId}
+                        selectedId={selectedId}
+                   />
+            </View>
+    
+            <Footer/>
+            </ScrollView>
         </View>
-
-        <Footer/>
-        </ScrollView>
-
     );
 };

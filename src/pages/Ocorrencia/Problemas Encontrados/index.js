@@ -14,7 +14,7 @@ export default function MainProblemasEncontrados(){
     const [diabetes, setDiabetes] = useState(0);
     const [outros, setOutros] = useState(null);
 
-    const [isActive, setIsActive] = useState(false);
+    
     
 
     return(
@@ -23,17 +23,17 @@ export default function MainProblemasEncontrados(){
             <Header/>
             
                 <View style={styles.Container}>
-                    <TouchableOpacity style={[styles.Checkbox, { backgroundColor: psico ? 'green' : '', }]} onPress={ () => setPsico((psico + 1)%2) }>
-                        <Text style={[styles.Text, { color: psico ? 'white' : '', }]}>Psiquiátrico</Text>
+                    <TouchableOpacity style={[styles.Checkbox, { backgroundColor: psico ? 'green' : 'transparent', }]} onPress={ () => setPsico((psico + 1)%2) }>
+                        <Text style={[styles.Text, { color: psico ? 'white' : 'gray', }]}>Psiquiátrico</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[styles.Checkbox, {backgroundColor: resp ? 'green' : '', }]} onPress={ () => setResp((resp + 1)%2) }>
-                        <Text style={[styles.Text, { color: resp ? 'white' : '', }]}>Respiratório</Text>
+                    <TouchableOpacity style={[styles.Checkbox, {backgroundColor: resp ? 'green' : 'transparent', }]} onPress={ () => setResp((resp + 1)%2) }>
+                        <Text style={[styles.Text, { color: resp ? 'white' : 'gray', }]}>Respiratório</Text>
                     </TouchableOpacity>
 
                     
-                    <TouchableOpacity style={[styles.Checkbox, { backgroundColor: diabetes ? 'green' : '', }]} value={diabetes} onPress={ () => setDiabetes((diabetes + 1)%2) }>
-                        <Text style={[styles.Text, { color: diabetes ? 'white' : '', }]}>Diabetes</Text>
+                    <TouchableOpacity style={[styles.Checkbox, { backgroundColor: diabetes ? 'green' : 'transparent', }]} value={diabetes} onPress={ () => setDiabetes((diabetes + 1)%2) }>
+                        <Text style={[styles.Text, { color: diabetes ? 'white' : 'gray', }]}>Diabetes</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.UsingMenu}>
