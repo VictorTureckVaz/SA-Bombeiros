@@ -7,6 +7,11 @@ const styles = StyleSheet.create({
       height: "100%",
     },
 
+    Body: {
+      gap: 44,
+      height: "100%",
+    },
+
     TextInput: {
         fontSize: 20,
         height: 56,
@@ -20,10 +25,6 @@ const styles = StyleSheet.create({
     Text: {
       color: "gray",
       fontSize: 20,
-    },
-
-    Buttons: {
-      alignItems: "flex-start",
     },
 
 });

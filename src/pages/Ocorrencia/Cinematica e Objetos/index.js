@@ -1,75 +1,75 @@
-import React, { useState, useMemo } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
-import styles from './style';
-import { RadioGroup  } from 'react-native-radio-buttons-group';
-import { useNavigation } from '@react-navigation/native';
-import Header from './../../Header';
-import Footer from './../../Footer';
+import React, { useState, useMemo } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from "react-native";
+import styles from "./style";
+import { RadioGroup } from "react-native-radio-buttons-group";
+import { useNavigation } from "@react-navigation/native";
+import Header from "./../../Header";
+import Footer from "./../../Footer";
+import { extendTheme, NativeBaseProvider, Radio } from "native-base";
 
-export default function MainCinematicaObjetos(){
 
-    const navigation = useNavigation();
-    const [OR, setOR] = useState(null);
-    const radioButtons = useMemo(() => ([
-        {
-            id: '1', 
-            label: 'Distúrbio de Comportamento',
-            value: 'Distúrbio de Comportamento',
-        },
-        {
-            id: '2',
-            label: 'Encontrado de Capacete ',
-            value: 'Encontrado de Capacete ',
-        },
-        {
-            id: '3',
-            label: 'Encontrado de Cinto',
-            value: 'Encontrado de Cinto',
-        },
-        {
-            id: '4',
-            label: 'Para-Brisas Avariado',
-            value: 'Para-Brisas Avariado',
-        },
-        {
-            id: '5',
-            label: 'Caminhando na Cena',
-            value: 'Caminhando na Cena',
-        },
-        {
-            id: '6',
-            label: 'Painel Avariado',
-            value: 'Painel Avariado',
-        },
-        {
-            id: '7',
-            label: 'Volante Torcido',
-            value: 'Volante Torcido',
-        },
+export default function MainCinematicaObjetos() {
+  const navigation = useNavigation();
+  const [OR, setOR] = useState(null);
+  const [value, setValue] = React.useState("one");
 
-    ]), []);
-
-    const [selectedId, setSelectedId] = useState();
-
-    return(
+  return (
+    <View style={styles.Body}>
+      <Header />
+      <ScrollView>
         <View style={styles.Container}>
-            <ScrollView>
-            <Header/>
-        
-            <View>
-                <TextInput placeholder = 'Objetos Recolhidos' keyboardType = 'default'  style={styles.TextInput} value={OR} onChangeText={setOR}/>
-            </View>
             
-            <View style={styles.Buttons}>
-                   <RadioGroup
-                        radioButtons={radioButtons} 
-                        onPress={setSelectedId}
-                        selectedId={selectedId}
-                   />
-            </View>
-    
-            <Footer/>
-            </ScrollView>
+          <View>
+            <TextInput
+              placeholder="Objetos Recolhidos"
+              keyboardType="default"
+              style={styles.TextInput}
+              value={OR}
+              onChangeText={setOR}
+            />
+          </View>
+          <NativeBaseProvider>
+            <Radio.Group
+            name="myRadioGroup"
+            accessibilityLabel="favorite number"
+            value={value}
+            onChange={(nextValue) => {
+                setValue(nextValue);
+            }}
+            >
+            <Radio value="DisturbioComportamento" my={1}>
+                Distúrbio de Comportamento
+            </Radio>
+            <Radio value="EncontradoCapacete" my={1}>
+                Encontrado de Capacete 
+            </Radio>
+            <Radio value="EncontradoCinto" my={1}>
+                Encontrado de Cinto
+            </Radio>
+            <Radio value="ParaBrisasAvariado" my={1}>
+                Para-Brisas Avariado
+            </Radio>
+            <Radio value="CaminhandoCena" my={1}>
+                Caminhando na Cena
+            </Radio>
+            <Radio value="PainelAvariado" my={1}>
+                Painel Avariado
+            </Radio>
+            <Radio value="VolanteTorcido" my={1}>
+                Volante Torcido
+            </Radio>
+            </Radio.Group>
+          </NativeBaseProvider>
+          <Footer />
         </View>
-    );
-};
+      </ScrollView>
+    </View>
+  );
+}

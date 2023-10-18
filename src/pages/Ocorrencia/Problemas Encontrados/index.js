@@ -9,18 +9,18 @@ export default function MainProblemasEncontrados(){
     
     const navigation = useNavigation();
 
-    const [psico, setPsico] = useState(0);
-    const [resp, setResp] = useState(0);
-    const [diabetes, setDiabetes] = useState(0);
-    const [outros, setOutros] = useState(null);
+    const [psico, setPsico] = useState(0); // seta o valor de psico como 0
+    const [resp, setResp] = useState(0); // seta o valor de resp como 0
+    const [diabetes, setDiabetes] = useState(0); // seta o valor de diabetes como 0
+    const [outros, setOutros] = useState(null); // seta o valor de diabetes como null
 
     
     
 
     return(
         <View style={styles.Body}>
-            <ScrollView>
             <Header/>
+            <ScrollView>
             
                 <View style={styles.Container}>
                     <TouchableOpacity style={[styles.Checkbox, { backgroundColor: psico ? 'green' : 'transparent', }]} onPress={ () => setPsico((psico + 1)%2) }>
@@ -56,7 +56,7 @@ export default function MainProblemasEncontrados(){
                         </View>
                     </TouchableOpacity>
                     
-                    <TextInput placeholder = 'Outros...' keyboardType = 'default' style={[styles.TextInput, { backgroundColor: outros ? 'green' : '', color: outros ? 'white' : '', }]} value={outros} onChangeText={setOutros}/>
+                    <TextInput placeholder = 'Outros...' keyboardType = 'default' style={[styles.TextInput, { backgroundColor: outros ? 'green' : 'transparent', color: outros ? 'white' : 'gray', }]} value={outros} onChangeText={setOutros}/>
                     
                 </View>
                 

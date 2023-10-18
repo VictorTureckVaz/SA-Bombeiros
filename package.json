@@ -24,6 +24,7 @@
     "expo-updates": "~0.18.16",
     "express": "^4.18.2",
     "mysql2": "^3.6.1",
+    "native-base": "^3.4.28",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
     "react-native": "0.72.5",

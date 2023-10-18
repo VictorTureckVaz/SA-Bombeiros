@@ -14,6 +14,7 @@ import MainTransporte from '../pages/Ocorrencia/Transporte';
 import MainConsciencia from '../pages/Ocorrencia/Consciencia';
 import MainProblemasEncontrados from '../pages/Ocorrencia/Problemas Encontrados';
 import MainCinematicaObjetos from '../pages/Ocorrencia/Cinematica e Objetos';
+import MainSinaisVitais from '../pages/Ocorrencia/Sinais Vitais';
 
 const Stack = createNativeStackNavigator()
 
@@ -63,6 +64,11 @@ export default function Routes(){
                <Stack.Screen
                name="CinamaticaObjetos"
                component={ MainCinematicaObjetos }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="SinaisVitais"
+               component={ MainSinaisVitais }
                options={ {headerShown: false}}
                />
           </Stack.Navigator>

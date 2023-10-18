@@ -32,7 +32,7 @@ export default function MainOcorrencia(){
                             <Text style={styles.OcStepText}>Avaliação do Paciente</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep}>
-                            <Text style={styles.OcStepText}>Sinais Vitais</Text>
+                            <Text style={styles.OcStepText} onPress={ () => navigation.navigate('SinaisVitais')}>Sinais Vitais</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep}>
                             <Text style={styles.OcStepText}>Sinais e Sintomas</Text>
