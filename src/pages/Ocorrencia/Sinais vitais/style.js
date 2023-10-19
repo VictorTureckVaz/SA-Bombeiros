@@ -15,15 +15,18 @@ const styles = StyleSheet.create({
         fontSize: 20,
       },
       
-      UsingMenu: {
+      UsingMenuTitle: {
+        flexDirection: "row",
+      },
 
-          flexDirection: "row",
-          height: 56,
+      UsingMenu: {
+          height: "auto",
           borderColor: "#555555",
           width: "100%",
           borderWidth: 2,
           padding: 10,
           borderRadius: 10,
+          gap: 10,
       },
 
       Container: {
@@ -69,6 +72,7 @@ const styles = StyleSheet.create({
       UsingMenuIcon: {
           width: 32,
           height: 32,
+          transform: [{ rotate: "180deg" }]
       },
 
       Body: {

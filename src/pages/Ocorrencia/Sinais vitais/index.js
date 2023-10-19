@@ -13,7 +13,9 @@ export default function MainSinaisVitais(){
     const [presMin, setPresMin] = useState(0);
     const [pulso, setPulso] = useState(0);
     const [resp, setResp] = useState(0);
-    const [sat, setSat] = useState(null);
+    const [sat, setSat] = useState(0);
+    const [usingMenu, setUsingMenu] = useState(0);
+    const [perfusao, setPerfusao] = useState("Perfusão");
 
     
     
@@ -54,7 +56,7 @@ export default function MainSinaisVitais(){
                          <View style={styles.ReducedBorderContainer}>
                               <Text style={styles.Text}>Temperatura:   </Text>
                               <TextInput style={styles.MiniTextInput} keyboardType='number-pad' value={pulso} onPress={ () => setPulso() }/>
-                              <Text style={styles.Text}> ºC </Text>
+                              <Text style={styles.Text}>  ºC </Text>
                          </View>
                          
                          <View style={styles.MiniBorderContainer}>
@@ -64,15 +66,26 @@ export default function MainSinaisVitais(){
                     </View>
 
 
-                    <TouchableOpacity style={styles.UsingMenu}>
-                        <Text style={styles.Text}>Perfusão</Text>
-                        <View style={styles.UsingMenuIconContainer}>
-                            <Image
-                            style={styles.UsingMenuIcon}
-                            source={require('../../../../assets/downArrow.png')}
-                            />
-                        </View>
-                    </TouchableOpacity>
+                    <View style={styles.UsingMenu}>
+                        <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenu((usingMenu+1)%2)}>
+                            <Text style={styles.Text}>{perfusao}</Text>
+                            <View style={styles.UsingMenuIconContainer}>
+                                <Image
+                                style={[styles.UsingMenuIcon, {transform: usingMenu ? [{ rotate: "180deg" }] : [{ rotate: "0deg" }]}]}
+                                source={require('../../../../assets/downArrow.png')}
+                                />
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => setPerfusao("Maior que 2 Segundos")}>
+                            <Text style={styles.Text}>Maior que 2 Segundos</Text>
+
+                        </TouchableOpacity>
+                        
+                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => setPerfusao("Menor que 2 segundos")}>
+                            <Text style={[styles.Text]}>Menor que 2 segundos</Text>
+                        </TouchableOpacity>
+                    </View>
 
                     <View style={styles.BorderContainer}>
                          

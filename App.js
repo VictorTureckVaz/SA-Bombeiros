@@ -13,14 +13,17 @@ import { StyleSheet, Text, View } from 'react-native';
 // import MainTransporte from './src/pages/Ocorrencia/Transporte';
 // import MainConsciencia from './src/pages/Ocorrencia/Consciencia';
 import { NavigationContainer } from '@react-navigation/native';
+import { NativeBaseProvider } from 'native-base'
 import Routes from './src/routes';
 
 export default function App() {
   // Tela de Login
   return(
-    <NavigationContainer>
-      <Routes/>
-    </NavigationContainer>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <Routes/>
+      </NavigationContainer>
+    </NativeBaseProvider>
   )
   
   // return (

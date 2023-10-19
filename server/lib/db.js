@@ -4,11 +4,11 @@ var db = mysql.createConnection({
   host: "127.0.0.1",
   port: "3306",
   user: "root",
-  password: "",
+  password: "root",
   database: "bombeirossa",
 });
 
-const { TEST, GET_BOMBEIRO } = require("./../database/queries");
+const {TEST, GET_BOMBEIRO, SUBMIT} = require("./../database/queries");
 
 db.connect(function(err) {
   if (err) throw err;

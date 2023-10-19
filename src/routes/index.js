@@ -14,7 +14,7 @@ import MainTransporte from '../pages/Ocorrencia/Transporte';
 import MainConsciencia from '../pages/Ocorrencia/Consciencia';
 import MainProblemasEncontrados from '../pages/Ocorrencia/Problemas Encontrados';
 import MainCinematicaObjetos from '../pages/Ocorrencia/Cinematica e Objetos';
-import MainSinaisVitais from '../pages/Ocorrencia/Sinais Vitais';
+import MainSinaisVitais from '../pages/Ocorrencia/Sinais vitais';
 
 const Stack = createNativeStackNavigator()
 

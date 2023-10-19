@@ -4,6 +4,7 @@ import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import Header from './../../Header';
 import Footer from './../../Footer';
+import api from './../../../lib/axios';
 
 export default function MainInfoPac(){
     
@@ -39,7 +40,7 @@ export default function MainInfoPac(){
             };
             
         } catch (error) {
-            console.error(error);
+            console.log(error);
         }
     }
     
@@ -47,31 +48,30 @@ export default function MainInfoPac(){
     return(
         <View style={styles.Container}>
             <Header/>
-                <TextInput placeholder = 'Nome do Paciente' keyboardType = 'default' style={styles.TextInput} value={NomePac} onChangeText={setNomePac}/>
+            <TextInput placeholder = 'Nome do Paciente' keyboardType = 'default' style={styles.TextInput} value={nomePac} onChangeText={setNomePac}/>
+        
+            <TextInput placeholder = 'Nome do Hospital' keyboardType = 'default' style={styles.TextInput} value={nomeHosp} onChangeText={setNomeHosp}/>
+        
+            <TextInput placeholder = 'RG/CPF do Paciente' keyboardType = 'number-pad' style={styles.TextInput} value={docPac} onChangeText={setDocPac}/>
             
-                <TextInput placeholder = 'Nome do Hospital' keyboardType = 'default' style={styles.TextInput} value={nomeHosp} onChangeText={setNomeHosp}/>
+            <TextInput placeholder = 'Idade do Paciente' keyboardType = 'number-pad' style={styles.TextInput} value={idadePac} onChangeText={setIdadePac}/>
             
-                <TextInput placeholder = 'RG/CPF do Paciente' keyboardType = 'number-pad' style={styles.TextInput} value={docPac} onChangeText={setDocPac}/>
-                
-                <TextInput placeholder = 'Idade do Paciente' keyboardType = 'number-pad' style={styles.TextInput} value={idadePac} onChangeText={setIdadePac}/>
-                
-                <TextInput placeholder = 'Telefone do Paciente' keyboardType = 'number-pad' style={styles.TextInput} value={telefonePac} onChangeText={setTelefonePac}/>
-                
-                <TextInput placeholder = 'Local de Ocorrência' keyboardType = 'default' style={styles.TextInput} value={local} onChangeText={setLocal}/>
-                
-                <TextInput placeholder = 'Acompanhante' keyboardType = 'default' style={styles.TextInput} value={acompanhante} onChangeText={setAcompanhante}/>
-                
-                <TextInput placeholder = 'Idade do Acompanhante' keyboardType = 'number-pad' style={styles.TextInput} value={idadeAcom} onChangeText={setIdadeAcom}/>
-                
-                <TouchableOpacity style={styles.UsingMenu}>
-                    <Text style={styles.Text} value={VitimaEra} onChangeText={setVitimaEra}>Vítima Era</Text>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    style={styles.ButtonContainer}
-                    onPress={ submit }
-                >
+            <TextInput placeholder = 'Telefone do Paciente' keyboardType = 'number-pad' style={styles.TextInput} value={telefonePac} onChangeText={setTelefonePac}/>
+            
+            <TextInput placeholder = 'Local de Ocorrência' keyboardType = 'default' style={styles.TextInput} value={local} onChangeText={setLocal}/>
+            
+            <TextInput placeholder = 'Acompanhante' keyboardType = 'default' style={styles.TextInput} value={acompanhante} onChangeText={setAcompanhante}/>
+            
+            <TextInput placeholder = 'Idade do Acompanhante' keyboardType = 'number-pad' style={styles.TextInput} value={idadeAcom} onChangeText={setIdadeAcom}/>
+            
+            <TouchableOpacity style={styles.ButtonContainer} onPress={submit}>
                 <Text style={styles.ButtonText}>ENVIAR</Text>
             </TouchableOpacity>
+            
+            <TouchableOpacity style={styles.UsingMenu}>
+                <Text style={styles.Text} value={VitimaEra} onChangeText={setVitimaEra}>Vítima Era</Text>
+            </TouchableOpacity>
+
 
             <View style={styles.ButtonContainer}>
                 <TouchableOpacity 

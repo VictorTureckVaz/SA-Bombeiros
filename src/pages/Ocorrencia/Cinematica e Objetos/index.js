@@ -12,20 +12,19 @@ import { RadioGroup } from "react-native-radio-buttons-group";
 import { useNavigation } from "@react-navigation/native";
 import Header from "./../../Header";
 import Footer from "./../../Footer";
-import { extendTheme, NativeBaseProvider, Radio } from "native-base";
+import { extendTheme, Checkbox } from "native-base";
 
 
 export default function MainCinematicaObjetos() {
   const navigation = useNavigation();
   const [OR, setOR] = useState(null);
-  const [value, setValue] = React.useState("one");
+  const [groupValues, setGroupValues] = React.useState([]);
 
   return (
     <View style={styles.Body}>
       <Header />
       <ScrollView>
         <View style={styles.Container}>
-            
           <View>
             <TextInput
               placeholder="Objetos Recolhidos"
@@ -35,38 +34,29 @@ export default function MainCinematicaObjetos() {
               onChangeText={setOR}
             />
           </View>
-          <NativeBaseProvider>
-            <Radio.Group
-            name="myRadioGroup"
-            accessibilityLabel="favorite number"
-            value={value}
-            onChange={(nextValue) => {
-                setValue(nextValue);
-            }}
-            >
-            <Radio value="DisturbioComportamento" my={1}>
-                Distúrbio de Comportamento
-            </Radio>
-            <Radio value="EncontradoCapacete" my={1}>
-                Encontrado de Capacete 
-            </Radio>
-            <Radio value="EncontradoCinto" my={1}>
-                Encontrado de Cinto
-            </Radio>
-            <Radio value="ParaBrisasAvariado" my={1}>
-                Para-Brisas Avariado
-            </Radio>
-            <Radio value="CaminhandoCena" my={1}>
-                Caminhando na Cena
-            </Radio>
-            <Radio value="PainelAvariado" my={1}>
-                Painel Avariado
-            </Radio>
-            <Radio value="VolanteTorcido" my={1}>
-                Volante Torcido
-            </Radio>
-            </Radio.Group>
-          </NativeBaseProvider>
+          <Checkbox.Group onChange={setGroupValues} border="black" colorScheme="green" size="md" value={groupValues} accessibilityLabel="choose numbers">
+            <Checkbox value="DistúrbioComportamento" my={1}>
+              Distúrbio de Comportamento
+            </Checkbox>
+            <Checkbox value="EncontradoCapacete " my={1}> 
+              Encontrado de Capacete 
+            </Checkbox>
+            <Checkbox value="EncontradoCinto " my={1}> 
+              Encontrado de Cinto 
+            </Checkbox>
+            <Checkbox value="ParaBrisasAvariado" my={1}> 
+              Para-Brisas Avariado
+            </Checkbox>
+            <Checkbox value="CaminhandoCena" my={1}> 
+              Caminhando na Cena
+            </Checkbox>
+            <Checkbox value="PainelAvariado" my={1}> 
+              Painel Avariado
+            </Checkbox>
+            <Checkbox value="VolanteTorcido" my={1}> 
+              Volante Torcido
+            </Checkbox>
+          </Checkbox.Group>
           <Footer />
         </View>
       </ScrollView>
