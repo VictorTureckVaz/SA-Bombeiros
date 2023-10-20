@@ -99,15 +99,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
       },
 
-      CheckBox: {
-        width: 25,
-        height: 25,
-        borderRadius: 2,
-        borderWidth: 2,
-        borderColor: "#555555",
-        
-      },
-
   });
 
   export default styles;

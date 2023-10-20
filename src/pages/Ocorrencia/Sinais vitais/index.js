@@ -19,8 +19,8 @@ export default function MainSinaisVitais(){
     const [normalidade, setNormalidade] = useState(null);
 
     function UsingMenu(value) {
-        setPerfusao(value);
-        setUsingMenu((usingMenu+1)%2)
+        setPerfusao(value); // seta o valor da perfusão com o valor dado ao chamar a função
+        setUsingMenu((usingMenu+1)%2) // aumenta o using menu para considerar como desativado
     }
     
 

@@ -10,39 +10,32 @@ export default function MainConsciencia(){
 
     const navigation = useNavigation();
 
-    const [motorista, setMotorista] = useState(null);
-    const [socorristaA, setSocorristaA] = useState(null);
+    const [consciencia, setConsciencia] = useState(0);
+    const [check, setCheck] = useState(null);
     const [socorristaB, setSocorristaB] = useState(null);
     const [socorristaC, setSocorristaC] = useState(null);
     const [demandante, setDemandante] = useState(null);
+
+    function select(){
+        setCheck(check + 1); 
+        setConsciencia(consciencia + value);
+    }
+
     
     return(
         <View style={styles.Container}>
             <Header/>
             <View style={styles.ResultContainer}>
-               <Text>Total (GCS):</Text>
+               <Text>Total (GCS): {consciencia}</Text>
             </View>
-            <View>
-                <TouchableOpacity style={styles.UsingMenu}>
-                    <Text style={styles.Text}>Forma de Condução</Text>
-                </TouchableOpacity>
-            </View>
+
+            <TouchableOpacity style={styles.UsingMenu} onPress={ () => select()}>
+                <View style={[styles.CheckBox, {backgroundColor}]}></View>
+                <Text style={styles.Text}>Forma de Condução</Text>
+            </TouchableOpacity>
+
             
-            <View>
-                <TextInput placeholder = 'Motorista' keyboardType = 'default' value='motorista' style={styles.TextInput}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'Socorrista #1' keyboardType = 'default'  value='socorristaA' style={styles.TextInput}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'Socorrista #2' keyboardType = 'default'  value='socorristaB' style={styles.TextInput}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'Socorrista #3' keyboardType = 'default'  value='socorristaC' style={styles.TextInput}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'Demandante' keyboardType = 'default'  value='demandante' style={styles.TextInput}/>
-            </View>
+            
             
             <View style={styles.ButtonContainer}>
                 <TouchableOpacity style={styles.Button} onPress={ () => navigation.navigate('ocorrencia') }>
