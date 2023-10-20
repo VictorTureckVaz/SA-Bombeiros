@@ -35,6 +35,7 @@ export default function MainInfoPac(){
                 });
             if (apiReply.data === "Enviado com sucesso"){
                 navigation.navigate('home');
+                Console.log("deu certo top!👍");
             } else {
                 navigation.navigate('home');
             };

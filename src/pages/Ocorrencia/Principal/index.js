@@ -58,7 +58,7 @@ export default function MainOcorrencia(){
                         <TouchableOpacity style={styles.OcStep}>
                             <Text style={styles.OcStepText}>Materiais Utilizados</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('Obs')}>
                             <Text style={styles.OcStepText}>Observações Importantes</Text>
                         </TouchableOpacity>
                     </View>

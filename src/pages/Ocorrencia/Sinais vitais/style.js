@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
       },
 
       UsingMenu: {
-          height: "auto",
+          height: 56,
           borderColor: "#555555",
           width: "100%",
           borderWidth: 2,
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
       TempHGTContainer: {
         flexDirection: "row",
         width: "100%",
+        gap: 10,
       },
 
       MiniTextInput: {
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
           fontSize: 20,
           height: 56,
           borderColor: "#555555",
-          width: 234,
+          width: 224,
           borderWidth: 2,
           padding: 10,
           borderRadius: 10,
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
           fontSize: 20,
           height: 56,
           borderColor: "#555555",
-          width: 131,
+          width: 124,
           borderWidth: 2,
           padding: 10,
           borderRadius: 10,

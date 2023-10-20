@@ -16,8 +16,12 @@ export default function MainSinaisVitais(){
     const [sat, setSat] = useState(0);
     const [usingMenu, setUsingMenu] = useState(0);
     const [perfusao, setPerfusao] = useState("Perfusão");
+    const [normalidade, setNormalidade] = useState(null);
 
-    
+    function UsingMenu(value) {
+        setPerfusao(value);
+        setUsingMenu((usingMenu+1)%2)
+    }
     
 
     return(
@@ -66,7 +70,7 @@ export default function MainSinaisVitais(){
                     </View>
 
 
-                    <View style={styles.UsingMenu}>
+                    <View style={[styles.UsingMenu, {height: usingMenu ? 138 : 56}]}>
                         <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenu((usingMenu+1)%2)}>
                             <Text style={styles.Text}>{perfusao}</Text>
                             <View style={styles.UsingMenuIconContainer}>
@@ -77,18 +81,23 @@ export default function MainSinaisVitais(){
                             </View>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => setPerfusao("Maior que 2 Segundos")}>
+                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Maior que 2 Segundos")}>
                             <Text style={styles.Text}>Maior que 2 Segundos</Text>
 
                         </TouchableOpacity>
                         
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => setPerfusao("Menor que 2 segundos")}>
+                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Menor que 2 segundos")}>
                             <Text style={[styles.Text]}>Menor que 2 segundos</Text>
                         </TouchableOpacity>
                     </View>
 
                     <View style={styles.BorderContainer}>
-                         
+                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Menor que 2 segundos")}>
+                            <Text style={[styles.Text]}>Anormal</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.UsingMenuTitle, ]} onPress={ () => UsingMenu()}>
+                            <Text style={[styles.Text]}>Normal</Text>
+                        </TouchableOpacity>
                     </View>
                
                     
