@@ -11,11 +11,11 @@ import MainInfoPac from '../pages/Ocorrencia/Info Pac';
 import MainInfoAmb from '../pages/Ocorrencia/Info Ambu';
 import MainTipoOc from '../pages/Ocorrencia/Tipo de Ocorrencia';
 import MainTransporte from '../pages/Ocorrencia/Transporte';
-import MainConsciencia from '../pages/Ocorrencia/Consciencia';
 import MainProblemasEncontrados from '../pages/Ocorrencia/Problemas Encontrados';
 import MainCinematicaObjetos from '../pages/Ocorrencia/Cinematica e Objetos';
 import MainSinaisVitais from '../pages/Ocorrencia/Sinais Vitais';
 import MainObs from '../pages/Ocorrencia/Observacoes';
+import MainAvaliacao from '../pages/Ocorrencia/Avaliacao do Paciente';
 
 const Stack = createNativeStackNavigator()
 
@@ -58,23 +58,28 @@ export default function Routes(){
                options={ {headerShown: false}}
                />
                <Stack.Screen
-               name="ProblemasEncontrados"
+               name="problemasEncontrados"
                component={ MainProblemasEncontrados }
                options={ {headerShown: false}}
                />
                <Stack.Screen
-               name="CinamaticaObjetos"
+               name="cinamaticaObjetos"
                component={ MainCinematicaObjetos }
                options={ {headerShown: false}}
                />
                <Stack.Screen
-               name="SinaisVitais"
+               name="sinaisVitais"
                component={ MainSinaisVitais }
                options={ {headerShown: false}}
                />
                <Stack.Screen
-               name="Obs"
+               name="obs"
                component={ MainObs }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="avaliacao"
+               component={ MainAvaliacao }
                options={ {headerShown: false}}
                />
           </Stack.Navigator>

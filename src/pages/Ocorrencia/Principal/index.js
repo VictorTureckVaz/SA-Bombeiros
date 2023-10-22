@@ -28,16 +28,16 @@ export default function MainOcorrencia(){
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('infoTrans')}>
                             <Text style={styles.OcStepText}>Info. de Condução e Transporte</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('avaliacao')}>
                             <Text style={styles.OcStepText}>Avaliação do Paciente</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep}>
-                            <Text style={styles.OcStepText} onPress={ () => navigation.navigate('SinaisVitais')}>Sinais Vitais</Text>
+                            <Text style={styles.OcStepText} onPress={ () => navigation.navigate('sinaisVitais')}>Sinais Vitais</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep}>
                             <Text style={styles.OcStepText}>Sinais e Sintomas</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('ProblemasEncontrados')}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('problemasEncontrados')}>
                             <Text style={styles.OcStepText}>Problemas Encontrados</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep}>
@@ -52,13 +52,13 @@ export default function MainOcorrencia(){
                         <TouchableOpacity style={styles.OcStep}>
                             <Text style={styles.OcStepText}>Anamnese Gestacional</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('CinamaticaObjetos')}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('cinamaticaObjetos')}>
                             <Text style={styles.OcStepText}>Cinemática e Objetos recolhidos</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep}>
                             <Text style={styles.OcStepText}>Materiais Utilizados</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('Obs')}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('obs')}>
                             <Text style={styles.OcStepText}>Observações Importantes</Text>
                         </TouchableOpacity>
                     </View>

@@ -83,19 +83,19 @@ export default function MainSinaisVitais(){
 
                         <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Maior que 2 Segundos")}>
                             <Text style={styles.Text}>Maior que 2 Segundos</Text>
-
                         </TouchableOpacity>
+                        
                         
                         <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Menor que 2 segundos")}>
                             <Text style={[styles.Text]}>Menor que 2 segundos</Text>
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.BorderContainer}>
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Menor que 2 segundos")}>
+                    <View style={[styles.BorderContainer, {justifyContent: "space-around"}]}>
+                        <TouchableOpacity style={[styles.UsingMenuTitle]} onPress={ () => UsingMenu("Menor que 2 segundos")}>
                             <Text style={[styles.Text]}>Anormal</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={[styles.UsingMenuTitle, ]} onPress={ () => UsingMenu()}>
+                        <TouchableOpacity style={[styles.UsingMenuTitle]} onPress={ () => UsingMenu()}>
                             <Text style={[styles.Text]}>Normal</Text>
                         </TouchableOpacity>
                     </View>

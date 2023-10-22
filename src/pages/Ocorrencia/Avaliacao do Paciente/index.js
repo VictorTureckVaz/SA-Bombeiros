@@ -1,58 +1,135 @@
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
-import Header from './../../Header';
-import Footer from './../../Footer';
+import Header from '../../Header';
+import Footer from '../../Footer';
 
 
-export default function MainConsciencia(){
+
+export default function MainAvaliacao(){
 
     const navigation = useNavigation();
 
-    const [motorista, setMotorista] = useState(null);
-    const [socorristaA, setSocorristaA] = useState(null);
-    const [socorristaB, setSocorristaB] = useState(null);
-    const [socorristaC, setSocorristaC] = useState(null);
-    const [demandante, setDemandante] = useState(null);
+
+    const [aberturaOcular, setAberturaOcular] = useState(0);
+    const [respostaVerbal, setRespostaVerbal] = useState(0);
+    const [respostaMotora, setRespostaMotora] = useState(0);
+    
+    const consciencia = aberturaOcular + respostaVerbal + respostaMotora
     
     return(
-        <View style={styles.Container}>
+        <View style={styles.Body}>
             <Header/>
-            <View style={styles.ResultContainer}>
-               <Text>Total (GCS):</Text>
+            <View style={styles.Container}>
+                <View style={styles.ResultContainer}>
+                    <Text>Total (GCS): {consciencia}</Text>
+                </View>
+                <View style={styles.Result}>
+
+                </View>
+                <View style={{gap: 5, width: "100%"}}> {/* Abertura Ocular  */}
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setAberturaOcular(4)}>
+                        <View style={[styles.CheckBox, {backgroundColor: aberturaOcular == 4 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Espontânea</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setAberturaOcular(3)}>
+                        <View style={[styles.CheckBox, {backgroundColor: aberturaOcular == 3 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Comando Verbal</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setAberturaOcular(2)}>
+                        <View style={[styles.CheckBox, {backgroundColor: aberturaOcular == 2 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Estímulo Doloroso</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setAberturaOcular(1)}>
+                        <View style={[styles.CheckBox, {backgroundColor: aberturaOcular == 1 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Nenhuma</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={{gap: 5, width: "100%"}}> {/* Resposta Verbal */}
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(5)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 5 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Orientado</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(4)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 4 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Confuso</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(3)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 3 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Palavras Inapropriadas</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(2)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 2 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Palavras Incompreensíveis</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(1)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 1 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Nenhuma</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={{gap: 5, width: "100%"}}> {/* Resposta Motora */}
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(6)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 6 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Obedece Comandos</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(5)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 5 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Localiza Dor</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(4)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 4 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Movimento de Retirada</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(3)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 3 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Flexão Anormal</Text>
+                    </TouchableOpacity>
+                    
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(2)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 2 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Extensão Anormal</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(1)}>
+                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 1 ? "black" : "white"}]}></View>
+                        <Text style={styles.Text}>Nenhuma</Text>
+                    </TouchableOpacity>
+                    
+                    
+                    
+                </View>
+
+
+
+                <View style={styles.ButtonContainer}>
+                    <TouchableOpacity style={styles.Button} onPress={ () => navigation.navigate('ocorrencia') }>
+                        <Image
+                        style={styles.Icon}
+                        source={require('../../../../assets/previous.png')}
+                        />
+                        <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-            <View>
-                <TouchableOpacity style={styles.UsingMenu}>
-                    <Text style={styles.Text}>Forma de Condução</Text>
-                </TouchableOpacity>
-            </View>
+           
+                
+
             
-            <View>
-                <TextInput placeholder = 'Motorista' keyboardType = 'default' value='motorista' style={styles.TextInput}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'Socorrista #1' keyboardType = 'default'  value='socorristaA' style={styles.TextInput}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'Socorrista #2' keyboardType = 'default'  value='socorristaB' style={styles.TextInput}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'Socorrista #3' keyboardType = 'default'  value='socorristaC' style={styles.TextInput}/>
-            </View>
-            <View>
-                <TextInput placeholder = 'Demandante' keyboardType = 'default'  value='demandante' style={styles.TextInput}/>
-            </View>
             
-            <View style={styles.ButtonContainer}>
-                <TouchableOpacity style={styles.Button} onPress={ () => navigation.navigate('ocorrencia') }>
-                    <Image
-                    style={styles.Icon}
-                    source={require('../../../../assets/previous.png')}
-                    />
-                    <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
-                </TouchableOpacity>
-            </View>
+            
             
 
         </View>

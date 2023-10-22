@@ -24,35 +24,23 @@ const styles = StyleSheet.create({
           height: "100%",
       },
 
-      ToggleButton: {
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          padding: 42,
-          width: 166,
-          height: 146,
-          backgroundColor: "#D2EBCE",
-          borderRadius: 10,
+      Body: {
+        gap: 27,
+        height: "100%",
       },
 
-      ToggleButtonIcon: {
-          height: 69,
-          width: 69,
-      },
-
-      ToggleButtonText: {
-          color: "#4AAE39",
-          fontSize: 17,
-      },
-
-      UsingMenu: {
-        flex: 1,
-        justifyContent: "center",
+      CheckBox: {
+        width: 25,
+        height: 25,
         borderColor: "#555555",
-        width: "100%",
         borderWidth: 2,
-        padding: 10,
-        borderRadius: 10,
+        borderRadius: 2,
+      },
+
+      OptionContainer: {
+        flexDirection: "row",
+        gap: 5,
+        alignItems: "center",
       },
 
       Container: {
@@ -66,10 +54,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#313131",
         width: 222,
-      },
-
-      SecondSection: {
-        gap: 12,
       },
       
       ButtonContainer: {
@@ -97,6 +81,10 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         padding: 10,
         borderRadius: 10,
+      },
+
+      Text: {
+        fontSize: 20,
       },
 
   });
