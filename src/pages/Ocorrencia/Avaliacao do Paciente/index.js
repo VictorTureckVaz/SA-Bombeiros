@@ -12,11 +12,11 @@ export default function MainAvaliacao(){
     const navigation = useNavigation();
 
 
-    const [aberturaOcular, setAberturaOcular] = useState(0);
-    const [respostaVerbal, setRespostaVerbal] = useState(0);
-    const [respostaMotora, setRespostaMotora] = useState(0);
+    const [aberturaOcular, setAberturaOcular] = useState(0); //seta abertura ocular como 0
+    const [respostaVerbal, setRespostaVerbal] = useState(0); //seta resposta verbal como 0
+    const [respostaMotora, setRespostaMotora] = useState(0); //seta resposta motora como 0
     
-    const consciencia = aberturaOcular + respostaVerbal + respostaMotora
+    const consciencia = aberturaOcular + respostaVerbal + respostaMotora //somatória de consciencia
     
     return(
         <View style={styles.Body}>

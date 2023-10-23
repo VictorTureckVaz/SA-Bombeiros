@@ -1,30 +1,43 @@
 const db = require("./../../lib/db");
+const { SUBMIT } = require("./../../database/queries.js");
 
 module.exports = async (req, res) => {
     console.log(req.body);
     
-    const NomePac = req.body.NomePac;
-    const nomeHosp = req.body.nomeHosp;
-    const docPac = req.body.docPac;
-    const idadePac = req.body.idadePac;
-    const telefonePac = req.body.telefonePac;
-    const local = req.body.local;
-    const acompanhante = req.body.acompanhante;
-    const idadeAcom = req.body.idadeAcom;
-    const VitimaEra = req.body.VitimaEra;
+    // const nomePac = req.body.nomePac;
+    // const nomeHosp = req.body.nomeHosp;
+    // const docPac = req.body.docPac;
+    // const idadePac = req.body.idadePac;
+    // const telefonePac = req.body.telefonePac;
+    // const local = req.body.local;
+    // const acompanhante = req.body.acompanhante;
+    // const idadeAcom = req.body.idadeAcom;
+    // const vitimaEra = req.body.vitimaEra;
+
+    const {
+        nomePac,
+        nomeHosp,
+        docPac,
+        idadePac,
+        telefonePac,
+        local,
+        acompanhante,
+        idadeAcom,
+        vitimaEra
+    } = req.body;
 
     try {
         const result = await new Promise((resolve, reject) => {
             db.query(SUBMIT(
-                NomePac, 
-                nomeHosp, 
+                nomePac,
+                nomeHosp,
                 docPac,
                 idadePac,
                 telefonePac,
                 local,
                 acompanhante,
                 idadeAcom,
-                VitimaEra
+                vitimaEra
             ), function(err, result) {
                 if (err) {
                     console.log(err);

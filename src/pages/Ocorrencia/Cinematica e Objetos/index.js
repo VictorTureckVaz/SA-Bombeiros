@@ -27,7 +27,7 @@ export default function MainCinematicaObjetos() {
         <View style={styles.Container}>
           <View>
             <TextInput
-              placeholder="Objetos Recolhidos"
+              placeholder="Objetos Recolhidos..."
               keyboardType="default"
               style={styles.TextInput}
               value={OR}

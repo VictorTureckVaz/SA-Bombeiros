@@ -16,17 +16,18 @@ import MainCinematicaObjetos from '../pages/Ocorrencia/Cinematica e Objetos';
 import MainSinaisVitais from '../pages/Ocorrencia/Sinais Vitais';
 import MainObs from '../pages/Ocorrencia/Observacoes';
 import MainAvaliacao from '../pages/Ocorrencia/Avaliacao do Paciente';
+import MainMateriais from '../pages/Ocorrencia/Materiais';
 
 const Stack = createNativeStackNavigator()
 
 export default function Routes(){
      return(
           <Stack.Navigator>
-               {/* <Stack.Screen
+               <Stack.Screen
                name="login"
                component={ MainLogin }
                options={ {headerShown: false}}
-               /> */}
+               />
                <Stack.Screen
                name="home"
                component={ MainHome }
@@ -80,6 +81,11 @@ export default function Routes(){
                <Stack.Screen
                name="avaliacao"
                component={ MainAvaliacao }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="materiais"
+               component={ MainMateriais }
                options={ {headerShown: false}}
                />
           </Stack.Navigator>

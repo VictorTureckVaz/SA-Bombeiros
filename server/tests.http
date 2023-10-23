@@ -5,3 +5,38 @@ content-type: application/json
     "user": "11111111111",
     "pass": "opa"
 }
+
+###
+
+POST http://localhost:15600/submit HTTP/1.1
+content-type: application/json
+
+{
+    "nomePac": "Mano",
+    "nomeHosp": "Los Manos (The Cure)",
+    "docPac": "5555555",
+    "idadePac": 45,
+    "telefonePac": "555555555555",
+    "local": "Vila dos Manos",
+    "acompanhante": "Mano do Mano",
+    "idadeAcom": 4,
+    "vitimaEra": "Mano"
+}
+
+###
+
+POST http://localhost:15600/submit HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY5ODAyMjgzNCwiZXhwIjoxNjk4MDgyODM0fQ.cLIdxNG7O3OZJ2mepOJ7IaPW2Tsja18U2V6VdG2qrAg
+
+{
+    "nomePac": "Manoa",
+    "nomeHosp": "Loas manoas",
+    "docPac": "5555555",
+    "idadePac": 45,
+    "telefonePac": "555555555555",
+    "local": "Vila dos Manoas",
+    "acompanhante": "Manoa doa Manoa",
+    "idadeAcom": 455,
+    "vitimaEra": "Meio sangue"
+}

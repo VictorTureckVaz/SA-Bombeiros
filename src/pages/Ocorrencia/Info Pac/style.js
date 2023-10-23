@@ -15,21 +15,40 @@ const styles = StyleSheet.create({
         color: "gray",
         fontSize: 20,
       },
+
+      Body: {
+        gap: 44,
+        height: "100%",
+      },
       
+      UsingMenuTitle: {
+        flexDirection: "row",
+      },
+
       UsingMenu: {
-        flex: 1,
-        justifyContent: "center",
+        height: 56,
         borderColor: "#555555",
         width: "100%",
         borderWidth: 2,
         padding: 10,
         borderRadius: 10,
+        gap: 10,
+    },
+
+      UsingMenuIconContainer: {
+        flex: 1,
+        alignItems: "flex-end",
+      },
+
+      UsingMenuIcon: {
+        width: 32,
+        height: 32,
+        transform: [{ rotate: "180deg" }]
       },
 
       Container: {
         gap: 23,
         padding: 27,
-        height: "100%",
       },
 
       ButtonText: {

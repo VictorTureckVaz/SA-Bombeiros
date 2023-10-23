@@ -1,3 +1,5 @@
+require("dotenv").config({ path: "./../../.env" });
+const jwt = require("jsonwebtoken");
 const db = require("./../../lib/db");
 const { GET_BOMBEIRO } = require("./../../database/queries");
 
@@ -18,9 +20,15 @@ module.exports = async (req, res) => {
 
     const result = await promise;
 
-    if (result === "NoBombeiro") return res.send("N encontramo o homi");
+    if (result === "NoBombeiro") return res.send({ error: "N encontramo o homi" });
 
-    if (result.senha !== pass) return res.send("N deu boa...");
+    if (result.senha !== pass) return res.send({ error: "N deu boa..." });
 
-    return res.send("Logado");
+    const token = jwt.sign({
+        _id: result.id_bombeiro
+    }, "cecedilha", {
+        expiresIn: "1000m"
+    });
+
+    return res.send({ token });
 };

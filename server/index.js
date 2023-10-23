@@ -5,13 +5,14 @@ const app = express();
 const cors = require("cors");
 const postLoginHandler = require("./handlers/login/post");
 const postSubmitHandler = require("./handlers/submit/post");
+const validateToken = require("./middleware/jwt");
 
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
 
 app.post("/login", postLoginHandler);
-app.post("/submit", postSubmitHandler);
+app.post("/submit", validateToken, postSubmitHandler);
 
 app.listen(15600, () => {
     console.log("Server rodante")

@@ -1,11 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import api from './../../lib/axios';
 
 export default function MainLogin() {
-
     const navigation = useNavigation();
 
     const [email, setEmail] = useState(null);
@@ -15,18 +14,20 @@ export default function MainLogin() {
     async function login() {
         try {
             const apiReply = await api.post("/login", { user: email, pass: password });
-            if (apiReply.data === "Logado"){ 
-                navigation.navigate('home')
-            }else{
-                setLoginError(current => !current)
-            }
             
+            if (apiReply.data.error) throw apiReply.data.error;
+            
+            const token = apiReply.data.token;
+            
+            // const apiReply = await api.post("/submit", { dados }, { headers: { authorization: `Bearer ${token}` } });
+            // Salvar o token no useContext OU no React Redux
+
+            navigation.navigate('home');
         } catch (error) {
+            setLoginError(current => !current)
             console.error(error);
         }
     }
-
-    
     
     return(
 

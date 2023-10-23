@@ -6,6 +6,9 @@
 - Biblioteca para usar tokens JWT: "https://www.npmjs.com/package/jsonwebtoken";
 - W3Schools sobre MySQL no Node.js: "https://www.w3schools.com/nodejs/nodejs_mysql.asp".
 
-Comandos:
-expo start -> w (se der certo, se não:)
-npx expo -> w (para abrir somente o front)
+## Comandos
+
+- `expo start` -> w (se der certo, se não:)
+- `npx expo` -> w (para abrir somente o front)
+
+manoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessiano

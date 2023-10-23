@@ -55,7 +55,7 @@ export default function MainOcorrencia(){
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('cinamaticaObjetos')}>
                             <Text style={styles.OcStepText}>Cinemática e Objetos recolhidos</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('materiais')}>
                             <Text style={styles.OcStepText}>Materiais Utilizados</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('obs')}>
