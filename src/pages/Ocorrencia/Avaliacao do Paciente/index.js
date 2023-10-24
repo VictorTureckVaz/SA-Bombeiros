@@ -4,6 +4,7 @@ import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../../Header';
 import Footer from '../../Footer';
+import RadioButton from '../../../components/RadioButton';
 
 
 
@@ -28,7 +29,7 @@ export default function MainAvaliacao(){
                 <View style={styles.Result}>
 
                 </View>
-                <View style={{gap: 5, width: "100%"}}> {/* Abertura Ocular  */}
+                {/* <View style={{gap: 5, width: "100%"}}>
                     <TouchableOpacity style={styles.OptionContainer} onPress={ () => setAberturaOcular(4)}>
                         <View style={[styles.CheckBox, {backgroundColor: aberturaOcular == 4 ? "black" : "white"}]}></View>
                         <Text style={styles.Text}>Espontânea</Text>
@@ -50,7 +51,7 @@ export default function MainAvaliacao(){
                     </TouchableOpacity>
                 </View>
 
-                <View style={{gap: 5, width: "100%"}}> {/* Resposta Verbal */}
+                <View style={{gap: 5, width: "100%"}}> 
                     <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(5)}>
                         <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 5 ? "black" : "white"}]}></View>
                         <Text style={styles.Text}>Orientado</Text>
@@ -77,7 +78,7 @@ export default function MainAvaliacao(){
                     </TouchableOpacity>
                 </View>
 
-                <View style={{gap: 5, width: "100%"}}> {/* Resposta Motora */}
+                <View style={{gap: 5, width: "100%"}}> 
                     <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(6)}>
                         <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 6 ? "black" : "white"}]}></View>
                         <Text style={styles.Text}>Obedece Comandos</Text>
@@ -110,7 +111,80 @@ export default function MainAvaliacao(){
                     
                     
                     
-                </View>
+                </View> */}
+                <RadioButton
+                options={[
+                    {
+                        optionName: "Espontânea",
+                        optionValue: 4
+                    },
+                    {
+                        optionName: "Comando Verbal",
+                        optionValue: 3
+                    },
+                    {
+                        optionName: "Estímulo Doloroso",
+                        optionValue: 2
+                    },
+                    {
+                        optionName: "Nenhum",
+                        optionValue: 1
+                    },
+                    
+                ]}
+                selectedOption={aberturaOcular}
+                setSelectedOption={setAberturaOcular}
+                />
+
+                <RadioButton
+                options={[
+                    {
+                        optionName: "Espontânea",
+                        optionValue: 4
+                    },
+                    {
+                        optionName: "Comando Verbal",
+                        optionValue: 3
+                    },
+                    {
+                        optionName: "Estímulo Doloroso",
+                        optionValue: 2
+                    },
+                    {
+                        optionName: "Nenhum",
+                        optionValue: 1
+                    },
+                    
+                ]}
+                selectedOption={respostaVerbal}
+                setSelectedOption={setRespostaVerbal}
+                />
+
+                <RadioButton
+                options={[
+                    {
+                        optionName: "Espontânea",
+                        optionValue: 4
+                    },
+                    {
+                        optionName: "Comando Verbal",
+                        optionValue: 3
+                    },
+                    {
+                        optionName: "Estímulo Doloroso",
+                        optionValue: 2
+                    },
+                    {
+                        optionName: "Nenhum",
+                        optionValue: 1
+                    },
+                    
+                ]}
+                selectedOption={respostaMotora}
+                setSelectedOption={setRespostaMotora}
+                />
+
+
 
 
 

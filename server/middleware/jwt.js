@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
      * "Bearer osuvbiusyvruiysv.lifhybouibsroiubvfpiud.kuysvgbeiuysbveiuybur"
      * ```
      * 
-     * Para acessar o token e necessario cortar no caractere de espaço:
+     * Para acessar o token e necessario cortar no caractere de espaco:
      * 
      * ```js
      * const splitedTokenHeader = tokenHeader.split(" ") === [

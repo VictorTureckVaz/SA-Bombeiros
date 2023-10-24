@@ -29,6 +29,6 @@ module.exports = async (req, res) => {
     }, "cecedilha", {
         expiresIn: "1000m"
     });
-
+    console.log(token); 
     return res.send({ token });
 };

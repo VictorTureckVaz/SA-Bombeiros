@@ -35,7 +35,7 @@ export default function MainInfoPac(){
                 vitimaEra
             }, {
                 headers: {
-                    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY5ODAyMjgzNCwiZXhwIjoxNjk4MDgyODM0fQ.cLIdxNG7O3OZJ2mepOJ7IaPW2Tsja18U2V6VdG2qrAg"
+                    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY5ODA2Njc1OCwiZXhwIjoxNjk4MTI2NzU4fQ.j5YPmYC05ygB9TGmSOWjhfxtASm-UvnoMjxI0jaI8wo"
                 }
             });
 
@@ -53,7 +53,6 @@ export default function MainInfoPac(){
         setUsingMenu((usingMenu+1)%2) // aumenta o using menu para considerar como desativado
         
     }
-    
 
     return(
         <View style={styles.Body}>

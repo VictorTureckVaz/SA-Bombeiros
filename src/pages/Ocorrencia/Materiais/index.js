@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import Header from '../../Header';
 import Footer from '../../Footer';
 import SelectList from './../../../components/SelectList'
+import RadioButton from '../../../components/RadioButton';
 
 export default function MainMateriais(){
     
@@ -20,8 +21,9 @@ export default function MainMateriais(){
     // ^
 
     const [usingMenu, setUsingMenu] = useState(false);
-    const [material, setMaterial] = useState("Nenhum");
-    const [perfusao, setPerfusao] = useState("Perfusão");
+    const [materialValue, setMaterialValue] = useState("Nenhum");
+    const [materialName, setMaterialName] = useState("Nenhum");
+    const [radio, setRadio] = useState(null);
 
     function UsingMenu(value) {
         setPerfusao(value); // seta o valor da perfusão com o valor dado ao chamar a função
@@ -102,11 +104,39 @@ export default function MainMateriais(){
                             optionName: "Mano3",
                             optionValue: "Nota 5 + 5"
                         },
+                        {
+                            optionName: "NOME MOSTRADO",
+                            optionValue: "VALOR PARA O BANCO"
+                        },
                     ]}
                     usingMenu={usingMenu}
                     setUsingMenu={setUsingMenu}
-                    selectedOption={material}
-                    setSelectedOption={setMaterial}
+                    selectedOptionName={materialName}
+                    setSelectedOptionName={setMaterialName}
+                    selectedOptionValue={materialValue}
+                    setSelectedOptionValue={setMaterialValue}
+                />
+                <RadioButton
+                    options={[
+                        {
+                            optionName: "Mano",
+                            optionValue: "Nota 10"
+                        },
+                        {
+                            optionName: "Mano2",
+                            optionValue: "Nota 10 (Tbm)"
+                        },
+                        {
+                            optionName: "Mano3",
+                            optionValue: "Nota 5 + 5"
+                        },
+                        {
+                            optionName: "NOME MOSTRADO",
+                            optionValue: "VALOR PARA O BANCO"
+                        },
+                    ]}
+                    selectedOption={radio}
+                    setSelectedOption={setRadio}
                 />
                 <Footer/>
             </ScrollView>

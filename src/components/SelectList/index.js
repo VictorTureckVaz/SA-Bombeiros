@@ -5,18 +5,22 @@ export default function SelectList({
     options,
     usingMenu,
     setUsingMenu,
-    selectedOption,
-    setSelectedOption
+    selectedOptionValue,
+    selectedOptionName,
+    setSelectedOptionValue,
+    setSelectedOptionName,
 }) {
-    function handleOptionSelection(value) {
-        setSelectedOption(value); // seta o valor da perfusão com o valor dado ao chamar a função
+    function handleOptionSelection(value, name) {
+        setSelectedOptionValue(value); // seta o valor da opção como o valor da opção selecionada
+        setSelectedOptionName(name)
+
         setUsingMenu(!usingMenu); // aumenta o using menu para considerar como desativado
     }
 
     return (
         <View style={[styles.UsingMenu, { height: usingMenu ? "fit-content" : 56 }]}>
             <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenu(!usingMenu) }>
-                <Text style={styles.Text}>{selectedOption}</Text>
+                <Text style={styles.Text}>{selectedOptionName}</Text>
                 <View style={styles.UsingMenuIconContainer}>
                     <Image
                         style={[
@@ -42,7 +46,7 @@ export default function SelectList({
                                 : "none"
                         }
                     ]}
-                    onPress={ () => handleOptionSelection(option.optionValue) }
+                    onPress={ () => handleOptionSelection(option.optionValue, option.optionName) }
                 >
                     <Text style={styles.Text}>{option.optionName}</Text>
                 </TouchableOpacity>
