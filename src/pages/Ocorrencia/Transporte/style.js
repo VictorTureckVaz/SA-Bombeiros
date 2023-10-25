@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
           flexGrow: 1,
       },
 
-      GreenToggleButton: {
+      ToggleButton: {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
@@ -32,76 +32,17 @@ const styles = StyleSheet.create({
           width: 166,
           height: 146,
           minWidth: "45%",
-          backgroundColor: "#D2EBCE",
           borderRadius: 10,
       },
-
-      YellowToggleButton: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 42,
-        width: 166,
-        height: 146,
-        minWidth: "45%",
-        backgroundColor: "#F9EDCB",
-        borderRadius: 10,
-    },
-
-      OrangeToggleButton: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 42,
-        width: 166,
-        height: 146,
-        minWidth: "45%",
-        backgroundColor: "#FBE6CD",
-        borderRadius: 10,
-    },
-
-      RedToggleButton: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 42,
-        width: 166,
-        height: 146,
-        minWidth: "45%",
-        backgroundColor: "#F9D0C9",
-        borderRadius: 10,
-    },
 
       ToggleButtonIcon: {
           height: 69,
           width: 69,
       },
 
-      GreenToggleButtonText: {
-          color: "#4AAE39",
-          flex: 1,
+      ToggleButtonText: {
           fontSize: 17,
-          textAlign: "center",
-      },
-
-      YellowToggleButtonText: {
-          color: "#C59203",
-          flex: 1,
-          fontSize: 17,
-          textAlign: "center",
-      },
-
-      OrangeToggleButtonText: {
-          color: "#D97600",
-          flex: 1,
-          fontSize: 17,
-          textAlign: "center",
-      },
-
-      RedToggleButtonText: {
-          color: "#E74428",
-          flex: 1,
-          fontSize: 17,
+          width: 130,
           textAlign: "center",
       },
 

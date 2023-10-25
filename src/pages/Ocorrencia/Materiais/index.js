@@ -21,7 +21,7 @@ export default function MainMateriais(){
     // ^
 
     const [usingMenu, setUsingMenu] = useState(false);
-    const [materialValue, setMaterialValue] = useState("Nenhum");
+    const [materialValue, setMaterialValue] = useState(null);
     const [materialName, setMaterialName] = useState("Nenhum");
     const [radio, setRadio] = useState(null);
 
