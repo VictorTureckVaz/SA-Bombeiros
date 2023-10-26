@@ -4,6 +4,7 @@ import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../../Header';
 import Footer from '../../Footer';
+import ReturnButton from '../../../components/ReturnButton';
 
 export default function MainProblemasEncontrados(){
     
@@ -21,7 +22,7 @@ export default function MainProblemasEncontrados(){
         <View style={styles.Body}>
             <Header/>
             <ScrollView>
-            
+            {/* //C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools */}
                 <View style={styles.Container}>
                     <TouchableOpacity style={[styles.Checkbox, { backgroundColor: psico ? 'green' : 'transparent', }]} onPress={ () => setPsico((psico + 1)%2) }>
                         <Text style={[styles.Text, { color: psico ? 'white' : 'gray', }]}>Psiquiátrico</Text>
@@ -73,7 +74,7 @@ export default function MainProblemasEncontrados(){
                         <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
                     </TouchableOpacity>
                 </View>
-                
+                <ReturnButton/>
                 <Footer/>
             </ScrollView>
         </View>

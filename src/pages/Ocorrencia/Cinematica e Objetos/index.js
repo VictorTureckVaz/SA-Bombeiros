@@ -13,6 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import Header from "./../../Header";
 import Footer from "./../../Footer";
 import { extendTheme, Checkbox } from "native-base";
+import ReturnButton from '../../../components/ReturnButton';
 
 
 export default function MainCinematicaObjetos() {

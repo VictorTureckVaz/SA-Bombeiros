@@ -4,6 +4,8 @@ import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../../Header';
 import Footer from '../../Footer';
+import SelectList from '../../../components/SelectList';
+import ReturnButton from '../../../components/ReturnButton';
 
 export default function MainSinaisVitais(){
     
@@ -15,14 +17,11 @@ export default function MainSinaisVitais(){
     const [resp, setResp] = useState(0);
     const [sat, setSat] = useState(0);
     const [usingMenu, setUsingMenu] = useState(0);
-    const [perfusao, setPerfusao] = useState("Perfusão");
+    const [perfusaoName, setPerfusaoName] = useState("Perfusão");
+    const [perfusaoValue, setPerfusaoValue] = useState(null);
     const [normalidade, setNormalidade] = useState(null);
 
-    function UsingMenu(value) {
-        setPerfusao(value); // seta o valor da perfusão com o valor dado ao chamar a função
-        setUsingMenu((usingMenu+1)%2) // aumenta o using menu para considerar como desativado
-    }
-    
+ 
 
     return(
         <View style={styles.Body}>
@@ -70,34 +69,58 @@ export default function MainSinaisVitais(){
                     </View>
 
 
-                    <View style={[styles.UsingMenu, {height: usingMenu ? 138 : 56}]}>
-                        <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenu((usingMenu+1)%2)}>
-                            <Text style={styles.Text}>{perfusao}</Text>
-                            <View style={styles.UsingMenuIconContainer}>
-                                <Image
-                                style={[styles.UsingMenuIcon, {transform: usingMenu ? [{ rotate: "180deg" }] : [{ rotate: "0deg" }]}]}
-                                source={require('../../../../assets/downArrow.png')}
-                                />
-                            </View>
+                    <SelectList
+                    options={[
+                        {
+                            optionName: "Mano",
+                            optionValue: "Nota 10"
+                        },
+                        {
+                            optionName: "Mano2",
+                            optionValue: "Nota 10 (Tbm)"
+                        },
+                        {
+                            optionName: "Mano3",
+                            optionValue: "Nota 5 + 5"
+                        },
+                        {
+                            optionName: "NOME MOSTRADO",
+                            optionValue: "VALOR PARA O BANCO"
+                        },
+                    ]}
+                    usingMenu={usingMenu}
+                    setUsingMenu={setUsingMenu}
+                    selectedOptionName={perfusaoName}
+                    setSelectedOptionName={setPerfusaoName}
+                    selectedOptionValue={perfusaoValue}
+                    setSelectedOptionValue={setPerfusaoValue}
+                    />
+
+                    <View style={[styles.BorderContainer, {justifyContent: "space-around"}]}> 
+                        <TouchableOpacity style={{flexDirection: "row", gap: 5, alignItems: "center"}} onPress={ () => setNormalidade("Anormal")}>
+                                <View 
+                                style={[
+                                    styles.CheckBox, 
+                                    {backgroundColor: normalidade == "Anormal" 
+                                    ? "green" 
+                                    : "transparent"
+                                    }]}>
+                                </View>
+                                <Text style={styles.Text}>Anormal</Text>
+                        </TouchableOpacity>
+            
+                        <TouchableOpacity style={{flexDirection: "row", gap: 5, alignItems: "center"}} onPress={ () => setNormalidade("Normal")}>
+                                <View 
+                                style={[
+                                    styles.CheckBox, 
+                                    {backgroundColor: normalidade == "Normal" 
+                                    ? "green" 
+                                    : "transparent"
+                                    }]}>
+                                </View>
+                                <Text style={styles.Text}>Normal</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => setUsingMenu("Maior que 2 Segundos")}>
-                            <Text style={styles.Text}>Maior que 2 Segundos</Text>
-                        </TouchableOpacity>
-                        
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => setUsingMenu("Menor que 2 segundos")}>
-                            <Text style={[styles.Text]}>Menor que 2 segundos</Text>
-                        </TouchableOpacity>
-                    </View>
-
-                    <View style={[styles.BorderContainer, {justifyContent: "space-around"}]}>
-                        <TouchableOpacity style={[styles.UsingMenuTitle]} onPress={ () => UsingMenu()}>
-                            <Text style={[styles.Text]}>Anormal</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.UsingMenuTitle]} onPress={ () => UsingMenu()}>
-                            <Text style={[styles.Text]}>Normal</Text>
-                        </TouchableOpacity>
                     </View>
                
                     
@@ -105,18 +128,7 @@ export default function MainSinaisVitais(){
                 </View>
                 
                 
-                <View style={styles.ButtonContainer}>
-                    <TouchableOpacity 
-                    style={styles.Button} 
-                    onPress={ () => navigation.navigate('ocorrencia') }
-                    >
-                        <Image
-                        style={styles.Icon}
-                        source={require('../../../../assets/previous.png')}
-                        />
-                        <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
-                    </TouchableOpacity>
-                </View>
+                <ReturnButton/>
                 
                 <Footer/>
             </ScrollView>

@@ -63,21 +63,26 @@ const styles = StyleSheet.create({
         alignItems: "center",
       },
 
-      UsingMenuIconContainer: {
-          flex: 1,
-          alignItems: "flex-end",
-      },
-
-      UsingMenuIcon: {
-          width: 32,
-          height: 32,
-          transform: [{ rotate: "180deg" }]
-      },
 
       Body: {
         gap: 44,
         height: "100%",
       },
+
+      CheckBox: {
+        width: 25,
+        height: 25,
+        borderColor: "#555555",
+        borderWidth: 2,
+        borderRadius: 2,
+      },
+
+      OptionContainer: {
+        flexDirection: "row",
+        gap: 5,
+        alignItems: "center",
+      },
+
 
       TextInput: {
         fontSize: 16,

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import {
   View,
   Text,
@@ -14,12 +14,15 @@ import Header from "./../../Header";
 import Footer from "./../../Footer";
 import { extendTheme, Checkbox } from "native-base";
 import RadioButton from "../../../components/RadioButton";
+import ReturnButton from '../../../components/ReturnButton';
+
+import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
 
 
 export default function MainTipoOc() {
   const navigation = useNavigation();
 
-  const [tipoOc, setTipoOc] = useState(0);
+  const { tipoOc, setTipoOc } = useContext(OcorrenciaContext);
 
   return (
     <View style={styles.Body}>
@@ -123,8 +126,8 @@ export default function MainTipoOc() {
           selectedOption={tipoOc}
           setSelectedOption={setTipoOc}
           />
-
-          <Footer />
+          <ReturnButton/>
+          <Footer/>
         </View>
       </ScrollView>
     </View>

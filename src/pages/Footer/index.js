@@ -10,11 +10,11 @@ export default function Footer(){
     return(
         <View style={styles.Footer}>
             <TouchableOpacity style={styles.FooterSection} onPress={ () => navigation.navigate('home')}>
-                <Image source={require("../../../assets/home.png")} style={styles.HomeImage}/>
+                <Image source={require("../../../assets/VectorHouse.png")} style={styles.HomeImage}/>
                <Text>Início</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.FooterSection} onPress={ () => navigation.navigate('ocorrencia')}>
-            <Image source={require("../../../assets/document.png")} style={styles.HomeImage} />
+            <Image source={require("../../../assets/GroupDocs.png")} style={styles.HomeImage} />
                <Text>Ocorrência</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.FooterSection}>

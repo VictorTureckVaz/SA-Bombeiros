@@ -4,6 +4,7 @@ import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import Header from './../../Header';
 import Footer from './../../Footer';
+import ReturnButton from '../../../components/ReturnButton';
 
 
 export default function MainOcorrencia(){
@@ -34,7 +35,7 @@ export default function MainOcorrencia(){
                         <TouchableOpacity style={styles.OcStep}>
                             <Text style={styles.OcStepText} onPress={ () => navigation.navigate('sinaisVitais')}>Sinais Vitais</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('SS')}>
                             <Text style={styles.OcStepText}>Sinais e Sintomas</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('problemasEncontrados')}>

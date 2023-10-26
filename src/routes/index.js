@@ -17,10 +17,15 @@ import MainSinaisVitais from '../pages/Ocorrencia/Sinais Vitais';
 import MainObs from '../pages/Ocorrencia/Observacoes';
 import MainAvaliacao from '../pages/Ocorrencia/Avaliacao do Paciente';
 import MainMateriais from '../pages/Ocorrencia/Materiais';
+import MainTeste from '../pages/Ocorrencia/teste';
+import MainSinaisSintomas from '../pages/Ocorrencia/Sinais e Sintomas';
+
 
 const Stack = createNativeStackNavigator()
 
 export default function Routes(){
+
+
      return(
           <Stack.Navigator>
                {/* <Stack.Screen
@@ -28,14 +33,25 @@ export default function Routes(){
                component={ MainLogin }
                options={ {headerShown: false}}
                /> */}
+               {/* <Stack.Screen
+               name="teste"
+               component={ MainTeste }
+               options={ {headerShown: false}}
+               /> */}
                <Stack.Screen
                name="home"
                component={ MainHome }
                options={ {headerShown: false}}
                />
+               
                <Stack.Screen
                name="ocorrencia"
                component={ MainOcorrencia }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="SS"
+               component={ MainSinaisSintomas }
                options={ {headerShown: false}}
                />
                <Stack.Screen

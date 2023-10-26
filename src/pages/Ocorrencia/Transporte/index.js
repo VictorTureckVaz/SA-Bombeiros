@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import Header from './../../Header';
 import Footer from './../../Footer';
 import SelectList from './../../../components/SelectList'
+import ReturnButton from '../../../components/ReturnButton';
 
 export default function MainTransporte(){
 
@@ -21,6 +22,12 @@ export default function MainTransporte(){
     const [socorristaB, setSocorristaB] = useState(null);
     const [socorristaC, setSocorristaC] = useState(null);
     const [demandante, setDemandante] = useState(null);
+
+    function teste(){
+        return(
+            <TextInput placeholder = 'Motorista' keyboardType = 'default' style={styles.TextInput} onChangeText={setMotorista}/>
+        )
+    }
 
 
 
@@ -98,15 +105,8 @@ export default function MainTransporte(){
                 
                 
                 
-                    <View style={styles.ButtonContainer}>
-                        <TouchableOpacity style={styles.Button} onPress={ () => navigation.navigate('ocorrencia') }>
-                            <Image
-                            style={styles.Icon}
-                            source={require('../../../../assets/previous.png')}
-                            />
-                            <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
-                        </TouchableOpacity>
-                    </View>
+                    <ReturnButton/>
+                    
                     <Footer/>
                 </View>
             </ScrollView>

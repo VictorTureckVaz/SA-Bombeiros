@@ -32,6 +32,12 @@ const styles = StyleSheet.create({
      Container: {
           height: "100%",
      },
+
+     Body: {
+          gap: 27,
+          height: "100%",
+        },
+     
  })
 
  export default styles;

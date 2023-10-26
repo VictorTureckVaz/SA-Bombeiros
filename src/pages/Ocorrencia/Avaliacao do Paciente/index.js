@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import Header from '../../Header';
 import Footer from '../../Footer';
 import RadioButton from '../../../components/RadioButton';
+import ReturnButton from '../../../components/ReturnButton';
 
 
 
@@ -188,15 +189,7 @@ export default function MainAvaliacao(){
 
 
 
-                <View style={styles.ButtonContainer}>
-                    <TouchableOpacity style={styles.Button} onPress={ () => navigation.navigate('ocorrencia') }>
-                        <Image
-                        style={styles.Icon}
-                        source={require('../../../../assets/previous.png')}
-                        />
-                        <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
-                    </TouchableOpacity>
-                </View>
+                <ReturnButton/>
             </View>
            
                 

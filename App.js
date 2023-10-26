@@ -15,14 +15,23 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { NativeBaseProvider } from 'native-base'
 import Routes from './src/routes';
+import { OcorrenciaProvider } from './src/context/ocorrenciaContext';
+import { useContext } from 'react';
+import { OcorrenciaContext } from './src/context/ocorrenciaContext';
 
 export default function App() {
-  // Tela de Login
+
+  const [ tipoOc, setTipoOc ] = useContext(OcorrenciaContext);
+
+
   return(
     <NativeBaseProvider>
-      <NavigationContainer>
-        <Routes/>
-      </NavigationContainer>
+      <OcorrenciaProvider>
+        <NavigationContainer>
+        
+          <Routes/>
+        </NavigationContainer>
+      </OcorrenciaProvider>
     </NativeBaseProvider>
   )
   

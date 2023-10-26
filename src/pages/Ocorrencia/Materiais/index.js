@@ -6,6 +6,7 @@ import Header from '../../Header';
 import Footer from '../../Footer';
 import SelectList from './../../../components/SelectList'
 import RadioButton from '../../../components/RadioButton';
+import ReturnButton from '../../../components/ReturnButton';
 
 export default function MainMateriais(){
     
@@ -116,6 +117,61 @@ export default function MainMateriais(){
                     selectedOptionValue={materialValue}
                     setSelectedOptionValue={setMaterialValue}
                 />
+
+                <SelectList
+                    options={[
+                        {
+                            optionName: "Mano",
+                            optionValue: "Nota 10"
+                        },
+                        {
+                            optionName: "Mano2",
+                            optionValue: "Nota 10 (Tbm)"
+                        },
+                        {
+                            optionName: "Mano3",
+                            optionValue: "Nota 5 + 5"
+                        },
+                        {
+                            optionName: "NOME MOSTRADO",
+                            optionValue: "VALOR PARA O BANCO"
+                        },
+                    ]}
+                    usingMenu={usingMenu}
+                    setUsingMenu={setUsingMenu}
+                    selectedOptionName={materialName}
+                    setSelectedOptionName={setMaterialName}
+                    selectedOptionValue={materialValue}
+                    setSelectedOptionValue={setMaterialValue}
+                />
+
+                <SelectList
+                    options={[
+                        {
+                            optionName: "Mano",
+                            optionValue: "Nota 10"
+                        },
+                        {
+                            optionName: "Mano2",
+                            optionValue: "Nota 10 (Tbm)"
+                        },
+                        {
+                            optionName: "Mano3",
+                            optionValue: "Nota 5 + 5"
+                        },
+                        {
+                            optionName: "NOME MOSTRADO",
+                            optionValue: "VALOR PARA O BANCO"
+                        },
+                    ]}
+                    usingMenu={usingMenu}
+                    setUsingMenu={setUsingMenu}
+                    selectedOptionName={materialName}
+                    setSelectedOptionName={setMaterialName}
+                    selectedOptionValue={materialValue}
+                    setSelectedOptionValue={setMaterialValue}
+                />
+
                 <RadioButton
                     options={[
                         {
@@ -138,6 +194,7 @@ export default function MainMateriais(){
                     selectedOption={radio}
                     setSelectedOption={setRadio}
                 />
+                <ReturnButton/>
                 <Footer/>
             </ScrollView>
         </View>
