@@ -6,6 +6,7 @@ import Header from './../../Header';
 import Footer from './../../Footer';
 import api from './../../../lib/axios';
 import ReturnButton from '../../../components/ReturnButton';
+import SelectList from '../../../components/SelectList';
 
 export default function MainInfoPac(){
     
@@ -19,7 +20,8 @@ export default function MainInfoPac(){
     const [local, setLocal] = useState(null);
     const [acompanhante, setAcompanhante] = useState(null);
     const [idadeAcom, setIdadeAcom] = useState(null);
-    const [vitimaEra, setVitimaEra] = useState("Vitima Era");
+    const [vitimaEraName, setVitimaEraName] = useState("Vitima Era");
+    const [vitimaEraValue, setVitimaEraValue] = useState(null);
     const [usingMenu, setUsingMenu] = useState(0);
 
     async function submit() {
@@ -49,12 +51,6 @@ export default function MainInfoPac(){
         }
     }
 
-    function UsingMenu(value) {
-        setVitimaEra(value); // seta o valor da perfusão com o valor dado ao chamar a função
-        setUsingMenu((usingMenu+1)%2) // aumenta o using menu para considerar como desativado
-        
-    }
-
     return(
         <View style={styles.Body}>
             <Header/>
@@ -76,64 +72,55 @@ export default function MainInfoPac(){
                     
                     <TextInput placeholder = 'Idade do Acompanhante...' keyboardType = 'number-pad' style={styles.TextInput} value={idadeAcom} onChangeText={setIdadeAcom}/>
                     
-                    <View style={[styles.UsingMenu, {height: usingMenu ? 430 : 56}]}>
-                        <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenu((usingMenu+1)%2)}>
-                            <Text style={styles.Text}>{vitimaEra}</Text>
-                            <View style={styles.UsingMenuIconContainer}>
-                                <Image
-                                style={[styles.UsingMenuIcon, {transform: usingMenu ? [{ rotate: "180deg" }] : [{ rotate: "0deg" }]}]}
-                                source={require('../../../../assets/downArrow.png')}
-                                />
-                            </View>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Ciclista")}>
-                            <Text style={styles.Text}>Ciclista</Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Condutor de Moto")}>
-                            <Text style={[styles.Text]}>Condutor de Moto</Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"} ]} onPress={ () => UsingMenu("Condutor de Carro")}>
-                            <Text style={[styles.Text]}>Condutor de Carro</Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Clínico")}>
-                            <Text style={[styles.Text]}>Clínico</Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Gestante")}>
-                            <Text style={[styles.Text]}>Gestante</Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Pass. Banco da Frente")}>
-                            <Text style={[styles.Text]}>Pass. Banco da Frente</Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Pass. Banco de Trás")}>
-                            <Text style={[styles.Text]}>Pass. Banco de Trás</Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Pass. Moto")}>
-                            <Text style={[styles.Text]}>Pass. Moto</Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Pedestre")}>
-                            <Text style={[styles.Text]}>Pedestre</Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Trauma")}>
-                            <Text style={[styles.Text]}>Trauma</Text>
-                        </TouchableOpacity>
-                    </View>
+                        <SelectList
+                            options={[
+                                {
+                                    optionName: "Ciclista",
+                                    optionValue: "ciclista"
+                                },
+                                {
+                                    optionName: "Condutor de Moto",
+                                    optionValue: "condutorMoto"
+                                },
+                                {
+                                    optionName: "Condutor de Carro",
+                                    optionValue: "condutorCarro"
+                                },
+                                {
+                                    optionName: "Clínico",
+                                    optionValue: "clinico"
+                                },
+                                {
+                                    optionName: "Gestante",
+                                    optionValue: "gestante"
+                                },
+                                {
+                                    optionName: "Pass. Banco da Frente",
+                                    optionValue: "passBancoFrente"
+                                },
+                                {
+                                    optionName: "Pass. Banco de Trás",
+                                    optionValue: "passBancoTras"
+                                },
+                                {
+                                    optionName: "Pass. Moto",
+                                    optionValue: "passMoto"
+                                },
+                                {
+                                    optionName: "Pedestre",
+                                    optionValue: "pedestre"
+                                },
+                                {
+                                    optionName: "Trauma",
+                                    optionValue: "trauma"
+                                },
+                            ]}
+                            selectedOptionName={vitimaEraName}
+                            setSelectedOptionName={setVitimaEraName}
+                            selectedOptionValue={vitimaEraValue}
+                            setSelectedOptionValue={setVitimaEraValue}
+                        />
                 </View>
-
-                <TouchableOpacity style={styles.ButtonContainer} onPress={submit}>
-                        <Text style={styles.ButtonText}>ENVIAR</Text>
-                </TouchableOpacity>
-                
-
 
                 <ReturnButton/>
                 

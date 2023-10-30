@@ -21,181 +21,178 @@ export default function MainMateriais(){
     // ! <---
     // ^
 
-    const [usingMenu, setUsingMenu] = useState(false);
+    const [materialTypeValue, setMaterialTypeValue] = useState(null);
+    const [materialTypeName, setMaterialTypeName] = useState("Tipo do Material Utilizado");
     const [materialValue, setMaterialValue] = useState(null);
-    const [materialName, setMaterialName] = useState("Nenhum");
-    const [radio, setRadio] = useState(null);
+    const [materialName, setMaterialName] = useState("Qual foi o Material Utilizado");
+    const [materialSizeValue, setMaterialSizeValue] = useState(null);
+    const [materialSizeName, setMaterialSizeName] = useState("Tamanho do Material");
 
-    function UsingMenu(value) {
-        setPerfusao(value); // seta o valor da perfusão com o valor dado ao chamar a função
-        setUsingMenu(!usingMenu) // aumenta o using menu para considerar como desativado
-    }
+
+    
+
 
     return(
         <View style={styles.Body}>
             <Header/>
             <ScrollView>
-            
-                {/* <View style={styles.Container}>
+                <View style={styles.Container}>
+                    <SelectList
+                        options={[
+                            {
+                                optionName: "Descartável",
+                                optionValue: "descartavel"
+                            },
+                            {
+                                optionName: "Deixado no Hospital",
+                                optionValue: "deixadoNoHospital"
+                            },
+                        ]}
+                        selectedOptionName={materialTypeName}
+                        setSelectedOptionName={setMaterialTypeName}
+                        selectedOptionValue={materialTypeValue}
+                        setSelectedOptionValue={setMaterialTypeValue}
+                    />
 
-
-
-                    <View style={[styles.UsingMenu, {height: usingMenu ? 138 : 56}]}>
-                        <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenu((usingMenu+1)%2)}>
-                            <Text style={styles.Text}>{perfusao}</Text>
-                            <View style={styles.UsingMenuIconContainer}>
-                                <Image
-                                style={[styles.UsingMenuIcon, {transform: usingMenu ? [{ rotate: "180deg" }] : [{ rotate: "0deg" }]}]}
-                                source={require('../../../../assets/downArrow.png')}
-                                />
-                            </View>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Maior que 2 Segundos")}>
-                            <Text style={styles.Text}>Ataduras</Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity style={[styles.UsingMenuTitle, {display: usingMenu ? "flex" : "none"}]} onPress={ () => UsingMenu("Menor que 2 segundos")}>
-                            <Text style={[styles.Text]}>Couro</Text>
-                        </TouchableOpacity>
-                    </View>
-
-                    <View>
-                         
-                    </View>
-
-                    <View style={[styles.BorderContainer, {justifyContent: "space-around"}]}>
-                        <TouchableOpacity style={[styles.UsingMenuTitle]} onPress={ () => UsingMenu()}>
-                            <Text style={[styles.Text]}>Anormal</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.UsingMenuTitle]} onPress={ () => UsingMenu()}>
-                            <Text style={[styles.Text]}>Normal</Text>
-                        </TouchableOpacity>
-                    </View>
-               
                     
-                    
-                </View> */}
-                
-                
-                <View style={styles.ButtonContainer}>
-                    <TouchableOpacity 
-                    style={styles.Button} 
-                    onPress={ () => navigation.navigate('ocorrencia') }
-                    >
-                        <Image
-                        style={styles.Icon}
-                        source={require('../../../../assets/previous.png')}
+                    <View style={{display: materialTypeValue == "descartavel" ? "flex" : "none"}}>
+                        <SelectList
+                            options={[
+                                {
+                                    optionName: "Ataduras (8)",
+                                    optionValue: "Ataduras8"
+                                },
+                                {
+                                    optionName: "Ataduras (12)",
+                                    optionValue: "Ataduras12"
+                                },
+                                {
+                                    optionName: "Ataduras (20)",
+                                    optionValue: "Ataduras20"
+                                },
+                                {
+                                    optionName: "Cateter TP. Óculos",
+                                    optionValue: "CateterOculos"
+                                },
+                                {
+                                    optionName: "Compressa Comum",
+                                    optionValue: "CompressaComum"
+                                },
+                                {
+                                    optionName: "KIT H",
+                                    optionValue: "KitH"
+                                },
+                                {
+                                    optionName: "KIT P",
+                                    optionValue: "KitP"
+                                },
+                                {
+                                    optionName: "KIT Q",
+                                    optionValue: "KitQ"
+                                },
+                                {
+                                    optionName: "Luvas",
+                                    optionValue: "Luvas"
+                                },
+                                {
+                                    optionName: "Máscara",
+                                    optionValue: "Mascara"
+                                },
+                                {
+                                    optionName: "Manta Aluminizada",
+                                    optionValue: "MantaAluminizada"
+                                },
+                                {
+                                    optionName: "Pás do Dea",
+                                    optionValue: "PasDea"
+                                },
+                                {
+                                    optionName: "Sonda de Aspiração",
+                                    optionValue: "SondaAspiracao"
+                                },
+                                {
+                                    optionName: "Soro Fisiológico",
+                                    optionValue: "SoroFisiologico"
+                                },
+                                {
+                                    optionName: "Talas Pap.",
+                                    optionValue: "VALOR"
+                                },
+                                {
+                                    optionName: "Outros",
+                                },
+                            ]}
+                            selectedOptionName={materialName}
+                            setSelectedOptionName={setMaterialName}
+                            selectedOptionValue={materialValue}
+                            setSelectedOptionValue={setMaterialValue}
+                            
                         />
-                        <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
-                    </TouchableOpacity>
+                    </View>
+
+                    <View style={{display: materialTypeValue == "deixadoNoHospital" ? "flex" : "none"}}>
+
+                        <SelectList
+                            options={[
+                                {
+                                    optionName: "Base do Estabilizante",
+                                    optionValue: "BaseEstabilizante"
+                                },
+                                {
+                                    optionName: "Colar",
+                                    optionValue: "colar"
+                                },
+                                {
+                                    optionName: "Coxins Estabilizante",
+                                    optionValue: "CoxinsEstabilizante"
+                                },
+                                {
+                                    optionName: "NOME",
+                                    optionValue: "VALOR"
+                                },
+                            ]}
+                            selectedOptionName={materialName}
+                            setSelectedOptionName={setMaterialName}
+                            selectedOptionValue={materialValue}
+                            setSelectedOptionValue={setMaterialValue}
+                        />
+                    </View>
+
+
+
+
+                    <View style={{display: materialValue ? "flex" : "none"}}>
+                        <SelectList
+                            options={[
+                                {
+                                    optionName: "Mano",
+                                    optionValue: "Nota 10"
+                                },
+                                {
+                                    optionName: "Mano2",
+                                    optionValue: "Nota 10 (Tbm)"
+                                },
+                                {
+                                    optionName: "Mano3",
+                                    optionValue: "Nota 5 + 5"
+                                },
+                                {
+                                    optionName: "NOME MOSTRADO",
+                                    optionValue: "VALOR PARA O BANCO"
+                                },
+                            ]}
+                            selectedOptionName={materialSizeName}
+                            setSelectedOptionName={setMaterialSizeName}
+                            selectedOptionValue={materialSizeValue}
+                            setSelectedOptionValue={setMaterialSizeValue}
+                        />
+                    </View> 
+                    <ReturnButton/>
+                    
+                    <Footer/>
                 </View>
 
-                <SelectList
-                    options={[
-                        {
-                            optionName: "Mano",
-                            optionValue: "Nota 10"
-                        },
-                        {
-                            optionName: "Mano2",
-                            optionValue: "Nota 10 (Tbm)"
-                        },
-                        {
-                            optionName: "Mano3",
-                            optionValue: "Nota 5 + 5"
-                        },
-                        {
-                            optionName: "NOME MOSTRADO",
-                            optionValue: "VALOR PARA O BANCO"
-                        },
-                    ]}
-                    usingMenu={usingMenu}
-                    setUsingMenu={setUsingMenu}
-                    selectedOptionName={materialName}
-                    setSelectedOptionName={setMaterialName}
-                    selectedOptionValue={materialValue}
-                    setSelectedOptionValue={setMaterialValue}
-                />
-
-                <SelectList
-                    options={[
-                        {
-                            optionName: "Mano",
-                            optionValue: "Nota 10"
-                        },
-                        {
-                            optionName: "Mano2",
-                            optionValue: "Nota 10 (Tbm)"
-                        },
-                        {
-                            optionName: "Mano3",
-                            optionValue: "Nota 5 + 5"
-                        },
-                        {
-                            optionName: "NOME MOSTRADO",
-                            optionValue: "VALOR PARA O BANCO"
-                        },
-                    ]}
-                    usingMenu={usingMenu}
-                    setUsingMenu={setUsingMenu}
-                    selectedOptionName={materialName}
-                    setSelectedOptionName={setMaterialName}
-                    selectedOptionValue={materialValue}
-                    setSelectedOptionValue={setMaterialValue}
-                />
-
-                <SelectList
-                    options={[
-                        {
-                            optionName: "Mano",
-                            optionValue: "Nota 10"
-                        },
-                        {
-                            optionName: "Mano2",
-                            optionValue: "Nota 10 (Tbm)"
-                        },
-                        {
-                            optionName: "Mano3",
-                            optionValue: "Nota 5 + 5"
-                        },
-                        {
-                            optionName: "NOME MOSTRADO",
-                            optionValue: "VALOR PARA O BANCO"
-                        },
-                    ]}
-                    usingMenu={usingMenu}
-                    setUsingMenu={setUsingMenu}
-                    selectedOptionName={materialName}
-                    setSelectedOptionName={setMaterialName}
-                    selectedOptionValue={materialValue}
-                    setSelectedOptionValue={setMaterialValue}
-                />
-
-                <RadioButton
-                    options={[
-                        {
-                            optionName: "Mano",
-                            optionValue: "Nota 10"
-                        },
-                        {
-                            optionName: "Mano2",
-                            optionValue: "Nota 10 (Tbm)"
-                        },
-                        {
-                            optionName: "Mano3",
-                            optionValue: "Nota 5 + 5"
-                        },
-                        {
-                            optionName: "NOME MOSTRADO",
-                            optionValue: "VALOR PARA O BANCO"
-                        },
-                    ]}
-                    selectedOption={radio}
-                    setSelectedOption={setRadio}
-                />
-                <ReturnButton/>
-                <Footer/>
+                
             </ScrollView>
         </View>
     )

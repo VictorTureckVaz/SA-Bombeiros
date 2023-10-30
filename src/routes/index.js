@@ -13,7 +13,7 @@ import MainTipoOc from '../pages/Ocorrencia/Tipo de Ocorrencia';
 import MainTransporte from '../pages/Ocorrencia/Transporte';
 import MainProblemasEncontrados from '../pages/Ocorrencia/Problemas Encontrados';
 import MainCinematicaObjetos from '../pages/Ocorrencia/Cinematica e Objetos';
-import MainSinaisVitais from '../pages/Ocorrencia/Sinais Vitais';
+import MainSinaisVitais from '../pages/Ocorrencia/Sinais vitais';
 import MainObs from '../pages/Ocorrencia/Observacoes';
 import MainAvaliacao from '../pages/Ocorrencia/Avaliacao do Paciente';
 import MainMateriais from '../pages/Ocorrencia/Materiais';

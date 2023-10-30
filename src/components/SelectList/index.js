@@ -1,10 +1,9 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
+import { useState } from 'react';
 
 export default function SelectList({
     options,
-    usingMenu,
-    setUsingMenu,
     selectedOptionValue,
     selectedOptionName,
     setSelectedOptionValue,
@@ -13,9 +12,10 @@ export default function SelectList({
     function handleOptionSelection(value, name) {
         setSelectedOptionValue(value); // seta o valor da opção como o valor da opção selecionada
         setSelectedOptionName(name)
-
         setUsingMenu(!usingMenu); // aumenta o using menu para considerar como desativado
     }
+
+    const [usingMenu, setUsingMenu] = useState(0);
 
     return (
         <View style={[styles.UsingMenu, { height: usingMenu ? "fit-content" : 56 }]}>

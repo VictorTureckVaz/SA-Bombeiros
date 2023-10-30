@@ -10,5 +10,6 @@
 
 - `expo start` -> w (se der certo, se não:)
 - `npx expo` -> w (para abrir somente o front)
+- `npm install normalize-css-color`
 
 manoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessianomanoelmanoangemessiano

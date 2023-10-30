@@ -21,17 +21,17 @@ import { OcorrenciaContext } from './src/context/ocorrenciaContext';
 
 export default function App() {
 
-  const [ tipoOc, setTipoOc ] = useContext(OcorrenciaContext);
+  // const [ tipoOc, setTipoOc ] = useContext(OcorrenciaContext);
 
 
   return(
     <NativeBaseProvider>
-      <OcorrenciaProvider>
+      {/* <OcorrenciaProvider> */}
         <NavigationContainer>
         
           <Routes/>
         </NavigationContainer>
-      </OcorrenciaProvider>
+      {/* </OcorrenciaProvider> */}
     </NativeBaseProvider>
   )
   

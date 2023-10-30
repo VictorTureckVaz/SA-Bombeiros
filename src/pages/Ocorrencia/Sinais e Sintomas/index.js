@@ -3,14 +3,61 @@ import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-nativ
 import styles from "./style";
 import { useNavigation } from "@react-navigation/native";
 import Header from "./../../Header";
-import Footer from "./../../Footer";
+import Footer from "././../../Footer";
 import { extendTheme, Checkbox } from "native-base";
-import ReturnButton from '../../../components/ReturnButton';
+import ReturnButton from './../../../components/ReturnButton';
+// "./../../../../server/SavedReports/testes.json";
 
 export default function MainSinaisSintomas() {
 
     const navigation = useNavigation();
     const [groupValues, setGroupValues] = React.useState([]);
+    const [AbdomenSensivelRigido] = useState(null);
+    const [AfundamentoCranio] = useState(null);
+    const [Agitacao] = useState(null);
+    const [Amnesia] = useState(null);
+    const [AnginaPeito] = useState(null);
+    const [Apneia] = useState(null);
+    const [Bradicardia] = useState(null);
+    const [Bradipneia] = useState(null);
+    const [BroncoAspirando] = useState(null);
+    const [Cefaleia] = useState(null);
+    const [Convulsao] = useState(null);
+    const [Decorticacao] = useState(null);
+    const [Deformidade] = useState(null);
+    const [Desmaio] = useState(null);
+    const [Dispneia] = useState(null);
+    const [DorLocal] = useState(null);
+    const [EnfisemaSubcutaneo] = useState(null);
+    const [ExtaseJugular] = useState(null);
+    const [DesvioTraqueia] = useState(null);
+    const [Descerebracao] = useState(null);
+    const [FacePalida] = useState(null);
+    const [HemorragiaInterna] = useState(null);
+    const [HemorragiaExterna] = useState(null);
+    const [ParadaRespiratoria] = useState(null);
+    const [Hipertensao] = useState(null);
+    const [NauseasVomito] = useState(null);
+    const [Nasoragia] = useState(null);
+    const [Obito] = useState(null);
+    const [Otorreia] = useState(null);
+    const [OVACE] = useState(null);
+    const [ParadaCardiaca] = useState(null);
+    const [Priapismo] = useState(null);
+    const [PruridoPele] = useState(null);
+    const [PupilasAnisocoria] = useState(null);
+    const [PupilasIsocoria] = useState(null);
+    const [PupilasMidriade] = useState(null);
+    const [PupilasMiose] = useState(null);
+    const [PupilasReagente] = useState(null);
+    const [PupilasNaoReagente] = useState(null);
+    const [SinalBattle] = useState(null);
+    const [SinalGuaxinim] = useState(null);
+    const [Sudorese] = useState(null);
+    const [Taquipneia] = useState(null);
+    const [Taquicardia] = useState(null);
+    const [Tontura] = useState(null);
+    const [Outros] = useState(null);
 
     return (
      <View style={styles.Body}>
@@ -18,151 +65,142 @@ export default function MainSinaisSintomas() {
         <ScrollView>
             <View style={styles.Container}>
                 <Checkbox.Group onChange={setGroupValues} border="black" colorScheme="green" size="md" value={groupValues} accessibilityLabel="choose numbers">
-                    <Checkbox value=" " my={1}>
+                    <Checkbox value={AbdomenSensivelRigido}>
                         Abdômen Sensível ou Rígido
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={AfundamentoCranio}> 
                         Afundamento de Crânio
                     </Checkbox>
-                    <Checkbox value=" " my={1}>
+                    <Checkbox value={Agitacao}>
                         Agitação
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Amnesia}> 
                         Amnésia
                     </Checkbox>
-                    <Checkbox value=" " my={1}>
+                    <Checkbox value={AnginaPeito}>
                         Angina de Peito
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Apneia}> 
                         Apneia
                     </Checkbox>
-                    <Checkbox value=" " my={1}>
+                    <Checkbox value={Bradicardia}>
                         Bradicardia
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
-                      texto
-                    </Checkbox>
-                    <Checkbox value=" " my={1}>
+                    <Checkbox value={Bradipneia} >
                         Bradipnéia
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={BroncoAspirando} > 
                         Bronco-Aspirando
                     </Checkbox>
-                    <Checkbox value=" " my={1}>
+                    <Checkbox value={Cefaleia} >
                         Cefaléia
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Convulsao} > 
                         Convulsão
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Decorticacao} > 
                         Decorticação
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Deformidade} > 
                         Deformidade
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Descerebracao} > 
                         Descerebração
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Desmaio} > 
                         Desmaio
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={DesvioTraqueia} > 
                         Desvio de Traquéia
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Dispneia} > 
                         Dispnéia
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={DorLocal} > 
                         Dor Local
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={EnfisemaSubcutaneo} > 
                         Enfisema Subcutâneo
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={ExtaseJugular} > 
                         Êxtase de Jugular
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={FacePalida} > 
                         Face Pálida
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={HemorragiaInterna} > 
                         Hemorragia Interna
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={HemorragiaExterna} > 
                         Hemorragia Externa
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Hipertensao} > 
                         Hipertensão
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={NauseasVomito} > 
                         Náuseas e Vômito
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Nasoragia} > 
                         Nasoragia
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Obito} > 
                         Óbito
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Otorreia} > 
                         Otorréia
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={OVACE} > 
                         O.V.A.C.E
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={ParadaCardiaca} > 
                         Parada Cardíaca
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
-                        texto
-                    </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={ParadaRespiratoria} > 
                         Parada Respiratória
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Priapismo} > 
                         Priapismo
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={PruridoPele} >
                         Prurido na Pele
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
-                        Pupilas
-                    </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={PupilasAnisocoria} >
                         Pupilas - Anisocoria
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={PupilasIsocoria} >
                         Pupilas - Isocoria
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={PupilasMidriade} > 
                         Pupilas - Midriade
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={PupilasMiose} >
                         Pupilas - Miose
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={PupilasReagente} > 
                         Pupilas - Reagente
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={PupilasNaoReagente} > 
                         Pupilas - Não Reagente
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={SinalBattle} >
                         Sinal de Battle
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={SinalGuaxinim} > 
                         Sinal de Guaxinim
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Sudorese} > 
                         Sudorese
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Taquipneia} > 
                         Taquipnéia
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Taquicardia} > 
                         Taquicardia
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Tontura} > 
                         Tontura
                     </Checkbox>
-                    <Checkbox value=" " my={1}> 
+                    <Checkbox value={Outros} > 
                         Outros
                     </Checkbox>
                 </Checkbox.Group>
