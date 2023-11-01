@@ -45,7 +45,7 @@ export default function MainOcorrencia(){
                             <Text style={styles.OcStepText}>Localização dos Traumas</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep}>
-                            <Text style={styles.OcStepText}>Procedimentos Efetuados</Text>
+                            <Text style={styles.OcStepText} onPress={ () => navigation.navigate('procedimentosefetuados')}>Procedimentos Efetuados</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep}>
                             <Text style={styles.OcStepText}>Anamnese</Text>

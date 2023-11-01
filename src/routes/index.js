@@ -19,6 +19,7 @@ import MainAvaliacao from '../pages/Ocorrencia/Avaliacao do Paciente';
 import MainMateriais from '../pages/Ocorrencia/Materiais';
 import MainTeste from '../pages/Ocorrencia/teste';
 import MainSinaisSintomas from '../pages/Ocorrencia/Sinais e Sintomas';
+import MainProcedimentosEfetuados from '../pages/Ocorrencia/Procedimentos Efetuados';
 
 
 const Stack = createNativeStackNavigator()
@@ -97,6 +98,11 @@ export default function Routes(){
                <Stack.Screen
                name="avaliacao"
                component={ MainAvaliacao }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="procedimentosefetuados"
+               component={ MainProcedimentosEfetuados}
                options={ {headerShown: false}}
                />
                <Stack.Screen

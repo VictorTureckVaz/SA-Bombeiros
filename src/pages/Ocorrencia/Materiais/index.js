@@ -8,9 +8,29 @@ import SelectList from './../../../components/SelectList'
 import RadioButton from '../../../components/RadioButton';
 import ReturnButton from '../../../components/ReturnButton';
 
-export default function MainMateriais(){
-    
-    const navigation = useNavigation();
+// export default function MainTeste(){
+
+//     const navigation = useNavigation();
+//     const [views, setViews] = useState([]);
+
+//     const addView = () => {
+//     const newView = (
+//          <ViewBox key={views.length} text={`View ${views.length + 1}`} />
+//     );
+//     setViews([...views, newView]);
+//     }
+
+//  return (
+//    <View>
+//      <Button title="Add View" onPress={addView} />
+//      <ScrollView>
+//        {views.map((view, index) => (
+//          <ViewBox key={index} text={`View ${index + 1}`} />
+//        ))}
+//      </ScrollView>
+//    </View>
+//  );
+const navigation = useNavigation();
 
     // button  false
     // Abutton true
@@ -28,7 +48,12 @@ export default function MainMateriais(){
     const [materialSizeValue, setMaterialSizeValue] = useState(null);
     const [materialSizeName, setMaterialSizeName] = useState("Tamanho do Material");
 
-
+    const sizedMaterials = [
+        "colar",
+        "ttf",
+        "ked",
+        "talas"
+    ]
     
 
 
@@ -116,10 +141,11 @@ export default function MainMateriais(){
                                 },
                                 {
                                     optionName: "Talas Pap.",
-                                    optionValue: "VALOR"
+                                    optionValue: "Talas"
                                 },
                                 {
                                     optionName: "Outros",
+                                    optionValue: "Outros"
                                 },
                             ]}
                             selectedOptionName={materialName}
@@ -196,4 +222,11 @@ export default function MainMateriais(){
             </ScrollView>
         </View>
     )
+// }
+
+
+
+export default function MainMateriais(){
+    
+    
 }

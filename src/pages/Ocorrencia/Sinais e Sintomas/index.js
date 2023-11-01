@@ -10,54 +10,34 @@ import ReturnButton from './../../../components/ReturnButton';
 
 export default function MainSinaisSintomas() {
 
-    const navigation = useNavigation();
-    const [groupValues, setGroupValues] = React.useState([]);
-    const [AbdomenSensivelRigido] = useState(null);
-    const [AfundamentoCranio] = useState(null);
-    const [Agitacao] = useState(null);
-    const [Amnesia] = useState(null);
-    const [AnginaPeito] = useState(null);
-    const [Apneia] = useState(null);
-    const [Bradicardia] = useState(null);
-    const [Bradipneia] = useState(null);
-    const [BroncoAspirando] = useState(null);
-    const [Cefaleia] = useState(null);
-    const [Convulsao] = useState(null);
-    const [Decorticacao] = useState(null);
-    const [Deformidade] = useState(null);
-    const [Desmaio] = useState(null);
-    const [Dispneia] = useState(null);
-    const [DorLocal] = useState(null);
-    const [EnfisemaSubcutaneo] = useState(null);
-    const [ExtaseJugular] = useState(null);
-    const [DesvioTraqueia] = useState(null);
-    const [Descerebracao] = useState(null);
-    const [FacePalida] = useState(null);
-    const [HemorragiaInterna] = useState(null);
-    const [HemorragiaExterna] = useState(null);
-    const [ParadaRespiratoria] = useState(null);
-    const [Hipertensao] = useState(null);
-    const [NauseasVomito] = useState(null);
-    const [Nasoragia] = useState(null);
-    const [Obito] = useState(null);
-    const [Otorreia] = useState(null);
-    const [OVACE] = useState(null);
-    const [ParadaCardiaca] = useState(null);
-    const [Priapismo] = useState(null);
-    const [PruridoPele] = useState(null);
-    const [PupilasAnisocoria] = useState(null);
-    const [PupilasIsocoria] = useState(null);
-    const [PupilasMidriade] = useState(null);
-    const [PupilasMiose] = useState(null);
-    const [PupilasReagente] = useState(null);
-    const [PupilasNaoReagente] = useState(null);
-    const [SinalBattle] = useState(null);
-    const [SinalGuaxinim] = useState(null);
-    const [Sudorese] = useState(null);
-    const [Taquipneia] = useState(null);
-    const [Taquicardia] = useState(null);
-    const [Tontura] = useState(null);
-    const [Outros] = useState(null);
+    const [groupValues, setGroupValues] = useState("null")
+
+
+    // app.use(express.json());
+
+    // // Rota para receber os dados do aplicativo
+    // app.post('/api/inserir-dados', (req, res) => {
+    //     const { data } = req.body;
+
+    //   // Execute a consulta SQL para inserir os dados na tabela do banco de dados
+    //     const query = 'INSERT INTO sua_tabela (campo1, campo2, campo3) VALUES (?, ?, ?, ...)';
+
+    //     connection.query(query, [AbdomenSensivelRigido, AfundamentoCranio, Agitacao, AnginaPeito, Apneia, Bradicardia, Bradipneia, BroncoAspirando, Cefaleia, Convulsao, Decorticacao, Deformidade, Descerebracao, Desmaio, DesvioTraqueia, Dispneia, DorLocal, EnfisemaSubcutaneo ], (error, results) => {
+    //     if (error) {
+    //         console.error('Erro ao inserir dados no banco de dados: ' + error);
+    //         res.status(500).send('Erro interno do servidor');
+    //     } else {
+    //         console.log('Dados inseridos com sucesso');
+    //         res.status(200).send('Dados inseridos com sucesso');
+    //     }
+    //     });
+    // });
+
+    // app.listen(port, () => {
+    //     console.log(`Servidor em execução na porta ${port}`);
+    // });
+
+
 
     return (
      <View style={styles.Body}>
@@ -65,142 +45,142 @@ export default function MainSinaisSintomas() {
         <ScrollView>
             <View style={styles.Container}>
                 <Checkbox.Group onChange={setGroupValues} border="black" colorScheme="green" size="md" value={groupValues} accessibilityLabel="choose numbers">
-                    <Checkbox value={AbdomenSensivelRigido}>
+                    <Checkbox value="AbdomenSensivelRigido">
                         Abdômen Sensível ou Rígido
                     </Checkbox>
-                    <Checkbox value={AfundamentoCranio}> 
+                    <Checkbox value="AfundamentoCranio"> 
                         Afundamento de Crânio
                     </Checkbox>
-                    <Checkbox value={Agitacao}>
+                    <Checkbox value="Agitacao">
                         Agitação
                     </Checkbox>
-                    <Checkbox value={Amnesia}> 
+                    <Checkbox value="Amnesia"> 
                         Amnésia
                     </Checkbox>
-                    <Checkbox value={AnginaPeito}>
+                    <Checkbox value="AnginaPeito">
                         Angina de Peito
                     </Checkbox>
-                    <Checkbox value={Apneia}> 
+                    <Checkbox value="Apneia"> 
                         Apneia
                     </Checkbox>
-                    <Checkbox value={Bradicardia}>
+                    <Checkbox value="Bradicardia">
                         Bradicardia
                     </Checkbox>
-                    <Checkbox value={Bradipneia} >
+                    <Checkbox value="Bradipneia" >
                         Bradipnéia
                     </Checkbox>
-                    <Checkbox value={BroncoAspirando} > 
+                    <Checkbox value="BroncoAspirando" > 
                         Bronco-Aspirando
                     </Checkbox>
-                    <Checkbox value={Cefaleia} >
+                    <Checkbox value="Cefaleia" >
                         Cefaléia
                     </Checkbox>
-                    <Checkbox value={Convulsao} > 
+                    <Checkbox value="Convulsao" > 
                         Convulsão
                     </Checkbox>
-                    <Checkbox value={Decorticacao} > 
+                    <Checkbox value="Decorticacao" > 
                         Decorticação
                     </Checkbox>
-                    <Checkbox value={Deformidade} > 
+                    <Checkbox value="Deformidade" > 
                         Deformidade
                     </Checkbox>
-                    <Checkbox value={Descerebracao} > 
+                    <Checkbox value="Descerebracao" > 
                         Descerebração
                     </Checkbox>
-                    <Checkbox value={Desmaio} > 
+                    <Checkbox value="Desmaio" > 
                         Desmaio
                     </Checkbox>
-                    <Checkbox value={DesvioTraqueia} > 
+                    <Checkbox value="DesvioTraqueia" > 
                         Desvio de Traquéia
                     </Checkbox>
-                    <Checkbox value={Dispneia} > 
+                    <Checkbox value="Dispneia" > 
                         Dispnéia
                     </Checkbox>
-                    <Checkbox value={DorLocal} > 
+                    <Checkbox value="DorLocal" >
                         Dor Local
                     </Checkbox>
-                    <Checkbox value={EnfisemaSubcutaneo} > 
+                    <Checkbox value="EnfisemaSubcutaneo" > 
                         Enfisema Subcutâneo
                     </Checkbox>
-                    <Checkbox value={ExtaseJugular} > 
+                    <Checkbox value="ExtaseJugular" > 
                         Êxtase de Jugular
                     </Checkbox>
-                    <Checkbox value={FacePalida} > 
+                    <Checkbox value="FacePalida" > 
                         Face Pálida
                     </Checkbox>
-                    <Checkbox value={HemorragiaInterna} > 
+                    <Checkbox value="HemorragiaInterna" > 
                         Hemorragia Interna
                     </Checkbox>
-                    <Checkbox value={HemorragiaExterna} > 
+                    <Checkbox value="HemorragiaExterna" > 
                         Hemorragia Externa
                     </Checkbox>
-                    <Checkbox value={Hipertensao} > 
+                    <Checkbox value="Hipertensao" > 
                         Hipertensão
                     </Checkbox>
-                    <Checkbox value={NauseasVomito} > 
+                    <Checkbox value="NauseasVomito" > 
                         Náuseas e Vômito
                     </Checkbox>
-                    <Checkbox value={Nasoragia} > 
+                    <Checkbox value="Nasoragia" > 
                         Nasoragia
                     </Checkbox>
-                    <Checkbox value={Obito} > 
+                    <Checkbox value="Obito" > 
                         Óbito
                     </Checkbox>
-                    <Checkbox value={Otorreia} > 
+                    <Checkbox value="Otorreia" > 
                         Otorréia
                     </Checkbox>
-                    <Checkbox value={OVACE} > 
+                    <Checkbox value="OVACE" > 
                         O.V.A.C.E
                     </Checkbox>
-                    <Checkbox value={ParadaCardiaca} > 
+                    <Checkbox value="ParadaCardiaca" > 
                         Parada Cardíaca
                     </Checkbox>
-                    <Checkbox value={ParadaRespiratoria} > 
+                    <Checkbox value="ParadaRespiratoria" > 
                         Parada Respiratória
                     </Checkbox>
-                    <Checkbox value={Priapismo} > 
+                    <Checkbox value="Priapismo" > 
                         Priapismo
                     </Checkbox>
-                    <Checkbox value={PruridoPele} >
+                    <Checkbox value="PruridoPele" >
                         Prurido na Pele
                     </Checkbox>
-                    <Checkbox value={PupilasAnisocoria} >
+                    <Checkbox value="PupilasAnisocoria" >
                         Pupilas - Anisocoria
                     </Checkbox>
-                    <Checkbox value={PupilasIsocoria} >
+                    <Checkbox value="PupilasIsocoria" >
                         Pupilas - Isocoria
                     </Checkbox>
-                    <Checkbox value={PupilasMidriade} > 
+                    <Checkbox value="PupilasMidriade" > 
                         Pupilas - Midriade
                     </Checkbox>
-                    <Checkbox value={PupilasMiose} >
+                    <Checkbox value="PupilasMiose" >
                         Pupilas - Miose
                     </Checkbox>
-                    <Checkbox value={PupilasReagente} > 
+                    <Checkbox value="PupilasReagente" > 
                         Pupilas - Reagente
                     </Checkbox>
-                    <Checkbox value={PupilasNaoReagente} > 
+                    <Checkbox value="PupilasNaoReagente" > 
                         Pupilas - Não Reagente
                     </Checkbox>
-                    <Checkbox value={SinalBattle} >
+                    <Checkbox value="SinalBattle" >
                         Sinal de Battle
                     </Checkbox>
-                    <Checkbox value={SinalGuaxinim} > 
+                    <Checkbox value="SinalGuaxinim" > 
                         Sinal de Guaxinim
                     </Checkbox>
-                    <Checkbox value={Sudorese} > 
+                    <Checkbox value="Sudorese" > 
                         Sudorese
                     </Checkbox>
-                    <Checkbox value={Taquipneia} > 
+                    <Checkbox value="Taquipneia" > 
                         Taquipnéia
                     </Checkbox>
-                    <Checkbox value={Taquicardia} > 
+                    <Checkbox value="Taquicardia" > 
                         Taquicardia
                     </Checkbox>
-                    <Checkbox value={Tontura} > 
+                    <Checkbox value="Tontura" > 
                         Tontura
                     </Checkbox>
-                    <Checkbox value={Outros} > 
+                    <Checkbox value="Outros" > 
                         Outros
                     </Checkbox>
                 </Checkbox.Group>
