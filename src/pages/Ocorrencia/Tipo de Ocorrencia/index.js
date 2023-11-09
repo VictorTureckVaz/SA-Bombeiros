@@ -8,92 +8,139 @@ import {
   ScrollView,
 } from "react-native";
 import styles from "./style";
-import { RadioGroup } from "react-native-radio-buttons-group";
 import { useNavigation } from "@react-navigation/native";
 import Header from "./../../Header";
 import Footer from "./../../Footer";
-import { extendTheme, Checkbox} from "native-base";
+import ReturnButton from "../../../components/ReturnButton";
+import RadioButton from "../../../components/RadioButton";
+import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
 
 export default function MainTipoOc() {
   const navigation = useNavigation();
   const [groupValues, setGroupValues] = React.useState([]);
+  const a = useContext(OcorrenciaContext)
+  console.log(a);
 
   return (
     <View style={styles.Body}>
       <Header />
       <ScrollView>
         <View style={styles.Container}>
-          <Checkbox.Group onChange={setGroupValues} border="black" colorScheme="green" size="md" value={groupValues} accessibilityLabel="choose numbers">
-              <Checkbox value="CausadoAnimais">
-                Causado por Animais
-              </Checkbox>
-              <Checkbox value="ComMeioTransporte">
-                Com Meio de Transporte
-              </Checkbox>
-              <Checkbox value="Desmoronamento">
-                Desmoronamento
-              </Checkbox>
-              <Checkbox value="EmergenciaMedica">
-                Emergência Médica
-              </Checkbox>
-              <Checkbox value="QuedaAltura2M">
-                Queda de Altura 2M
-              </Checkbox>
-              <Checkbox value="TentativaSuecido">
-                Tentativa de Suícido
-              </Checkbox>
-              <Checkbox value="QuedaPropriaAltura">
-                Queda Própria Altura
-              </Checkbox>
-              <Checkbox value="Afogamento">
-                Afogamento
-              </Checkbox>
-              <Checkbox value="Agressão">
-                Agressão
-              </Checkbox>
-              <Checkbox value="Atropelamento">
-                Atropelamento
-              </Checkbox>
-              <Checkbox value="ChoqueEletrico">
-                Choque Elétrico
-              </Checkbox>
-              <Checkbox value="Desabamento">
-                Desabamento
-              </Checkbox>
-              <Checkbox value="Domestico">
-                Doméstico
-              </Checkbox>
-              <Checkbox value="Esportivo">
-                Esportivo
-              </Checkbox>
-              <Checkbox value="Intoxicacao">
-                Intoxicação
-              </Checkbox>
-              <Checkbox value="QuedaBicicleta">
-                Queda de Bicicleta
-              </Checkbox>
-              <Checkbox value="QuedaMoto">
-                Queda de Moto
-              </Checkbox>
-              <Checkbox value="QuedaNivel2M">
-                Queda de Nível 2M
-              </Checkbox>
-              <Checkbox value="QuedaNivelMenor2M">
-                Queda de Nível Menor que 2M
-              </Checkbox>
-              <Checkbox value="Trabalho" >
-                Trabalho
-              </Checkbox>
-              <Checkbox value="Transferencia">
-                Transferência
-              </Checkbox>
-              <Checkbox value="Outros">
-                Outros
-              </Checkbox>
-          </Checkbox.Group>
+              <RadioButton
+                options={[
+                    {
+                        optionName: "Causado por Animais",
+                        optionValue: "CausadoPorAnimais"
+                    },
+                    {
+                        optionName: "Com Meio de Transporte",
+                        optionValue: "ComMeioDeTransporte"
+                    },
+                    {
+                        optionName: "Desmoronamento",
+                        optionValue: "Desmoronamento"
+                    },
+                    {
+                        optionName: "Emergência Médica ",
+                        optionValue: "EmergênciaMédica "
+                    },
+                    {
+                        optionName: "Queda de Altura 2M",
+                        optionValue: "QuedaDeAltura2M"
+                    },
+                    {
+                        optionName: "Tentativa de Suícido",
+                        optionValue: "TentativaDeSuicido"
+                    },
+                    {
+                        optionName: "Queda Própria Altura ",
+                        optionValue: "QuedaPropriaAltura "
+                    },
+                    {
+                        optionName: "Afogamento",
+                        optionValue: "Afogamento"
+                    },
+                    {
+                        optionName: "Agressão",
+                        optionValue: "Agressao"
+                    },
+                    {
+                        optionName: "Atropelamento",
+                        optionValue: "Atropelamento"
+                    },
+                    {
+                        optionName: "Choque Elétrico",
+                        optionValue: "ChoqueEletrico"
+                    },
+                    {
+                        optionName: "Desabamento",
+                        optionValue: "Desabamento"
+                    },
+                    {
+                        optionName: "Doméstico",
+                        optionValue: "Domestico"
+                    },
+                    {
+                        optionName: "Esportivo",
+                        optionValue: "Esportivo"
+                    },
+                    {
+                        optionName: "Intoxicação",
+                        optionValue: "Intoxicacaoo"
+                    },
+                    {
+                        optionName: "Queda de Bicicleta",
+                        optionValue: "QuedaDeBicicleta"
+                    },
+                    {
+                        optionName: "Queda de Moto",
+                        optionValue: "QuedaDeMoto"
+                    },
+                    {
+                        optionName: "Queda de Nível 2M ",
+                        optionValue: "QuedaDeNivel2M"
+                    },
+                    {
+                        optionName: "Queda de Nível Menor que 2M",
+                        optionValue: "QuedaDeNivelMenorQue2M"
+                    },
+                    {
+                        optionName: "Trabalho",
+                        optionValue: "Trabalho"
+                    },
+                    {
+                        optionName: "Transferência",
+                        optionValue: "Transferencia"
+                    },
+                    {
+                        optionName: "Outros",
+                        optionValue: "Outros"
+                    },
+                ]}
+                selectedOption={a.tipoOc}
+                setSelectedOption={a.setTipoOc}
+              />
+           
+          <ReturnButton/>
           <Footer/>
         </View>
       </ScrollView>
     </View>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

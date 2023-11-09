@@ -11,5 +11,4 @@ export const OcorrenciaProvider = ({ children }) => {
                {children}
           </OcorrenciaContext.Provider>
      );
-
 }

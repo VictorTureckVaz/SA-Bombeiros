@@ -8,7 +8,7 @@ import SelectList from './../../../components/SelectList'
 import RadioButton from '../../../components/RadioButton';
 import ReturnButton from '../../../components/ReturnButton';
 
-// export default function MainTeste(){
+export default function MainTeste(){
 
 //     const navigation = useNavigation();
 //     const [views, setViews] = useState([]);
@@ -222,11 +222,8 @@ const navigation = useNavigation();
             </ScrollView>
         </View>
     )
-// }
-
-
-
-export default function MainMateriais(){
-    
-    
 }
+
+
+
+
