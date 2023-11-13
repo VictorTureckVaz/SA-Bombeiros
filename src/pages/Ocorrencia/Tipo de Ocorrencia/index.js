@@ -18,8 +18,8 @@ import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
 export default function MainTipoOc() {
   const navigation = useNavigation();
   const [groupValues, setGroupValues] = React.useState([]);
-  const a = useContext(OcorrenciaContext)
-  console.log(a);
+  const context = useContext(OcorrenciaContext)
+ 
 
   return (
     <View style={styles.Body}>
@@ -117,8 +117,8 @@ export default function MainTipoOc() {
                         optionValue: "Outros"
                     },
                 ]}
-                selectedOption={a.tipoOc}
-                setSelectedOption={a.setTipoOc}
+                selectedOption={context.tipoOc.state}
+                setSelectedOption={context.tipoOc.setState}
               />
            
           <ReturnButton/>

@@ -5,9 +5,30 @@ import { useNavigation } from '@react-navigation/native';
 import Header from './../Header';
 import Footer from './../Footer';
 import { ScrollView } from 'native-base';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function MainHome(){
     const navigation = useNavigation();
+    
+    
+    
+    
+    async function verifyLogin(){
+         const token = await AsyncStorage.getItem('token');
+     try {
+
+          if (token) {
+               console.log('temos o token: ' + token);
+               navigation.navigate('ocorrencia')
+          } else {
+               console.log('neo temos o token');
+               navigation.navigate('login')
+          }
+
+     } catch (e) {
+          console.error(e)
+     }
+    }
 
     return(
           <View style={styles.Body}>
@@ -20,7 +41,7 @@ export default function MainHome(){
                     <View style={styles.ButtonContainer}>
                          <TouchableOpacity 
                          style={styles.Button}
-                         onPress={ () => navigation.navigate('ocorrencia')}
+                         onPress={ verifyLogin }
                          >
                               <Text style={styles.Title}>PREENCHER OCORRÊNCIA</Text>
                          </TouchableOpacity>

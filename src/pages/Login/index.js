@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import api from './../../lib/axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function MainLogin() {
     const navigation = useNavigation();
@@ -19,6 +20,9 @@ export default function MainLogin() {
             
             const token = apiReply.data.token;
             
+            await AsyncStorage.setItem('token', token);
+            console.log(await AsyncStorage.getItem('token'));
+
             // const apiReply = await api.post("/submit", { dados }, { headers: { authorization: `Bearer ${token}` } });
             // Salvar o token no useContext OU no React Redux
 
@@ -44,9 +48,7 @@ export default function MainLogin() {
             
             <View style={styles.SecondSection}>
                 <TextInput secureTextEntry={true} placeholder = 'Senha' keyboardType='default' style={styles.TextInput} value={password} onChangeText={setPassword}/>
-                <View style={styles.SmallText}>
-                    <Text >ESQUECEU A SENHA?</Text>
-                </View>
+                
             </View>
             
             <TouchableOpacity 

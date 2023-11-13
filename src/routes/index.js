@@ -29,21 +29,21 @@ export default function Routes(){
 
      return(
           <Stack.Navigator>
-               {/* <Stack.Screen
-               name="login"
-               component={ MainLogin }
-               options={ {headerShown: false}}
-               /> */}
-               {/* <Stack.Screen
-               name="teste"
-               component={ MainTeste }
-               options={ {headerShown: false}}
-               /> */}
                <Stack.Screen
                name="home"
                component={ MainHome }
                options={ {headerShown: false}}
                />
+               <Stack.Screen
+               name="login"
+               component={ MainLogin }
+               options={ {headerShown: false}}
+               />
+               {/* <Stack.Screen
+               name="teste"
+               component={ MainTeste }
+               options={ {headerShown: false}}
+               /> */}
                
                <Stack.Screen
                name="ocorrencia"
