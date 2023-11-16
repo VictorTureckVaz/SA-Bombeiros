@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
@@ -6,14 +6,13 @@ import Header from './../../Header';
 import Footer from './../../Footer';
 import api from './../../../lib/axios';
 import ReturnButton from '../../../components/ReturnButton';
+import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
 
 export default function MainObs(){
     
     const navigation = useNavigation();
 
-    const [obs, setObs] = useState(null);
-
-
+    const context = useContext(OcorrenciaContext)
     
 
     return(
@@ -21,7 +20,7 @@ export default function MainObs(){
             <Header/>
             <ScrollView>
                <View style={styles.Container}>
-                    <TextInput multiline placeholder = 'Observações Importantes...' numberOfLines={4} keyboardType = 'default' style={styles.TextInput} value={obs} onChangeText={setObs}/>
+                    <TextInput multiline placeholder = 'Observações Importantes...' numberOfLines={4} keyboardType = 'default' style={styles.TextInput} value={context.obs.state} onChangeText={context.obs.setState}/>
                     
                     <View style={styles.ButtonContainer}>
                          <TouchableOpacity 

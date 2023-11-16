@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
@@ -6,19 +6,15 @@ import Header from '../../Header';
 import Footer from '../../Footer';
 import RadioButton from '../../../components/RadioButton';
 import ReturnButton from '../../../components/ReturnButton';
-
+import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
 
 
 export default function MainAvaliacao(){
 
     const navigation = useNavigation();
-
-
-    const [aberturaOcular, setAberturaOcular] = useState(0); //seta abertura ocular como 0
-    const [respostaVerbal, setRespostaVerbal] = useState(0); //seta resposta verbal como 0
-    const [respostaMotora, setRespostaMotora] = useState(0); //seta resposta motora como 0
+    const context = useContext(OcorrenciaContext)    
     
-    const consciencia = aberturaOcular + respostaVerbal + respostaMotora //somatória de consciencia
+    const consciencia = context.aberturaOcular.state + context.respostaVerbal.state + context.respostaMotora.state //somatória de consciencia
     
     return(
         <View style={styles.Body}>
@@ -30,89 +26,7 @@ export default function MainAvaliacao(){
                 <View style={styles.Result}>
 
                 </View>
-                {/* <View style={{gap: 5, width: "100%"}}>
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setAberturaOcular(4)}>
-                        <View style={[styles.CheckBox, {backgroundColor: aberturaOcular == 4 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Espontânea</Text>
-                    </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setAberturaOcular(3)}>
-                        <View style={[styles.CheckBox, {backgroundColor: aberturaOcular == 3 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Comando Verbal</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setAberturaOcular(2)}>
-                        <View style={[styles.CheckBox, {backgroundColor: aberturaOcular == 2 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Estímulo Doloroso</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setAberturaOcular(1)}>
-                        <View style={[styles.CheckBox, {backgroundColor: aberturaOcular == 1 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Nenhuma</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={{gap: 5, width: "100%"}}> 
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(5)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 5 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Orientado</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(4)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 4 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Confuso</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(3)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 3 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Palavras Inapropriadas</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(2)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 2 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Palavras Incompreensíveis</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaVerbal(1)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaVerbal == 1 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Nenhuma</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={{gap: 5, width: "100%"}}> 
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(6)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 6 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Obedece Comandos</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(5)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 5 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Localiza Dor</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(4)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 4 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Movimento de Retirada</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(3)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 3 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Flexão Anormal</Text>
-                    </TouchableOpacity>
-                    
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(2)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 2 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Extensão Anormal</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.OptionContainer} onPress={ () => setRespostaMotora(1)}>
-                        <View style={[styles.CheckBox, {backgroundColor: respostaMotora == 1 ? "black" : "white"}]}></View>
-                        <Text style={styles.Text}>Nenhuma</Text>
-                    </TouchableOpacity>
-                    
-                    
-                    
-                </View> */}
                 <RadioButton
                 options={[
                     {
@@ -133,8 +47,8 @@ export default function MainAvaliacao(){
                     },
                     
                 ]}
-                selectedOption={aberturaOcular}
-                setSelectedOption={setAberturaOcular}
+                selectedOption={context.aberturaOcular.state}
+                setSelectedOption={context.aberturaOcular.setState}
                 />
 
                 <RadioButton
@@ -157,8 +71,8 @@ export default function MainAvaliacao(){
                     },
                     
                 ]}
-                selectedOption={respostaVerbal}
-                setSelectedOption={setRespostaVerbal}
+                selectedOption={context.respostaVerbal.state}
+                setSelectedOption={context.respostaVerbal.setState}
                 />
 
                 <RadioButton
@@ -181,8 +95,8 @@ export default function MainAvaliacao(){
                     },
                     
                 ]}
-                selectedOption={respostaMotora}
-                setSelectedOption={setRespostaMotora}
+                selectedOption={context.respostaMotora.state}
+                setSelectedOption={context.respostaMotora.setState}
                 />
 
 

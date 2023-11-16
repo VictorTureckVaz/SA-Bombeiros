@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
@@ -7,22 +7,14 @@ import Footer from './../../Footer';
 import api from './../../../lib/axios';
 import ReturnButton from '../../../components/ReturnButton';
 import SelectList from '../../../components/SelectList';
+import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
+
 
 export default function MainInfoPac(){
     
     const navigation = useNavigation();
 
-    const [nomePac, setNomePac] = useState(null);
-    const [nomeHosp, setNomeHosp] = useState(null);
-    const [docPac, setDocPac] = useState(null);
-    const [idadePac, setIdadePac] = useState(null);
-    const [telefonePac, setTelefonePac] = useState(null);
-    const [local, setLocal] = useState(null);
-    const [acompanhante, setAcompanhante] = useState(null);
-    const [idadeAcom, setIdadeAcom] = useState(null);
-    const [vitimaEraName, setVitimaEraName] = useState("Vitima Era");
-    const [vitimaEraValue, setVitimaEraValue] = useState(null);
-    const [usingMenu, setUsingMenu] = useState(0);
+    const context = useContext(OcorrenciaContext)
 
     async function submit() {
         try {
@@ -56,21 +48,21 @@ export default function MainInfoPac(){
             <Header/>
             <ScrollView>
                 <View style={styles.Container}>
-                    <TextInput placeholder = 'Nome do Paciente...' keyboardType = 'default' style={styles.TextInput} value={nomePac} onChangeText={setNomePac}/>
+                    <TextInput placeholder = 'Nome do Paciente...' keyboardType = 'default' style={styles.TextInput} value={context.nomePac.state} onChangeText={context.nomePac.setState}/>
                     
-                    <TextInput placeholder = 'Nome do Hospital...' keyboardType = 'default' style={styles.TextInput} value={nomeHosp} onChangeText={setNomeHosp}/>
+                    <TextInput placeholder = 'Nome do Hospital...' keyboardType = 'default' style={styles.TextInput} value={context.nomeHosp.state} onChangeText={context.nomeHosp.setState}/>
                 
-                    <TextInput placeholder = 'RG/CPF do Paciente...' keyboardType = 'number-pad' style={styles.TextInput} value={docPac} onChangeText={setDocPac}/>
+                    <TextInput placeholder = 'RG/CPF do Paciente...' keyboardType = 'number-pad' style={styles.TextInput} value={context.docPac.state} onChangeText={context.docPac.setState}/>
                     
-                    <TextInput placeholder = 'Idade do Paciente...' keyboardType = 'number-pad' style={styles.TextInput} value={idadePac} onChangeText={setIdadePac}/>
+                    <TextInput placeholder = 'Idade do Paciente...' keyboardType = 'number-pad' style={styles.TextInput} value={context.idadePac.state} onChangeText={context.idadePac.setState}/>
                     
-                    <TextInput placeholder = 'Telefone do Paciente...' keyboardType = 'number-pad' style={styles.TextInput} value={telefonePac} onChangeText={setTelefonePac}/>
+                    <TextInput placeholder = 'Telefone do Paciente...' keyboardType = 'number-pad' style={styles.TextInput} value={context.telefonePac.state} onChangeText={context.telefonePac.setState}/>
                     
-                    <TextInput placeholder = 'Local de Ocorrência...' keyboardType = 'default' style={styles.TextInput} value={local} onChangeText={setLocal}/>
+                    <TextInput placeholder = 'Local de Ocorrência...' keyboardType = 'default' style={styles.TextInput} value={context.local.state} onChangeText={context.local.setState}/>
                     
-                    <TextInput placeholder = 'Acompanhante...' keyboardType = 'default' style={styles.TextInput} value={acompanhante} onChangeText={setAcompanhante}/>
+                    <TextInput placeholder = 'Acompanhante...' keyboardType = 'default' style={styles.TextInput} value={context.acompanhante.state} onChangeText={context.acompanhante.setState}/>
                     
-                    <TextInput placeholder = 'Idade do Acompanhante...' keyboardType = 'number-pad' style={styles.TextInput} value={idadeAcom} onChangeText={setIdadeAcom}/>
+                    <TextInput placeholder = 'Idade do Acompanhante...' keyboardType = 'number-pad' style={styles.TextInput} value={context.idadeAcom.state} onChangeText={context.idadeAcom.setState}/>
                     
                         <SelectList
                             options={[
@@ -115,10 +107,10 @@ export default function MainInfoPac(){
                                     optionValue: "trauma"
                                 },
                             ]}
-                            selectedOptionName={vitimaEraName}
-                            setSelectedOptionName={setVitimaEraName}
-                            selectedOptionValue={vitimaEraValue}
-                            setSelectedOptionValue={setVitimaEraValue}
+                            selectedOptionName={context.vitimaEraName.state}
+                            setSelectedOptionName={context.vitimaEraName.setState}
+                            selectedOptionValue={context.vitimaEraValue.state}
+                            setSelectedOptionValue={context.vitimaEraValue.setState}
                         />
                 </View>
 
