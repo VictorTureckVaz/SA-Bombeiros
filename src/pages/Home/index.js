@@ -10,9 +10,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function MainHome(){
     const navigation = useNavigation();
     
-    
-    
-    
     async function verifyLogin(){
          const token = await AsyncStorage.getItem('token');
      try {
@@ -46,8 +43,7 @@ export default function MainHome(){
                               <Text style={styles.Title}>PREENCHER OCORRÊNCIA</Text>
                          </TouchableOpacity>
                     </View>
-
-                    
+    
                     </View>
                     <Footer/>
                </ScrollView>

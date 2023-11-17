@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import Header from './../../Header';
 import Footer from './../../Footer';
 import ReturnButton from '../../../components/ReturnButton';
+import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
 
 
 export default function MainOcorrencia(){
@@ -61,6 +62,9 @@ export default function MainOcorrencia(){
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('obs')}>
                             <Text style={styles.OcStepText}>Observações Importantes</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.OcStep} >
+                            <button onClick={console.log(OcorrenciaContext.context)}>ENVIAR OCORRENCIA</button>
                         </TouchableOpacity>
                     </View>
                 </View>

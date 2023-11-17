@@ -115,7 +115,7 @@ export default function MainInfoPac(){
                             setSelectedOptionValue={context.vitimaEraValue.setState}
                         />
                 </View>
-
+/
                 <ReturnButton/>
                 
                 <Footer/>
