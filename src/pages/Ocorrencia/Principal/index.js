@@ -45,10 +45,10 @@ export default function MainOcorrencia(){
                         <TouchableOpacity style={styles.OcStep}>
                             <Text style={styles.OcStepText}>Localização dos Traumas</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep}>
-                            <Text style={styles.OcStepText} onPress={ () => navigation.navigate('procedimentosefetuados')}>Procedimentos Efetuados</Text>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('procedimentosefetuados')}>
+                            <Text style={styles.OcStepText}>Procedimentos Efetuados</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('anamnese')}>
                             <Text style={styles.OcStepText}>Anamnese</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep}>
@@ -64,7 +64,11 @@ export default function MainOcorrencia(){
                             <Text style={styles.OcStepText}>Observações Importantes</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep} >
-                            <button onClick={console.log(OcorrenciaContext.context)}>ENVIAR OCORRENCIA</button>
+                            <TouchableOpacity onPress={console.log(OcorrenciaContext.context)}>
+                                <Text>
+                                    ENVIAR OCORRENCIA
+                                </Text>
+                            </TouchableOpacity>
                         </TouchableOpacity>
                     </View>
                 </View>

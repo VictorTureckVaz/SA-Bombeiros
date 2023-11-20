@@ -7,7 +7,7 @@ export const OcorrenciaProvider = ({ children }) => {
      const [login, setLogin] = useState(null)
      const [tipoOc, setTipoOc] = useState(null);
      const [decisao, setDecisao] = useState(null);
-     const [transporteName, setTransporteName] = useState("Forma de Condução");
+     const [transporteName, setTransporteName] = useState(null);
      const [transporteValue, setTransporteValue] = useState(null);
      const [socorristaA, setSocorristaA] = useState(null);
      const [socorristaB, setSocorristaB] = useState(null);
@@ -31,12 +31,29 @@ export const OcorrenciaProvider = ({ children }) => {
      const [local, setLocal] = useState(null);
      const [acompanhante, setAcompanhante] = useState(null);
      const [idadeAcom, setIdadeAcom] = useState(null);
-     const [vitimaEraName, setVitimaEraName] = useState("Vitima Era");
+     const [vitimaEraName, setVitimaEraName] = useState(null);
      const [vitimaEraValue, setVitimaEraValue] = useState(null);
 
      const [aberturaOcular, setAberturaOcular] = useState(0); //seta abertura ocular como 0
      const [respostaVerbal, setRespostaVerbal] = useState(0); //seta resposta verbal como 0
      const [respostaMotora, setRespostaMotora] = useState(0); //seta resposta motora como 0
+
+     const [possuiProblemaDeSaudeName, setPossuiProblemaDeSaudeName] = useState(null);
+     const [possuiProblemaDeSaudeValue, setPossuiProblemaDeSaudeValue] = useState(null);
+     const [problemasDeSaude, setProblemasDeSaude] = useState(null);
+     const [aconteceuOutrasVezesName, setAconteceuOutrasVezesName] = useState(null);
+     const [aconteceuOutrasVezesValue, setAconteceuOutrasVezesValue] = useState(null);
+
+     const [fazUsoDeMedicacoesName, setFazUsoDeMedicacoesName] = useState(null);
+     const [fazUsoDeMedicacoesValue, setFazUsoDeMedicacoesValue] = useState(null);
+     const [medicacoes, setMedicacoes] = useState(null);
+
+     const [ehAlergicoName, setEhAlergicoName] = useState(null);
+     const [ehAlergicoValue, setEhAlergicoValue] = useState(null);
+     const [alergia, setAlergia] = useState(null);
+
+     const [ingeriuAlgoName, setIngeriuAlgoName] = useState(null);
+     const [ingeriuAlgoValue, setIngeriuAlgoValue] = useState(null);
 
      const [obs, setObs] = useState(null);
 
@@ -169,6 +186,67 @@ export const OcorrenciaProvider = ({ children }) => {
           respostaMotora: {
                state: respostaMotora,
                setState: setRespostaMotora,
+          },
+
+
+
+          possuiProblemaDeSaudeName: {
+               state: possuiProblemaDeSaudeName,
+               setState: setPossuiProblemaDeSaudeName,
+          },
+          possuiProblemaDeSaudeValue: {
+               state: possuiProblemaDeSaudeValue,
+               setState: setPossuiProblemaDeSaudeValue,
+          },
+          aconteceuOutrasVezesName: {
+               state: aconteceuOutrasVezesName,
+               setState: setAconteceuOutrasVezesName,
+          },
+          aconteceuOutrasVezesValue: {
+               state: aconteceuOutrasVezesValue,
+               setState: setAconteceuOutrasVezesValue,
+          },
+          problemasDeSaude: {
+               state: problemasDeSaude,
+               setState: setProblemasDeSaude,
+          },
+          
+
+
+          fazUsoDeMedicacoesValue: {
+               state: fazUsoDeMedicacoesValue,
+               setState: setFazUsoDeMedicacoesValue,
+          },
+          fazUsoDeMedicacoesName: {
+               state: fazUsoDeMedicacoesName,
+               setState: setFazUsoDeMedicacoesName,
+          },
+          medicacoes: {
+               state: medicacoes,
+               setState: setMedicacoes,
+          },
+
+
+          ehAlergicoName: {
+               state: ehAlergicoName,
+               setState: setEhAlergicoName,
+          },
+          ehAlergicoValue: {
+               state: ehAlergicoValue,
+               setState: setEhAlergicoValue,
+          },
+          alergia: {
+               state: alergia,
+               setState: setAlergia,
+          },
+
+          ingeriuAlgoName: {
+               state: ingeriuAlgoName,
+               setState: setIngeriuAlgoName,
+          },
+          ingeriuAlgoValue: {
+               state: ingeriuAlgoValue,
+               setState: setIngeriuAlgoValue,
           },
 
      }

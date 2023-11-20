@@ -43,7 +43,7 @@ export default function MainTransporte(){
                 <View style={styles.Container}>
 
                     <View style={styles.BorderContainer}>
-                    <Text style={styles.TittleText}>Decisão de Transporte:</Text>
+                        <Text style={styles.TittleText}>Decisão de Transporte:</Text>
                         <View style={styles.ToggleButtonContainer}>
                                 <TouchableOpacity style={[styles.ToggleButton, {backgroundColor: "#D2EBCE", borderColor: "#A4D79C", borderWidth: context.decisao.state == "estavel" ? 3 : 0}]} onPress={ () => context.decisao.setState("estavel") }>  
                                     <Image

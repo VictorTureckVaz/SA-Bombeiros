@@ -20,6 +20,7 @@ import MainMateriais from '../pages/Ocorrencia/Materiais';
 import MainTeste from '../pages/Ocorrencia/teste';
 import MainSinaisSintomas from '../pages/Ocorrencia/Sinais e Sintomas';
 import MainProcedimentosEfetuados from '../pages/Ocorrencia/Procedimentos Efetuados';
+import MainAnamnese from '../pages/Ocorrencia/Anamnese';
 
 
 const Stack = createNativeStackNavigator()
@@ -108,6 +109,11 @@ export default function Routes(){
                <Stack.Screen
                name="materiais"
                component={ MainMateriais }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="anamnese"
+               component={ MainAnamnese }
                options={ {headerShown: false}}
                />
           </Stack.Navigator>

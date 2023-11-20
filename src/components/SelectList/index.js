@@ -8,6 +8,7 @@ export default function SelectList({
     selectedOptionName,
     setSelectedOptionValue,
     setSelectedOptionName,
+    title,
 }) {
     function handleOptionSelection(value, name) {
         setSelectedOptionValue(value); // seta o valor da opção como o valor da opção selecionada
@@ -20,7 +21,7 @@ export default function SelectList({
     return (
         <View style={[styles.UsingMenu, { height: usingMenu ? "fit-content" : 56 }]}>
             <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenu(!usingMenu) }>
-                <Text style={styles.Text}>{selectedOptionName}</Text>
+                <Text style={styles.Text}>{title} {selectedOptionName}</Text>
                 <View style={styles.UsingMenuIconContainer}>
                     <Image
                         style={[

@@ -38,7 +38,8 @@ export default function MainHome(){
                     <View style={styles.ButtonContainer}>
                          <TouchableOpacity 
                          style={styles.Button}
-                         onPress={ verifyLogin }
+                         // onPress={ verifyLogin }
+                         onPress={() => navigation.navigate('ocorrencia')}
                          >
                               <Text style={styles.Title}>PREENCHER OCORRÊNCIA</Text>
                          </TouchableOpacity>

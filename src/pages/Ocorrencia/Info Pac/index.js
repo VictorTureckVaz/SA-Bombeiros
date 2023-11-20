@@ -8,7 +8,7 @@ import api from './../../../lib/axios';
 import ReturnButton from '../../../components/ReturnButton';
 import SelectList from '../../../components/SelectList';
 import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
-import RNDateTimePicker from "@react-native-community/datetimepicker"
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 
 export default function MainInfoPac(){
@@ -16,6 +16,8 @@ export default function MainInfoPac(){
     const navigation = useNavigation();
 
     const context = useContext(OcorrenciaContext)
+
+    const [data, setData] = useState(null)
 
     async function submit() {
         try {
@@ -48,7 +50,7 @@ export default function MainInfoPac(){
         <View style={styles.Body}>
             <Header/>
             <ScrollView>
-                <RNDateTimePicker mode="time" />
+                {/* <DateTimePicker mode="time" value={data}/> */}
                 <View style={styles.Container}>
                     <TextInput placeholder = 'Nome do Paciente...' keyboardType = 'default' style={styles.TextInput} value={context.nomePac.state} onChangeText={context.nomePac.setState}/>
                     
@@ -115,7 +117,7 @@ export default function MainInfoPac(){
                             setSelectedOptionValue={context.vitimaEraValue.setState}
                         />
                 </View>
-/
+
                 <ReturnButton/>
                 
                 <Footer/>
