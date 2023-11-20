@@ -55,7 +55,13 @@ export const OcorrenciaProvider = ({ children }) => {
      const [ingeriuAlgoName, setIngeriuAlgoName] = useState(null);
      const [ingeriuAlgoValue, setIngeriuAlgoValue] = useState(null);
 
+     const [nomeMedico, setNomeMedico] = useState(null);
+     const [fezPreNatalName, setFezPreNatalName] = useState(null);
+     const [fezPreNatalValue, setFezPreNatalValue] = useState(null);
+
+
      const [obs, setObs] = useState(null);
+          
 
      const context = {
           tipoOc: {
@@ -248,6 +254,22 @@ export const OcorrenciaProvider = ({ children }) => {
                state: ingeriuAlgoValue,
                setState: setIngeriuAlgoValue,
           },
+          
+
+
+          fezPreNatalName: {
+               state: fezPreNatalName,
+               setState: setFezPreNatalName,
+          },
+          fezPreNatalValue: {
+               state: fezPreNatalValue,
+               setState: setFezPreNatalValue,
+          },
+          nomeMedico: {
+               state: nomeMedico,
+               setState: setNomeMedico,
+          },
+          
 
      }
      return (

@@ -21,6 +21,7 @@ import MainTeste from '../pages/Ocorrencia/teste';
 import MainSinaisSintomas from '../pages/Ocorrencia/Sinais e Sintomas';
 import MainProcedimentosEfetuados from '../pages/Ocorrencia/Procedimentos Efetuados';
 import MainAnamnese from '../pages/Ocorrencia/Anamnese';
+import MainAnamneseGestacional from '../pages/Ocorrencia/Anamnese Gestacional';
 
 
 const Stack = createNativeStackNavigator()
@@ -102,7 +103,7 @@ export default function Routes(){
                options={ {headerShown: false}}
                />
                <Stack.Screen
-               name="procedimentosefetuados"
+               name="procedimentosEfetuados"
                component={ MainProcedimentosEfetuados}
                options={ {headerShown: false}}
                />
@@ -114,6 +115,11 @@ export default function Routes(){
                <Stack.Screen
                name="anamnese"
                component={ MainAnamnese }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="anamneseGestacional"
+               component={ MainAnamneseGestacional }
                options={ {headerShown: false}}
                />
           </Stack.Navigator>

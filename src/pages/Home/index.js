@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import Header from './../Header';
@@ -34,7 +34,12 @@ export default function MainHome(){
                     
                     <View style={styles.Container}>
 
-                    <View style={styles.ImageContainer}/>
+                    <View style={styles.ImageContainer}>
+                         <Image
+                         style={{width: 280, height: 280}}
+                         source={require('../../../assets/bombeirosLogo.png')}
+                         />
+                    </View>
                     <View style={styles.ButtonContainer}>
                          <TouchableOpacity 
                          style={styles.Button}

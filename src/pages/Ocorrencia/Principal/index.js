@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
@@ -10,7 +10,17 @@ import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
 
 export default function MainOcorrencia(){
 
-    const navigation = useNavigation()
+    const navigation = useNavigation();
+
+    const context = useContext(OcorrenciaContext)
+    
+    function transformarEmJson(){
+        const jsonString = `{${Object.entries(context)
+            .map(([key, value]) => `${key}:${JSON.stringify(value.state)}`)
+            .join(',\n')}}`;
+
+            console.log(jsonString);
+    }
 
     return(
         <View style={styles.Body}>
@@ -45,13 +55,13 @@ export default function MainOcorrencia(){
                         <TouchableOpacity style={styles.OcStep}>
                             <Text style={styles.OcStepText}>Localização dos Traumas</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('procedimentosefetuados')}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('procedimentosEfetuados')}>
                             <Text style={styles.OcStepText}>Procedimentos Efetuados</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('anamnese')}>
                             <Text style={styles.OcStepText}>Anamnese</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('anamneseGestacional')}>
                             <Text style={styles.OcStepText}>Anamnese Gestacional</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('cinamaticaObjetos')}>
@@ -64,7 +74,7 @@ export default function MainOcorrencia(){
                             <Text style={styles.OcStepText}>Observações Importantes</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep} >
-                            <TouchableOpacity onPress={console.log(OcorrenciaContext.context)}>
+                            <TouchableOpacity onPress={transformarEmJson}>
                                 <Text>
                                     ENVIAR OCORRENCIA
                                 </Text>
@@ -81,3 +91,4 @@ export default function MainOcorrencia(){
         </View>
     )
 }
+

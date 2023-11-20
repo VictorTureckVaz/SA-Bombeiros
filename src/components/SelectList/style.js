@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
       Text: {
         color: "gray",
         fontSize: 20,
+        width: "95%",
       },
       
       UsingMenuTitle: {
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
       },
 
       UsingMenu: {
-          height: 56,
+          height: "fit-content",
           borderColor: "#555555",
           width: "100%",
           borderWidth: 2,
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
       UsingMenuIconContainer: {
           flex: 1,
           alignItems: "flex-end",
+          width: 32,
       },
 
       UsingMenuIcon: {

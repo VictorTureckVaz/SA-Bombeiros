@@ -2,10 +2,13 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
      ImageContainer: {
+         flex: 1,
          height: 317,
-         width: 'auto',
+         width: '100%',
          backgroundColor: '#BC331E',
-         marginTop: 107
+         marginTop: 107,
+         justifyContent: 'center',
+         alignItems: 'center',
      },
      Button: {
           padding: 7.5,
