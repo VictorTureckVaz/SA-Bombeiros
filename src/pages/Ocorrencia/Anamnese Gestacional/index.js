@@ -96,18 +96,18 @@ export default function MainAnamneseGestacional(){
                                    optionValue: "nao"
                               },
                          ]}
-                         selectedOptionName={context.fazUsoDeMedicacoesName.state}
-                         setSelectedOptionName={context.fazUsoDeMedicacoesName.setState}
-                         selectedOptionValue={context.fazUsoDeMedicacoesValue.state}
-                         setSelectedOptionValue={context.fazUsoDeMedicacoesValue.setState}
+                         selectedOptionName={context.primeiroFilhoName.state}
+                         setSelectedOptionName={context.primeiroFilhoName.setState}
+                         selectedOptionValue={context.primeiroFilhoValue.state}
+                         setSelectedOptionValue={context.primeiroFilhoValue.setState}
                          title={'Primeiro Filho?'}
                     />
                     <TextInput
-                        placeholder = 'Quais Medicações?'
+                        placeholder = 'Quantos Filhos'
                         keyboardType = 'default'
-                        style={[styles.TextInput, {display: context.fazUsoDeMedicacoesValue.state == "sim" ? "flex" : "none"}]}
-                        onChangeText={context.medicacoes.setState}
-                        value={context.medicacoes.state}
+                        style={[styles.TextInput, {display: context.primeiroFilhoValue.state == "nao" ? "flex" : "none"}]}
+                        onChangeText={context.filhos.setState}
+                        value={context.filhos.state}
                     />
                 
 

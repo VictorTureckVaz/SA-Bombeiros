@@ -58,6 +58,14 @@ export const OcorrenciaProvider = ({ children }) => {
      const [nomeMedico, setNomeMedico] = useState(null);
      const [fezPreNatalName, setFezPreNatalName] = useState(null);
      const [fezPreNatalValue, setFezPreNatalValue] = useState(null);
+     const [partoRealizado, setPartoRealizado] = useState(null);
+     const [nomeBebe, setNomeBebe] = useState(null);
+     const [sexoBebe, setSexoBebe] = useState(null);
+     const [filhos, setFilhos] = useState(null);
+     const [primeiroFilhoName, setPrimeiroFilhoName] = useState(null);
+     const [primeiroFilhoValue, setPrimeiroFilhoValue] = useState(null);
+
+     
 
 
      const [obs, setObs] = useState(null);
@@ -269,7 +277,30 @@ export const OcorrenciaProvider = ({ children }) => {
                state: nomeMedico,
                setState: setNomeMedico,
           },
-          
+          partoRealizado: {
+               state: partoRealizado,
+               setState: setPartoRealizado,
+          },
+          filhos: {
+               state: filhos,
+               setState: setFilhos,
+          },
+          nomeBebe: {
+               state: nomeBebe,
+               setState: setNomeBebe,
+          },
+          sexoBebe: {
+               state: sexoBebe,
+               setState: setSexoBebe,
+          },
+          primeiroFilhoName: {
+               state: primeiroFilhoName,
+               setState: setPrimeiroFilhoName,
+          },
+          primeiroFilhoValue: {
+               state: primeiroFilhoValue,
+               setState: setPrimeiroFilhoValue,
+          },
 
      }
      return (
