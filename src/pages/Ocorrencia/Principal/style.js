@@ -31,6 +31,31 @@ const styles = StyleSheet.create({
           gap: 23,
           padding: 27,
      },
+
+     Popup: {
+          borderRadius: 10,
+          width: 310,
+          height: "fit-content",
+          backgroundColor: "white",
+          paddingBottom: 5,
+          gap: 2,
+     },
+
+     PopupContainer: {
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+     },
+
+     ModalButton: {
+          width: 140,
+          height: 57,
+          borderRadius: 5,
+          justifyContent: "center",
+          alignItems: "center",
+     },
+
+
   });
 
   export default styles;

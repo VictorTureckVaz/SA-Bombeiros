@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
       },
 
       UsingMenu: {
-          height: "fit-content",
+          height: 56,
           borderColor: "#555555",
           width: "100%",
           borderWidth: 2,

@@ -64,6 +64,7 @@ export const OcorrenciaProvider = ({ children }) => {
      const [filhos, setFilhos] = useState(null);
      const [primeiroFilhoName, setPrimeiroFilhoName] = useState(null);
      const [primeiroFilhoValue, setPrimeiroFilhoValue] = useState(null);
+     const [sexoPac, setSexoPac] = useState(null);
 
      
 
@@ -107,6 +108,11 @@ export const OcorrenciaProvider = ({ children }) => {
           demandante: {
                state: demandante,
                setState: setDemandante,
+          },
+
+          sexoPac: {
+               state: sexoPac,
+               setState: setSexoPac,
           },
 
 
