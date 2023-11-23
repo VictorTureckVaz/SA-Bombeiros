@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
+          backgroundColor: "#000000aa",
      },
 
      ModalButton: {
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
           borderRadius: 5,
           justifyContent: "center",
           alignItems: "center",
+          borderWidth: 2
      },
 
 

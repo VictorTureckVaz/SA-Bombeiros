@@ -3,16 +3,6 @@ const { SUBMIT } = require("./../../database/queries.js");
 
 module.exports = async (req, res) => {
     console.log(req.body);
-    
-    // const nomePac = req.body.nomePac;
-    // const nomeHosp = req.body.nomeHosp;
-    // const docPac = req.body.docPac;
-    // const idadePac = req.body.idadePac;
-    // const telefonePac = req.body.telefonePac;
-    // const local = req.body.local;
-    // const acompanhante = req.body.acompanhante;
-    // const idadeAcom = req.body.idadeAcom;
-    // const vitimaEra = req.body.vitimaEra;
 
     const {
         nomePac,

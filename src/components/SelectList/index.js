@@ -19,7 +19,7 @@ export default function SelectList({
     const [usingMenu, setUsingMenu] = useState(0);
 
     return (
-        <View style={[styles.UsingMenu, {height: usingMenu || selectedOptionValue ? "fit-content" : 56}]}>
+        <View style={styles.UsingMenu}>
             <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenu(!usingMenu) }>
                 <Text style={styles.Text}>{title} {selectedOptionName}</Text>
                 <View style={styles.UsingMenuIconContainer}>

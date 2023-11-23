@@ -9,6 +9,7 @@ import Footer from '../../Footer';
 import SelectList from '../../../components/SelectList'
 import ReturnButton from '../../../components/ReturnButton';
 import { OcorrenciaContext } from '../../../context/ocorrenciaContext';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 export default function MainAnamneseGestacional(){
 
@@ -18,7 +19,21 @@ export default function MainAnamneseGestacional(){
     //|  /|\
     //|  / \
 
-    const context = useContext(OcorrenciaContext)
+    const context = useContext(OcorrenciaContext);
+
+    const [date, setDate] = useState(new Date());
+    const [show, setShow] = useState(false);
+    const [mode, setMode] = useState('date');
+   
+    const onChange = (e, selectedDate) => {
+          setDate(selectedDate);
+          setShow(false);
+    }
+
+    const showMode = (modeToShow) => {
+          setShow(true);
+          setMode(modeToShow);
+    }
 
     
 
@@ -39,6 +54,23 @@ export default function MainAnamneseGestacional(){
             
             <ScrollView>
                 <View style={styles.Container}>
+                    <TouchableOpacity onPress={() => showMode('date')}>
+                         <Text>teste</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => showMode('time')}>
+                         <Text>teste</Text>
+                    </TouchableOpacity>
+                    {
+                         show && (
+                              <DateTimePicker
+                              value={date}
+                              mode={mode}
+                              is24Hour={true}
+                              onChange={onChange}
+                              />
+                         )
+                    }
+                    <Text>{date.toLocaleString()}</Text>
                     <SelectList
                          options={[
                               {

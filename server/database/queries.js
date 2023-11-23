@@ -30,11 +30,11 @@ module.exports.SUBMIT = (
         ) VALUES (
             "${nomePac}",
             "${nomeHosp}",
-            ${idadePac},
+            "${idadePac}",
             "${docPac}",
             "${telefonePac}",
             "${acompanhante}",
-            ${idadeAcom},
+            "${idadeAcom}",
             "${local}",
             "${vitimaEra}"
         );

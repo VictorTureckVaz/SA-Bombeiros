@@ -16,7 +16,7 @@ export default function MainAnamnese(){
 
     
 
-    const context = useContext(OcorrenciaContext)
+    const context = useContext(OcorrenciaContext);
 
     
 

@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
      },
 
-     HomeImage: {
+     Icon: {
         width: 32,
         height: 30,
      }

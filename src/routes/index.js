@@ -4,7 +4,7 @@ import MainLogin from '../pages/Login';
 import Header from '../pages/Header';
 import MainHome from '../pages/Home';
 import Footer from '../pages/Footer';
-import MainProfile from '../pages/Profile/Main';
+import MainProfile from '../pages/Profile';
 import MainOcorrencia from '../pages/Ocorrencia/Principal';
 import LoadingDots from '../pages/Loading'
 import MainInfoPac from '../pages/Ocorrencia/Info Pac';
