@@ -115,6 +115,7 @@ export default function MainInfoPac(){
                             setSelectedOptionName={context.vitimaEraName.setState}
                             selectedOptionValue={context.vitimaEraValue.state}
                             setSelectedOptionValue={context.vitimaEraValue.setState}
+                            title={"Vitima Era"}
                         />
                 </View>
 

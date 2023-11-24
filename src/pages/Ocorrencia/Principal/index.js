@@ -7,8 +7,8 @@ import Footer from './../../Footer';
 import ReturnButton from '../../../components/ReturnButton';
 import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
 import { Center } from 'native-base';
-const db = require("./../../../../lib/db.js");
-const { SUBMIT } = require("./../../../database/queries.js");
+// const db = require("./../../../../lib/db.js"); COMENTEI SÓ PARA PROGRAMAR
+// const { SUBMIT } = require("./../../../database/queries.js");
 
 export default function MainOcorrencia(){
 
