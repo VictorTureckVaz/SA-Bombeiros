@@ -11,7 +11,7 @@ export default function MainProcedimentosEfetuados (){
 
     const navigation = useNavigation();
 
-    const [groupValues, setGroupValues] = useState("null")
+    const [groupValues, setGroupValues] = useState([])
 
     return(
         <View style={styles.Body}>

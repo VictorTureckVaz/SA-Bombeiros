@@ -13,7 +13,7 @@ export default function SelectList({
     function handleOptionSelection(value, name) {
         setSelectedOptionValue(value); // seta o valor da opção como o valor da opção selecionada
         setSelectedOptionName(name)
-        setUsingMenu(!usingMenu); // aumenta o using menu para considerar como desativado
+        setUsingMenu(!usingMenu); 
     }
 
     const [usingMenu, setUsingMenu] = useState(0);

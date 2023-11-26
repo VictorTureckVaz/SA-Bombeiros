@@ -27,7 +27,7 @@ export default function Footer(){
             <Image source={require("../../../assets/GroupDocs.png")} style={styles.Icon} />
                <Text>Ocorrência</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.FooterSection}>
+            <TouchableOpacity style={styles.FooterSection} onPress={ () => navigation.navigate('profile')}>
                 <Image source={require("../../../assets/historic.png")} style={styles.Icon}/>
                <Text>Histórico</Text>
             </TouchableOpacity>

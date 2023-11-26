@@ -10,7 +10,7 @@ import ReturnButton from './../../../components/ReturnButton';
 
 export default function MainSinaisSintomas() {
 
-    const [groupValues, setGroupValues] = useState("null")
+    const [groupValues, setGroupValues] = useState([]);
 
 
     // app.use(express.json());

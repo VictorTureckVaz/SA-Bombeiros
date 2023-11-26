@@ -42,22 +42,22 @@ export default function MainTraumas(){
     const newMaterial = (
          <ViewBox key={material.length}>
 
-            <SelectList
-                options={[
-                    {
-                        optionName: "Descartável",
-                        optionValue: "descartavel"
-                    },
-                    {
-                        optionName: "Deixado no Hospital",
-                        optionValue: "deixadoNoHospital"
-                    },
-                ]}
-                selectedOptionName={materialTypeName}
-                setSelectedOptionName={setMaterialTypeName}
-                selectedOptionValue={materialTypeValue}
-                setSelectedOptionValue={setMaterialTypeValue}
-            />
+                <SelectList
+                    options={[
+                        {
+                            optionName: "Esquerdo",
+                            optionValue: "esquerdo",
+                        },
+                        {
+                            optionName: "Direito",
+                            optionValue: "direito",
+                        },
+                    ]}
+                    selectedOptionName={materialTypeName}
+                    setSelectedOptionName={setMaterialTypeName}
+                    selectedOptionValue={materialTypeValue}
+                    setSelectedOptionValue={setMaterialTypeValue}
+                />
          </ViewBox>
     );
     setMaterial([...material, newMaterial]);
@@ -139,15 +139,15 @@ export default function MainTraumas(){
                 {material.map((view, index) => (
                     <ViewBox key={index}>
 
-                        <SelectList
+                    <SelectList
                             options={[
                                 {
-                                    optionName: "Descartável",
-                                    optionValue: "descartavel"
+                                    optionName: "Esquerdo",
+                                    optionValue: "esquerdo",
                                 },
                                 {
-                                    optionName: "Deixado no Hospital",
-                                    optionValue: "deixadoNoHospital"
+                                    optionName: "Direito",
+                                    optionValue: "direito",
                                 },
                             ]}
                             selectedOptionName={materialTypeName}
@@ -155,138 +155,57 @@ export default function MainTraumas(){
                             selectedOptionValue={materialTypeValue}
                             setSelectedOptionValue={setMaterialTypeValue}
                         />
-                        <View style={{display: materialTypeValue == "descartavel" ? "flex" : "none"}}>
-                            <SelectList
-                                options={[
-                                    {
-                                        optionName: "Ataduras (8)",
-                                        optionValue: "Ataduras8"
-                                    },
-                                    {
-                                        optionName: "Ataduras (12)",
-                                        optionValue: "Ataduras12"
-                                    },
-                                    {
-                                        optionName: "Ataduras (20)",
-                                        optionValue: "Ataduras20"
-                                    },
-                                    {
-                                        optionName: "Cateter TP. Óculos",
-                                        optionValue: "CateterOculos"
-                                    },
-                                    {
-                                        optionName: "Compressa Comum",
-                                        optionValue: "CompressaComum"
-                                    },
-                                    {
-                                        optionName: "KIT H",
-                                        optionValue: "KitH"
-                                    },
-                                    {
-                                        optionName: "KIT P",
-                                        optionValue: "KitP"
-                                    },
-                                    {
-                                        optionName: "KIT Q",
-                                        optionValue: "KitQ"
-                                    },
-                                    {
-                                        optionName: "Luvas",
-                                        optionValue: "Luvas"
-                                    },
-                                    {
-                                        optionName: "Máscara",
-                                        optionValue: "Mascara"
-                                    },
-                                    {
-                                        optionName: "Manta Aluminizada",
-                                        optionValue: "MantaAluminizada"
-                                    },
-                                    {
-                                        optionName: "Pás do Dea",
-                                        optionValue: "PasDea"
-                                    },
-                                    {
-                                        optionName: "Sonda de Aspiração",
-                                        optionValue: "SondaAspiracao"
-                                    },
-                                    {
-                                        optionName: "Soro Fisiológico",
-                                        optionValue: "SoroFisiologico"
-                                    },
-                                    {
-                                        optionName: "Talas Pap.",
-                                        optionValue: "Talas"
-                                    },
-                                    {
-                                        optionName: "Outros",
-                                        optionValue: "Outros"
-                                    },
-                                ]}
-                                selectedOptionName={materialName}
-                                setSelectedOptionName={setMaterialName}
-                                selectedOptionValue={materialValue}
-                                setSelectedOptionValue={setMaterialValue}
+                    <SelectList
+                            options={[
+                                {
+                                    optionName: "Frente",
+                                    optionValue: "frente",
+                                },
+                                {
+                                    optionName: "Costas",
+                                    optionValue: "costas",
+                                },
                                 
-                            />
-                        </View>
-                        <View style={{display: materialTypeValue == "deixadoNoHospital" ? "flex" : "none"}}>
+                            ]}
+                            selectedOptionName={materialName}
+                            setSelectedOptionName={setMaterialName}
+                            selectedOptionValue={materialValue}
+                            setSelectedOptionValue={setMaterialValue}
+                            
+                    />
 
-                            <SelectList
-                                options={[
-                                    {
-                                        optionName: "Base do Estabilizante",
-                                        optionValue: "BaseEstabilizante"
-                                    },
-                                    {
-                                        optionName: "Colar",
-                                        optionValue: "colar"
-                                    },
-                                    {
-                                        optionName: "Coxins Estabilizante",
-                                        optionValue: "CoxinsEstabilizante"
-                                    },
-                                    {
-                                        optionName: "NOME",
-                                        optionValue: "VALOR"
-                                    },
-                                ]}
-                                selectedOptionName={materialName}
-                                setSelectedOptionName={setMaterialName}
-                                selectedOptionValue={materialValue}
-                                setSelectedOptionValue={setMaterialValue}
-                            />
-                        </View>
-
-
-
-
-                        <View style={{display: materialValue ? "flex" : "none"}}>
-                            <SelectList
-                                options={[
-                                    {
-                                        optionName: "Mano",
-                                        optionValue: "Nota 10"
-                                    },
-                                    {
-                                        optionName: "Mano2",
-                                        optionValue: "Nota 10 (Tbm)"
-                                    },
-                                    {
-                                        optionName: "Mano3",
-                                        optionValue: "Nota 5 + 5"
-                                    },
-                                    {
-                                        optionName: "NOME MOSTRADO",
-                                        optionValue: "VALOR PARA O BANCO"
-                                    },
-                                ]}
-                                selectedOptionName={materialSizeName}
-                                setSelectedOptionName={setMaterialSizeName}
-                                selectedOptionValue={materialSizeValue}
-                                setSelectedOptionValue={setMaterialSizeValue}
-                            />
-                        </View>
+                    <SelectList
+                            options={[
+                                {
+                                optionName: "Fraturas/Luxações/Entorses",
+                                optionValue: "fraturas",
+                                },
+                                {
+                                optionName: "Ferimentos Diversos",
+                                optionValue: "ferimentosDiversos"
+                                },
+                                {
+                                optionName: "Hemorragias",
+                                optionValue: "hemorragias",
+                                },
+                                {
+                                optionName: "Esviceração",
+                                optionValue: "escviceracao"
+                                },
+                                {
+                                optionName: "F.A.B/F.A.F",
+                                optionValue: "ferimentoPorArma"
+                                },
+                                {
+                                optionName: "Amputação",
+                                optionValue: "amputacao"
+                                },
+                            ]}
+                            selectedOptionName={materialSizeName}
+                            setSelectedOptionName={setMaterialSizeName}
+                            selectedOptionValue={materialSizeValue}
+                            setSelectedOptionValue={setMaterialSizeValue}
+                        />
                     </ViewBox>
                 ))}
                 <TouchableOpacity style={[{display: save ? "none" : "flex"}]} onPress={() => saveMaterial(materialTypeValue, materialValue, materialSizeValue)}>

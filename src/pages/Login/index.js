@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import api from './../../lib/axios';
@@ -11,6 +11,8 @@ export default function MainLogin() {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [loginError, setLoginError] = useState(false);
+    const [show, setShow] = useState(true);
+    const [eye, setEye] = useState(require('../../../assets/show.png'));
 
     async function login() {
         try {
@@ -32,6 +34,16 @@ export default function MainLogin() {
             console.error(error);
         }
     }
+    useEffect(() => {
+        if(show == true) {
+            setEye(require('../../../assets/invisible.png'));
+        } else {
+            setEye(require('../../../assets/show.png'));
+        }
+    })
+    
+
+
     
     return(
 
@@ -43,13 +55,29 @@ export default function MainLogin() {
             </View>
 
             <View>
-                <TextInput placeholder = 'Email/CPF' keyboardType = 'email-address' style={styles.TextInput} value={email} onChangeText={setEmail}/>
+                <TextInput placeholder = 'Email' keyboardType = 'email-address' style={styles.TextInput} value={email} onChangeText={setEmail}/>
             </View>
             
-            <View style={styles.SecondSection}>
-                <TextInput secureTextEntry={true} placeholder = 'Senha' keyboardType='default' style={styles.TextInput} value={password} onChangeText={setPassword}/>
-                
+            <View style={{
+                    gap: 12, flexDirection: "row", height: 56,
+                    borderColor: "#555555",
+                    width: "100%",
+                    borderWidth: 2,
+                    borderRadius: 10,
+                    alignItems: 'center',
+                }}>
+                <TextInput secureTextEntry={show} placeholder = 'Senha' keyboardType='default' style={[styles.TextInput, {borderWidth: 0, width: "80%"}]} value={password} onChangeText={setPassword}/>
+                <TouchableOpacity style={{width: 30, height: 30, alignItems: "flex-end"}} onPress={() => setShow(!show)}>
+                    <Image
+                        style={{width: 30, height: 30}}
+                        source={eye}
+                    />
+                </TouchableOpacity>
+
             </View>
+                <TouchableOpacity onPress={() => navigation.navigate("cadastro")}>
+                    <Text>Não possui cadastro</Text>
+                </TouchableOpacity>
             
             <TouchableOpacity 
             style={styles.ButtonContainer}

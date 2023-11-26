@@ -7,8 +7,8 @@ import Footer from './../../Footer';
 import ReturnButton from '../../../components/ReturnButton';
 import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
 import { Center } from 'native-base';
-// const db = require("./../../../../lib/db.js"); COMENTEI SÓ PARA PROGRAMAR
-// const { SUBMIT } = require("./../../../database/queries.js");
+import api from './../../../lib/axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function MainOcorrencia(){
 
@@ -28,54 +28,34 @@ export default function MainOcorrencia(){
             setModalVisible(false);
         }
     })
-    
-    
-    function transformarEmJson(){
-        const jsonString = `{${Object.entries(context)
-            .map(([key, value]) => `${key}:${JSON.stringify(value.state)}`)
-            .join(',\n')}}`;
 
-            console.log(jsonString);
-            if(jsonString){
-                module.exports = async (req, res) => {
-                    try {
-                        const result = await new Promise((resolve, reject) => {
-                            db.query(SUBMIT(
-                                // nomePac,
-                                // nomeHosp,
-                                // docPac,
-                                // idadePac,
-                                // telefonePac,
-                                // local,
-                                // acompanhante,
-                                // idadeAcom,
-                                // vitimaEra
-                            ), function(err, result) {
-                                if (err) {
-                                    console.log(err);
-                                    reject(err); // Rejeita a promessa em caso de erro
-                                } else {
-                                    resolve(result); // Resolve a promessa com o resultado bem-sucedido
-                                }
-                            });
-                        });
-                
-                        // Se chegamos até aqui, a operação no banco de dados foi bem-sucedida
-                        // Você pode verificar o valor de 'result' para tomar a ação apropriada
-                
-                        if (result) {
-                            return res.send("Enviado com sucesso");
-                        } else {
-                            return res.send("Erro ao enviar os dados");
-                        }
-                    } catch (error) {
-                        return res.send("Erro na consulta ao banco de dados: " + error);
-                    }
-                };
-                
-            }
+    async function transformarEmJson(){
+        const jsonString = `{${Object.entries(context).map(([key, value]) => 
+        `${key}:${JSON.stringify(value.state)}`).join(',\n')}}`;
+
+        console.log(jsonString)
+        try {
+            const apiReply = await api.post("/submit", { jsonString });
+            console.log("deu certo");
+        } catch (error) {
+            setSubmitError(current => !current);
+            console.error(error);
+        }
     }
 
+    // const InfPac = StyleSheet.flatten([]);
+    // const InfAmb = StyleSheet.flatten([]);
+    // const TipoOc = StyleSheet.flatten([]);
+    // const InfConETrans = StyleSheet.flatten([]);
+    // const AvalPac = StyleSheet.flatten([]);
+    // const SinaisVitais = StyleSheet.flatten([]);
+    // const SinaisSintomas = StyleSheet.flatten([]);
+    // const ProbEnc = StyleSheet.flatten([]);
+    // const LocTraumas = StyleSheet.flatten([]);
+    // const ProcedEfe = StyleSheet.flatten([]);
+    // const Anamnese = StyleSheet.flatten([]);
+    // const AnamneseGest = StyleSheet.flatten([]);
+    // const CinObjRec = StyleSheet.flatten([]);
     return(
         <View style={styles.Body}>
             <Header/>
@@ -106,7 +86,7 @@ export default function MainOcorrencia(){
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('problemasEncontrados')}>
                             <Text style={styles.OcStepText}>Problemas Encontrados</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep}>
+                        <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('traumas')}>
                             <Text style={styles.OcStepText}>Localização dos Traumas</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('procedimentosEfetuados')}>

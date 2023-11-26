@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, Button } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
@@ -14,6 +14,8 @@ export default function MainTeste(){
     const [material, setMaterial] = useState([]);
     
     const [materialTypeValue, setMaterialTypeValue] = useState(null);
+    const [oldMaterialTypeValue, setOldMaterialTypeValue] = useState(null);
+    
     const [materialTypeName, setMaterialTypeName] = useState("Tipo do Material Utilizado");
     const [materialValue, setMaterialValue] = useState(null);
     const [materialName, setMaterialName] = useState("Qual foi o Material Utilizado");
@@ -24,6 +26,16 @@ export default function MainTeste(){
     const [materials, setMaterials] = useState([
 
     ]);
+    useEffect(() => {
+        
+        if(oldMaterialTypeValue !== materialTypeValue){
+            setMaterialName("Qual foi o Material Utilizado");
+            setMaterialValue(null);
+            setOldMaterialTypeValue(materialTypeValue);
+        } else {
+            setOldMaterialTypeValue(materialTypeValue);
+        }
+    })
 
 
     const saveMaterial = (tipo, nome, tamanho) => {

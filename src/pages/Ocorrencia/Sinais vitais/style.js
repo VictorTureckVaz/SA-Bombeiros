@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
           fontSize: 20,
           height: 56,
           borderColor: "#555555",
-          width: 224,
+          width: "62%",
           borderWidth: 2,
           padding: 10,
           borderRadius: 10,
@@ -138,12 +138,13 @@ const styles = StyleSheet.create({
           fontSize: 20,
           height: 56,
           borderColor: "#555555",
-          width: 124,
+          width: "34%",
           borderWidth: 2,
           padding: 10,
           borderRadius: 10,
           flexDirection: "row",
           alignItems: "center",
+          gap: 10,
         },
   });
 

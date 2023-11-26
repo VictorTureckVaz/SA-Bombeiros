@@ -4,7 +4,6 @@ export const OcorrenciaContext = createContext();
 
 export const OcorrenciaProvider = ({ children }) => {
 
-     const [login, setLogin] = useState(null)
      const [tipoOc, setTipoOc] = useState(null);
      const [decisao, setDecisao] = useState(null);
      const [transporteName, setTransporteName] = useState(null);

@@ -9,34 +9,78 @@ import Footer from './../../Footer';
 import SelectList from './../../../components/SelectList'
 import ReturnButton from '../../../components/ReturnButton';
 import { OcorrenciaContext } from '../../../context/ocorrenciaContext';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { faTimeline } from '@fortawesome/free-solid-svg-icons';
 
 export default function MainAnamnese(){
 
     const navigation = useNavigation();
 
-    
+    const [date, setDate] = useState(new Date());
+    const [show, setShow] = useState(false);
+    const [mode, setMode] = useState('date');
+    const [ingestaoHorario, setIngestaoHorario] = useState();
+   
+    const onChange = (e, selectedDate) => {
+          setDate(selectedDate);
+          setShow(false);
+    }
+
+    const showMode = (modeToShow) => {
+     setShow(true);
+          setDate(selectedDate);
+          
+          
+          setShow(false);
+          setMode(modeToShow);
+    }
 
     const context = useContext(OcorrenciaContext);
 
     
 
     if(context.possuiProblemaDeSaudeValue.state == "nao"){
-        context.problemasDeSaude.setState(null);
+          context.problemasDeSaude.setState(null);
     }
     if(context.fazUsoDeMedicacoesValue.state == "nao"){
-        context.medicacoes.setState(null);
+          context.medicacoes.setState(null);
     }
     if(context.ehAlergicoValue.state == "nao"){
-        context.alergia.setState(null);
+          context.alergia.setState(null);
     }
 
-    
+    function ingestaoHora(){
+     setIngestaoHorario(showMode('time'))
+     console.log(ingestaoHorario)
+    }
+
+
     return(
         <View style={styles.Body}>
             <Header/>
             
             <ScrollView>
                 <View style={styles.Container}>
+                         {
+                              show && (
+                                   <DateTimePicker
+                                   value={date}
+                                   mode={mode}
+                                   is24Hour={true}
+                                   onChange={onChange}
+                                   />
+                              )
+                         }
+                    <TextInput placeholder = 'COD SIA/SUS' keyboardType = 'number-pad' style={styles.TextInput} value={context.codSia.state} onChangeText={context.codSia.setState}/>
+                    <TouchableOpacity onPress={() => showMode('date')}>
+                         <Text>teste</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.TextInput} onPress={() => tempoData()}>
+                         <Text>Há Quanto Tempo Aconteceu?</Text>
+                         <Text>{date.toLocaleString()}</Text>
+
+                    </TouchableOpacity>
+                         
                     <TextInput
                         placeholder = 'Sinais e Sintomas'
                         keyboardType = 'default'
@@ -159,6 +203,21 @@ export default function MainAnamnese(){
                          setSelectedOptionValue={context.ingeriuAlgoValue.setState}
                          title={'Ingeriu Alimento / Líquido ≥ 6H'}
                     />
+                    <TouchableOpacity style={styles.TextInput} onPress={() => ingestaoHora()}>
+                         <Text>Horário da Última Ingestão</Text>
+                         <Text>{}</Text>
+                         {
+                         show && (
+                              <DateTimePicker
+                              value={date}
+                              mode={mode}
+                              is24Hour={true}
+                              onChange={onChange}
+                              />
+                         )
+                         }
+
+                    </TouchableOpacity>
                 
                 
                 
