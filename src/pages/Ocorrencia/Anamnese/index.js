@@ -16,28 +16,38 @@ export default function MainAnamnese(){
 
     const navigation = useNavigation();
 
-    const [date, setDate] = useState(new Date());
-    const [show, setShow] = useState(false);
+    const [dateIngestao, setDateIngestao] = useState(new Date());
+    const [showIngestao, setShowIngestao] = useState(false);
+    const [dateAconteceu, setDateAconteceu] = useState(new Date());
+    const [showAconteceu, setShowAconteceu] = useState(false);
     const [mode, setMode] = useState('date');
     const [ingestaoHorario, setIngestaoHorario] = useState();
    
-    const onChange = (e, selectedDate) => {
-          setDate(selectedDate);
-          setShow(false);
+    const onChangeIngestao = (e, selectedDate) => {
+          setDateIngestao(selectedDate);
+          setShowIngestao(false);
     }
 
-    const showMode = (modeToShow) => {
-     setShow(true);
-          setDate(selectedDate);
-          
-          
-          setShow(false);
+    const showModeIngestao = (modeToShow) => {
+          setShowIngestao(true);
+
+          setMode(modeToShow);
+    }
+
+    const onChangeAconteceu = (e, selectedDate) => {
+          setDateAconteceu(selectedDate);
+          setShowAconteceu(false);
+    }
+
+    const showModeAconteceu = (modeToShow) => {
+          setShowAconteceu(true);
+
           setMode(modeToShow);
     }
 
     const context = useContext(OcorrenciaContext);
 
-    
+    console.log(dateAconteceu)
 
     if(context.possuiProblemaDeSaudeValue.state == "nao"){
           context.problemasDeSaude.setState(null);
@@ -49,10 +59,7 @@ export default function MainAnamnese(){
           context.alergia.setState(null);
     }
 
-    function ingestaoHora(){
-     setIngestaoHorario(showMode('time'))
-     console.log(ingestaoHorario)
-    }
+
 
 
     return(
@@ -62,22 +69,22 @@ export default function MainAnamnese(){
             <ScrollView>
                 <View style={styles.Container}>
                          {
-                              show && (
+                              showAconteceu && (
                                    <DateTimePicker
-                                   value={date}
-                                   mode={mode}
+                                   value={dateAconteceu}
+                                   mode={"time"}
                                    is24Hour={true}
-                                   onChange={onChange}
+                                   onChange={onChangeAconteceu}
                                    />
                               )
                          }
                     <TextInput placeholder = 'COD SIA/SUS' keyboardType = 'number-pad' style={styles.TextInput} value={context.codSia.state} onChangeText={context.codSia.setState}/>
-                    <TouchableOpacity onPress={() => showMode('date')}>
+                    <TouchableOpacity onPress={() => showModeAconteceu('time')}>
                          <Text>teste</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.TextInput} onPress={() => tempoData()}>
+                    <TouchableOpacity style={styles.TextInput} onPress={() => showModeAconteceu('date')}>
                          <Text>Há Quanto Tempo Aconteceu?</Text>
-                         <Text>{date.toLocaleString()}</Text>
+                         <Text>{dateAconteceu.toLocaleString()}</Text>
 
                     </TouchableOpacity>
                          
@@ -203,16 +210,16 @@ export default function MainAnamnese(){
                          setSelectedOptionValue={context.ingeriuAlgoValue.setState}
                          title={'Ingeriu Alimento / Líquido ≥ 6H'}
                     />
-                    <TouchableOpacity style={styles.TextInput} onPress={() => ingestaoHora()}>
+                    <TouchableOpacity style={[styles.TextInput, {display: context.ingeriuAlgoValue.state == "sim" ? "flex" : "none",}]} onPress={() => showModeIngestao('date')}>
                          <Text>Horário da Última Ingestão</Text>
-                         <Text>{}</Text>
+                         <Text>{dateIngestao.toLocaleDateString()}</Text>
                          {
-                         show && (
+                         showIngestao && (
                               <DateTimePicker
-                              value={date}
+                              value={dateIngestao}
                               mode={mode}
                               is24Hour={true}
-                              onChange={onChange}
+                              onChange={onChangeIngestao}
                               />
                          )
                          }

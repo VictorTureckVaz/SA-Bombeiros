@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
 
-export default function RadioButton({
+export default function CheckBox({
      options,
      selectedOption,
      setSelectedOption,

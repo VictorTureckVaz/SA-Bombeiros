@@ -8,11 +8,6 @@ export default function Header(){
 
     const navigation = useNavigation();
 
-    async function logout(){
-        await AsyncStorage.removeItem('token')
-        navigation.navigate('login')
-    }
-
     return(
         <View style={styles.Container}>
             <View style={styles.Menu}>
@@ -22,10 +17,6 @@ export default function Header(){
                 />
                 <View style={styles.Line}/>
             </View>
-            <TouchableOpacity onPress={logout}>
-                <Text>logout</Text>
-            </TouchableOpacity>
         </View>
     );
-
 };

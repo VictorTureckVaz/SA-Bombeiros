@@ -35,6 +35,7 @@ export default function MainHome(){
                     <View style={styles.Container}>
 
                     <View style={styles.ImageContainer}>
+                         <Text>Rua Guilherme Tiburtius, 38</Text>
                          <Image
                          style={{width: 280, height: 280}}
                          source={require('../../../assets/bombeirosLogo.png')}

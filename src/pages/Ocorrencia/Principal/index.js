@@ -15,7 +15,6 @@ export default function MainOcorrencia(){
     const navigation = useNavigation();
 
     const context = useContext(OcorrenciaContext);
-
     const [sexoPac, setSexoPac] = useState(null);
     const [modalVisible, setModalVisible] = useState(true);
 
@@ -33,10 +32,10 @@ export default function MainOcorrencia(){
         const jsonString = `{${Object.entries(context).map(([key, value]) => 
         `${key}:${JSON.stringify(value.state)}`).join(',\n')}}`;
 
-        console.log(jsonString)
+        console.log(jsonString);
         try {
             const apiReply = await api.post("/submit", { jsonString });
-            console.log("deu certo");
+            console.log("deu certo:\n"+jsonString);
         } catch (error) {
             setSubmitError(current => !current);
             console.error(error);

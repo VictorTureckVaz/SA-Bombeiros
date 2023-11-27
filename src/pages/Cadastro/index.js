@@ -19,7 +19,11 @@ export default function MainCadastro() {
     const [showB, setShowB] = useState(true);
     const [eye, setEye] = useState(require('../../../assets/show.png'));
     const [eyeB, setEyeB] = useState(require('../../../assets/show.png'));
-    const [cadastroError, setCadastroError] = useState(false);
+    const [error, setError] = useState(null);
+    const [nomeError, setNomeError] = useState(false);
+    const [sobrenomeError, setSobrenomeError] = useState(false);
+    const [cpfError, setCpfError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
     
     useEffect(() => {
         if(show == true) {
@@ -38,11 +42,38 @@ export default function MainCadastro() {
     })
 
     async function cadastrar() {
-        if(password===confirmPassword){
+        if(nome == null || nome == ""){
+            //tem que mostrar que o nome tem valor null e nao pode
+            console.log("nome ta null");
+            setError("Sem Nome");
+            
+        }else if(sobrenome == null || sobrenome == ""){
+            //tem que mostrar que o sobrenome tem valor null e nao pode
+            console.log("sobrenome ta null");
+            setError("Sem Sobrenome");
+
+        }else if(typeof cpf !== 'string' || isNaN(cpf) || cpf.length !== 11){
+            // tem que mostrar que o cpf tem alguma coisa errada(ou tem caractere, ou é diferente de 11 caracteres)
+            console.log("cpf tem caractere diferente de numero, ou nao tem 11 numeros");
+            setError("CPF deve ter 11 digitos, somente numeros");
+            
+
+        }else if(email == null || email.includes('@') == false || email == ""){
+            //o valor é null ou nao tem @, e nao pode isso
+            console.log("email ta null ou nao tem @");
+            console.log(email);
+            setError("Sem @");
+
+        }else if(password == null || password.length < 5){
+            //o valor da senha é menor que 5, e nao pode isso
+            console.log("senha é menor que 5 caracteres");
+            setError("Senha é menor que 5 caracteres");
+            
+        }else if(password===confirmPassword){
             console.log("boa mlk");
             try {
                 console.log("a principio enviou :)");
-                navigation.navigate('home');
+                navigation.navigate('login');
                 const apiReply = await api.post("/cadastro", { nome: nome, sobrenome: sobrenome, pass: password, email: email, cpf: cpf });
             } catch (error) {
                 setCadastroError(current => !current);
@@ -50,10 +81,11 @@ export default function MainCadastro() {
                 console.error(error);
             }
         }else{//pop-up dizendo q nao deu certo
-            setCadastroError(true);
-            console.log("deu erro mlk fudeu");
+            setError("Senhas Não Batem");
+            console.log("as senhas nao batem");
         }
     }
+    
 
     return(
 
@@ -66,15 +98,27 @@ export default function MainCadastro() {
 
             <View>
                 <TextInput placeholder = 'Nome' keyboardType = 'text' style={styles.TextInput} value={nome} onChangeText={setNome}/>
+                <View style={{backgroundColor: "#E74428", borderRadius: "5px", display: nomeError == true ? "flex" : "none"}}>
+                    <Text>É necessário colocar nome</Text>
+                </View>
             </View>
             <View>
                 <TextInput placeholder = 'Sobrenome' keyboardType = 'text' style={styles.TextInput} value={sobrenome} onChangeText={setSobrenome}/>
+                <View style={{backgroundColor: "#E74428", borderRadius: "5px", display: sobrenomeError == true ? "flex" : "none"}}>
+                    <Text>É necessário colocar sobrenome</Text>
+                </View>
             </View>
             <View>
                 <TextInput placeholder = 'CPF' keyboardType = 'numeric' style={styles.TextInput} value={cpf} onChangeText={setCpf}/>
+                <View style={{backgroundColor: "#E74428", borderRadius: "5px", display: cpfError == true ? "flex" : "none"}}>
+                    <Text>Deve possuir só digitos, com 11 caracteres</Text>
+                </View>        
             </View>
             <View>
                 <TextInput placeholder = 'Email' keyboardType = 'email-address' style={styles.TextInput} value={email} onChangeText={setEmail}/>
+                <View style={{backgroundColor: "#E74428", borderRadius: "5px",display: emailError == true ? "flex" : "none"}}>
+                    <Text>Deve possuir um @</Text>
+                </View>
             </View>
         
             <View
@@ -120,8 +164,8 @@ export default function MainCadastro() {
                 <Text style={styles.ButtonText}>CADASTRAR</Text>
             </TouchableOpacity>
 
-            <View style={[styles.ErrorContainer, {display: cadastroError==true ? 'flex' : 'none'}]}>
-                <Text style={styles.ErrorText}>Senha incorreta</Text>
+            <View style={[styles.ErrorContainer, {display: error !== null ? 'flex' : 'none'}]}>
+                <Text style={styles.ErrorText}>{error}</Text>
             </View>
 
         </View>

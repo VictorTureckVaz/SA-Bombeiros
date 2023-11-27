@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'native-base';
 import Header from './../Header';
 import Footer from './../Footer';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function MainProfile(){
     const navigation = useNavigation();
@@ -13,6 +14,8 @@ export default function MainProfile(){
         await AsyncStorage.removeItem('token')
         navigation.navigate('login')
     }
+
+    
 
     return(
         <View style={styles.Body}>

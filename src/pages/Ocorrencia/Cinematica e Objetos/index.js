@@ -18,7 +18,7 @@ import ReturnButton from '../../../components/ReturnButton';
 
 export default function MainCinematicaObjetos() {
   const navigation = useNavigation();
-  const [OR, setOR] = useState(null);
+  const [or, setOr] = useState(null);
   const [groupValues, setGroupValues] = React.useState([]);
 
   return (
@@ -31,8 +31,8 @@ export default function MainCinematicaObjetos() {
               placeholder="Objetos Recolhidos..."
               keyboardType="default"
               style={styles.TextInput}
-              value={OR}
-              onChangeText={setOR}
+              value={or}
+              onChangeText={setOr}
             />
           </View>
           <Checkbox.Group onChange={setGroupValues} border="black" colorScheme="green" size="md" value={groupValues} accessibilityLabel="choose numbers">
@@ -58,7 +58,8 @@ export default function MainCinematicaObjetos() {
               Volante Torcido
             </Checkbox>
           </Checkbox.Group>
-          <Footer />
+          <ReturnButton/>
+          <Footer/>
         </View>
       </ScrollView>
     </View>

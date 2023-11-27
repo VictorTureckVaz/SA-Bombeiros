@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
       Text: {
         color: "gray",
         fontSize: 20,
-        width: "95%",
+        width: "90%",
       },
       
       UsingMenuTitle: {

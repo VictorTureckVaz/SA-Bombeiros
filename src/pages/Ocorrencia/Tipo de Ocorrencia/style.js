@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
       padding: 27,
       height: "100%",
     },
-      
+    
   });
 
   export default styles;

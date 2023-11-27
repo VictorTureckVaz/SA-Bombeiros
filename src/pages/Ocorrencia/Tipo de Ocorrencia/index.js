@@ -30,7 +30,7 @@ export default function MainTipoOc() {
                 options={[
                     {
                         optionName: "Causado por Animais",
-                        optionValue: "CausadoPorAnimais"
+                        optionValue: "CausadoPorAnimais",
                     },
                     {
                         optionName: "Com Meio de Transporte",
@@ -120,7 +120,6 @@ export default function MainTipoOc() {
                 selectedOption={context.tipoOc.state}
                 setSelectedOption={context.tipoOc.setState}
               />
-           
           <ReturnButton/>
           <Footer/>
         </View>

@@ -4,10 +4,24 @@ const styles = StyleSheet.create({
       Checkbox: {
         height: 56,
         borderColor: "#555555",
-        width: "100%",
         borderWidth: 2,
         padding: 10,
         borderRadius: 10,
+        width: "100%",
+      },
+
+      counterContainer: {
+
+        flexDirection: "row", 
+        height: "fit-content", 
+        borderColor: "#555555", 
+        borderWidth: 2, 
+        padding: 10, 
+        borderRadius: 10, 
+        width: "50%",
+        gap: 15, 
+        alignItems: "center",
+        justifyContent: "space-around"
       },
 
       Text: {

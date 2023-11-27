@@ -10,42 +10,42 @@
 
 // module.exports = async (req, res) => {
 //     try {
-//         // const result = await new Promise((resolve, reject) => {
-//         //     const {
-//         //         tipoOc, decisao, transporteName, transporteValue, socorristaA, 
-//         //         socorristaB,socorristaC, motorista, demandante, sexoPac, numUsb, 
-//         //         numOc, despachante, kmFinal, codSia, codIr, codPs, nomePac, 
-//         //         nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, 
-//         //         idadeAcom, vitimaEraName, vitimaEraValue, obs, aberturaOcular, 
-//         //         respostaVerbal, respostaMotora, possuiProblemaDeSaudeName, 
-//         //         possuiProblemaDeSaudeValue, aconteceuOutrasVezesName, 
-//         //         aconteceuOutrasVezesValue, problemasDeSaude, fazUsoDeMedicacoesValue, 
-//         //         fazUsoDeMedicacoesName, medicacoes, ehAlergicoName, ehAlergicoValue, 
-//         //         alergia, ingeriuAlgoName, ingeriuAlgoValue, fezPreNatalName, 
-//         //         fezPreNatalValue, nomeMedico, partoRealizado, filhos, nomeBebe,
-//         //         sexoBebe, primeiroFilhoName, primeiroFilhoValue
-//         //     } = jsonString;
+//         const result = await new Promise((resolve, reject) => {
+//             const {
+//                 tipoOc, decisao, transporteName, transporteValue, socorristaA, 
+//                 socorristaB,socorristaC, motorista, demandante, sexoPac, numUsb, 
+//                 numOc, despachante, kmFinal, codSia, codIr, codPs, nomePac, 
+//                 nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, 
+//                 idadeAcom, vitimaEraName, vitimaEraValue, obs, aberturaOcular, 
+//                 respostaVerbal, respostaMotora, possuiProblemaDeSaudeName, 
+//                 possuiProblemaDeSaudeValue, aconteceuOutrasVezesName, 
+//                 aconteceuOutrasVezesValue, problemasDeSaude, fazUsoDeMedicacoesValue, 
+//                 fazUsoDeMedicacoesName, medicacoes, ehAlergicoName, ehAlergicoValue, 
+//                 alergia, ingeriuAlgoName, ingeriuAlgoValue, fezPreNatalName, 
+//                 fezPreNatalValue, nomeMedico, partoRealizado, filhos, nomeBebe,
+//                 sexoBebe, primeiroFilhoName, primeiroFilhoValue
+//             } = jsonString;
 
-//         //     db.query(SUBMIT(
-//         //         tipoOc, decisao, transporteName, transporteValue, socorristaA, socorristaB,
-//         //         socorristaC, motorista, demandante, sexoPac, numUsb, numOc, despachante,
-//         //         kmFinal, codSia, codIr, codPs, nomePac, nomeHosp, docPac, idadePac,
-//         //         telefonePac, local, acompanhante, idadeAcom, vitimaEraName, vitimaEraValue,
-//         //         obs, aberturaOcular, respostaVerbal, respostaMotora, possuiProblemaDeSaudeName,
-//         //         possuiProblemaDeSaudeValue, aconteceuOutrasVezesName, aconteceuOutrasVezesValue,
-//         //         problemasDeSaude, fazUsoDeMedicacoesValue, fazUsoDeMedicacoesName, medicacoes,
-//         //         ehAlergicoName, ehAlergicoValue, alergia, ingeriuAlgoName, ingeriuAlgoValue,
-//         //         fezPreNatalName, fezPreNatalValue, nomeMedico, partoRealizado, filhos, nomeBebe,
-//         //         sexoBebe, primeiroFilhoName, primeiroFilhoValue
-//         //     ), function(err, result) {
-//         //         if (err) {
-//         //             console.log(err);
-//         //             reject(err); // Rejeita a promessa em caso de erro
-//         //         } else {
-//         //             resolve(result); // Resolve a promessa com o resultado bem-sucedido
-//         //         }
-//         //     });
-//         // });
+//             db.query(SUBMIT(
+//                 tipoOc, decisao, transporteName, transporteValue, socorristaA, socorristaB,
+//                 socorristaC, motorista, demandante, sexoPac, numUsb, numOc, despachante,
+//                 kmFinal, codSia, codIr, codPs, nomePac, nomeHosp, docPac, idadePac,
+//                 telefonePac, local, acompanhante, idadeAcom, vitimaEraName, vitimaEraValue,
+//                 obs, aberturaOcular, respostaVerbal, respostaMotora, possuiProblemaDeSaudeName,
+//                 possuiProblemaDeSaudeValue, aconteceuOutrasVezesName, aconteceuOutrasVezesValue,
+//                 problemasDeSaude, fazUsoDeMedicacoesValue, fazUsoDeMedicacoesName, medicacoes,
+//                 ehAlergicoName, ehAlergicoValue, alergia, ingeriuAlgoName, ingeriuAlgoValue,
+//                 fezPreNatalName, fezPreNatalValue, nomeMedico, partoRealizado, filhos, nomeBebe,
+//                 sexoBebe, primeiroFilhoName, primeiroFilhoValue
+//             ), function(err, result) {
+//                 if (err) {
+//                     console.log(err);
+//                     reject(err); // Rejeita a promessa em caso de erro
+//                 } else {
+//                     resolve(result); // Resolve a promessa com o resultado bem-sucedido
+//                 }
+//             });
+//         });
 
 //         // Se chegamos até aqui, a operação no banco de dados foi bem-sucedida
 //         // Você pode verificar o valor de 'result' para tomar a ação apropriada
