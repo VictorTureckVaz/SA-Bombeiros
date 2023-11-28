@@ -95,6 +95,7 @@ export default function MainTransporte(){
                             setSelectedOptionName={context.transporteName.setState}
                             selectedOptionValue={context.transporteValue.state}
                             setSelectedOptionValue={context.transporteValue.setState}
+                            title={"Forma de Condução"}
                         />
                     </View>
                     <Text style={styles.Text}>Equipe de Atendimento</Text>

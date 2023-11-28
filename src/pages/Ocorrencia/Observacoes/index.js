@@ -12,7 +12,7 @@ export default function MainObs(){
     
     const navigation = useNavigation();
 
-    const context = useContext(OcorrenciaContext)
+    const context = useContext(OcorrenciaContext);
     
 
     return(
@@ -23,16 +23,7 @@ export default function MainObs(){
                     <TextInput multiline placeholder = 'Observações Importantes...' numberOfLines={4} keyboardType = 'default' style={styles.TextInput} value={context.obs.state} onChangeText={context.obs.setState}/>
                     
                     <View style={styles.ButtonContainer}>
-                         <TouchableOpacity 
-                         style={styles.Button} 
-                         onPress={ () => navigation.navigate('ocorrencia') }
-                         >
-                              <Image
-                              style={styles.Icon}
-                              source={require('../../../../assets/previous.png')}
-                              />
-                              <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
-                         </TouchableOpacity>
+                         <ReturnButton/>
                     </View>
                </View>
             

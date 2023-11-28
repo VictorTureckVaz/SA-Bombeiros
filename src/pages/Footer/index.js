@@ -10,7 +10,6 @@ export default function Footer(){
 
     const context = useContext(OcorrenciaContext);
 
-    
 
     function homePress(){
         context.children = null;
@@ -28,8 +27,8 @@ export default function Footer(){
                <Text>Ocorrência</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.FooterSection} onPress={ () => navigation.navigate('profile')}>
-                <Image source={require("../../../assets/historic.png")} style={styles.Icon}/>
-               <Text>Histórico</Text>
+                <Image source={require("../../../assets/profile.png")} style={styles.Profile}/>
+               <Text>Usuário</Text>
             </TouchableOpacity>
         </View>
     );

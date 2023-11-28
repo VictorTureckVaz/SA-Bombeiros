@@ -1,12 +1,5 @@
-import React, { useState, useMemo, useContext } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-} from "react-native";
+import React, { useState, useMemo, useContext, useEffect } from "react";
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, } from "react-native";
 import styles from "./style";
 import { useNavigation } from "@react-navigation/native";
 import Header from "./../../Header";
@@ -20,6 +13,31 @@ export default function MainTipoOc() {
   const [groupValues, setGroupValues] = React.useState([]);
   const context = useContext(OcorrenciaContext)
  
+//   function setOutro() {
+//       context.tipoOc.setState(context.outroTipoOc.state)
+//   }
+    useEffect(() => {
+        if(context.outroTipoOc.state !== null){
+            context.tipoOc.setState(context.outroTipoOc.state);
+            console.log(context.outroTipoOc.state)
+            console.log(context.tipoOc.state)
+        }
+        // if(context.tipoOc.state == context.outroTipoOc.state && context.tipoOc.state !== null){
+        //     context.outroTipoOc.setState(null)
+        // }
+    })
+
+    useEffect(() => {
+        if(context.outroTipoOc.state == context.tipoOc.state){
+            console.log("eh igual")
+        }else{
+            console.log("eh diferente")
+        }
+        // if(context.tipoOc.state == context.outroTipoOc.state && context.tipoOc.state !== null){
+        //     context.outroTipoOc.setState(null)
+        // }
+    })
+    
 
   return (
     <View style={styles.Body}>
@@ -112,14 +130,12 @@ export default function MainTipoOc() {
                         optionName: "Transferência",
                         optionValue: "Transferencia"
                     },
-                    {
-                        optionName: "Outros",
-                        optionValue: "Outros"
-                    },
+
                 ]}
                 selectedOption={context.tipoOc.state}
                 setSelectedOption={context.tipoOc.setState}
               />
+              <TextInput placeholder = 'Outros...' keyboardType = 'default' style={styles.TextInput} value={context.outroTipoOc.state} onChangeText={context.outroTipoOc.setState}/>
           <ReturnButton/>
           <Footer/>
         </View>

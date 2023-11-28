@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import Header from './../Header';
 import Footer from './../Footer';
 import { ScrollView } from 'native-base';
+import api from './../../lib/axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function MainHome(){
@@ -16,7 +17,8 @@ export default function MainHome(){
 
           if (token) {
                console.log('temos o token: ' + token);
-               navigation.navigate('ocorrencia')
+               navigation.navigate('ocorrencia');
+               const confirmando = await api.post("/nullSubmit");
           } else {
                console.log('neo temos o token');
                navigation.navigate('login')
@@ -35,7 +37,6 @@ export default function MainHome(){
                     <View style={styles.Container}>
 
                     <View style={styles.ImageContainer}>
-                         <Text>Rua Guilherme Tiburtius, 38</Text>
                          <Image
                          style={{width: 280, height: 280}}
                          source={require('../../../assets/bombeirosLogo.png')}
@@ -44,16 +45,15 @@ export default function MainHome(){
                     <View style={styles.ButtonContainer}>
                          <TouchableOpacity 
                          style={styles.Button}
-                         // onPress={ verifyLogin }
-                         onPress={() => navigation.navigate('ocorrencia')}
+                         onPress={ verifyLogin }
                          >
                               <Text style={styles.Title}>PREENCHER OCORRÊNCIA</Text>
                          </TouchableOpacity>
                     </View>
     
                     </View>
-                    <Footer/>
                </ScrollView>
+               <Footer/>
           </View>
     );
 

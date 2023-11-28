@@ -10,44 +10,35 @@ import SelectList from './../../../components/SelectList'
 import ReturnButton from '../../../components/ReturnButton';
 import { OcorrenciaContext } from '../../../context/ocorrenciaContext';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { faTimeline } from '@fortawesome/free-solid-svg-icons';
 
 export default function MainAnamnese(){
 
     const navigation = useNavigation();
 
-    const [dateIngestao, setDateIngestao] = useState(new Date());
-    const [showIngestao, setShowIngestao] = useState(false);
-    const [dateAconteceu, setDateAconteceu] = useState(new Date());
-    const [showAconteceu, setShowAconteceu] = useState(false);
-    const [mode, setMode] = useState('date');
-    const [ingestaoHorario, setIngestaoHorario] = useState();
+    const context = useContext(OcorrenciaContext);
    
     const onChangeIngestao = (e, selectedDate) => {
-          setDateIngestao(selectedDate);
-          setShowIngestao(false);
+          context.dateIngestao.setState(selectedDate);
+          context.showIngestao.setState(false);
     }
 
     const showModeIngestao = (modeToShow) => {
-          setShowIngestao(true);
+          context.showIngestao.setState(true);
 
-          setMode(modeToShow);
+          context.mode.setState(modeToShow);
     }
 
     const onChangeAconteceu = (e, selectedDate) => {
-          setDateAconteceu(selectedDate);
-          setShowAconteceu(false);
+          context.dateAconteceu.setState(selectedDate);
+          context.showAconteceu.setState(false);
     }
 
     const showModeAconteceu = (modeToShow) => {
-          setShowAconteceu(true);
+          context.setShowAconteceu.setState(true);
 
-          setMode(modeToShow);
+          context.mode.setState(modeToShow);
     }
 
-    const context = useContext(OcorrenciaContext);
-
-    console.log(dateAconteceu)
 
     if(context.possuiProblemaDeSaudeValue.state == "nao"){
           context.problemasDeSaude.setState(null);
@@ -68,25 +59,6 @@ export default function MainAnamnese(){
             
             <ScrollView>
                 <View style={styles.Container}>
-                         {
-                              showAconteceu && (
-                                   <DateTimePicker
-                                   value={dateAconteceu}
-                                   mode={"time"}
-                                   is24Hour={true}
-                                   onChange={onChangeAconteceu}
-                                   />
-                              )
-                         }
-                    <TextInput placeholder = 'COD SIA/SUS' keyboardType = 'number-pad' style={styles.TextInput} value={context.codSia.state} onChangeText={context.codSia.setState}/>
-                    <TouchableOpacity onPress={() => showModeAconteceu('time')}>
-                         <Text>teste</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.TextInput} onPress={() => showModeAconteceu('date')}>
-                         <Text>Há Quanto Tempo Aconteceu?</Text>
-                         <Text>{dateAconteceu.toLocaleString()}</Text>
-
-                    </TouchableOpacity>
                          
                     <TextInput
                         placeholder = 'Sinais e Sintomas'
@@ -112,6 +84,20 @@ export default function MainAnamnese(){
                          setSelectedOptionValue={context.aconteceuOutrasVezesValue.setState}
                          title={'Aconteceu Outras Vezes?'}
                     />
+
+                    <TouchableOpacity style={[styles.TextInput, {display: context.aconteceuOutrasVezesValue.state ? "flex" : "none"}]} onPress={() => showModeAconteceu('date')}>
+                         <Text style={{fontSize: 20}}>Há Quanto Tempo Aconteceu? {context.dateAconteceu.state.toLocaleDateString()}</Text>
+                         {
+                              context.showIngestao.state && (
+                                   <DateTimePicker
+                                   value={context.dateAconteceu.state}
+                                   mode={context.mode.state}
+                                   is24Hour={true}
+                                   onChange={onChangeAconteceu}
+                                   />
+                              )
+                         }
+                    </TouchableOpacity>
 
                     
                     <SelectList
@@ -210,14 +196,13 @@ export default function MainAnamnese(){
                          setSelectedOptionValue={context.ingeriuAlgoValue.setState}
                          title={'Ingeriu Alimento / Líquido ≥ 6H'}
                     />
-                    <TouchableOpacity style={[styles.TextInput, {display: context.ingeriuAlgoValue.state == "sim" ? "flex" : "none",}]} onPress={() => showModeIngestao('date')}>
-                         <Text>Horário da Última Ingestão</Text>
-                         <Text>{dateIngestao.toLocaleDateString()}</Text>
+                    <TouchableOpacity style={[styles.TextInput, {display: context.ingeriuAlgoValue.state == "sim" ? "flex" : "none",}]} onPress={() => showModeIngestao('time')}>
+                         <Text style={{fontSize: 20}}>Horário da Última Ingestão: {context.dateIngestao.state.toLocaleTimeString()}</Text>
                          {
-                         showIngestao && (
+                         context.showIngestao.state && (
                               <DateTimePicker
-                              value={dateIngestao}
-                              mode={mode}
+                              value={context.dateIngestao.state}
+                              mode={context.mode.state}
                               is24Hour={true}
                               onChange={onChangeIngestao}
                               />

@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../../Header';
 import Footer from '../../Footer';
 import ReturnButton from '../../../components/ReturnButton';
+import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
+import SelectList from '../../../components/SelectList';
 
 export default function MainProblemasEncontrados(){
     
     const navigation = useNavigation();
+    const context = useContext(OcorrenciaContext);
 
-    const [psico, setPsico] = useState(0); // seta o valor de psico como 0
-    const [resp, setResp] = useState(0); // seta o valor de resp como 0
-    const [diabetes, setDiabetes] = useState(0); // seta o valor de diabetes como 0
-    const [outros, setOutros] = useState(null); // seta o valor de diabetes como null
-
+    const [usingMenu, setUsingMenu] = useState(0);
+    const [usingMenuB, setUsingMenuB] = useState(0);
     
     
 
@@ -24,56 +24,198 @@ export default function MainProblemasEncontrados(){
             <ScrollView>
             {/* //C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools */}
                 <View style={styles.Container}>
-                    <TouchableOpacity style={[styles.Checkbox, { backgroundColor: psico ? 'green' : 'transparent', }]} onPress={ () => setPsico((psico + 1)%2) }>
-                        <Text style={[styles.Text, { color: psico ? 'white' : 'gray', }]}>Psiquiátrico</Text>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.psico.setState(!context.psico.state)}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.psico.state ? "#16A34A" : "#FFFFFF"}]}>
+                            <Image
+                            style={{width: 14, height: 14,}}
+                            source={require('../../../../assets/check.png')}
+                            />
+                        </View>
+                        <Text style={styles.Text}>Psiquiátrico</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[styles.Checkbox, {backgroundColor: resp ? 'green' : 'transparent', }]} onPress={ () => setResp((resp + 1)%2) }>
-                        <Text style={[styles.Text, { color: resp ? 'white' : 'gray', }]}>Respiratório</Text>
+
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.resp.setState(!context.resp.state)}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.resp.state ? "#16A34A" : "#FFFFFF"}]}>
+                            <Image
+                            style={{width: 14, height: 14,}}
+                            source={require('../../../../assets/check.png')}
+                            />
+                        </View>
+                        <Text style={styles.Text}>Respiratório</Text>
+                    </TouchableOpacity>
+
+
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.diabetes.setState(!context.diabetes.state)}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.diabetes.state ? "#16A34A" : "#FFFFFF"}]}>
+                            <Image
+                            style={{width: 14, height: 14,}}
+                            source={require('../../../../assets/check.png')}
+                            />
+                        </View>
+                        <Text style={styles.Text}>Diabetes</Text>
                     </TouchableOpacity>
 
                     
-                    <TouchableOpacity style={[styles.Checkbox, { backgroundColor: diabetes ? 'green' : 'transparent', }]} value={diabetes} onPress={ () => setDiabetes((diabetes + 1)%2) }>
-                        <Text style={[styles.Text, { color: diabetes ? 'white' : 'gray', }]}>Diabetes</Text>
-                    </TouchableOpacity>
+                    <View style={styles.UsingMenu}>
+                        <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenu(!usingMenu)}>
+                            <Text style={styles.Text}>Obstétrico</Text>
+                            <View style={styles.UsingMenuIconContainer}>
+                                <Image
+                                    style={[
+                                        styles.UsingMenuIcon,
+                                        {
+                                            transform: usingMenu
+                                                ? [{ rotate: "180deg" }]
+                                                : [{ rotate: "0deg" }]
+                                        }
+                                    ]}
+                                    source={require('../../../../assets/downArrow.png')}
+                                />
+                            </View>
+                        </TouchableOpacity>
+                        <View style={{display: usingMenu ? "flex" : "none"}}>
 
-                    <TouchableOpacity style={styles.UsingMenu}>
-                        <Text style={styles.Text}>Obstétrico</Text>
-                        <View style={styles.UsingMenuIconContainer}>
-                            <Image
-                            style={styles.UsingMenuIcon}
-                            source={require('../../../../assets/downArrow.png')}
-                            />
-                        </View>
-                    </TouchableOpacity>
+                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.partoEmergencial.setState(!context.partoEmergencial.state)}>
+                                <View style={[styles.CheckBox, {backgroundColor: context.partoEmergencial.state ? "#16A34A" : "#FFFFFF"}]}>
+                                    <Image
+                                    style={{width: 14, height: 14,}}
+                                    source={require('../../../../assets/check.png')}
+                                    />
+                                </View>
+                                <Text style={styles.Text}>Parto Emergencial</Text>
+                            </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.UsingMenu}>
-                        <Text style={styles.Text}>Transporte</Text>
-                        <View style={styles.UsingMenuIconContainer}>
-                            <Image
-                            style={styles.UsingMenuIcon}
-                            source={require('../../../../assets/downArrow.png')}
-                            />
+                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.problemaGestante.setState(!context.problemaGestante.state)}>
+                                <View style={[styles.CheckBox, {backgroundColor: context.problemaGestante.state ? "#16A34A" : "#FFFFFF"}]}>
+                                    <Image
+                                    style={{width: 14, height: 14,}}
+                                    source={require('../../../../assets/check.png')}
+                                    />
+                                </View>
+                                <Text style={styles.Text}>Gestante</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.hemorragiaExcessiva.setState(!context.hemorragiaExcessiva.state)}>
+                                <View style={[styles.CheckBox, {backgroundColor: context.hemorragiaExcessiva.state ? "#16A34A" : "#FFFFFF"}]}>
+                                    <Image
+                                    style={{width: 14, height: 14,}}
+                                    source={require('../../../../assets/check.png')}
+                                    />
+                                </View>
+                                <Text style={styles.Text}>Parto Emergencial</Text>
+                            </TouchableOpacity>
+
                         </View>
-                    </TouchableOpacity>
+                    </View>
+
+
+
+
+                    <View style={styles.UsingMenu}>
+                        <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenuB(!usingMenuB)}>
+                            <Text style={styles.Text}>Transporte</Text>
+                            <View style={styles.UsingMenuIconContainer}>
+                                <Image
+                                    style={[
+                                        styles.UsingMenuIcon,
+                                        {
+                                            transform: usingMenu
+                                                ? [{ rotate: "180deg" }]
+                                                : [{ rotate: "0deg" }]
+                                        }
+                                    ]}
+                                    source={require('../../../../assets/downArrow.png')}
+                                />
+                            </View>
+                        </TouchableOpacity>
+                        <View style={{display: usingMenuB ? "flex" : "none"}}>
+
+                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.aereo.setState(!context.aereo.state)}>
+                                <View style={[styles.CheckBox, {backgroundColor: context.aereo.state ? "#16A34A" : "#FFFFFF"}]}>
+                                    <Image
+                                    style={{width: 14, height: 14,}}
+                                    source={require('../../../../assets/check.png')}
+                                    onPress={() => context.aereo.setState(!context.aereo.state)}
+                                    />
+                                </View>
+                                <Text style={styles.Text}>Aéreo</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.clinico.setState(!context.clinico.state)}>
+                                <View style={[styles.CheckBox, {backgroundColor: context.clinico.state ? "#16A34A" : "#FFFFFF"}]}>
+                                    <Image
+                                    style={{width: 14, height: 14,}}
+                                    source={require('../../../../assets/check.png')}
+                                    onPress={() => context.clinico.setState(!context.clinico.state)}
+                                    />
+                                </View>
+                                <Text style={styles.Text}>Clínico</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.emergencial.setState(!context.emergencial.state)}>
+                                <View style={[styles.CheckBox, {backgroundColor: context.emergencial.state ? "#16A34A" : "#FFFFFF"}]}>
+                                    <Image
+                                    style={{width: 14, height: 14,}}
+                                    source={require('../../../../assets/check.png')}
+                                    onPress={() => context.emergencial.setState(!context.emergencial.state)}
+                                    />
+                                </View>
+                                <Text style={styles.Text}>Emergencial</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.posTrauma.setState(!context.posTrauma.state)}>
+                                <View style={[styles.CheckBox, {backgroundColor: context.posTrauma.state ? "#16A34A" : "#FFFFFF"}]}>
+                                    <Image
+                                    style={{width: 14, height: 14,}}
+                                    source={require('../../../../assets/check.png')}
+                                    onPress={() => context.posTrauma.setState(!context.posTrauma.state)}
+                                    />
+                                </View>
+                                <Text style={styles.Text}>Pós-Trauma</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.samu.setState(!context.samu.state)}>
+                                <View style={[styles.CheckBox, {backgroundColor: context.samu.state ? "#16A34A" : "#FFFFFF"}]}>
+                                    <Image
+                                    style={{width: 14, height: 14,}}
+                                    source={require('../../../../assets/check.png')}
+                                    onPress={() => context.samu.setState(!context.samu.state)}
+                                    />
+                                </View>
+                                <Text style={styles.Text}>SAMU</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.semRemocao.setState(!context.semRemocao.state)}>
+                                <View style={[styles.CheckBox, {backgroundColor: context.semRemocao.state ? "#16A34A" : "#FFFFFF"}]}>
+                                    <Image
+                                    style={{width: 14, height: 14,}}
+                                    source={require('../../../../assets/check.png')}
+                                    onPress={() => context.semRemocao.setState(!context.semRemocao.state)}
+                                    />
+                                </View>
+                                <Text style={styles.Text}>Sem Remoção</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.outrosProblemaTransporte.setState(!context.outrosProblemaTransporte.state)}>
+                                <View style={[styles.CheckBox, {backgroundColor: context.outrosProblemaTransporte.state ? "#16A34A" : "#FFFFFF"}]}>
+                                    <Image
+                                    style={{width: 14, height: 14,}}
+                                    source={require('../../../../assets/check.png')}
+                                    onPress={() => context.outrosProblemaTransporte.setState(!context.outrosProblemaTransporte.state)}
+                                    />
+                                </View>
+                                <Text style={styles.Text}>Sem Remoção</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
                     
-                    <TextInput placeholder = 'Outros...' keyboardType = 'default' style={[styles.TextInput, { backgroundColor: outros ? 'green' : 'transparent', color: outros ? 'white' : 'gray', }]} value={outros} onChangeText={setOutros}/>
+                    <TextInput placeholder = 'Outros...' keyboardType = 'default' style={styles.TextInput} value={context.outrosProblemas.state} onChangeText={context.outrosProblemas.setState}/>
                     
                 </View>
                 
                 
-                <View style={styles.ButtonContainer}>
-                    <TouchableOpacity 
-                    style={styles.Button} 
-                    onPress={ () => navigation.navigate('ocorrencia') }
-                    >
-                        <Image
-                        style={styles.Icon}
-                        source={require('../../../../assets/previous.png')}
-                        />
-                        <Text style={styles.ButtonText}>VOLTAR AOS INDICADORES DE ETAPA</Text>
-                    </TouchableOpacity>
-                </View>
                 <ReturnButton/>
                 <Footer/>
             </ScrollView>

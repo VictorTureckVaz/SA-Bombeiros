@@ -11,11 +11,14 @@ const styles = StyleSheet.create({
         borderRadius: 12.5,
       },
 
+      Body: {
+        gap: 44,
+        height: "100%",
+      },
+      
       Container: {
         gap: 23,
         padding: 27,
-        marginTop: 21, 
-        height: "100%",
       },
 
       ButtonText: {
@@ -50,6 +53,21 @@ const styles = StyleSheet.create({
       ButtonContainer: {
         flex: 1,
         alignItems: "flex-end",
+      },
+
+      CheckBox: {
+        width: 25,
+        height: 25,
+        borderColor: "#A3A3A3",
+        borderWidth: 2,
+        borderRadius: 4,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#FFFFFF",
+      },
+
+      Text: {
+        fontSize: 20,
       },
 
   });

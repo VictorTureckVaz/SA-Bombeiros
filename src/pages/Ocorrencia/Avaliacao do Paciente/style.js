@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         padding: 10,
         borderRadius: 10,
+        justifyContent: "center",
       },
 
       Text: {

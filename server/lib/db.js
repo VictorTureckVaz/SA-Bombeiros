@@ -5,10 +5,10 @@ var db = mysql.createConnection({
   port: "3306",//a a folow
   user: "root",
   password: "", //  ok,  fecha ai o teu
-  database: "bombeirossa",
+  database: "bombeirossateste",
 });
 
-const {TEST, GET_BOMBEIRO, SUBMIT} = require("./../database/queries");
+const {TEST, GET_BOMBEIRO, SUBMIT, MATERIAIS, NULLQry} = require("./../database/queries");
 
 db.connect(function(err) {
   if (err) throw err;

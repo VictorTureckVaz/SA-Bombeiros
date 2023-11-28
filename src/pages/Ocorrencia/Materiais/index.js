@@ -8,8 +8,13 @@ import SelectList from './../../../components/SelectList'
 import RadioButton from '../../../components/RadioButton';
 import ReturnButton from '../../../components/ReturnButton';
 import ViewBox from '../../../components/ViewBox';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import api from '../../../lib/axios';
 
 export default function MainTeste(){
+
+    const navigation = useNavigation();
+
 
     const [material, setMaterial] = useState([]);
     
@@ -34,6 +39,21 @@ export default function MainTeste(){
     const [materials, setMaterials] = useState([
 
     ]);
+
+
+
+    async function materiais() {
+        try {
+            console.log("a principio enviou :)");
+            navigation.navigate('home');
+            const apiReply = await api.post("/materiais", { tipo: materialTypeValue, material: materialValue, tamanho: materialSizeValue, quantidade: materialAmount});
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+
+
     useEffect(() => {
         
         if(oldMaterialTypeValue !== materialTypeValue){
@@ -59,19 +79,8 @@ export default function MainTeste(){
 
 
 
-
-
-    const saveMaterial = (tipo, nome, tamanho, quantidade) => {
-        const material = {
-            tipo,
-            nome,
-            tamanho,
-            quantidade,
-        }
-        setMaterials([...materials, material]) //separa os elementos do array "materials" e adiciona "material"
-        console.log(tipo, nome, tamanho)
-        console.log([...materials, material])
-    }
+    
+    
 
     const addMaterial = () => {
     const newMaterial = (
@@ -100,11 +109,11 @@ export default function MainTeste(){
     }
 
     const sizedMaterials = [
-        "teste",
-        "ttf",
+        "colar",
         "ked",
         "talas",
-        "colar",
+        "ttf", 
+
     ];
     useEffect(() => {
         
@@ -128,6 +137,30 @@ export default function MainTeste(){
         
     })
 
+    const saveMaterial = (tipo, nome, tamanho, quantidade) => {
+        const material = {
+            tipo,
+            nome,
+            tamanho,
+            quantidade,
+        }
+        if(tipo !== null && nome !== null){
+            if(isSized == true && tamanho == null){
+                console.log("errado");
+            }else{
+                setMaterials([...materials, material]) //separa os elementos do array "materials" e adiciona "material"
+                console.log(tipo, nome, tamanho)
+                console.log([...materials, material])
+            }
+        }
+        
+    }
+
+
+
+    var materialString = JSON.stringify([...materials, material]);
+
+    console.log(materialString)
 
 
     return (
@@ -233,20 +266,40 @@ export default function MainTeste(){
                         <SelectList
                             options={[
                                 {
-                                    optionName: "Base do Estabilizante",
-                                    optionValue: "baseEstabilizante"
+                                    optionName: "Base do Estabilizador",
+                                    optionValue: "baseDoEstabilizador",
                                 },
                                 {
                                     optionName: "Colar",
-                                    optionValue: "colar"
+                                    optionValue: "colar", 
                                 },
                                 {
-                                    optionName: "Coxins Estabilizante",
-                                    optionValue: "coxinsEstabilizante"
+                                    optionName: "Coxins Estabilizador",
+                                    optionValue: "coxinsEstabilizador",
                                 },
                                 {
-                                    optionName: "NOME",
-                                    optionValue: "VALOR"
+                                    optionName: "KED",
+                                    optionValue: "ked", 
+                                },
+                                {
+                                    optionName: "Maca Rígida",
+                                    optionValue: "macaRigida",  
+                                },
+                                {
+                                    optionName: "TTF",
+                                    optionValue: "ttf",
+                                },
+                                {
+                                    optionName: "Tirante Aranha",
+                                    optionValue: "tiranteAranha", 
+                                },
+                                {
+                                    optionName: "Tirante De Cabeça", 
+                                    optionValue: "tiranteDeCabeca",  
+                                },
+                                {
+                                    optionName: "Cânula", 
+                                    optionValue: "canula",  
                                 },
                             ]}
                             selectedOptionName={materialName}
@@ -255,7 +308,7 @@ export default function MainTeste(){
                             setSelectedOptionValue={setMaterialValue}
                         />
                     </View>
-                    <View style={{display: isSized == true ? "flex" : "none"}}>
+                    <View style={{display: materialValue == "colar" ? "flex" : "none"}}>
                         <SelectList
                             options={[
                                 {
@@ -281,7 +334,43 @@ export default function MainTeste(){
                             setSelectedOptionValue={setMaterialSizeValue}
                         />
                     </View>
-                    {material.map((view, index) => (
+                    <View style={{display: materialValue == "talas" == true ? "flex" : "none"}}>
+                        <SelectList
+                            options={[
+                                {
+                                    optionName: "P",
+                                    optionValue: "p"
+                                },
+                                {
+                                    optionName: "G",
+                                    optionValue: "g"
+                                },
+                            ]}
+                            selectedOptionName={materialSizeName}
+                            setSelectedOptionName={setMaterialSizeName}
+                            selectedOptionValue={materialSizeValue}
+                            setSelectedOptionValue={setMaterialSizeValue}
+                        />
+                    </View>
+                    <View style={{display: materialValue == "ttf" || materialValue == "ked" ? "flex" : "none" }}>
+                        <SelectList
+                            options={[
+                                {
+                                    optionName: "Infantil",
+                                    optionValue: "infatil"
+                                },
+                                {
+                                    optionName: "Adulto",
+                                    optionValue: "Adulto"
+                                },
+                            ]}
+                            selectedOptionName={materialSizeName}
+                            setSelectedOptionName={setMaterialSizeName}
+                            selectedOptionValue={materialSizeValue}
+                            setSelectedOptionValue={setMaterialSizeValue}
+                        />
+                    </View>
+                    {/* {material.map((view, index) => (
                         <ViewBox key={index}>
 
                             <SelectList
@@ -402,10 +491,6 @@ export default function MainTeste(){
                                     setSelectedOptionValue={setMaterialValue}
                                 />
                             </View>
-
-
-
-
                             <View style={{display: isSized == true ? "flex" : "none"}}>
                                 <SelectList
                                     options={[
@@ -433,11 +518,11 @@ export default function MainTeste(){
                                 />
                             </View>
                         </ViewBox>
-                    ))}
+                    ))} */}
                     <View style={{flexDirection: "row", alignItems: "center", gap: 10}}>
                         <Text style={{fontSize: 20, width: "50%"}}>Quant. do Material:</Text>
                         <View style={styles.counterContainer}>
-                            <TouchableOpacity style={{}} onPress={() => setMaterialAmount(materialAmount-1)}>
+                            <TouchableOpacity onPress={() => setMaterialAmount(materialAmount-1)}>
                                 <Text style={{fontSize: 25}}>-</Text>
                             </TouchableOpacity>
                             <Text style={{fontSize: 25}}>{materialAmount}</Text>
@@ -449,10 +534,16 @@ export default function MainTeste(){
                     <TouchableOpacity style={[{display: save ? "none" : "flex"}]} onPress={() => saveMaterial(materialTypeValue, materialValue, materialSizeValue, materialAmount)}>
                         <Text>Salvar</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[{display: save ? "flex" : "none"}]} onPress={addMaterial}>
+                    {/* <TouchableOpacity style={[{display: save ? "flex" : "none"}]} onPress={addMaterial}>
                         <Text>Adicionar Material à lista</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                     <Text>{JSON.stringify([...materials, material])}</Text>
+                    <TouchableOpacity 
+                        style={styles.ButtonContainer}
+                        onPress={ materiais }
+                    >
+                        <Text style={styles.ButtonText}>CADASTRAR</Text>
+                    </TouchableOpacity>
                     <ReturnButton/>
                     </View>
                 </ScrollView>

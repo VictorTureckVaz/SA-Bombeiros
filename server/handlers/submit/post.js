@@ -70,7 +70,7 @@ module.exports = async (req, res) => {
                 socorristaB,socorristaC, motorista, demandante, sexoPac, numUsb, 
                 numOc, despachante, kmFinal, codSia, codIr, codPs, nomePac, 
                 nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, 
-                idadeAcom, vitimaEraName, vitimaEraValue, obs, aberturaOcular, 
+                idadeAcom, vitimaEraValue, obs, aberturaOcular, 
                 respostaVerbal, respostaMotora, possuiProblemaDeSaudeName, 
                 possuiProblemaDeSaudeValue, aconteceuOutrasVezesName, 
                 aconteceuOutrasVezesValue, problemasDeSaude, fazUsoDeMedicacoesValue, 
@@ -78,27 +78,34 @@ module.exports = async (req, res) => {
                 alergia, ingeriuAlgoName, ingeriuAlgoValue, fezPreNatalName, 
                 fezPreNatalValue, nomeMedico, partoRealizado, filhos, nomeBebe,
                 sexoBebe, primeiroFilhoName, primeiroFilhoValue
-            } = context;
+            } = req.body;
 
-            db.query(SUBMIT(
-                tipoOc, decisao, transporteName, transporteValue, socorristaA, socorristaB,
-                socorristaC, motorista, demandante, sexoPac, numUsb, numOc, despachante,
-                kmFinal, codSia, codIr, codPs, nomePac, nomeHosp, docPac, idadePac,
-                telefonePac, local, acompanhante, idadeAcom, vitimaEraName, vitimaEraValue,
-                obs, aberturaOcular, respostaVerbal, respostaMotora, possuiProblemaDeSaudeName,
-                possuiProblemaDeSaudeValue, aconteceuOutrasVezesName, aconteceuOutrasVezesValue,
-                problemasDeSaude, fazUsoDeMedicacoesValue, fazUsoDeMedicacoesName, medicacoes,
-                ehAlergicoName, ehAlergicoValue, alergia, ingeriuAlgoName, ingeriuAlgoValue,
-                fezPreNatalName, fezPreNatalValue, nomeMedico, partoRealizado, filhos, nomeBebe,
-                sexoBebe, primeiroFilhoName, primeiroFilhoValue
-            ), function(err, result) {
-                if (err) {
-                    console.log(err);
-                    reject(err); // Rejeita a promessa em caso de erro
-                } else {
-                    resolve(result); // Resolve a promessa com o resultado bem-sucedido
-                }
-            });
+            console.log(req.body);
+
+            try {
+                db.query(SUBMIT(
+                    tipoOc, decisao, transporteName, transporteValue, socorristaA, socorristaB,
+                    socorristaC, motorista, demandante, sexoPac, numUsb, numOc, despachante,
+                    kmFinal, codSia, codIr, codPs, nomePac, nomeHosp, docPac, idadePac,
+                    telefonePac, local, acompanhante, idadeAcom, vitimaEraValue,
+                    obs, aberturaOcular, respostaVerbal, respostaMotora, possuiProblemaDeSaudeName,
+                    possuiProblemaDeSaudeValue, aconteceuOutrasVezesName, aconteceuOutrasVezesValue,
+                    problemasDeSaude, fazUsoDeMedicacoesValue, fazUsoDeMedicacoesName, medicacoes,
+                    ehAlergicoName, ehAlergicoValue, alergia, ingeriuAlgoName, ingeriuAlgoValue,
+                    fezPreNatalName, fezPreNatalValue, nomeMedico, partoRealizado, filhos, nomeBebe,
+                    sexoBebe, primeiroFilhoName, primeiroFilhoValue
+                ), function(err, result) {
+                    if (err) {
+                        console.log(err);
+                        reject(err); // Rejeita a promessa em caso de erro
+                    } else {
+                        console.log(result);
+                        resolve(result); // Resolve a promessa com o resultado bem-sucedido
+                    }
+                });
+            } catch (error) {
+                console.error(error)
+            }
         });
 
         // Se chegamos até aqui, a operação no banco de dados foi bem-sucedida

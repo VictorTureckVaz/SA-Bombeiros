@@ -27,34 +27,118 @@ export default function MainOcorrencia(){
             setModalVisible(false);
         }
     })
-
+    
     async function transformarEmJson(){
         const jsonString = `{${Object.entries(context).map(([key, value]) => 
-        `${key}:${JSON.stringify(value.state)}`).join(',\n')}}`;
-
+        `"${key}":${JSON.stringify(value.state)}`).join(',')}}`;
         console.log(jsonString);
-        try {
-            const apiReply = await api.post("/submit", { jsonString });
-            console.log("deu certo:\n"+jsonString);
-        } catch (error) {
-            setSubmitError(current => !current);
-            console.error(error);
-        }
+            
+        const jsonData = JSON.parse(jsonString);
+        const {
+            //Principal(aqui)
+            sexoPac,
+            
+            //Info Paciente
+            nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue,
+                
+            //Info Ambulancia
+            numUsb, numOc, despachante, kmFinal, codIr, codPs, codSia, 
+                    
+            //Tipo de Ocorrência
+            tipoOc,
+            
+            //Info de Condução E Transporte
+            decisao, transporteValue, socorristaA, socorristaB, socorristaC, motorista, demandante,
+            
+            //Avalição do Paciente
+            aberturaOcular, respostaVerbal, respostaMotora,
+
+            //Sinais Vitais
+            presMax, presMin, pulso, respiracao, sat, temperatura, hgt, perfusaoValue, normalidade,
+
+            //Sinais e Sintomas
+            abdomen, afundamento, agitacao, amnesia, anginaPeito, apneia, bradicardia, bradipneia, broncoAspirando, cefaleia, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvioTraqueia, dispneia, dorLocal, enfisemaSubcutaneo, extaseJugular, facePalida, hemorragiaInterna, hemorragiaExterna, hipertensão, nauseasVomito, nasoragia, obito, otorreia, ovace, paradaCardiaca, paradaRespiratoria, priapismo, pruridoPele, pupilasAnisocori, pupilasIsocoria, pupilasMidriase, pupilasMiose, pupilasReagente, pupilasNaoReagente, sinalBattle, sinalGuaxinim, sudorese, taquipneia, taquicardia, tontura, outros,
+
+            //Problemas Encontrados
+            psico, resp, diabetes, outrosProblemas,
+
+            //Procedimentos Efetuados
+            Aspiracao, AvalInicial, AvalDirigida, AvalContinuada, ChaveRautek, CanulaGuedel, DesobstrucaoVA, EmpregoDEA, GerenciamentoRiscos, LimpezaFerimento, Curativos, Compressivo, Encravamento, Ocular, Queimadura, Simples, TresPontas, Imobilizacoes, MacaRodas, MacaRigida, Ponte, RetiradoCapacete, Rcp, Rolamento90, Rolamento180, TomadaDecisao, TratadoChoque, UsoCanula, UsoColar, UsoKED, UsoTTF, VentSuporte, Oxigenoterapia, Reanimador, Meios, Auxiliares, OutrosProcedimentos,
+
+            //Anamnese
+            aconteceuOutrasVezesValue, dateAconteceu, possuiProblemaDeSaudeValue, problemasDeSaude, fazUsoDeMedicacoesValue, medicacoes, ehAlergicoValue, alergia, ingeriuAlgoValue, dateIngestao,
+
+            //Anamnese Gestacional
+            fezPreNatalValue, nomeMedico, possibilidadeDeComplicacoesValue, primeiroFilhoValue, filhos, dateContracoesInicio, dateContracoesDuracao, dateContracoesIntervalo, pressaoEvacuarValue, rupturaBolsaValue, feitoInspecaoValue, partoRealizadoValue, sexoBebeValue, nomeBebe, dateNascimento, 
+
+            //Cinematica de Objetos Recolhidos
+            ObjetoRecolhido, EncontradoCapacete, EncontradoCinto, ParaBrisasAvariado, CaminhandoCena, PainelAvariado, VolanteTorcido, 
+
+            //Materiais Utilizados
+            materialTypeValue, materialValue, materialSizeValue, materialAmount,
+
+            //Observações Importantes
+            obs,
+        } = jsonData;
+
+        const infPac = {
+            nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue
+        };
+        const InfAmb = {
+            numUsb, numOc, despachante, kmFinal, codIr, codPs, codSia
+        };
+        const TipoOc = {//tenho que fazer
+            tipoOc, outroTipoOc
+        };
+        const InfConETrans = {
+            decisao, transporteValue, socorristaA, socorristaB, socorristaC, motorista, demandante
+        };
+        const AvalPac = {
+            aberturaOcular, respostaVerbal, respostaMotora
+        };
+        const SinaisVitais = {
+            presMax, presMin, pulso, respiracao, sat, temperatura, hgt, perfusaoValue, normalidade
+        };
+        const SinaisSintomas = {
+            abdomen, afundamento, agitacao, amnesia, anginaPeito, apneia, bradicardia, bradipneia, broncoAspirando, cefaleia, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvioTraqueia, dispneia, dorLocal, enfisemaSubcutaneo, extaseJugular, facePalida, hemorragiaInterna, hemorragiaExterna, hipertensão, nauseasVomito, nasoragia, obito, otorreia, ovace, paradaCardiaca, paradaRespiratoria, priapismo, pruridoPele, pupilasAnisocori, pupilasIsocoria, pupilasMidriase, pupilasMiose, pupilasReagente, pupilasNaoReagente, sinalBattle, sinalGuaxinim, sudorese, taquipneia, taquicardia, tontura, outros
+
+        };
+        const ProbEnc = {
+            psico, resp, diabetes, outrosProblemas
+        };
+        const LocTrauma ={
+            
+        };
+        const ProcEfetuados = {
+            Aspiracao, AvalInicial, AvalDirigida, AvalContinuada, ChaveRautek, CanulaGuedel, DesobstrucaoVA, EmpregoDEA, GerenciamentoRiscos, LimpezaFerimento, Curativos, Compressivo, Encravamento, Ocular, Queimadura, Simples, TresPontas, Imobilizacoes, MacaRodas, MacaRigida, Ponte, RetiradoCapacete, Rcp, Rolamento90, Rolamento180, TomadaDecisao, TratadoChoque, UsoCanula, UsoColar, UsoKED, UsoTTF, VentSuporte, Oxigenoterapia, Reanimador, Meios, Auxiliares, OutrosProcedimentos
+        };
+        const Anamnese = {
+            aconteceuOutrasVezesValue, dateAconteceu, possuiProblemaDeSaudeValue, problemasDeSaude, fazUsoDeMedicacoesValue, medicacoes, ehAlergicoValue, alergia, ingeriuAlgoValue, dateIngestao
+        };
+        const AnamneseGest = {
+            fezPreNatalValue, nomeMedico, possibilidadeDeComplicacoesValue, primeiroFilhoValue, filhos, dateContracoesInicio, dateContracoesDuracao, dateContracoesIntervalo, pressaoEvacuarValue, rupturaBolsaValue, feitoInspecaoValue, partoRealizadoValue, sexoBebeValue, nomeBebe, dateNascimento
+        };
+        const CinObjRec = {
+            ObjetoRecolhido, EncontradoCapacete, EncontradoCinto, ParaBrisasAvariado, CaminhandoCena, PainelAvariado, VolanteTorcido
+        };
+        const MatUtilizados = {//tem q ver como essa pagina vai funcionar depois
+            materialTypeValue, materialValue, materialSizeValue, materialAmount
+        };
+        const Obs = {
+            obs
+        };
+        
+        console.log(jsonString);
+
+        // try {
+        //     const apiReply1 = await api.post("/submit", JSON.parse(jsonString));
+        //     console.log("deu certo:\n"+jsonString);
+        // } catch (error) {
+        //     setSubmitError(current => !current);
+        //     console.error(error);
+        // }
     }
 
-    // const InfPac = StyleSheet.flatten([]);
-    // const InfAmb = StyleSheet.flatten([]);
-    // const TipoOc = StyleSheet.flatten([]);
-    // const InfConETrans = StyleSheet.flatten([]);
-    // const AvalPac = StyleSheet.flatten([]);
-    // const SinaisVitais = StyleSheet.flatten([]);
-    // const SinaisSintomas = StyleSheet.flatten([]);
-    // const ProbEnc = StyleSheet.flatten([]);
-    // const LocTraumas = StyleSheet.flatten([]);
-    // const ProcedEfe = StyleSheet.flatten([]);
-    // const Anamnese = StyleSheet.flatten([]);
-    // const AnamneseGest = StyleSheet.flatten([]);
-    // const CinObjRec = StyleSheet.flatten([]);
     return(
         <View style={styles.Body}>
             <Header/>

@@ -42,7 +42,12 @@ const styles = StyleSheet.create({
           borderRadius: 10,
           gap: 10,
       },
-
+      
+      Body: {
+        gap: 44,
+        height: "100%",
+      },
+      
       Container: {
         gap: 23,
         padding: 27,
@@ -88,10 +93,6 @@ const styles = StyleSheet.create({
           transform: [{ rotate: "180deg" }]
       },
 
-      Body: {
-        gap: 44,
-        height: "100%",
-      },
 
       TextInput: {
         fontSize: 16,
@@ -154,6 +155,27 @@ const styles = StyleSheet.create({
           flexDirection: "row",
           alignItems: "center",
         },
+
+        Cell: {
+          backgroundColor: "#FFFFFF",
+          justifyContent: "center",
+          alignItems: "center",
+          // width: "22%",
+          flexGrow: 1,
+        },
+
+        HeaderCell: {
+          justifyContent: "center",
+          alignItems: "center",
+          flexGrow: 1,
+        },
+
+        Table: {
+          backgroundColor: "#313131", 
+          gap: 2,
+          width: "100%",
+          padding: 2,
+        }
   });
 
   export default styles;
