@@ -182,7 +182,7 @@ export const OcorrenciaProvider = ({ children }) => {
      const [paradaRespiratoria, setParadaRespiratoria] = useState(false);
      const [priapismo, setPriapismo] = useState(false);
      const [pruridoPele, setPruridoPele] = useState(false);
-     const [pupilasAnisocori, setPupilasAnisocori] = useState(false);
+     const [pupilasAnisocoria, setPupilasAnisocoria] = useState(false);
      const [pupilasIsocoria, setPupilasIsocoria] = useState(false);
      const [pupilasMidriase, setPupilasMidriase] = useState(false);
      const [pupilasMiose, setPupilasMiose] = useState(false);
@@ -209,7 +209,7 @@ export const OcorrenciaProvider = ({ children }) => {
      const [posTrauma, setPosTrauma] = useState(0);
      const [samu, setSamu] = useState(0);
      const [semRemocao, setSemRemocao] = useState(0);
-     const [outrosProblemaTransporte, setOutrosProblemaTransporte] = useState(0);
+     const [outrosProblemaTransporte, setOutrosProblemaTransporte] = useState(null);
 
      
 
@@ -1044,9 +1044,9 @@ export const OcorrenciaProvider = ({ children }) => {
                state: pruridoPele,
                setState: setPruridoPele,
           },
-          pupilasAnisocori: {
-               state: pupilasAnisocori,
-               setState: setPupilasAnisocori,
+          pupilasAnisocoria: {
+               state: pupilasAnisocoria,
+               setState: setPupilasAnisocoria,
           },
           pupilasIsocoria: {
                state: pupilasIsocoria,
