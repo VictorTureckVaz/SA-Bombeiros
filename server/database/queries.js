@@ -41,7 +41,7 @@ module.exports.SUBMIT11 = (sinaisSintomasAnamnese, aconteceuOutrasVezesValue, da
 
 module.exports.SUBMIT7 = (abdomen, afundamento, agitacao, amnesia, anginaPeito, apneia, bradicardia, bradipneia, broncoAspirando, cefaleia, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvioTraqueia, dispneia, dorLocal, enfisemaSubcutaneo, extaseJugular, facePalida, hemorragiaInterna, hemorragiaExterna, hipertensao, nauseasVomito, nasoragia, obito, otorreia, ovace, paradaCardiaca, paradaRespiratoria, priapismo, pruridoPele, pupilasAnisocori, pupilasIsocoria, pupilasMidriase, pupilasMiose, pupilasReagente, pupilasNaoReagente, sinalBattle, sinalGuaxinim, sudorese, taquipneia, taquicardia, tontura) => {
     return `INSERT INTO sinais_e_sintomas (Abdomen, Afundamento_Cranio, Agitacao, Angina de Peito, Apneia, Bradicardia, Bradipneia, Bronco-Aspirando, Cefaleia, Convulsao, Decorticao, Deformidade, Descerebracao, Desmaio, Desvio_de_Traqueia, Dispneia, Dor_Local, Enfisema_Subcutaneo, Estase_de_Jugular, Face_Palida, Hemorragia_Interna, Hemorragia_Externa, Hipertensao, Hipotensao, Nauseas_e_Vomitos, Nasoragia, Obito, Otorreia, O.V.A.C.E, Parada_Cardiaca, Parada_Respiratoria, Priapismo, Prurido na pele, Pupila_Anisocoria, Pupila_Isocoria, Pupila_Midriase, Pupila_Miose, Pupila_Reagente, Pupila_Nao_Reagente, Sinal_de_Battle, Sinal_de_Guaxinim, Sudorese, Taquipneia, Taquicardia, Tontura) 
-    VALUES ("${abdomen}", "${afundamento}", "${agitacao}", "${amnesia}", "${anginaPeito}", "${apneia}", "${bradicardia}", "${bradipneia}", "${broncoAspirando}", "${cefaleia}", "${convulsao}", "${decorticacao}", "${deformidade}", "${descerebracao}", "${desmaio}", "${desvioTraqueia}", "${dispneia}", "${dorLocal}", "${enfisemaSubcutaneo}", "${extaseJugular}", "${facePalida}", "${hemorragiaInterna}", "${hemorragiaExterna}", "${hipertensao}", "${nauseasVomito}", "${nasoragia}", "${obito}", "${otorreia}", "${ovace}", "${paradaCardiaca}", "${paradaRespiratoria}", "${priapismo}", "${pruridoPele}", "${pupilasAnisocori}", "${pupilasIsocoria}", "${pupilasMidriase}", "${pupilasMiose}", "${pupilasReagente}", "${pupilasNaoReagente}", "${sinalBattle}", "${sinalGuaxinim}", "${sudorese}", "${taquipneia}", "${taquicardia}", "${tontura}");`;
+    VALUES (${abdomen}, ${afundamento}, ${agitacao}, ${amnesia}, ${anginaPeito}, ${apneia}, ${bradicardia}, ${bradipneia}, ${broncoAspirando}, ${cefaleia}, ${convulsao}, ${decorticacao}, ${deformidade}, ${descerebracao}, ${desmaio}, ${desvioTraqueia}, ${dispneia}, ${dorLocal}, ${enfisemaSubcutaneo}, ${extaseJugular}, ${facePalida}, ${hemorragiaInterna}, ${hemorragiaExterna}, ${hipertensao}, ${nauseasVomito}, ${nasoragia}, ${obito}, ${otorreia}, ${ovace}, ${paradaCardiaca}, ${paradaRespiratoria}, ${priapismo}, ${pruridoPele}, ${pupilasAnisocori}, ${pupilasIsocoria}, ${pupilasMidriase}, ${pupilasMiose}, ${pupilasReagente}, ${pupilasNaoReagente}, ${sinalBattle}, ${sinalGuaxinim}, ${sudorese}, ${taquipneia}, ${taquicardia}, ${tontura});`;
 };
 
 
@@ -67,7 +67,7 @@ module.exports.SUBMIT5 = (aberturaOcular, respostaVerbal, respostaMotora) => {
 
 module.exports.SUBMIT2 = (numUsb, numOc, despachante, kmFinal, codIr, codPs, codSia) => {
 return `INSERT INTO informacao_da_ambulancia (N_USB, N_Ocorrencia, Despachante, KM_Final, Cod_IR, Cod_PS, Cod_SIA) 
-    VALUES ("${numUsb}", "${numOc}", "${despachante}", "${kmFinal}", "${codIr}", "${codPs}", "${codSia}");`;
+    VALUES ("${numUsb}", "${numOc}", "${despachante}", ${kmFinal}, ${codIr}, ${codPs}, "${codSia}");`;
 };
 
 module.exports.SUBMIT4 = (decisao, transporteValue, socorristaA, socorristaB, socorristaC, motorista, demandante) => {
@@ -121,9 +121,10 @@ module.exports.SUBMIT17 = (
 module.exports.SUBMIT1 = (
     nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue, sexoPac
 ) => {
+    console.log(typeof idadePac);
     return `
         INSERT INTO identificacao_do_paciente (PacienteNome, PacienteSexo, NomeHospital, PacienteIdade, PacienteRGouCPF, PacienteFone, AcompanhanteNome, AcompanhanteIdade, LocalDaOcorrencia, Vitima_era
-        ) VALUES ("${nomePac}", "${sexoPac}", "${nomeHosp}", "${idadePac}", "${docPac}", "${telefonePac}", "${acompanhante}", "${idadeAcom}", "${local}", "${vitimaEraValue}");
+        ) VALUES ("${nomePac}", "${sexoPac}", "${nomeHosp}", ${idadePac}, "${docPac}", "${telefonePac}", "${acompanhante}", ${idadeAcom}, "${local}", "${vitimaEraValue}");
     `;
 };
 

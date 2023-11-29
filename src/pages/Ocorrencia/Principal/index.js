@@ -55,8 +55,8 @@ export default function MainOcorrencia() {
             //Avalição do Paciente
             aberturaOcular, respostaVerbal, respostaMotora,
 
-            //Sinais Vitais
-            presMax, presMin, pulso, respiracao, sat, temperatura, hgt, perfusaoValue, normalidade,
+            // //Sinais Vitais
+            // presMax, presMin, pulso, respiracao, sat, temperatura, hgt, perfusaoValue, normalidade,
 
             //Sinais e Sintomas
             abdomen, afundamento, agitacao, amnesia, anginaPeito, apneia, bradicardia, bradipneia, broncoAspirando, cefaleia, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvioTraqueia, dispneia, dorLocal, enfisemaSubcutaneo, extaseJugular, facePalida, hemorragiaInterna, hemorragiaExterna, hipertensao, nauseasVomito, nasoragia, obito, otorreia, ovace, paradaCardiaca, paradaRespiratoria, priapismo, pruridoPele, pupilasAnisocori, pupilasIsocoria, pupilasMidriase, pupilasMiose, pupilasReagente, pupilasNaoReagente, sinalBattle, sinalGuaxinim, sudorese, taquipneia, taquicardia, tontura, outros,
@@ -101,9 +101,9 @@ export default function MainOcorrencia() {
         const AvalPac = {//5
             aberturaOcular, respostaVerbal, respostaMotora
         };
-        const SinaisVitais = {//6
-            presMax, presMin, pulso, respiracao, sat, temperatura, hgt, perfusaoValue, normalidade
-        };
+        // const SinaisVitais = {//6
+        //     presMax, presMin, pulso, respiracao, sat, temperatura, hgt, perfusaoValue, normalidade
+        // };
         const SinaisSintomas = {//7
             abdomen, afundamento, agitacao, amnesia, anginaPeito, apneia, bradicardia, bradipneia, broncoAspirando, cefaleia, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvioTraqueia, dispneia, dorLocal, enfisemaSubcutaneo, extaseJugular, facePalida, hemorragiaInterna, hemorragiaExterna, hipertensao, nauseasVomito, nasoragia, obito, otorreia, ovace, paradaCardiaca, paradaRespiratoria, priapismo, pruridoPele, pupilasAnisocori, pupilasIsocoria, pupilasMidriase, pupilasMiose, pupilasReagente, pupilasNaoReagente, sinalBattle, sinalGuaxinim, sudorese, taquipneia, taquicardia, tontura, outros
 
@@ -148,8 +148,8 @@ export default function MainOcorrencia() {
             const InfConETransPost = await api.post("/infconetrans", InfConETrans);
             console.log(InfConETransPost);
 
-            const SinaisVitaisPost = await api.post("/sinaisvitais", SinaisVitais);
-            console.log(SinaisVitaisPost);
+            // const SinaisVitaisPost = await api.post("/sinaisvitais", SinaisVitais);
+            // console.log(SinaisVitaisPost);
 
             const SinaisSintomasPost = await api.post("/sinaissintomas", SinaisSintomas);
             console.log(SinaisSintomasPost);
@@ -171,7 +171,7 @@ export default function MainOcorrencia() {
 
 
         } catch (error) {
-            setnullSubmitError(current => !current);
+            // setnullSubmitError(current => !current);
             console.error(error);
         }
 
