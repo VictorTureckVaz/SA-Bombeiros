@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
       },
+      
       TextInput: {
         fontSize: 20,
         height: 56,

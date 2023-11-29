@@ -1,7 +1,7 @@
 require("dotenv").config({ path: "./../../.env" });
 const jwt = require("jsonwebtoken");
 const db = require("./../../lib/db");
-const { GET_BOMBEIRO } = require("./../../database/queries");
+const { LOGIN } = require("./../../database/queries");
 
 module.exports = async (req, res) => {
     console.log(req.body);
@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
     const pass = req.body.pass;
 
     const promise = new Promise((resolve, reject) => {
-        db.query(GET_BOMBEIRO(user, user), function(err, result) {
+        db.query(LOGIN(user, user), function(err, result) {
             if (err) throw err;
             const bombeiro = result[0];
             if (!bombeiro) resolve("NoBombeiro");

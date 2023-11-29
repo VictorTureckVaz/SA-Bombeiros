@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
@@ -6,9 +6,12 @@ import { ScrollView } from 'native-base';
 import Header from './../Header';
 import Footer from './../Footer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { OcorrenciaContext } from "../../context/ocorrenciaContext";
+
 
 export default function MainProfile(){
     const navigation = useNavigation();
+    const context = useContext(OcorrenciaContext);
 
     async function logout(){
         await AsyncStorage.removeItem('token')
@@ -25,8 +28,8 @@ export default function MainProfile(){
             
                     <View style={styles.ProfileContainer}>
                         <Image
-                        // style={{}}
-                        // source={require('')}
+                        style={{width: 160, height: 160}}
+                        source={require('../../../assets/ProfilePicture.png')}
                         />
                     </View>
 
@@ -41,7 +44,7 @@ export default function MainProfile(){
 
                     <View style={styles.LogoutContainer}>
                         <TouchableOpacity style={styles.Logout} onPress={logout}>
-                            <Text>logout</Text>
+                            <Text>SAIR</Text>
                         </TouchableOpacity>
                     </View>
 

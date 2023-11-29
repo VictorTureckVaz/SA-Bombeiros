@@ -95,12 +95,12 @@ const styles = StyleSheet.create({
 
 
       TextInput: {
-        fontSize: 16,
-        height: 31,
+        fontSize: 20,
+        height: 56,
         borderColor: "#555555",
-        width: 125,
+        width: "100%",
         borderWidth: 2,
-        paddingLeft: 10,
+        padding: 10,
         borderRadius: 10,
       },
 
@@ -120,54 +120,26 @@ const styles = StyleSheet.create({
           borderRadius: 10,
       },
 
-      BorderContainer: {
-          fontSize: 20,
-          height: 56,
-          borderColor: "#555555",
-          width: "100%",
-          borderWidth: 2,
-          padding: 10,
-          borderRadius: 10,
-          flexDirection: "row",
-          alignItems: "center",
-        },
-
-        ReducedBorderContainer: {
-          fontSize: 20,
-          height: 56,
-          borderColor: "#555555",
-          width: 224,
-          borderWidth: 2,
-          padding: 10,
-          borderRadius: 10,
-          flexDirection: "row",
-          alignItems: "center",
-        },
-
-        MiniBorderContainer: {
-          fontSize: 20,
-          height: 56,
-          borderColor: "#555555",
-          width: 124,
-          borderWidth: 2,
-          padding: 10,
-          borderRadius: 10,
-          flexDirection: "row",
-          alignItems: "center",
-        },
-
         Cell: {
           backgroundColor: "#FFFFFF",
           justifyContent: "center",
           alignItems: "center",
           // width: "22%",
-          flexGrow: 1,
+          width: "23.5%",
+        },
+
+        TitleCell: {
+          backgroundColor: "#FFFFFF",
+          justifyContent: "center",
+          alignItems: "center",
+          // width: "22%",
+          width: "28%",
         },
 
         HeaderCell: {
           justifyContent: "center",
           alignItems: "center",
-          flexGrow: 1,
+          width: "23.8%",
         },
 
         Table: {

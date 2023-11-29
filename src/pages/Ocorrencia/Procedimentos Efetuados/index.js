@@ -347,14 +347,12 @@ export default function MainProcedimentosEfetuados (){
                         </View>
                         <Text style={styles.Text}>Auxiliares</Text>
                     </TouchableOpacity>
-                    <View>
-                        <TextInput
-                        placeholder="Outros Procedimentos..."
-                        keyboardType="default"
-                        style={styles.TextInput}
-                        value={context.OutrosProcedimentos.state} onChangeText={context.OutrosProcedimentos.setState}
-                        />
-                    </View>
+                    <TextInput
+                    placeholder="Outros Procedimento..."
+                    keyboardType="default"
+                    style={styles.TextInput}
+                    value={context.OutrosProcedimentos.state} onChangeText={context.OutrosProcedimentos.setState}
+                    />
                 </View>
             </View>
                     

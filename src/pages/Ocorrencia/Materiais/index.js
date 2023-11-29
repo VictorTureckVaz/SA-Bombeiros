@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, Button } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
@@ -10,11 +10,14 @@ import ReturnButton from '../../../components/ReturnButton';
 import ViewBox from '../../../components/ViewBox';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../../lib/axios';
+import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
+import { stringifyValueWithProperty } from 'react-native-web/dist/cjs/exports/StyleSheet/compiler';
 
 export default function MainTeste(){
 
     const navigation = useNavigation();
 
+    const context = useContext(OcorrenciaContext);
 
     const [material, setMaterial] = useState([]);
     
@@ -36,21 +39,10 @@ export default function MainTeste(){
     
     const [save, setSave] = useState(null);
 
-    const [materials, setMaterials] = useState([
-
-    ]);
 
 
 
-    async function materiais() {
-        try {
-            console.log("a principio enviou :)");
-            navigation.navigate('home');
-            const apiReply = await api.post("/materiais", { tipo: materialTypeValue, material: materialValue, tamanho: materialSizeValue, quantidade: materialAmount});
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    
 
 
 
@@ -80,33 +72,7 @@ export default function MainTeste(){
 
 
     
-    
 
-    const addMaterial = () => {
-    const newMaterial = (
-         <ViewBox key={material.length}>
-
-            <SelectList
-                options={[
-                    {
-                        optionName: "Descartável",
-                        optionValue: "descartavel"
-                    },
-                    {
-                        optionName: "Deixado no Hospital",
-                        optionValue: "deixadoNoHospital"
-                    },
-                ]}
-                selectedOptionName={materialTypeName}
-                setSelectedOptionName={setMaterialTypeName}
-                selectedOptionValue={materialTypeValue}
-                setSelectedOptionValue={setMaterialTypeValue}
-            />
-         </ViewBox>
-    );
-    setMaterial([...material, newMaterial]);
-    console.log(material)
-    }
 
     const sizedMaterials = [
         "colar",
@@ -148,9 +114,7 @@ export default function MainTeste(){
             if(isSized == true && tamanho == null){
                 console.log("errado");
             }else{
-                setMaterials([...materials, material]) //separa os elementos do array "materials" e adiciona "material"
-                console.log(tipo, nome, tamanho)
-                console.log([...materials, material])
+                context.materials.setState([...context.materials.state, material]) //separa os elementos do array "materials" e adiciona "material"
             }
         }
         
@@ -158,9 +122,6 @@ export default function MainTeste(){
 
 
 
-    var materialString = JSON.stringify([...materials, material]);
-
-    console.log(materialString)
 
 
     return (
@@ -531,19 +492,13 @@ export default function MainTeste(){
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <TouchableOpacity style={[{display: save ? "none" : "flex"}]} onPress={() => saveMaterial(materialTypeValue, materialValue, materialSizeValue, materialAmount)}>
+                    <TouchableOpacity style={{display: save ? "none" : "flex"}} onPress={() => saveMaterial(materialTypeValue, materialValue, materialSizeValue, materialAmount)}>
                         <Text>Salvar</Text>
                     </TouchableOpacity>
                     {/* <TouchableOpacity style={[{display: save ? "flex" : "none"}]} onPress={addMaterial}>
                         <Text>Adicionar Material à lista</Text>
                     </TouchableOpacity> */}
-                    <Text>{JSON.stringify([...materials, material])}</Text>
-                    <TouchableOpacity 
-                        style={styles.ButtonContainer}
-                        onPress={ materiais }
-                    >
-                        <Text style={styles.ButtonText}>CADASTRAR</Text>
-                    </TouchableOpacity>
+                    <Text>{JSON.stringify([...context.materials.state, material])}</Text>
                     <ReturnButton/>
                     </View>
                 </ScrollView>

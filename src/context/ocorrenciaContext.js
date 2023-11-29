@@ -4,6 +4,8 @@ export const OcorrenciaContext = createContext();
 
 export const OcorrenciaProvider = ({ children }) => {
 
+     const [idReport, setIdReport] = useState(null);
+
      const [tipoOc, setTipoOc] = useState(null);
      const [decisao, setDecisao] = useState(null);
      const [transporteName, setTransporteName] = useState(null);
@@ -34,11 +36,11 @@ export const OcorrenciaProvider = ({ children }) => {
      const [vitimaEraName, setVitimaEraName] = useState(null);
      const [vitimaEraValue, setVitimaEraValue] = useState(null);
 
-     const [presMax, setPresMax] = useState(0);
-     const [presMin, setPresMin] = useState(0);
-     const [pulso, setPulso] = useState(0);
-     const [respiracao, setRespiracao] = useState(0);
-     const [sat, setSat] = useState(0);
+     const [presMax, setPresMax] = useState(null);
+     const [presMin, setPresMin] = useState(null);
+     const [pulso, setPulso] = useState(null);
+     const [respiracao, setRespiracao] = useState(null);
+     const [sat, setSat] = useState(null);
      const [perfusaoName, setPerfusaoName] = useState(null);
      const [perfusaoValue, setPerfusaoValue] = useState(null);
      const [normalidade, setNormalidade] = useState(null);
@@ -83,10 +85,12 @@ export const OcorrenciaProvider = ({ children }) => {
      const [segundoGrauMse, setSegundoGrauMse] = useState(null);
      const [terceiroGrauMse, setTerceiroGrauMse] = useState(null);
 
+     const [materials, setMaterials] = useState([]);
 
-     const [aberturaOcular, setAberturaOcular] = useState(0); //seta abertura ocular como 0
-     const [respostaVerbal, setRespostaVerbal] = useState(0); //seta resposta verbal como 0
-     const [respostaMotora, setRespostaMotora] = useState(0); //seta resposta motora como 0
+
+     const [aberturaOcular, setAberturaOcular] = useState(0);
+     const [respostaVerbal, setRespostaVerbal] = useState(0); 
+     const [respostaMotora, setRespostaMotora] = useState(0); 
 
      const [possuiProblemaDeSaudeName, setPossuiProblemaDeSaudeName] = useState(null);
      const [possuiProblemaDeSaudeValue, setPossuiProblemaDeSaudeValue] = useState(null);
@@ -105,6 +109,11 @@ export const OcorrenciaProvider = ({ children }) => {
      const [showIngestao, setShowIngestao] = useState(false);
      const [dateAconteceu, setDateAconteceu] = useState(new Date());
      const [showAconteceu, setShowAconteceu] = useState(false);
+     const [dateUltimaMedicacao, setDateUltimaMedicacao] = useState(new Date());
+     const [showUltimaMedicacao, setShowUltimaMedicacao] = useState(false);
+     const [sinaisSintomasAnamnese, setSinaisSintomasAnamnese] = useState(null);
+     const [DisturbioComportamento, setDisturbioComportamento] = useState(null);
+     
 
 
      const [nomeMedico, setNomeMedico] = useState(null);
@@ -187,15 +196,13 @@ export const OcorrenciaProvider = ({ children }) => {
      const [tontura, setTontura] = useState(false);
      const [outroSintoma, setOutroSintoma] = useState(null);
 
-     const [psico, setPsico] = useState(0); // seta o valor de psico como 0
-     const [resp, setResp] = useState(0); // seta o valor de resp como 0
-     const [diabetes, setDiabetes] = useState(0); // seta o valor de diabetes como 0
-     const [outrosProblemas, setOutrosProblemas] = useState(null); // seta o valor de outrosProblemas como null
-     
+     const [psico, setPsico] = useState(0);
+     const [resp, setResp] = useState(0);
+     const [diabetes, setDiabetes] = useState(0);
+     const [outrosProblemas, setOutrosProblemas] = useState(null);
      const [partoEmergencial, setPartoEmergencial] = useState(0);
      const [problemaGestante, setProblemaGestante] = useState(0);
      const [hemorragiaExcessiva, setHemorragiaExcessiva ] = useState(0);
-
      const [aereo, setAereo] = useState(0);
      const [clinico, setClinico] = useState(0);
      const [emergencial, setEmergencial] = useState(0);
@@ -264,6 +271,10 @@ export const OcorrenciaProvider = ({ children }) => {
           
 
      const context = {
+          IdReport: {
+               state: idReport,
+               setState: setIdReport
+          },
           Aspiracao: {
                state: Aspiracao,
                setState: setAspiracao
@@ -414,7 +425,11 @@ export const OcorrenciaProvider = ({ children }) => {
           },
 
 
-
+          //Materiais
+          materials: {
+               state: materials,
+               setState: setMaterials,
+          },
 
 
 
@@ -710,6 +725,19 @@ export const OcorrenciaProvider = ({ children }) => {
                state: showAconteceu,
                setState: setShowAconteceu,
           },
+          sinaisSintomasAnamnese: {
+               state: sinaisSintomasAnamnese,
+               setState: setSinaisSintomasAnamnese,
+          },
+          dateUltimaMedicacao: {
+               state: dateUltimaMedicacao,
+               setState: setDateUltimaMedicacao,
+          },
+          showUltimaMedicacao: {
+               state: showUltimaMedicacao,
+               setState: setShowUltimaMedicacao,
+          },
+
 
           
 
@@ -1073,6 +1101,10 @@ export const OcorrenciaProvider = ({ children }) => {
           ObjetoRecolhido: {
                state: ObjetoRecolhido,
                setState: setObjetoRecolhido
+          },
+          DisturbioComportamento: {
+               state: DisturbioComportamento,
+               setState: setDisturbioComportamento,
           },
           EncontradoCapacete: {
                state: EncontradoCapacete,

@@ -24,37 +24,7 @@ export default function MainProblemasEncontrados(){
             <ScrollView>
             {/* //C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools */}
                 <View style={styles.Container}>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.psico.setState(!context.psico.state)}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.psico.state ? "#16A34A" : "#FFFFFF"}]}>
-                            <Image
-                            style={{width: 14, height: 14,}}
-                            source={require('../../../../assets/check.png')}
-                            />
-                        </View>
-                        <Text style={styles.Text}>Psiquiátrico</Text>
-                    </TouchableOpacity>
-
-
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.resp.setState(!context.resp.state)}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.resp.state ? "#16A34A" : "#FFFFFF"}]}>
-                            <Image
-                            style={{width: 14, height: 14,}}
-                            source={require('../../../../assets/check.png')}
-                            />
-                        </View>
-                        <Text style={styles.Text}>Respiratório</Text>
-                    </TouchableOpacity>
-
-
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.diabetes.setState(!context.diabetes.state)}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.diabetes.state ? "#16A34A" : "#FFFFFF"}]}>
-                            <Image
-                            style={{width: 14, height: 14,}}
-                            source={require('../../../../assets/check.png')}
-                            />
-                        </View>
-                        <Text style={styles.Text}>Diabetes</Text>
-                    </TouchableOpacity>
+                    
 
                     
                     <View style={styles.UsingMenu}>
@@ -186,17 +156,6 @@ export default function MainProblemasEncontrados(){
                                 <Text style={styles.Text}>SAMU</Text>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.semRemocao.setState(!context.semRemocao.state)}>
-                                <View style={[styles.CheckBox, {backgroundColor: context.semRemocao.state ? "#16A34A" : "#FFFFFF"}]}>
-                                    <Image
-                                    style={{width: 14, height: 14,}}
-                                    source={require('../../../../assets/check.png')}
-                                    onPress={() => context.semRemocao.setState(!context.semRemocao.state)}
-                                    />
-                                </View>
-                                <Text style={styles.Text}>Sem Remoção</Text>
-                            </TouchableOpacity>
-
                             <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.outrosProblemaTransporte.setState(!context.outrosProblemaTransporte.state)}>
                                 <View style={[styles.CheckBox, {backgroundColor: context.outrosProblemaTransporte.state ? "#16A34A" : "#FFFFFF"}]}>
                                     <Image
@@ -212,13 +171,43 @@ export default function MainProblemasEncontrados(){
 
                     
                     <TextInput placeholder = 'Outros...' keyboardType = 'default' style={styles.TextInput} value={context.outrosProblemas.state} onChangeText={context.outrosProblemas.setState}/>
-                    
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.psico.setState(!context.psico.state)}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.psico.state ? "#16A34A" : "#FFFFFF"}]}>
+                            <Image
+                            style={{width: 14, height: 14,}}
+                            source={require('../../../../assets/check.png')}
+                            />
+                        </View>
+                        <Text style={styles.Text}>Psiquiátrico</Text>
+                    </TouchableOpacity>
+
+
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.resp.setState(!context.resp.state)}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.resp.state ? "#16A34A" : "#FFFFFF"}]}>
+                            <Image
+                            style={{width: 14, height: 14,}}
+                            source={require('../../../../assets/check.png')}
+                            />
+                        </View>
+                        <Text style={styles.Text}>Respiratório</Text>
+                    </TouchableOpacity>
+
+
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={() => context.diabetes.setState(!context.diabetes.state)}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.diabetes.state ? "#16A34A" : "#FFFFFF"}]}>
+                            <Image
+                            style={{width: 14, height: 14,}}
+                            source={require('../../../../assets/check.png')}
+                            />
+                        </View>
+                        <Text style={styles.Text}>Diabetes</Text>
+                    </TouchableOpacity>
                 </View>
                 
                 
                 <ReturnButton/>
-                <Footer/>
             </ScrollView>
+            <Footer/>
         </View>
     )
 }

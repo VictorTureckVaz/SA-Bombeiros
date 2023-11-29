@@ -12,7 +12,6 @@ export default function Header(){
         <View style={styles.Container}>
             <View style={styles.Menu}>
                 <Image
-                source={require('../../../assets/menu.png')}
                 style={styles.Image}
                 />
                 <View style={styles.Line}/>

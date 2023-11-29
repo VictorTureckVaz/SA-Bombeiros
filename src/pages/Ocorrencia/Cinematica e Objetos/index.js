@@ -32,6 +32,15 @@ export default function MainCinematicaObjetos() {
             />
           </View>
           <View style={styles.Container}>
+              <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.DisturbioComportamento.setState(!context.DisturbioComportamento.state) } value={context.DisturbioComportamento.state}>
+                <View style={[styles.CheckBox, {backgroundColor: context.DisturbioComportamento.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <Image
+                      style={{width: 14, height: 14, }}
+                      source={require('../../../../assets/check.png')}
+                      />
+                </View>
+                <Text style={styles.Text}>Distúrbio de Comportamento</Text>
+              </TouchableOpacity>
               <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.EncontradoCapacete.setState(!context.EncontradoCapacete.state) } value={context.EncontradoCapacete.state}>
                 <View style={[styles.CheckBox, {backgroundColor: context.EncontradoCapacete.state == true ? "#16A34A" : "#FFFFFF"}]}>
                     <Image

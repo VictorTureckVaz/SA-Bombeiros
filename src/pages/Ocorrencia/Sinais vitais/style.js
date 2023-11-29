@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
         gap: 23,
         padding: 27,
       },
+      
 
       ButtonText: {
         fontSize: 17,

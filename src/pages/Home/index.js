@@ -7,29 +7,40 @@ import Footer from './../Footer';
 import { ScrollView } from 'native-base';
 import api from './../../lib/axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useContext } from 'react';
+import { OcorrenciaContext } from './../../context/ocorrenciaContext'
 
 export default function MainHome(){
-    const navigation = useNavigation();
+     const navigation = useNavigation();
+     const context = useContext(OcorrenciaContext);
     
-    async function verifyLogin(){
-         const token = await AsyncStorage.getItem('token');
-     try {
+     async function verifyLogin(){
+          const token = await AsyncStorage.getItem('token');
 
-          if (token) {
-               console.log('temos o token: ' + token);
-               navigation.navigate('ocorrencia');
-               const confirmando = await api.post("/nullSubmit");
-          } else {
-               console.log('neo temos o token');
-               navigation.navigate('login')
+          try {
+               if (token) {
+                    console.log('temos o token: ' + token);
+                    
+                    try {
+                         const reponse = await api.post("/nullSubmit");
+                         const id = reponse.data.id;
+                         await AsyncStorage.setItem('idReport', id);
+                         context.IdReport.setState(id);
+                         console.log('Pegamos o id da report nova:', id);
+                         navigation.navigate('ocorrencia');
+                    } catch(e) {
+                         console.error(e);
+                    }
+               } else {
+                    console.log('neo temos o token');
+                    navigation.navigate('login')
+               }
+          } catch (e) {
+               console.error(e)
           }
-
-     } catch (e) {
-          console.error(e)
      }
-    }
 
-    return(
+     return(
           <View style={styles.Body}>
                <Header/>
                <ScrollView>

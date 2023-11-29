@@ -5,10 +5,10 @@ const { NULLQry } = require("./../../database/queries");
 
 module.exports = async (req, res) => {
     const promise = new Promise((resolve, reject) => {
-        db.query(NULLQry(), function(err, { insertId }) {
+        db.query(NULLQry(), function(err, result) {
             if (err) throw err;
-            return res.send({ insertId });
-            // const insertIdValue = result.insertId;
+            console.log(result.insertId);
+            res.send({ id: result.insertId });
         });
     });
 };

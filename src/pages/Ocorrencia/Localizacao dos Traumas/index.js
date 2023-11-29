@@ -9,29 +9,37 @@ import RadioButton from '../../../components/RadioButton';
 import ReturnButton from '../../../components/ReturnButton';
 import ViewBox from '../../../components/ViewBox';
 import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import api from '../../../lib/axios';
 
 
 export default function MainTeste(){
 
     const context = useContext(OcorrenciaContext);
 
-    const [material, setMaterial] = useState([]);
-    
-    
-    
-    const [faceValue, setFaceValue] = useState("Tipo do Material Utilizado");
-    const [faceName, setFaceName] = useState("Tipo do Material Utilizado");
+    const [faceValue, setFaceValue] = useState(null);
+    const [faceName, setFaceName] = useState(null);
     const [ladoValue, setLadoValue] = useState(null);
     const [ladoName, setLadoName] = useState(null);
+    const [localFerimento, setLocalFerimento] = useState(null);
     
     const [tipoFerimentoValue, setTipoFerimentoValue] = useState(null);
     const [tipoFerimentoName, setTipoFerimentoName] = useState(null);
 
-
-
-    function saveFerimento() {
-        context.ferimentos.setState([...context.ferimentos.state, context.ferimento.state]);
+    const saveFerimento = (local, lado, face, tipo) => {
+        const ferimento = {
+            local,
+            lado,
+            face,
+            tipo,
+        }
+        // console.log(materials[0].tipo)
+        if(local !== null && local !== "" && lado !== null && face !== null && tipo !== null){
+            context.ferimentos.setState([...context.ferimentos.state, ferimento]) //separa os elementos do array "materials" e adiciona "material"
+        }
+        
     }
+
 
 
     // const addMaterial = () => {
@@ -60,14 +68,8 @@ export default function MainTeste(){
     // console.log(material)
     // }
 
-    const sizedMaterials = [
-        "teste",
-        "ttf",
-        "ked",
-        "talas",
-        "colar",
-    ];
     
+
 
 
 
@@ -76,6 +78,13 @@ export default function MainTeste(){
             <Header/>
             <ScrollView>
                 <View style={styles.Container}>
+                    <TextInput 
+                    placeholder = 'Local do Ferimento' 
+                    keyboardType = 'default' 
+                    style={styles.TextInput}
+                    value={localFerimento} 
+                    onChangeText={setLocalFerimento}
+                    />
                     <SelectList
                         options={[
                             {
@@ -91,6 +100,7 @@ export default function MainTeste(){
                         setSelectedOptionName={setLadoName}
                         selectedOptionValue={ladoValue}
                         setSelectedOptionValue={setLadoValue}
+                        title={"Lado do Ferimento"}
                     />
                     <SelectList
                             options={[
@@ -108,6 +118,7 @@ export default function MainTeste(){
                             setSelectedOptionName={setFaceName}
                             selectedOptionValue={faceValue}
                             setSelectedOptionValue={setFaceValue}
+                            title={"Face do Ferimento"}
                             
                     />
 
@@ -142,14 +153,15 @@ export default function MainTeste(){
                             setSelectedOptionName={setTipoFerimentoName}
                             selectedOptionValue={tipoFerimentoValue}
                             setSelectedOptionValue={setTipoFerimentoValue}
+                            title={"Tipo do Ferimento"}
                     />
 
                     
                         
-                    <TouchableOpacity style={[{display: save ? "none" : "flex"}]} onPress={() => saveFerimento(faceValue, ladoValue, tipoFerimentoValue)}>
+                    <TouchableOpacity  onPress={() => saveFerimento(localFerimento, faceValue, ladoValue, tipoFerimentoValue)}>
                         <Text>Salvar</Text>
                     </TouchableOpacity>
-                    <Text>{JSON.stringify([...ferimentos, ferimento])}</Text>
+                    <Text>{JSON.stringify([...context.ferimentos.state])}</Text>
 
                     <SelectList
                         options={[
@@ -171,7 +183,7 @@ export default function MainTeste(){
 
                     <View style={[styles.Table, {display: context.possuiQueimadurasValue.state == "sim" ? "flex" : "none"}]}>
                         <View style={{flexDirection: "row", gap: 2,}}>
-                            <View style={styles.HeaderCell}>
+                            <View style={[styles.HeaderCell, {width: "28%"}]}>
                                 <Text style={{fontSize: 18, color: "white", textAlign: "center"}}>Queimadura</Text>
                             </View>
                             <View style={styles.HeaderCell}>
@@ -187,76 +199,76 @@ export default function MainTeste(){
 
 
                         <View style={{flexDirection: "row", gap: 2,}}>
-                            <View style={styles.Cell}>
+                            <View style={styles.TitleCell}>
                                 <Text style={{fontSize: 18}}>Cabeça</Text>
                             </View>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.primeiroGrauCabeca.state == 1 ? "green" : "white"}]} onPress={() => saveQueimadura("cabeca", "primeiro")}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauCabeca.state == 1 ? "green" : "white"}]} onPress={() => saveQueimadura("cabeca", "segundo")}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauCabeca.state == 1 ? "green" : "white"}]} onPress={() => saveQueimadura("cabeca", "terceiro")}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.primeiroGrauCabeca.state == 1 ? "green" : "white"}]} onPress={() => context.primeiroGrauCabeca.setState(!context.primeiroGrauCabeca.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauCabeca.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauCabeca.setState(!context.segundoGrauCabeca.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauCabeca.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauCabeca.setState(!context.terceiroGrauCabeca.state)}/>
                         </View>
                         <View style={{flexDirection: "row", gap: 2,}}>
-                            <View style={styles.Cell}>
+                            <View style={styles.TitleCell}>
                                 <Text style={{fontSize: 18}}>Pescoço</Text>
                             </View>
                             <TouchableOpacity style={[styles.Cell, {backgroundColor: context.primeiroGrauPescoco.state == 1 ? "green" : "white"}]} onPress={() => context.primeiroGrauPescoco.setState(!context.primeiroGrauPescoco.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauPescoco.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauPescoco.setState(!context.primeiroGrauPescoco.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauPescoco.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauPescoco.setState(!context.primeiroGrauPescoco.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauPescoco.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauPescoco.setState(!context.segundoGrauPescoco.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauPescoco.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauPescoco.setState(!context.terceiroGrauPescoco.state)}/>
                         </View>
                         <View style={{flexDirection: "row", gap: 2,}}>
-                            <View style={styles.Cell}>
+                            <View style={styles.TitleCell}>
                                 <Text style={{fontSize: 18}}>T. Ant</Text>
                             </View>
                             <TouchableOpacity style={[styles.Cell, {backgroundColor: context.primeiroGrauTAnt.state == 1 ? "green" : "white"}]} onPress={() => context.primeiroGrauTAnt.setState(!context.primeiroGrauTAnt.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauTAnt.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauTAnt.setState(!context.primeiroGrauTAnt.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauTAnt.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauTAnt.setState(!context.primeiroGrauTAnt.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauTAnt.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauTAnt.setState(!context.segundoGrauTAnt.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauTAnt.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauTAnt.setState(!context.terceiroGrauTAnt.state)}/>
                         </View>
                         <View style={{flexDirection: "row", gap: 2,}}>
-                            <View style={styles.Cell}>
+                            <View style={styles.TitleCell}>
                                 <Text style={{fontSize: 18}}>T. Pos</Text>
                             </View>
                             <TouchableOpacity style={[styles.Cell, {backgroundColor: context.primeiroGrauTPos.state == 1 ? "green" : "white"}]} onPress={() => context.primeiroGrauTPos.setState(!context.primeiroGrauTPos.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauTPos.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauTPos.setState(!context.primeiroGrauTPos.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauTPos.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauTPos.setState(!context.primeiroGrauTPos.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauTPos.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauTPos.setState(!context.segundoGrauTPos.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauTPos.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauTPos.setState(!context.terceiroGrauTPos.state)}/>
                         </View>
                         <View style={{flexDirection: "row", gap: 2,}}>
-                            <View style={styles.Cell}>
+                            <View style={styles.TitleCell}>
                                 <Text style={{fontSize: 18}}>Genitália</Text>
                             </View>
                             <TouchableOpacity style={[styles.Cell, {backgroundColor: context.primeiroGrauGenitalia.state == 1 ? "green" : "white"}]} onPress={() => context.primeiroGrauGenitalia.setState(!context.primeiroGrauGenitalia.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauGenitalia.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauGenitalia.setState(!context.primeiroGrauGenitalia.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauGenitalia.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauGenitalia.setState(!context.primeiroGrauGenitalia.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauGenitalia.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauGenitalia.setState(!context.segundoGrauGenitalia.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauGenitalia.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauGenitalia.setState(!context.terceiroGrauGenitalia.state)}/>
                         </View>
                         <View style={{flexDirection: "row", gap: 2,}}>
-                            <View style={styles.Cell}>
+                            <View style={styles.TitleCell}>
                                 <Text style={{fontSize: 18}}>M.I.D</Text>
                             </View>
                             <TouchableOpacity style={[styles.Cell, {backgroundColor: context.primeiroGrauMid.state == 1 ? "green" : "white"}]} onPress={() => context.primeiroGrauMid.setState(!context.primeiroGrauMid.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauMid.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauMid.setState(!context.primeiroGrauMid.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauMid.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauMid.setState(!context.primeiroGrauMid.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauMid.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauMid.setState(!context.segundoGrauMid.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauMid.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauMid.setState(!context.terceiroGrauMid.state)}/>
                         </View>
                         <View style={{flexDirection: "row", gap: 2,}}>
-                            <View style={styles.Cell}>
+                            <View style={styles.TitleCell}>
                                 <Text style={{fontSize: 18}}>M.I.E</Text>
                             </View>
                             <TouchableOpacity style={[styles.Cell, {backgroundColor: context.primeiroGrauMie.state == 1 ? "green" : "white"}]} onPress={() => context.primeiroGrauMie.setState(!context.primeiroGrauMie.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauMie.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauMie.setState(!context.primeiroGrauMie.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauMie.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauMie.setState(!context.primeiroGrauMie.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauMie.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauMie.setState(!context.segundoGrauMie.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauMie.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauMie.setState(!context.terceiroGrauMie.state)}/>
                         </View>
                         <View style={{flexDirection: "row", gap: 2,}}>
-                            <View style={styles.Cell}>
+                            <View style={styles.TitleCell}>
                                 <Text style={{fontSize: 18}}>M.S.D</Text>
                             </View>
                             <TouchableOpacity style={[styles.Cell, {backgroundColor: context.primeiroGrauMsd.state == 1 ? "green" : "white"}]} onPress={() => context.primeiroGrauMsd.setState(!context.primeiroGrauMsd.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauMsd.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauMsd.setState(!context.primeiroGrauMsd.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauMsd.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauMsd.setState(!context.primeiroGrauMsd.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauMsd.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauMsd.setState(!context.segundoGrauMsd.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauMsd.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauMsd.setState(!context.terceiroGrauMsd.state)}/>
                         </View>
                         <View style={{flexDirection: "row", gap: 2,}}>
-                            <View style={styles.Cell}>
+                            <View style={styles.TitleCell}>
                                 <Text style={{fontSize: 18}}>M.S.E</Text>
                             </View>
                             <TouchableOpacity style={[styles.Cell, {backgroundColor: context.primeiroGrauMse.state == 1 ? "green" : "white"}]} onPress={() => context.primeiroGrauMse.setState(!context.primeiroGrauMse.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauMse.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauMse.setState(!context.primeiroGrauMse.state)}/>
-                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauMse.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauMse.setState(!context.primeiroGrauMse.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.segundoGrauMse.state == 1 ? "green" : "white"}]} onPress={() => context.segundoGrauMse.setState(!context.segundoGrauMse.state)}/>
+                            <TouchableOpacity style={[styles.Cell, {backgroundColor: context.terceiroGrauMse.state == 1 ? "green" : "white"}]} onPress={() => context.terceiroGrauMse.setState(!context.terceiroGrauMse.state)}/>
                         </View>
 
 

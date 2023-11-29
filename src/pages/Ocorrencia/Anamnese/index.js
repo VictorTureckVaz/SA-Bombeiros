@@ -34,10 +34,24 @@ export default function MainAnamnese(){
     }
 
     const showModeAconteceu = (modeToShow) => {
-          context.setShowAconteceu.setState(true);
+          context.showAconteceu.setState(true);
 
           context.mode.setState(modeToShow);
     }
+
+    const onChangeUltimaMedicacao = (e, selectedDate) => {
+          context.dateUltimaMedicacao.setState(selectedDate);
+          context.showUltimaMedicacao.setState(false);
+    }
+
+    const showModeUltimaMedicacao = (modeToShow) => {
+          context.showUltimaMedicacao.setState(true);
+
+          context.mode.setState(modeToShow);
+    }
+
+     
+     
 
 
     if(context.possuiProblemaDeSaudeValue.state == "nao"){
@@ -64,8 +78,8 @@ export default function MainAnamnese(){
                         placeholder = 'Sinais e Sintomas'
                         keyboardType = 'default'
                         style={styles.TextInput}
-                        onChangeText={context.motorista.setState}
-                        value={context.motorista.state}
+                        onChangeText={context.sinaisSintomasAnamnese.setState}
+                        value={context.sinaisSintomasAnamnese.state}
                     />
                     <SelectList
                          options={[
@@ -151,6 +165,21 @@ export default function MainAnamnese(){
                         onChangeText={context.medicacoes.setState}
                         value={context.medicacoes.state}
                     />
+
+                    <TouchableOpacity style={[styles.TextInput, {display: context.fazUsoDeMedicacoesValue.state == "sim" ? "flex" : "none",}]} onPress={() => showModeUltimaMedicacao('time')}>
+                         <Text style={{fontSize: 20}}>Horário da Última Medicação: {context.dateUltimaMedicacao.state.toLocaleTimeString()}</Text>
+                         {
+                         context.showUltimaMedicacao.state && (
+                              <DateTimePicker
+                              value={context.dateUltimaMedicacao.state}
+                              mode={context.mode.state}
+                              is24Hour={true}
+                              onChange={onChangeUltimaMedicacao}
+                              />
+                         )
+                         }
+
+                    </TouchableOpacity>
                 
 
                     

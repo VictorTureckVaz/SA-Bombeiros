@@ -10,7 +10,7 @@ import { Center } from 'native-base';
 import api from './../../../lib/axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function MainOcorrencia(){
+export default function MainOcorrencia() {
 
     const navigation = useNavigation();
 
@@ -21,6 +21,8 @@ export default function MainOcorrencia(){
     function escolhaSexo(){
         context.sexoPac.setState(sexoPac);
     }
+
+    
 
     useEffect(() => {
         if(context.sexoPac.state !== null){
@@ -35,17 +37,17 @@ export default function MainOcorrencia(){
             
         const jsonData = JSON.parse(jsonString);
         const {
-            //Principal(aqui)
-            sexoPac,
-            
+            //id do Reporte
+            idReport,
+
             //Info Paciente
-            nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue,
+            nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue, sexoPac,
                 
             //Info Ambulancia
             numUsb, numOc, despachante, kmFinal, codIr, codPs, codSia, 
                     
             //Tipo de Ocorrência
-            tipoOc,
+            tipoOc, outroTipoOc,
             
             //Info de Condução E Transporte
             decisao, transporteValue, socorristaA, socorristaB, socorristaC, motorista, demandante,
@@ -57,92 +59,177 @@ export default function MainOcorrencia(){
             presMax, presMin, pulso, respiracao, sat, temperatura, hgt, perfusaoValue, normalidade,
 
             //Sinais e Sintomas
-            abdomen, afundamento, agitacao, amnesia, anginaPeito, apneia, bradicardia, bradipneia, broncoAspirando, cefaleia, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvioTraqueia, dispneia, dorLocal, enfisemaSubcutaneo, extaseJugular, facePalida, hemorragiaInterna, hemorragiaExterna, hipertensão, nauseasVomito, nasoragia, obito, otorreia, ovace, paradaCardiaca, paradaRespiratoria, priapismo, pruridoPele, pupilasAnisocori, pupilasIsocoria, pupilasMidriase, pupilasMiose, pupilasReagente, pupilasNaoReagente, sinalBattle, sinalGuaxinim, sudorese, taquipneia, taquicardia, tontura, outros,
+            abdomen, afundamento, agitacao, amnesia, anginaPeito, apneia, bradicardia, bradipneia, broncoAspirando, cefaleia, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvioTraqueia, dispneia, dorLocal, enfisemaSubcutaneo, extaseJugular, facePalida, hemorragiaInterna, hemorragiaExterna, hipertensao, nauseasVomito, nasoragia, obito, otorreia, ovace, paradaCardiaca, paradaRespiratoria, priapismo, pruridoPele, pupilasAnisocori, pupilasIsocoria, pupilasMidriase, pupilasMiose, pupilasReagente, pupilasNaoReagente, sinalBattle, sinalGuaxinim, sudorese, taquipneia, taquicardia, tontura, outros,
 
             //Problemas Encontrados
-            psico, resp, diabetes, outrosProblemas,
+            psico, resp, diabetes,outrosProblemas, partoEmergencial, problemaGestante, hemorragiaExcessiva, aereo, clinico, emergencial, posTrauma, samu, semRemocao, outrosProblemaTransporte,
 
             //Procedimentos Efetuados
             Aspiracao, AvalInicial, AvalDirigida, AvalContinuada, ChaveRautek, CanulaGuedel, DesobstrucaoVA, EmpregoDEA, GerenciamentoRiscos, LimpezaFerimento, Curativos, Compressivo, Encravamento, Ocular, Queimadura, Simples, TresPontas, Imobilizacoes, MacaRodas, MacaRigida, Ponte, RetiradoCapacete, Rcp, Rolamento90, Rolamento180, TomadaDecisao, TratadoChoque, UsoCanula, UsoColar, UsoKED, UsoTTF, VentSuporte, Oxigenoterapia, Reanimador, Meios, Auxiliares, OutrosProcedimentos,
 
             //Anamnese
-            aconteceuOutrasVezesValue, dateAconteceu, possuiProblemaDeSaudeValue, problemasDeSaude, fazUsoDeMedicacoesValue, medicacoes, ehAlergicoValue, alergia, ingeriuAlgoValue, dateIngestao,
+            sinaisSintomasAnamnese, aconteceuOutrasVezesValue, dateAconteceu, possuiProblemaDeSaudeValue, problemasDeSaude, fazUsoDeMedicacoesValue, medicacoes, dateUltimaMedicacao, ehAlergicoValue, alergia, ingeriuAlgoValue, dateIngestao,
 
             //Anamnese Gestacional
             fezPreNatalValue, nomeMedico, possibilidadeDeComplicacoesValue, primeiroFilhoValue, filhos, dateContracoesInicio, dateContracoesDuracao, dateContracoesIntervalo, pressaoEvacuarValue, rupturaBolsaValue, feitoInspecaoValue, partoRealizadoValue, sexoBebeValue, nomeBebe, dateNascimento, 
 
             //Cinematica de Objetos Recolhidos
-            ObjetoRecolhido, EncontradoCapacete, EncontradoCinto, ParaBrisasAvariado, CaminhandoCena, PainelAvariado, VolanteTorcido, 
+            DisturbioComportamento, ObjetoRecolhido, EncontradoCapacete, EncontradoCinto, ParaBrisasAvariado, CaminhandoCena, PainelAvariado, VolanteTorcido, 
 
-            //Materiais Utilizados
-            materialTypeValue, materialValue, materialSizeValue, materialAmount,
+            // //Materiais Utilizados
+            // materials,
 
             //Observações Importantes
             obs,
+
+            //Queimaduras
+            primeiroGrauCabeca, segundoGrauCabeca, terceiroGrauCabeca, primeiroGrauPescoco, segundoGrauPescoco, terceiroGrauPescoco, primeiroGrauTAnt, segundoGrauTAnt, terceiroGrauTAnt, primeiroGrauTPos, segundoGrauTPos, terceiroGrauTPos, primeiroGrauGenitalia, segundoGrauGenitalia, terceiroGrauGenitalia, primeiroGrauMid, segundoGrauMid, terceiroGrauMid, primeiroGrauMie, segundoGrauMie, terceiroGrauMie, primeiroGrauMsd, segundoGrauMsd, terceiroGrauMsd, primeiroGrauMse, segundoGrauMse, terceiroGrauMse
         } = jsonData;
 
-        const infPac = {
-            nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue
+        const infPac = {//1
+            nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue, sexoPac
         };
-        const InfAmb = {
+        const InfAmb = {//2
             numUsb, numOc, despachante, kmFinal, codIr, codPs, codSia
         };
-        const TipoOc = {//tenho que fazer
+        const TipoOc = {//3
             tipoOc, outroTipoOc
         };
-        const InfConETrans = {
+        const InfConETrans = {//4
             decisao, transporteValue, socorristaA, socorristaB, socorristaC, motorista, demandante
         };
-        const AvalPac = {
+        const AvalPac = {//5
             aberturaOcular, respostaVerbal, respostaMotora
         };
-        const SinaisVitais = {
+        const SinaisVitais = {//6
             presMax, presMin, pulso, respiracao, sat, temperatura, hgt, perfusaoValue, normalidade
         };
-        const SinaisSintomas = {
-            abdomen, afundamento, agitacao, amnesia, anginaPeito, apneia, bradicardia, bradipneia, broncoAspirando, cefaleia, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvioTraqueia, dispneia, dorLocal, enfisemaSubcutaneo, extaseJugular, facePalida, hemorragiaInterna, hemorragiaExterna, hipertensão, nauseasVomito, nasoragia, obito, otorreia, ovace, paradaCardiaca, paradaRespiratoria, priapismo, pruridoPele, pupilasAnisocori, pupilasIsocoria, pupilasMidriase, pupilasMiose, pupilasReagente, pupilasNaoReagente, sinalBattle, sinalGuaxinim, sudorese, taquipneia, taquicardia, tontura, outros
+        const SinaisSintomas = {//7
+            abdomen, afundamento, agitacao, amnesia, anginaPeito, apneia, bradicardia, bradipneia, broncoAspirando, cefaleia, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvioTraqueia, dispneia, dorLocal, enfisemaSubcutaneo, extaseJugular, facePalida, hemorragiaInterna, hemorragiaExterna, hipertensao, nauseasVomito, nasoragia, obito, otorreia, ovace, paradaCardiaca, paradaRespiratoria, priapismo, pruridoPele, pupilasAnisocori, pupilasIsocoria, pupilasMidriase, pupilasMiose, pupilasReagente, pupilasNaoReagente, sinalBattle, sinalGuaxinim, sudorese, taquipneia, taquicardia, tontura, outros
 
         };
-        const ProbEnc = {
-            psico, resp, diabetes, outrosProblemas
+        const ProbEnc = {//8
+            psico, resp, diabetes,outrosProblemas, partoEmergencial, problemaGestante, hemorragiaExcessiva, aereo, clinico, emergencial, posTrauma, samu, semRemocao, outrosProblemaTransporte
         };
-        const LocTrauma ={
-            
+        const LocTrauma ={//9
+            primeiroGrauCabeca, segundoGrauCabeca, terceiroGrauCabeca, primeiroGrauPescoco, segundoGrauPescoco, terceiroGrauPescoco, primeiroGrauTAnt, segundoGrauTAnt, terceiroGrauTAnt, primeiroGrauTPos, segundoGrauTPos, terceiroGrauTPos, primeiroGrauGenitalia, segundoGrauGenitalia, terceiroGrauGenitalia, primeiroGrauMid, segundoGrauMid, terceiroGrauMid, primeiroGrauMie, segundoGrauMie, terceiroGrauMie, primeiroGrauMsd, segundoGrauMsd, terceiroGrauMsd, primeiroGrauMse, segundoGrauMse, terceiroGrauMse,
         };
-        const ProcEfetuados = {
+        const ProcEfetuados = {//10
             Aspiracao, AvalInicial, AvalDirigida, AvalContinuada, ChaveRautek, CanulaGuedel, DesobstrucaoVA, EmpregoDEA, GerenciamentoRiscos, LimpezaFerimento, Curativos, Compressivo, Encravamento, Ocular, Queimadura, Simples, TresPontas, Imobilizacoes, MacaRodas, MacaRigida, Ponte, RetiradoCapacete, Rcp, Rolamento90, Rolamento180, TomadaDecisao, TratadoChoque, UsoCanula, UsoColar, UsoKED, UsoTTF, VentSuporte, Oxigenoterapia, Reanimador, Meios, Auxiliares, OutrosProcedimentos
         };
-        const Anamnese = {
-            aconteceuOutrasVezesValue, dateAconteceu, possuiProblemaDeSaudeValue, problemasDeSaude, fazUsoDeMedicacoesValue, medicacoes, ehAlergicoValue, alergia, ingeriuAlgoValue, dateIngestao
+        const Anamnese = {//11
+            sinaisSintomasAnamnese, aconteceuOutrasVezesValue, dateAconteceu, possuiProblemaDeSaudeValue, problemasDeSaude, fazUsoDeMedicacoesValue, medicacoes, dateUltimaMedicacao, ehAlergicoValue, alergia, ingeriuAlgoValue, dateIngestao
         };
-        const AnamneseGest = {
+        const AnamneseGest = {//12
             fezPreNatalValue, nomeMedico, possibilidadeDeComplicacoesValue, primeiroFilhoValue, filhos, dateContracoesInicio, dateContracoesDuracao, dateContracoesIntervalo, pressaoEvacuarValue, rupturaBolsaValue, feitoInspecaoValue, partoRealizadoValue, sexoBebeValue, nomeBebe, dateNascimento
         };
-        const CinObjRec = {
-            ObjetoRecolhido, EncontradoCapacete, EncontradoCinto, ParaBrisasAvariado, CaminhandoCena, PainelAvariado, VolanteTorcido
+        const CinObjRec = {//13
+            ObjetoRecolhido, DisturbioComportamento, EncontradoCapacete, EncontradoCinto, ParaBrisasAvariado, CaminhandoCena, PainelAvariado, VolanteTorcido
         };
-        const MatUtilizados = {//tem q ver como essa pagina vai funcionar depois
-            materialTypeValue, materialValue, materialSizeValue, materialAmount
-        };
-        const Obs = {
+        // const MatUtilizados = {//14
+        //     materials, idReport
+        // };
+        const Obs = {//15
             obs
         };
         
-        console.log(jsonString);
+        console.log(jsonData);
 
-        // try {
-        //     const apiReply1 = await api.post("/submit", JSON.parse(jsonString));
-        //     console.log("deu certo:\n"+jsonString);
-        // } catch (error) {
-        //     setSubmitError(current => !current);
-        //     console.error(error);
-        // }
+        try {
+            const InfPacPost = await api.post("/infpac", infPac);
+            console.log(InfPacPost);
+
+            const InfAmbPost = await api.post("/infamb", InfAmb);
+            console.log(InfAmbPost);
+
+            const TipoOcPost = await api.post("/tipooc", TipoOc);
+            console.log(TipoOcPost);
+
+            const InfConETransPost = await api.post("/infconetrans", InfConETrans);
+            console.log(InfConETransPost);
+
+            const SinaisVitaisPost = await api.post("/sinaisvitais", SinaisVitais);
+            console.log(SinaisVitaisPost);
+
+            const SinaisSintomasPost = await api.post("/sinaissintomas", SinaisSintomas);
+            console.log(SinaisSintomasPost);
+
+            const ProbEncPost = await api.post("/probenc", ProbEnc);
+            console.log(ProbEncPost);
+            
+            const ProcEfetuadosPost = await api.post("/procefetuados", ProcEfetuados);
+            console.log(ProcEfetuadosPost);
+
+            const AnamnesePost = await api.post("/anamnese", Anamnese);
+            console.log(AnamnesePost);
+
+            const CinObjRecPost = await api.post("/cinobjrec", CinObjRec);
+            console.log(CinObjRecPost);
+
+            const ObsPost = await api.post("/obs", Obs);
+            console.log(ObsPost);
+
+
+        } catch (error) {
+            setnullSubmitError(current => !current);
+            console.error(error);
+        }
+
+        async function materiais() {
+            context.materials.state.forEach(async ({
+                tipo,
+                nome,
+                tamanho,
+                quantidade,
+                idReport
+            }) => {
+                try {
+                    const apiReply = await api.post("/materiais", {
+                        tipo: tipo,
+                        material: nome,
+                        tamanho: tamanho,
+                        quantidade: quantidade,
+                        idReport
+                    });
+                    console.log(apiReply);
+                } catch (error) {
+                    console.error(error);
+                }
+            });
+        };
+
+        async function ferimentos() {
+            context.ferimentos.state.forEach(async ({
+                localF,
+                lado,
+                face,
+                tipo,
+                IdReport
+            }) => {
+                try {
+                    const LocTrauma = await api.post("/ferimentos", {
+                        local: localF,
+                        lado: lado,
+                        face: face,
+                        tipo: tipo,
+                        IdReport
+                    });
+                    console.log(LocTrauma);
+                } catch (error) {
+                    console.error(error);
+                }
+            });
+        };
+    
+
+
     }
 
     return(
         <View style={styles.Body}>
             <Header/>
             <ScrollView>
+                <Text>Id da report atual: {context.IdReport.state}</Text>
                 <View style={styles.Container}>
                     <View style={styles.StepContainer}>
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('infoPac')}>
