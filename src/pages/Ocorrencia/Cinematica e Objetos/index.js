@@ -31,7 +31,7 @@ export default function MainCinematicaObjetos() {
               value={context.ObjetoRecolhido.state} onChangeText={context.ObjetoRecolhido.setState}
             />
           </View>
-          <View style={styles.Container}>
+          <View>
               <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.DisturbioComportamento.setState(!context.DisturbioComportamento.state) } value={context.DisturbioComportamento.state}>
                 <View style={[styles.CheckBox, {backgroundColor: context.DisturbioComportamento.state == true ? "#16A34A" : "#FFFFFF"}]}>
                     <Image

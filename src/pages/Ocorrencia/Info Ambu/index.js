@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import Header from './../../Header';
@@ -16,9 +16,10 @@ export default function MainInfoAmb(){
     
 
     return(
-        <View style={styles.Body}>
-            <Header/>
-            <View style={styles.Container}>
+    <View style={styles.Body}>
+      <Header />
+      <ScrollView>
+        <View style={styles.Container}>
 
                 <TextInput placeholder = 'Número USB' keyboardType = 'number-pad' style={styles.TextInput} value={context.numUsb.state} onChangeText={context.numUsb.setState}/>
 
@@ -51,12 +52,10 @@ export default function MainInfoAmb(){
                 <TextInput placeholder = 'COD SIA/SUS' keyboardType = 'number-pad' style={styles.TextInput} value={context.codSia.state} onChangeText={context.codSia.setState}/>
 
                 
+                <ReturnButton/>
             </View>
-
-            <ReturnButton/>
-
             <Footer/>
-
-        </View>
+        </ScrollView>
+     </View>
     )
 }

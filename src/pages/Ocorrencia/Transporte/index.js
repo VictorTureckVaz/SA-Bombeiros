@@ -38,7 +38,6 @@ export default function MainTransporte(){
     return(
         <View style={styles.Body}>
             <Header/>
-            
             <ScrollView>
                 <View style={styles.Container}>
 
@@ -138,7 +137,6 @@ export default function MainTransporte(){
                 
                 
                     <ReturnButton/>
-                    
                     <Footer/>
                 </View>
             </ScrollView>

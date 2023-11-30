@@ -136,11 +136,11 @@ export default function MainTipoOc() {
                 setSelectedOption={context.tipoOc.setState}
               />
               <TextInput placeholder = 'Outros...' keyboardType = 'default' style={styles.TextInput} value={context.outroTipoOc.state} onChangeText={context.outroTipoOc.setState}/>
-          <ReturnButton/>
-          <Footer/>
+              <ReturnButton/>
+                    <Footer/>
+                </View>
+            </ScrollView>
         </View>
-      </ScrollView>
-    </View>
   );
 }
 
