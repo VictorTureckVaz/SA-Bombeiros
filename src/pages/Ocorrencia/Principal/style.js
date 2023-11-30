@@ -10,6 +10,16 @@ const styles = StyleSheet.create({
           padding: 10,
      },
 
+     Enviar: {
+          backgroundColor: '#4AAE39',
+          width: "100%",
+          height: 54,
+          borderRadius: 12.5,
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 10,
+     },
+
      Body: {
           gap: 27,
           height: "100%",

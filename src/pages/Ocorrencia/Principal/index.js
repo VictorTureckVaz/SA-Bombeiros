@@ -75,8 +75,8 @@ export default function MainOcorrencia() {
             //Cinematica de Objetos Recolhidos
             DisturbioComportamento, EncontradoCapacete, EncontradoCinto, ParaBrisasAvariado, CaminhandoCena, PainelAvariado, VolanteTorcido, ObjetoRecolhido,
 
-            // //Materiais Utilizados
-            // materials,
+            //Materiais Utilizados
+            materials,
 
             //Observações Importantes
             obs,
@@ -113,11 +113,13 @@ export default function MainOcorrencia() {
         const Queimaduras ={//9
             primeiroGrauCabeca, segundoGrauCabeca, terceiroGrauCabeca, primeiroGrauPescoco, segundoGrauPescoco, terceiroGrauPescoco, primeiroGrauTAnt, segundoGrauTAnt, terceiroGrauTAnt, primeiroGrauTPos, segundoGrauTPos, terceiroGrauTPos, primeiroGrauGenitalia, segundoGrauGenitalia, terceiroGrauGenitalia, primeiroGrauMid, segundoGrauMid, terceiroGrauMid, primeiroGrauMie, segundoGrauMie, terceiroGrauMie, primeiroGrauMsd, segundoGrauMsd, terceiroGrauMsd, primeiroGrauMse, segundoGrauMse, terceiroGrauMse,
         };
+
+        
         const ProcEfetuados = {//10
             Aspiracao, AvalInicial, AvalDirigida, AvalContinuada, ChaveRautek, CanulaGuedel, DesobstrucaoVA, EmpregoDEA, GerenciamentoRiscos, LimpezaFerimento, Curativos, Compressivo, Encravamento, Ocular, Queimadura, Simples, TresPontas, Imobilizacoes, MacaRodas, MacaRigida, Ponte, RetiradoCapacete, Rcp, Rolamento90, Rolamento180, TomadaDecisao, TratadoChoque, UsoCanula, UsoColar, UsoKED, UsoTTF, VentSuporte, Oxigenoterapia, Reanimador, Meios, Auxiliares, OutrosProcedimentos, policiaMilitar, policiaCivil, policiaPRE, policiaPRF, samuUsa, samuUsb, celesc, defesaCivil, igp, cit,
         };
         const Anamnese = {//11
-            abdomen, afundamento, agitacao, anginaPeito, apneia, bradicardia, bradipneia, broncoAspirando, cefaleia, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvioTraqueia, dispneia, dorLocal, enfisemaSubcutaneo, extaseJugular, facePalida, hemorragiaInterna, hemorragiaExterna, hipertensao, nauseasVomito, nasoragia, obito, otorreia, ovace, paradaCardiaca, paradaRespiratoria, priapismo, pruridoPele, pupilasAnisocoria, pupilasIsocoria, pupilasMidriase, pupilasMiose, pupilasReagente, pupilasNaoReagente, sinalBattle, sinalGuaxinim, sudorese, taquipneia, taquicardia, tontura
+            sinaisSintomasAnamnese, aconteceuOutrasVezesValue, dateAconteceu, possuiProblemaDeSaudeValue, problemasDeSaude, fazUsoDeMedicacoesValue, medicacoes, dateUltimaMedicacao, ehAlergicoValue, alergia, ingeriuAlgoValue, dateIngestao,
         };
         const AnamneseGest = {//12
             fezPreNatalValue, nomeMedico, possibilidadeDeComplicacoesValue, primeiroFilhoValue, filhos, dateContracoesInicio, dateContracoesDuracao, dateContracoesIntervalo, pressaoEvacuarValue, rupturaBolsaValue, feitoInspecaoValue, partoRealizadoValue, sexoBebeValue, nomeBebe, dateNascimento
@@ -125,9 +127,9 @@ export default function MainOcorrencia() {
         const CinObjRec = {//13
             DisturbioComportamento, EncontradoCapacete, EncontradoCinto, ParaBrisasAvariado, CaminhandoCena, PainelAvariado, VolanteTorcido, ObjetoRecolhido
         };
-        // const MatUtilizados = {//14
-        //     materials, idReport
-        // };
+        const MatUtilizados = {//14
+            materials, idReport
+        };
         const Obs = {//15
             obs
         };
@@ -167,6 +169,67 @@ export default function MainOcorrencia() {
 
             const ObsPost = await api.post("/obs", Obs);
             console.log(ObsPost);
+
+            const AnamneseGestPost = await api.post("/anamnesegest", AnamneseGest);
+            console.log(AnamneseGestPost);
+
+            const QueimadurasPost = await api.post("/queimaduras", Queimaduras);
+            console.log(QueimadurasPost);
+
+            // const MatUtilizadosPost = await api.post("/materiais", MatUtilizados);
+
+            // const MatUtilizadosPost = await this.materiais
+            // async function materiais() {
+            //     context.materials.state.forEach(async ({
+            //         tipo,
+            //         nome,
+            //         tamanho,
+            //         quantidade,
+            //         idReport
+            //     }) => {
+            //         try {
+            //             const MatUtilizadosPostA = await api.post("/materiais", {
+            //                 tipo: tipo,
+            //                 material: nome,
+            //                 tamanho: tamanho,
+            //                 quantidade: quantidade,
+            //                 idReport
+            //             });
+            //             console.log(MatUtilizadosPost);
+            //         } catch (error) {
+            //             console.error(error);
+            //         }
+            //     });
+            // };
+            // console.log(MatUtilizadosPost);
+
+
+            // const MatUtilizadosPost = await api.post("/materiais", MatUtilizados);
+
+            // async function materiais() {
+            //     context.materials.state.forEach(async ({
+            //         tipo,
+            //         nome,
+            //         tamanho,
+            //         quantidade,
+            //         idReport
+            //     }) => {
+            //         try {
+            //             const MatUtilizadosPost = await api.post("/materiais", {
+            //                 tipo: tipo,
+            //                 material: nome,
+            //                 tamanho: tamanho,
+            //                 quantidade: quantidade,
+            //                 idReport
+            //             });
+            //             console.log(apiReply);
+            //         } catch (error) {
+            //             console.error(error);
+            //         }
+            //     });
+            // };
+            // console.log(MatUtilizadosPost);
+
 
 
         } catch (error) {
@@ -276,12 +339,10 @@ export default function MainOcorrencia() {
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('obs')}>
                             <Text style={styles.OcStepText}>Observações Importantes</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.OcStep} >
-                            <TouchableOpacity onPress={transformarEmJson}>
-                                <Text>
-                                    ENVIAR OCORRENCIA
-                                </Text>
-                            </TouchableOpacity>
+                        <TouchableOpacity style={styles.Enviar} onPress={transformarEmJson} >
+                            <Text style={styles.OcStepText}>
+                                ENVIAR OCORRENCIA
+                            </Text>
                         </TouchableOpacity>
                     </View>
                 </View>

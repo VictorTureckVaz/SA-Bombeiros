@@ -1,5 +1,5 @@
-const db = require("./../../../lib/db");
-const { SUBMIT9 } = require("./../../../database/queries");
+const db = require("../../../lib/db");
+const { SUBMIT9 } = require("../../../database/queries");
 
 module.exports = async (req, res) => {
     const {
