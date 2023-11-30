@@ -113,6 +113,8 @@ export default function MainOcorrencia() {
         const Queimaduras ={//9
             primeiroGrauCabeca, segundoGrauCabeca, terceiroGrauCabeca, primeiroGrauPescoco, segundoGrauPescoco, terceiroGrauPescoco, primeiroGrauTAnt, segundoGrauTAnt, terceiroGrauTAnt, primeiroGrauTPos, segundoGrauTPos, terceiroGrauTPos, primeiroGrauGenitalia, segundoGrauGenitalia, terceiroGrauGenitalia, primeiroGrauMid, segundoGrauMid, terceiroGrauMid, primeiroGrauMie, segundoGrauMie, terceiroGrauMie, primeiroGrauMsd, segundoGrauMsd, terceiroGrauMsd, primeiroGrauMse, segundoGrauMse, terceiroGrauMse,
         };
+
+        
         const ProcEfetuados = {//10
             Aspiracao, AvalInicial, AvalDirigida, AvalContinuada, ChaveRautek, CanulaGuedel, DesobstrucaoVA, EmpregoDEA, GerenciamentoRiscos, LimpezaFerimento, Curativos, Compressivo, Encravamento, Ocular, Queimadura, Simples, TresPontas, Imobilizacoes, MacaRodas, MacaRigida, Ponte, RetiradoCapacete, Rcp, Rolamento90, Rolamento180, TomadaDecisao, TratadoChoque, UsoCanula, UsoColar, UsoKED, UsoTTF, VentSuporte, Oxigenoterapia, Reanimador, Meios, Auxiliares, OutrosProcedimentos, policiaMilitar, policiaCivil, policiaPRE, policiaPRF, samuUsa, samuUsb, celesc, defesaCivil, igp, cit,
         };
@@ -171,8 +173,9 @@ export default function MainOcorrencia() {
             const AnamneseGestPost = await api.post("/anamnesegest", AnamneseGest);
             console.log(AnamneseGestPost);
 
-            const MatUtilizadosPost = await api.post("/anamnesegest", AnamneseGest);
-            console.log(MatUtilizadosPost);
+            const QueimadurasPost = await api.post("/queimaduras", Queimaduras);
+            console.log(QueimadurasPost);
+
 
 
         } catch (error) {

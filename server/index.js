@@ -25,6 +25,7 @@ const postcinobjrec = require("./handlers/relatoriosubmit/cinobjrec/post");
 const postobs = require("./handlers/relatoriosubmit/obs/post");
 const postmateriais = require("./handlers/relatoriosubmit/materiais/post");
 const postferimentos = require("./handlers/relatoriosubmit/ferimentos/post");
+const postqueimaduras = require("./handlers/relatoriosubmit/queimaduras/post");
 
 
 
@@ -52,6 +53,7 @@ app.post("/cinobjrec", postcinobjrec);
 app.post("/obs", postobs);
 app.post("/materiais", postmateriais);
 app.post("/ferimentos", postferimentos);
+app.post("/queimaduras", postqueimaduras);
 
 app.listen(15600, () => {
     console.log("Server rodante")
