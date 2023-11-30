@@ -58,6 +58,22 @@ const styles = StyleSheet.create({
       SecondSection: {
         gap: 12,
       },
+
+      Enviar: {
+        backgroundColor: '#4AAE39',
+        width: "100%",
+        height: 54,
+        borderRadius: 12.5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+      },
+
+      OcStepText: {
+        color: '#FFFFFF',
+        fontWeight: 'bold',
+        fontSize: 20,
+      },
       
       ButtonContainer: {
         flex: 1,

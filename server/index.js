@@ -29,6 +29,7 @@ const postqueimaduras = require("./handlers/relatoriosubmit/queimaduras/post");
 
 
 
+
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());

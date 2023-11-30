@@ -45,7 +45,15 @@ module.exports.SUBMIT7 = (abdomen, afundamento, agitacao, anginaPeito, apneia, b
 };
 
 
+module.exports.MATERIAIS = (tipo, material, tamanho, quantidade, IdReport) => {
+    return `INSERT INTO materiais_utilizados (tipo, material, tamanho, quantidade, fk_identificacao_do_paciente) VALUES ("${tipo}", "${material}", "${tamanho}", "${quantidade}", 961);`;
+    
+};
 
+module.exports.FERIMENTOS = (local, face, lado, tipo) => {
+    return `INSERT INTO localizacao_dos_traumas_llft (Local, Face, Lado, Tipo, fk_paciente) VALUES ("${local}", "${face}", "${lado}", "${tipo}", 961);`;
+    
+};
 
 
 
@@ -103,13 +111,13 @@ module.exports.SUBMIT3 = (
     `;
 };
 
-module.exports.SUBMIT14 = (
-    tipo, nome, tamanho, quantidade, idReport
-) => {
-    return `
-        INSERT INTO materiais_utilizados (tipo, material, tamanho, quantidade, fk_identificacao_do_paciente) VALUES ("${tipo}", "${nome}", "${tamanho}", "${quantidade}", "${idReport}");
-    `;
-};
+// module.exports.SUBMIT14 = (
+//     tipo, nome, tamanho, quantidade, idReport
+// ) => {
+//     return `
+//         INSERT INTO materiais_utilizados (tipo, material, tamanho, quantidade, fk_identificacao_do_paciente) VALUES ("${tipo}", "${nome}", "${tamanho}", "${quantidade}", 1);
+//     `;
+// };
 
 module.exports.SUBMIT17 = (
     localF, lado, face, tipo, IdReport

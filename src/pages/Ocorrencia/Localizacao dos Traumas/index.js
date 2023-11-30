@@ -40,6 +40,32 @@ export default function MainTeste(){
         
     }
 
+    async function ferimentos() {
+        context.ferimentos.state.forEach(async ({
+            local,
+            lado,
+            face,
+            tipo,
+
+
+            
+        }) => {
+            try {
+                const apiReply = await api.post("/ferimentos", {
+                    local: local,
+                    lado: lado,
+                    face: face,
+                    tipo: tipo,
+ 
+                
+                });
+                console.log(apiReply);
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    };
+
 
 
     // const addMaterial = () => {
@@ -158,8 +184,11 @@ export default function MainTeste(){
 
                     
                         
-                    <TouchableOpacity  onPress={() => saveFerimento(localFerimento, faceValue, ladoValue, tipoFerimentoValue)}>
-                        <Text>Salvar</Text>
+                    <TouchableOpacity style={styles.Enviar} onPress={() => saveFerimento(localFerimento, faceValue, ladoValue, tipoFerimentoValue)}>
+                        <Text style={styles.OcStepText}>Salvar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.Enviar} onPress={ferimentos}>
+                        <Text style={styles.OcStepText}>Enviar</Text>
                     </TouchableOpacity>
                     <Text>{JSON.stringify([...context.ferimentos.state])}</Text>
 

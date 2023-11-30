@@ -331,8 +331,8 @@ export default function MainProcedimentosEfetuados (){
                     </TouchableOpacity>
 
 
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.policiaMilitar.setState(!context.Meios.state) } value={context.Meios.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.Meios.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.policiaMilitar.setState(!context.policiaMilitar.state) } value={context.Meios.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.policiaMilitar.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}
@@ -340,8 +340,8 @@ export default function MainProcedimentosEfetuados (){
                         </View>
                         <Text style={styles.Text}>Policia Militar</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.policiaCivil.setState(!context.Auxiliares.state) } value={context.Auxiliares.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.Auxiliares.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.policiaCivil.setState(!context.policiaCivil.state) } value={context.Auxiliares.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.policiaCivil.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}
@@ -349,8 +349,8 @@ export default function MainProcedimentosEfetuados (){
                         </View>
                         <Text style={styles.Text}>Policia Civil</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.policiaPRE.setState(!context.Meios.state) } value={context.Meios.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.Meios.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.policiaPRE.setState(!context.policiaPRE.state) } value={context.Meios.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.policiaPRE.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}
@@ -358,8 +358,8 @@ export default function MainProcedimentosEfetuados (){
                         </View>
                         <Text style={styles.Text}>Policia PRE</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.policiaPRF.setState(!context.Auxiliares.state) } value={context.Auxiliares.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.Auxiliares.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.policiaPRF.setState(!context.policiaPRF.state) } value={context.Auxiliares.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.policiaPRF.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}
@@ -367,8 +367,8 @@ export default function MainProcedimentosEfetuados (){
                         </View>
                         <Text style={styles.Text}>Policia PRF</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.samuUsa.setState(!context.Meios.state) } value={context.Meios.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.Meios.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.samuUsa.setState(!context.samuUsa.state) } value={context.Meios.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.samuUsa.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}
@@ -376,8 +376,8 @@ export default function MainProcedimentosEfetuados (){
                         </View>
                         <Text style={styles.Text}>Samu Usa</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.samuUsb.setState(!context.Auxiliares.state) } value={context.Auxiliares.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.Auxiliares.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.samuUsb.setState(!context.samuUsb.state) } value={context.Auxiliares.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.samuUsb.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}
@@ -385,8 +385,8 @@ export default function MainProcedimentosEfetuados (){
                         </View>
                         <Text style={styles.Text}>Samu Usb</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.celesc.setState(!context.Meios.state) } value={context.Meios.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.Meios.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.celesc.setState(!context.celesc.state) } value={context.Meios.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.celesc.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}
@@ -394,8 +394,8 @@ export default function MainProcedimentosEfetuados (){
                         </View>
                         <Text style={styles.Text}>CELESC</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.defesaCivil.setState(!context.Auxiliares.state) } value={context.Auxiliares.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.Auxiliares.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.defesaCivil.setState(!context.defesaCivil.state) } value={context.Auxiliares.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.defesaCivil.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}
@@ -403,8 +403,8 @@ export default function MainProcedimentosEfetuados (){
                         </View>
                         <Text style={styles.Text}>Defesa Civil</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.igp.setState(!context.Auxiliares.state) } value={context.Auxiliares.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.Auxiliares.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.igp.setState(!context.igp.state) } value={context.Auxiliares.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.igp.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}
@@ -412,8 +412,8 @@ export default function MainProcedimentosEfetuados (){
                         </View>
                         <Text style={styles.Text}>IGP</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.cit.setState(!context.Auxiliares.state) } value={context.Auxiliares.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.Auxiliares.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.cit.setState(!context.cit.state) } value={context.Auxiliares.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.cit.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}

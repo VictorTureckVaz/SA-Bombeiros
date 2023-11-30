@@ -1,18 +1,20 @@
-const db = require("./../../../lib/db.js");
-const { SUBMIT14 } = require("./../../../database/queries");
+require("dotenv").config({ path: "./../../../.env" });
+const jwt = require("jsonwebtoken");
+const db = require("./../../../lib/db");
+const { MATERIAIS } = require("./../../../database/queries");
 
 module.exports = async (req, res) => {
-    const {
-        tipo, nome, tamanho, quantidade, idReport
-    } = req.body;
+    console.log(req.body);
+
+    const tipo = req.body.tipo;
+    const material = req.body.material;
+    const tamanho = req.body.tamanho;
+    const quantidade = req.body.quantidade;
 
     const promise = new Promise((resolve, reject) => {
-        db.query(SUBMIT14(
-            tipo, nome, tamanho, quantidade, idReport
-            ), function(err, result) {
+        db.query(MATERIAIS(tipo, material, tamanho, quantidade), function(err, result) {
             if (err) throw err;
             console.log(result);
-            res.send({result});
         });
     });
 };
