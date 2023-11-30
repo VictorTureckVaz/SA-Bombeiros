@@ -10,7 +10,7 @@ import ReturnButton from '../../../components/ReturnButton';
 import ViewBox from '../../../components/ViewBox';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../../lib/axios';
-import { OcorrenciaContext } from "../../../context/ocorrenciaContext";
+import { OcorrenciaContext, state } from "../../../context/ocorrenciaContext";
 import { stringifyValueWithProperty } from 'react-native-web/dist/cjs/exports/StyleSheet/compiler';
 
 export default function MainTeste(){
@@ -34,15 +34,7 @@ export default function MainTeste(){
     const [materialSizeName, setMaterialSizeName] = useState("Tamanho do Material");
     const [isSized, setIsSized] = useState(false);
     const [materialAmount, setMaterialAmount] = useState(1);
-
-
-    
     const [save, setSave] = useState(null);
-
-
-
-
-    
 
 
 
@@ -68,11 +60,6 @@ export default function MainTeste(){
             setOldMaterialValue(materialValue);
         }
     })
-
-
-
-    
-
 
     const sizedMaterials = [
         "colar",
@@ -103,12 +90,13 @@ export default function MainTeste(){
         
     })
 
+
     const saveMaterial = (tipo, nome, tamanho, quantidade) => {
         const material = {
             tipo,
             nome,
             tamanho,
-            quantidade,
+            quantidade
         }
         if(tipo !== null && nome !== null){
             if(isSized == true && tamanho == null){
@@ -119,8 +107,28 @@ export default function MainTeste(){
         }
         
     }
-
-
+    async function materiais() {
+        context.materials.state.forEach(async ({
+            tipo,
+            nome,
+            tamanho,
+            quantidade
+        }) => {
+            try {
+                const apiReply = await api.post("/materiais", {
+                    tipo: tipo,
+                    material: nome,
+                    tamanho: tamanho,
+                    quantidade: quantidade
+ 
+                
+                });
+                console.log(apiReply);
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    };
 
 
 
@@ -492,13 +500,16 @@ export default function MainTeste(){
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <TouchableOpacity style={{display: save ? "none" : "flex"}} onPress={() => saveMaterial(materialTypeValue, materialValue, materialSizeValue, materialAmount)}>
-                        <Text>Salvar</Text>
+                    <TouchableOpacity style={styles.Enviar} onPress={() => saveMaterial(materialTypeValue, materialValue, materialSizeValue, materialAmount)}>
+                        <Text style={styles.OcStepText}>Salvar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.Enviar} onPress={materiais}>
+                        <Text style={styles.OcStepText}>Enviar</Text>
                     </TouchableOpacity>
                     {/* <TouchableOpacity style={[{display: save ? "flex" : "none"}]} onPress={addMaterial}>
                         <Text>Adicionar Material à lista</Text>
                     </TouchableOpacity> */}
-                    <Text>{JSON.stringify([...context.materials.state, material])}</Text>
+                    <Text style={{fontSize: 20}}>{JSON.stringify([...context.materials.state, material])}</Text>
                     <ReturnButton/>
                     </View>
                 </ScrollView>

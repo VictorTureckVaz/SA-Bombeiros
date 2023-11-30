@@ -1,19 +1,22 @@
+require("dotenv").config({ path: "./../../../.env" });
+const jwt = require("jsonwebtoken");
 const db = require("./../../../lib/db");
-
-const { SUBMIT16 } = require("./../../../database/queries");
+const { FERIMENTOS } = require("./../../../database/queries");
 
 module.exports = async (req, res) => {
-    const {
-        localF, lado, face, tipo, IdReport
-    } = req.body;
+    console.log(req.body);
+
+    const local = req.body.local;
+    const face = req.body.face;
+    const lado = req.body.lado;
+    const tipo = req.body.tipo;
+
+    
 
     const promise = new Promise((resolve, reject) => {
-        db.query(SUBMIT16(
-            localF, lado, face, tipo, IdReport
-            ), function(err, result) {
+        db.query(FERIMENTOS(local, face, lado, tipo), function(err, result) {
             if (err) throw err;
             console.log(result);
-            res.send({result});
         });
     });
 };

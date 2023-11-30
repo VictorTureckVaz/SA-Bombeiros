@@ -183,28 +183,28 @@ export default function MainOcorrencia() {
             console.error(error);
         }
 
-        async function materiais() {
-            context.materials.state.forEach(async ({
-                tipo,
-                nome,
-                tamanho,
-                quantidade,
-                idReport
-            }) => {
-                try {
-                    const apiReply = await api.post("/materiais", {
-                        tipo: tipo,
-                        material: nome,
-                        tamanho: tamanho,
-                        quantidade: quantidade,
-                        idReport
-                    });
-                    console.log(apiReply);
-                } catch (error) {
-                    console.error(error);
-                }
-            });
-        };
+        // async function materiais() {
+        //     context.materials.state.forEach(async ({
+        //         tipo,
+        //         nome,
+        //         tamanho,
+        //         quantidade,
+        //         idReport
+        //     }) => {
+        //         try {
+        //             const apiReply = await api.post("/materiais", {
+        //                 tipo: tipo,
+        //                 material: nome,
+        //                 tamanho: tamanho,
+        //                 quantidade: quantidade,
+        //                 idReport
+        //             });
+        //             console.log(apiReply);
+        //         } catch (error) {
+        //             console.error(error);
+        //         }
+        //     });
+        // };
 
         async function ferimentos() {
             context.ferimentos.state.forEach(async ({

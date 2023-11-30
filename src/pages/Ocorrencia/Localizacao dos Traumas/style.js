@@ -147,7 +147,24 @@ const styles = StyleSheet.create({
           gap: 2,
           width: "100%",
           padding: 2,
-        }
+        },
+
+        Enviar: {
+          backgroundColor: '#4AAE39',
+          width: "100%",
+          height: 54,
+          borderRadius: 12.5,
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 10,
+        },
+  
+        OcStepText: {
+          color: '#FFFFFF',
+          fontWeight: 'bold',
+          fontSize: 20,
+        },
+
   });
 
   export default styles;
