@@ -8,11 +8,6 @@ export const OcorrenciaProvider = ({ children }) => {
      
      const [currentPage, setCurrentPage] = useState("home");
 
-     const [BombeiroId, setBombeiroId] = useState(null);
-     const [BombeiroNome, setBombeiroNome] = useState(null);
-     const [BombeiroSobrenome, setBombeiroSobrenome] = useState(null);
-     const [BombeiroEmail, setBombeiroEmail] = useState(null);
-
      const [tipoOc, setTipoOc] = useState(null);
      const [decisao, setDecisao] = useState(null);
      const [transporteName, setTransporteName] = useState(null);
@@ -299,22 +294,6 @@ export const OcorrenciaProvider = ({ children }) => {
           IdReport: {
                state: idReport,
                setState: setIdReport
-          },
-          BombeiroId: {
-               state: BombeiroId,
-               setState: setBombeiroId
-          },
-          BombeiroNome: {
-               state: BombeiroNome,
-               setState: setBombeiroNome
-          },
-          BombeiroSobrenome: {
-               state: BombeiroSobrenome,
-               setState: setBombeiroSobrenome
-          },
-          BombeiroEmail: {
-               state: BombeiroEmail,
-               setState: setBombeiroEmail
           },
 
 
