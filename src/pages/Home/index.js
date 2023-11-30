@@ -14,8 +14,8 @@ export default function MainHome(){
      const navigation = useNavigation();
      const context = useContext(OcorrenciaContext);
     
-     console.log('Pegamos o id do bombeiro no Home: ', context.BombeiroId.state);
-     console.log(AsyncStorage.getItem('token'))
+     console.log('Pegamos o id do bombeiro no Home: ', localStorage.getItem('BombeiroId'));
+     console.log(localStorage.getItem('token'));
 
      async function verifyLogin(){
           const token = await AsyncStorage.getItem('token');

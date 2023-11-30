@@ -40,16 +40,6 @@ export default function MainLogin() {
             console.log("BombeiroNome: ", await AsyncStorage.getItem('BombeiroNome') + "\n");
             console.log("BombeiroSobrenome: ", await AsyncStorage.getItem('BombeiroSobrenome') + "\n");
             console.log("BombeiroEmail: ", await AsyncStorage.getItem('BombeiroEmail'));
-            
-            context.BombeiroId.setState(Bombeiroid);
-            context.BombeiroNome.setState(BombeiroNome);
-            context.BombeiroSobrenome.setState(BombeiroSobrenome);
-            context.BombeiroEmail.setState(BombeiroEmail);
-            
-            console.log('Pegamos o id do bombeiro: ', Bombeiroid);
-            console.log('Pegamos o Nome do bombeiro: ', BombeiroNome);
-            console.log('Pegamos o Sobrenome do bombeiro: ', BombeiroSobrenome);
-            console.log('Pegamos o Email do bombeiro: ', BombeiroEmail);
 
             // const apiReply = await api.post("/submit", { dados }, { headers: { authorization: `Bearer ${token}` } });
             // Salvar o token no useContext OU no React Redux
