@@ -430,11 +430,10 @@ export default function MainProcedimentosEfetuados (){
                     value={context.OutrosProcedimentos.state} onChangeText={context.OutrosProcedimentos.setState}
                     />
                 </View>
-            </View>
-                    
-            <ReturnButton/>
-            <Footer/>
-        </ScrollView>
-     </View>
+                <ReturnButton/>
+                    <Footer/>
+                </View>
+            </ScrollView>
+        </View>
     );
 }

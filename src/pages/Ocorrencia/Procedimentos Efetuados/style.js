@@ -2,18 +2,16 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 
-
       Body: {
-        gap: 44,
+        gap: 27,
         height: "100%",
       },
-      
       Container: {
         gap: 23,
         padding: 27,
         height: "100%",
       },
-      
+
       Text: {
         color: "gray",
         fontSize: 20,

@@ -202,12 +202,12 @@ export default function MainProblemasEncontrados(){
                         </View>
                         <Text style={styles.Text}>Diabetes</Text>
                     </TouchableOpacity>
+                
+                
+                    <ReturnButton/>
+                    <Footer/>
                 </View>
-                
-                
-                <ReturnButton/>
             </ScrollView>
-            <Footer/>
         </View>
     )
 }

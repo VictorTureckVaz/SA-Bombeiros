@@ -44,7 +44,7 @@ export default function MainSinaisSintomas() {
 
 
     return (
-     <View style={styles.Body}>
+        <View style={styles.Body}>
         <Header/>
         <ScrollView>
             <View style={styles.Container}>
@@ -462,12 +462,11 @@ export default function MainSinaisSintomas() {
                     value={context.outroSintoma.state} onChangeText={context.outroSintoma.setState}
                     />
                 </View>
-            </View>
-
-            <ReturnButton/>
-            <Footer/>
-        </ScrollView>
-     </View>
+                <ReturnButton/>
+                    <Footer/>
+                </View>
+            </ScrollView>
+        </View>
 
     );
 }

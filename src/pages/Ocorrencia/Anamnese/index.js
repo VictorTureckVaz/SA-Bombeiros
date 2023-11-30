@@ -243,9 +243,8 @@ export default function MainAnamnese(){
                 
                 
                     <ReturnButton/>
-                    
+                    <Footer/>
                 </View>
-                <Footer/>
             </ScrollView>
         </View>
     )

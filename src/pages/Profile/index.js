@@ -14,10 +14,13 @@ export default function MainProfile(){
     const navigation = useNavigation();
     const context = useContext(OcorrenciaContext);
 
-    const [CadastroError, setCadastroError] = useState(false);
-
     async function logout(){
         await AsyncStorage.removeItem('token')
+        await AsyncStorage.removeItem('BombeiroSobrenome')
+        await AsyncStorage.removeItem('BombeiroNome')
+        await AsyncStorage.removeItem('BombeiroEmail')
+        await AsyncStorage.removeItem('BombeiroId')
+        await AsyncStorage.removeItem('idReport')
         navigation.navigate('login')
     }
 
@@ -36,10 +39,10 @@ export default function MainProfile(){
 
                     <View style={styles.InfoContainer}>
                        <View style={styles.TextContainer}>
-                            <Text style={styles.Text}>{context.BombeiroNome.state} {context.BombeiroSobrenome.state}</Text>
+                            <Text style={styles.Text}>{localStorage.getItem('BombeiroNome')} {localStorage.getItem('BombeiroSobrenome')}</Text>
                        </View>
                        <View style={styles.TextContainer}>
-                            <Text style={styles.Text}>{context.BombeiroEmail.state}</Text>
+                            <Text style={styles.Text}>{localStorage.getItem('BombeiroEmail')}</Text>
                        </View>
                         <View style={styles.LogoutContainer}>
                             <TouchableOpacity style={styles.Logout} onPress={logout}>
