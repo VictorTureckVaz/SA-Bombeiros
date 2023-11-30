@@ -176,60 +176,6 @@ export default function MainOcorrencia() {
             const QueimadurasPost = await api.post("/queimaduras", Queimaduras);
             console.log(QueimadurasPost);
 
-            // const MatUtilizadosPost = await api.post("/materiais", MatUtilizados);
-
-            // const MatUtilizadosPost = await this.materiais
-            // async function materiais() {
-            //     context.materials.state.forEach(async ({
-            //         tipo,
-            //         nome,
-            //         tamanho,
-            //         quantidade,
-            //         idReport
-            //     }) => {
-            //         try {
-            //             const MatUtilizadosPostA = await api.post("/materiais", {
-            //                 tipo: tipo,
-            //                 material: nome,
-            //                 tamanho: tamanho,
-            //                 quantidade: quantidade,
-            //                 idReport
-            //             });
-            //             console.log(MatUtilizadosPost);
-            //         } catch (error) {
-            //             console.error(error);
-            //         }
-            //     });
-            // };
-            // console.log(MatUtilizadosPost);
-
-
-            // const MatUtilizadosPost = await api.post("/materiais", MatUtilizados);
-
-            // async function materiais() {
-            //     context.materials.state.forEach(async ({
-            //         tipo,
-            //         nome,
-            //         tamanho,
-            //         quantidade,
-            //         idReport
-            //     }) => {
-            //         try {
-            //             const MatUtilizadosPost = await api.post("/materiais", {
-            //                 tipo: tipo,
-            //                 material: nome,
-            //                 tamanho: tamanho,
-            //                 quantidade: quantidade,
-            //                 idReport
-            //             });
-            //             console.log(apiReply);
-            //         } catch (error) {
-            //             console.error(error);
-            //         }
-            //     });
-            // };
-            // console.log(MatUtilizadosPost);
-
 
 
         } catch (error) {
@@ -291,7 +237,6 @@ export default function MainOcorrencia() {
         <View style={styles.Body}>
             <Header/>
             <ScrollView>
-                <Text>Id da report atual: {context.IdReport.state}</Text>
                 <View style={styles.Container}>
                     <View style={styles.StepContainer}>
                         <TouchableOpacity style={styles.OcStep} onPress={ () => navigation.navigate('infoPac')}>

@@ -274,10 +274,9 @@ export default function MainTeste(){
 
                     </View>
                     <ReturnButton/>
+                    <Footer/>
                 </View>
-
             </ScrollView>
-            <Footer/>
         </View>
     );
 

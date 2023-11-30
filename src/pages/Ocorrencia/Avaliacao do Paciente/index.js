@@ -18,8 +18,9 @@ export default function MainAvaliacao(){
     
     return(
         <View style={styles.Body}>
-            <Header/>
-            <View style={styles.Container}>
+      <Header />
+      <ScrollView>
+        <View style={styles.Container}>
                 <View style={styles.ResultContainer}>
                     <Text style={{fontSize: 20}}>Total (GCS): {consciencia}</Text>
                 </View>
@@ -203,11 +204,10 @@ export default function MainAvaliacao(){
 
 
 
-
                 <ReturnButton/>
-            </View>
-           <Footer/>
-
+                    <Footer/>
+                </View>
+            </ScrollView>
         </View>
     )
 }
