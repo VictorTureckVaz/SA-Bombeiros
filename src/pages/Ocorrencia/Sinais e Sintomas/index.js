@@ -347,8 +347,8 @@ export default function MainSinaisSintomas() {
                         </View>
                         <Text style={styles.Text}>Prurido na Pele</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.pupilasAnisocori.setState(!context.pupilasAnisocori.state) } value={context.pupilasAnisocori.state}>
-                        <View style={[styles.CheckBox, {backgroundColor: context.pupilasAnisocori.state == true ? "#16A34A" : "#FFFFFF"}]}>
+                    <TouchableOpacity style={{flexDirection: "row", gap: 5}} onPress={ () => context.pupilasAnisocoria.setState(!context.pupilasAnisocoria.state) } value={context.pupilasAnisocoria.state}>
+                        <View style={[styles.CheckBox, {backgroundColor: context.pupilasAnisocoria.state == true ? "#16A34A" : "#FFFFFF"}]}>
                             <Image
                             style={{width: 14, height: 14, }}
                             source={require('../../../../assets/check.png')}

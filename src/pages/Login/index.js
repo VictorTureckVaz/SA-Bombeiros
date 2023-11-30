@@ -1,12 +1,14 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import api from './../../lib/axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { OcorrenciaContext } from "../../context/ocorrenciaContext";
 
 export default function MainLogin() {
     const navigation = useNavigation();
+    const context = useContext(OcorrenciaContext);
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
@@ -17,13 +19,45 @@ export default function MainLogin() {
     async function login() {
         try {
             const apiReply = await api.post("/login", { user: email, pass: password });
+            console.log(apiReply)
             
             if (apiReply.data.error) throw apiReply.data.error;
             
-            const token = apiReply.data.token;
+            const Token = apiReply.data.token;
+            const Bombeiroid = apiReply.data.bombeiroid;
+            const BombeiroNome = apiReply.data.bombeiroNome;
+            const BombeiroSobrenome = apiReply.data.bombeiroSobrenome;
+            const BombeiroEmail = apiReply.data.bombeiroEmail;
             
-            await AsyncStorage.setItem('token', token);
-            console.log(await AsyncStorage.getItem('token'));
+            await AsyncStorage.setItem('token', Token);
+            await AsyncStorage.setItem('BombeiroId', Bombeiroid);
+            await AsyncStorage.setItem('BombeiroNome', BombeiroNome);
+            await AsyncStorage.setItem('BombeiroSobrenome', BombeiroSobrenome);
+            await AsyncStorage.setItem('BombeiroEmail', BombeiroEmail);
+            
+            console.log("Token: ", await AsyncStorage.getItem('token') + "\n");
+            console.log("BombeiroId: ", await AsyncStorage.getItem('BombeiroId') + "\n");
+            console.log("BombeiroNome: ", await AsyncStorage.getItem('BombeiroNome') + "\n");
+            console.log("BombeiroSobrenome: ", await AsyncStorage.getItem('BombeiroSobrenome') + "\n");
+            console.log("BombeiroEmail: ", await AsyncStorage.getItem('BombeiroEmail'));
+
+            
+            await AsyncStorage.setItem('BombeiroId', Bombeiroid);
+            context.BombeiroId.setState(Bombeiroid);
+
+            await AsyncStorage.setItem('BombeiroNome', BombeiroNome);
+            context.BombeiroNome.setState(BombeiroNome);
+
+            await AsyncStorage.setItem('BombeiroSobrenome', BombeiroSobrenome);
+            context.BombeiroSobrenome.setState(BombeiroSobrenome);
+
+            await AsyncStorage.setItem('BombeiroEmail', BombeiroEmail);
+            context.BombeiroEmail.setState(BombeiroEmail);
+
+            console.log('Pegamos o id do bombeiro: ', Bombeiroid);
+            console.log('Pegamos o Nome do bombeiro: ', BombeiroNome);
+            console.log('Pegamos o Sobrenome do bombeiro: ', BombeiroSobrenome);
+            console.log('Pegamos o Email do bombeiro: ', BombeiroEmail);
 
             // const apiReply = await api.post("/submit", { dados }, { headers: { authorization: `Bearer ${token}` } });
             // Salvar o token no useContext OU no React Redux
@@ -76,7 +110,7 @@ export default function MainLogin() {
 
             </View>
                 <TouchableOpacity onPress={() => navigation.navigate("cadastro")}>
-                    <Text>Não possui cadastro</Text>
+                    <Text style={{fontSize: 16, color: '#313131',}}>Não possui cadastro? Clique aqui!</Text>
                 </TouchableOpacity>
             
             <TouchableOpacity 

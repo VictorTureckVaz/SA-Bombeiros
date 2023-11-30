@@ -5,6 +5,13 @@ export const OcorrenciaContext = createContext();
 export const OcorrenciaProvider = ({ children }) => {
 
      const [idReport, setIdReport] = useState(null);
+     
+     const [currentPage, setCurrentPage] = useState("home");
+
+     const [BombeiroId, setBombeiroId] = useState(null);
+     const [BombeiroNome, setBombeiroNome] = useState(null);
+     const [BombeiroSobrenome, setBombeiroSobrenome] = useState(null);
+     const [BombeiroEmail, setBombeiroEmail] = useState(null);
 
      const [tipoOc, setTipoOc] = useState(null);
      const [decisao, setDecisao] = useState(null);
@@ -264,17 +271,55 @@ export const OcorrenciaProvider = ({ children }) => {
      const [VentSuporte, setVentSuporte] = useState(false);
      const [Oxigenoterapia, setOxigenoterapia] = useState(false);
      const [Reanimador, setReanimador] = useState(false);
+
      const [Meios, setMeios] = useState(false);
      const [Auxiliares, setAuxiliares] = useState(false);
+     
+     const [policiaMilitar, setPoliciaMilitar] = useState(false);
+     const [policiaCivil, setPoliciaCivil] = useState(false);
+     const [policiaPRE, setPoliciaPRE] = useState(false);
+     const [policiaPRF, setPoliciaPRF] = useState(false);
+     const [samuUsa, setSamuUsa] = useState(false);
+     const [samuUsb, setSamuUsb] = useState(false);
+     const [celesc, setCelesc] = useState(false);
+     const [defesaCivil, setDefesaCivil] = useState(false);
+     const [igp, setIgp] = useState(false);
+     const [cit, setCit] = useState(false);
+
      const [OutrosProcedimentos, setOutrosProcedimentos] = useState(null);
 
           
 
      const context = {
+          currentPage: {
+               state: currentPage,
+               setState: setCurrentPage,
+          },
+
           IdReport: {
                state: idReport,
                setState: setIdReport
           },
+          BombeiroId: {
+               state: BombeiroId,
+               setState: setBombeiroId
+          },
+          BombeiroNome: {
+               state: BombeiroNome,
+               setState: setBombeiroNome
+          },
+          BombeiroSobrenome: {
+               state: BombeiroSobrenome,
+               setState: setBombeiroSobrenome
+          },
+          BombeiroEmail: {
+               state: BombeiroEmail,
+               setState: setBombeiroEmail
+          },
+
+
+
+
           Aspiracao: {
                state: Aspiracao,
                setState: setAspiracao
@@ -422,6 +467,48 @@ export const OcorrenciaProvider = ({ children }) => {
           OutrosProcedimentos: {
                state: OutrosProcedimentos,
                setState: setOutrosProcedimentos
+          },
+
+
+          policiaMilitar: {
+               state: policiaMilitar,
+               setState: setPoliciaMilitar,
+          },
+          policiaCivil: {
+               state: policiaCivil,
+               setState: setPoliciaCivil,
+          },
+          policiaPRE: {
+               state: policiaPRE,
+               setState: setPoliciaPRE,
+          },
+          policiaPRF: {
+               state: policiaPRF,
+               setState: setPoliciaPRF,
+          },
+          samuUsa: {
+               state: samuUsa,
+               setState: setSamuUsa,
+          },
+          samuUsb: {
+               state: samuUsb,
+               setState: setSamuUsb,
+          },
+          celesc: {
+               state: celesc,
+               setState: setCelesc,
+          },
+          defesaCivil: {
+               state: defesaCivil,
+               setState: setDefesaCivil,
+          },
+          igp: {
+               state: igp,
+               setState: setIgp,
+          },
+          cit: {
+               state: cit,
+               setState: setCit,
           },
 
 

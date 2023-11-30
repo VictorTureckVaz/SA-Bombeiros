@@ -14,6 +14,9 @@ export default function MainHome(){
      const navigation = useNavigation();
      const context = useContext(OcorrenciaContext);
     
+     console.log('Pegamos o id do bombeiro no Home: ', context.BombeiroId.state);
+     console.log(AsyncStorage.getItem('token'))
+
      async function verifyLogin(){
           const token = await AsyncStorage.getItem('token');
 
@@ -39,7 +42,6 @@ export default function MainHome(){
                console.error(e)
           }
      }
-
      return(
           <View style={styles.Body}>
                <Header/>

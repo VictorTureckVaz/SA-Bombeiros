@@ -4,8 +4,8 @@ var db = mysql.createConnection({
   host: "127.0.0.1",
   // port: "3307",//a a folow
   user: "root",
-  password: "root", //  ok,  fecha ai o teu
-  database: "bombeirossateste",
+  password: "", //  ok,  fecha ai o teu
+  database: "bombeirossatesteb",
 });
 
 const {TEST, GET_BOMBEIRO, SUBMIT, MATERIAIS, NULLQry, FERIMENTOS} = require("./../database/queries");

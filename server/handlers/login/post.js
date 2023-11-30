@@ -20,15 +20,26 @@ module.exports = async (req, res) => {
 
     const result = await promise;
 
+    const bombeiroid = result.id_bombeiro;
+    const bombeiroNome = result.nome;
+    const bombeiroSobrenome = result.sobrenome;
+    const bombeiroEmail = result.email;
+
     if (result === "NoBombeiro") return res.send({ error: "N encontramo o homi" });
 
     if (result.senha !== pass) return res.send({ error: "N deu boa..." });
 
     const token = jwt.sign({
-        _id: result.id_bombeiro
+        _id: bombeiroid
     }, "cecedilha", {
         expiresIn: "1000m"
     });
-    console.log(token); 
-    return res.send({ token });
+    console.log(
+        "token: ", token, 
+        "\nBombeiroId: ", bombeiroid, 
+        "\nBombeiroNome", bombeiroNome, 
+        "\nBombeiroSobrenome", bombeiroSobrenome, 
+        "\nBombeiroEmail", bombeiroEmail
+    ); 
+    return res.send({ token, bombeiroid, bombeiroNome, bombeiroSobrenome, bombeiroEmail });
 };

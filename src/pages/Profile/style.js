@@ -7,13 +7,12 @@ const styles = StyleSheet.create({
   },
 
   Body: {
-    gap: 44,
+    gap: 76,
     height: "100%",
   },
 
   InfoContainer: {
     gap: 10,
-
   },
 
   ProfileContainer: {
@@ -25,25 +24,36 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  Logout: {
+    width: 365,
+    height: 56,
+    backgroundColor: '#E74428',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+  },
 
   TextContainer: {
-      width: 394,
+      width: 365,
+      height: 56,
       borderColor: "#555555",
       borderWidth: 2,
       padding: 10,
       borderRadius: 10,
+      justifyContent: 'center'
   },
 
   Text: {
     fontSize: 20,
     fontWeight: 'bold',
+    fontcolor: "#313131",
   },
 
   InfoContainer: {
       flex: 1,
       alignItems: 'center',
       gap: 20,
-      padding: 2,
+      padding: 27,
   },
 
   });

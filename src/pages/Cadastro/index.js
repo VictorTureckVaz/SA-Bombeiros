@@ -163,6 +163,10 @@ export default function MainCadastro() {
             >
                 <Text style={styles.ButtonText}>CADASTRAR</Text>
             </TouchableOpacity>
+            
+            <TouchableOpacity onPress={() => navigation.navigate("login")}>
+                    <Text style={{fontSize: 16, color: '#313131',}}>Já Possui Cadastro? Clique aqui!</Text>
+            </TouchableOpacity>
 
             <View style={[styles.ErrorContainer, {display: error !== null ? 'flex' : 'none'}]}>
                 <Text style={styles.ErrorText}>{error}</Text>

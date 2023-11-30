@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
       },
       
       SmallTextTitle: {
-        fontSize: 16,
+        fontSize: 17,
         color: '#313131',
       },
 
