@@ -27,8 +27,8 @@ export default function MainAvaliacao(){
                 <View style={styles.Result}>
 
                 </View>
+                <Text style={{fontSize: 20}}>Abertura Ocular</Text>
                 <View style={{gap: 23, display: context.idadePac.state >= 5 || context.idadePac.state == null ? "flex" : "none"}}>
-
                     <RadioButton
                     options={[
                         {
@@ -52,7 +52,7 @@ export default function MainAvaliacao(){
                     selectedOption={context.aberturaOcular.state}
                     setSelectedOption={context.aberturaOcular.setState}
                     />
-
+                    <Text style={{fontSize: 20}}>Resposta Verbal</Text>
                     <RadioButton
                     options={[
                         {
@@ -80,7 +80,7 @@ export default function MainAvaliacao(){
                     selectedOption={context.respostaVerbal.state}
                     setSelectedOption={context.respostaVerbal.setState}
                     />
-
+                    <Text style={{fontSize: 20}}>Resposta Motora</Text>
                     <RadioButton
                     options={[
                         {
@@ -115,19 +115,18 @@ export default function MainAvaliacao(){
                 </View>
 
                 <View style={{gap: 23, display: context.idadePac.state < 5 && context.idadePac.state !== null ? "flex" : "none"}}>
-
                     <RadioButton
                     options={[
                         {
-                            optionName: "Palavras Apropriadas",
+                            optionName: "Espontânea",
                             optionValue: 4
                         },
                         {
-                            optionName: "Palavras Inapropriadas",
+                            optionName: "Comando Verbal",
                             optionValue: 3
                         },
                         {
-                            optionName: "Choro Persistente / Gritos Sons Incompreensíveis",
+                            optionName: "Estímulo Doloroso",
                             optionValue: 2
                         },
                         {
@@ -139,7 +138,7 @@ export default function MainAvaliacao(){
                     selectedOption={context.aberturaOcular.state}
                     setSelectedOption={context.aberturaOcular.setState}
                     />
-
+                    <Text style={{fontSize: 20}}>Resposta Verbal</Text>
                     <RadioButton
                     options={[
                         {
@@ -167,7 +166,7 @@ export default function MainAvaliacao(){
                     selectedOption={context.respostaVerbal.state}
                     setSelectedOption={context.respostaVerbal.setState}
                     />
-
+                    <Text style={{fontSize: 20}}>Resposta Motora</Text>
                     <RadioButton
                     options={[
                         {
