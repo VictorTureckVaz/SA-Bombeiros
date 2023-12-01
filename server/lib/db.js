@@ -8,7 +8,7 @@ var db = mysql.createConnection({
   database: "bombeirossatesteb",
 });
 
-const {TEST, GET_BOMBEIRO, SUBMIT, MATERIAIS, NULLQry, FERIMENTOS} = require("./../database/queries");
+const {TEST} = require("./../database/queries");
 
 db.connect(function(err) {
   if (err) throw err;

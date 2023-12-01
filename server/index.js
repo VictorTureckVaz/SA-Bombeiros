@@ -59,3 +59,7 @@ app.post("/queimaduras", postqueimaduras);
 app.listen(15600, () => {
     console.log("Server rodante")
 });
+
+app.listen(6969, () => {
+    console.log("Server rodante")
+});
