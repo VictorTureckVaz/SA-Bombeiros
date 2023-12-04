@@ -24,6 +24,7 @@ import MainAnamnese from '../pages/Ocorrencia/Anamnese';
 import MainAnamneseGestacional from '../pages/Ocorrencia/Anamnese Gestacional';
 import MainTraumas from '../pages/Ocorrencia/Localizacao dos Traumas';
 import MainCadastro from '../pages/Cadastro';
+import MainLoginAdm from '../pages/Login Adm';
 
 
 const Stack = createNativeStackNavigator()
@@ -41,6 +42,11 @@ export default function Routes(){
                <Stack.Screen
                name="login"
                component={ MainLogin }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="loginAdm"
+               component={ MainLoginAdm }
                options={ {headerShown: false}}
                />
                <Stack.Screen

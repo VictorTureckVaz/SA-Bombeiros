@@ -6,7 +6,7 @@ import api from './../../lib/axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { OcorrenciaContext } from "../../context/ocorrenciaContext";
 
-export default function MainLogin() {
+export default function MainLoginAdm() {
     const navigation = useNavigation();
     const context = useContext(OcorrenciaContext);
 
@@ -18,28 +18,25 @@ export default function MainLogin() {
 
     async function login() {
         try {
-            const apiReply = await api.post("/login", { user: email, pass: password });
+            const apiReply = await api.post("/loginADM", { user: email, pass: password });
             console.log(apiReply)
             
             if (apiReply.data.error) throw apiReply.data.error;
             
             const Token = apiReply.data.token;
-            const Bombeiroid = apiReply.data.bombeiroid;
-            const BombeiroNome = apiReply.data.bombeiroNome;
-            const BombeiroSobrenome = apiReply.data.bombeiroSobrenome;
-            const BombeiroEmail = apiReply.data.bombeiroEmail;
+            const ADMid = apiReply.data.ADMid;
+            const ADMcpf = apiReply.data.ADMcpf;
+            const ADMemail = apiReply.data.ADMemail;
             
             await AsyncStorage.setItem('token', Token);
-            await AsyncStorage.setItem('BombeiroId', Bombeiroid);
-            await AsyncStorage.setItem('BombeiroNome', BombeiroNome);
-            await AsyncStorage.setItem('BombeiroSobrenome', BombeiroSobrenome);
-            await AsyncStorage.setItem('BombeiroEmail', BombeiroEmail);
+            await AsyncStorage.setItem('ADMid', ADMid);
+            await AsyncStorage.setItem('ADMcpf', ADMcpf);
+            await AsyncStorage.setItem('ADMemail', ADMemail);
             
             console.log("Token: ", await AsyncStorage.getItem('token') + "\n");
-            console.log("BombeiroId: ", await AsyncStorage.getItem('BombeiroId') + "\n");
-            console.log("BombeiroNome: ", await AsyncStorage.getItem('BombeiroNome') + "\n");
-            console.log("BombeiroSobrenome: ", await AsyncStorage.getItem('BombeiroSobrenome') + "\n");
-            console.log("BombeiroEmail: ", await AsyncStorage.getItem('BombeiroEmail'));
+            console.log("ADMid: ", await AsyncStorage.getItem('ADMid') + "\n");
+            console.log("ADMcpf: ", await AsyncStorage.getItem('ADMcpf') + "\n");
+            console.log("ADMemail: ", await AsyncStorage.getItem('ADMemail'));
 
             // const apiReply = await api.post("/submit", { dados }, { headers: { authorization: `Bearer ${token}` } });
             // Salvar o token no useContext OU no React Redux
@@ -67,7 +64,7 @@ export default function MainLogin() {
             <View>
                 <Text style={styles.BigTextTitle}>OLÁ, SEJA</Text>
                 <Text style={styles.BigTextTitle}>BEM-VINDO!</Text>
-                <Text style={styles.SmallTextTitle}>Faça o login como bombeiro</Text>
+                <Text style={styles.SmallTextTitle}>Faça o login como administrador</Text>
             </View>
 
             <View>
@@ -91,8 +88,8 @@ export default function MainLogin() {
                 </TouchableOpacity>
 
             </View>
-                <TouchableOpacity onPress={() => navigation.navigate("loginAdm")}>
-                    <Text style={{fontSize: 16, color: '#313131',}}>Sou Administrador</Text>
+                <TouchableOpacity onPress={() => navigation.navigate("login")}>
+                    <Text style={{fontSize: 16, color: '#313131',}}>Sou Bombeiro</Text>
                 </TouchableOpacity>
             
             <TouchableOpacity 
