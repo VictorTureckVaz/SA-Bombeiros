@@ -4,6 +4,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const postLoginHandler = require("./handlers/login/post");
+const postLoginADMHandler = require("./handlers/login/post");
+const postLoginADMHandler = require("./handlers/loginadm/post");
 const postCadastroHandler = require("./handlers/cadastro/post");
 const nullSubmit = require("./handlers/nullSubmit/post");
 // const postTestes = require("./handlers/testes/post");
@@ -29,12 +31,12 @@ const postqueimaduras = require("./handlers/relatoriosubmit/queimaduras/post");
 
 
 
-
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
 
 app.post("/login", postLoginHandler);
+app.post("/loginADM", postLoginADMHandler);
 app.post("/cadastro", postCadastroHandler);
 app.post("/nullSubmit", nullSubmit);
 

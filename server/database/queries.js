@@ -18,6 +18,15 @@ module.exports.CADASTRO = (nome, sobrenome, pass, email, cpf) => {
     
 };
 
+module.exports.LOGINADM = (email, cpf) => {
+    return `
+        SELECT *
+        FROM bombeiro
+        WHERE email="${email}" OR cpf="${cpf}";
+    `;
+};
+
+
 module.exports.NULLQry = () => {
     return `INSERT INTO identificacao_do_paciente () VALUES ();`;
     
