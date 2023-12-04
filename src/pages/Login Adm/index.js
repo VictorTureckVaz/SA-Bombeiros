@@ -4,11 +4,9 @@ import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import api from './../../lib/axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { OcorrenciaContext } from "../../context/ocorrenciaContext";
 
 export default function MainLoginAdm() {
     const navigation = useNavigation();
-    const context = useContext(OcorrenciaContext);
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
@@ -34,14 +32,14 @@ export default function MainLoginAdm() {
             await AsyncStorage.setItem('ADMemail', ADMemail);
             
             console.log("Token: ", await AsyncStorage.getItem('token') + "\n");
-            console.log("ADMid: ", await AsyncStorage.getItem('ADMid') + "\n");
-            console.log("ADMcpf: ", await AsyncStorage.getItem('ADMcpf') + "\n");
-            console.log("ADMemail: ", await AsyncStorage.getItem('ADMemail'));
+            console.log("ID do ADM: ", await AsyncStorage.getItem('ADMid') + "\n");
+            console.log("CPF do ADM: ", await AsyncStorage.getItem('ADMcpf') + "\n");
+            console.log("Email do ADM: ", await AsyncStorage.getItem('ADMemail'));
 
             // const apiReply = await api.post("/submit", { dados }, { headers: { authorization: `Bearer ${token}` } });
             // Salvar o token no useContext OU no React Redux
 
-            navigation.navigate('home');
+            navigation.navigate('cadastro');
         } catch (error) {
             setLoginError(current => !current)
             console.error(error);

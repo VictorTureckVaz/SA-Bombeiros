@@ -12,34 +12,32 @@ module.exports = async (req, res) => {
     const promise = new Promise((resolve, reject) => {
         db.query(LOGINADM(user, user), function(err, result) {
             if (err) throw err;
-            const bombeiro = result[0];
-            if (!bombeiro) resolve("NoBombeiro");
-            resolve(bombeiro);
+            const adm = result[0];
+            if (!adm) resolve("NoADM");
+            resolve(adm);
         });
     });
 
     const result = await promise;
 
-    const bombeiroid = result.id_bombeiro;
-    const bombeiroNome = result.nome;
-    const bombeiroSobrenome = result.sobrenome;
-    const bombeiroEmail = result.email;
+    const ADMid = result.id;
+    const ADMcpf = result.cpf;
+    const ADMemail = result.email;
 
-    if (result === "NoBombeiro") return res.send({ error: "N encontramo o homi" });
+    if (result === "NoADM") return res.send({ error: "N encontramo o homi" });
 
     if (result.senha !== pass) return res.send({ error: "N deu boa..." });
 
     const token = jwt.sign({
-        _id: bombeiroid
+        _id: ADMid
     }, "cecedilha", {
         expiresIn: "1000m"
     });
     console.log(
         "token: ", token, 
-        "\nBombeiroId: ", bombeiroid, 
-        "\nBombeiroNome", bombeiroNome, 
-        "\nBombeiroSobrenome", bombeiroSobrenome, 
-        "\nBombeiroEmail", bombeiroEmail
+        "\nADMId: ", ADMid, 
+        "\ADMcpf", ADMcpf, 
+        "\ADMemail", ADMemail
     ); 
-    return res.send({ token, bombeiroid, bombeiroNome, bombeiroSobrenome, bombeiroEmail });
+    return res.send({ token, ADMid, ADMcpf, ADMemail });
 };

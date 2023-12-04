@@ -21,7 +21,7 @@ module.exports.CADASTRO = (nome, sobrenome, pass, email, cpf) => {
 module.exports.LOGINADM = (email, cpf) => {
     return `
         SELECT *
-        FROM bombeiro
+        FROM adm
         WHERE email="${email}" OR cpf="${cpf}";
     `;
 };

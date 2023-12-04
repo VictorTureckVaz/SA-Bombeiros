@@ -4,7 +4,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const postLoginHandler = require("./handlers/login/post");
-const postLoginADMHandler = require("./handlers/login/post");
 const postLoginADMHandler = require("./handlers/loginadm/post");
 const postCadastroHandler = require("./handlers/cadastro/post");
 const nullSubmit = require("./handlers/nullSubmit/post");
@@ -59,9 +58,5 @@ app.post("/ferimentos", postferimentos);
 app.post("/queimaduras", postqueimaduras);
 
 app.listen(15600, () => {
-    console.log("Server rodante")
-});
-
-app.listen(6969, () => {
     console.log("Server rodante")
 });

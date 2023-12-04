@@ -93,7 +93,7 @@ export default function MainCadastro() {
             <View>
                 <Text style={styles.BigTextTitle}>OLÁ, SEJA</Text>
                 <Text style={styles.BigTextTitle}>BEM-VINDO!</Text>
-                <Text style={styles.SmallTextTitle}>Faça o cadastro para continuar</Text>
+                <Text style={styles.SmallTextTitle}>Realize o cadastro de um novo bombeiro abaixo:</Text>
             </View>
 
             <View>
