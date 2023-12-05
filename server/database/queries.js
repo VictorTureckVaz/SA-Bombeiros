@@ -26,6 +26,14 @@ module.exports.LOGINADM = (email, cpf) => {
     `;
 };
 
+module.exports.HISTORICO = (vitimaera, tipo, idade, sexo, bombeiro) => {
+    return `
+        SELECT *
+        FROM identificacao_do_paciente
+        WHERE id_bombeiro=${bombeiro};
+    `;
+};
+
 
 module.exports.NULLQry = () => {
     return `INSERT INTO identificacao_do_paciente () VALUES ();`;

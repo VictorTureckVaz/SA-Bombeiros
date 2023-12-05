@@ -5,6 +5,8 @@ export const OcorrenciaContext = createContext();
 export const OcorrenciaProvider = ({ children }) => {
 
      const [idReport, setIdReport] = useState(null);
+     const [ehAdm, setEhAdm] = useState(false);
+     const [homePage, setHomePage] = useState(null);
      
      const [currentPage, setCurrentPage] = useState("home");
 
@@ -296,8 +298,15 @@ export const OcorrenciaProvider = ({ children }) => {
                setState: setIdReport
           },
 
+          homePage: {
+               state: homePage,
+               setState: setHomePage,
+          },
 
-
+          ehAdm: {
+               state: ehAdm,
+               setState: setEhAdm,
+          },
 
           Aspiracao: {
                state: Aspiracao,

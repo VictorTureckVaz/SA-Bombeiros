@@ -4,8 +4,10 @@ import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import api from './../../lib/axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { OcorrenciaContext } from "../../context/ocorrenciaContext";
 
 export default function MainLoginAdm() {
+    
     const navigation = useNavigation();
 
     const [email, setEmail] = useState(null);
@@ -13,9 +15,11 @@ export default function MainLoginAdm() {
     const [loginError, setLoginError] = useState(false);
     const [show, setShow] = useState(true);
     const [eye, setEye] = useState(require('../../../assets/show.png'));
+    const context = useContext(OcorrenciaContext);
 
     async function login() {
         try {
+            await AsyncStorage.removeItem('EXPO_CONSTANTS_INSTALLATION_ID');
             const apiReply = await api.post("/loginADM", { user: email, pass: password });
             console.log(apiReply)
             
@@ -38,8 +42,9 @@ export default function MainLoginAdm() {
 
             // const apiReply = await api.post("/submit", { dados }, { headers: { authorization: `Bearer ${token}` } });
             // Salvar o token no useContext OU no React Redux
-
             navigation.navigate('cadastro');
+
+
         } catch (error) {
             setLoginError(current => !current)
             console.error(error);

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
      Profile: {
       width: 38,
       height: 38,
-   },
+     },
 
  })
 

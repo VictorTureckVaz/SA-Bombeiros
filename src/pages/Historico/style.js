@@ -4,9 +4,10 @@ const styles = StyleSheet.create({
 
      BorderContainer: {
           flexDirection: "row",
-          height: "100%",
+          height: "fit-content",
           borderColor: "#555555",
-          width: "100%",
+          // width: "100%",
+          flexGrow: 1,
           borderWidth: 2,
           padding: 10,
           borderRadius: 10,

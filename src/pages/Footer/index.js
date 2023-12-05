@@ -71,16 +71,16 @@ export default function Footer(){
     return(
         <View style={styles.Footer}>
             <TouchableOpacity style={styles.FooterSection} onPress={ () => homePress()}>
-                <Image source={require("../../../assets/VectorHouse.png")} style={styles.Icon}/>
+               <Image source={require("../../../assets/VectorHouse.png")} style={styles.Icon}/>
                <Text>Início</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.FooterSection} onPress={ () => verifyLogin("ocorrencia")}>
-            <Image source={require("../../../assets/GroupDocs.png")} style={styles.Icon} />
+               <Image source={require("../../../assets/GroupDocs.png")} style={styles.Icon} />
                <Text>Ocorrência</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.FooterSection} onPress={ () => verifyLogin("profile")}>
-                <Image source={require("../../../assets/Profile.png")} style={styles.Profile}/>
-               <Text>Usuário</Text>
+            <TouchableOpacity style={styles.FooterSection} onPress={ () => verifyLogin("historico")}>
+               <Image source={require("../../../assets/VectorHistoric.png")} style={{width: 25, height: 30}}/>
+               <Text>Histórico</Text>
             </TouchableOpacity>
         </View>
     );

@@ -388,9 +388,10 @@ export default function MainOcorrencia() {
             context.Meios.setState(false);
             context.Auxiliares.setState(false);
             context.OutrosProcedimentos.setState(null);
+            context.IdReport.setState(null);
 
 
-            await AsyncStorage.removeItem('idReport')
+            localStorage.removeItem('idReport')
             
             context.currentPage.setState('home');
             navigation.navigate('home');

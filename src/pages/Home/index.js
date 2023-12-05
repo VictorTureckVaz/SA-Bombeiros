@@ -14,9 +14,14 @@ export default function MainHome(){
      const navigation = useNavigation();
      const context = useContext(OcorrenciaContext);
      const [buttonDisabled, setButtonDisabled] = useState(false); // Estado para controlar se o botão está desativado
-    
-     console.log('Pegamos o id do bombeiro no Home: ', localStorage.getItem('BombeiroId'));
      console.log(localStorage.getItem('token'));
+     if(localStorage.getItem('ADMid') !== null){
+          localStorage.removeItem('ADMid');
+          localStorage.removeItem('ADMemail');
+          localStorage.removeItem('ADMcpf');
+          localStorage.removeItem('token');
+          navigation.navigate('login');
+     }
 
      async function verifyLogin(){
           if (buttonDisabled) {
@@ -62,21 +67,21 @@ export default function MainHome(){
                     
                     <View style={styles.Container}>
 
-                    <View style={styles.ImageContainer}>
-                         <Image
-                         style={{width: 280, height: 280}}
-                         source={require('../../../assets/bombeirosLogo.png')}
-                         />
-                    </View>
-                    <View style={styles.ButtonContainer}>
-                         <TouchableOpacity 
-                         style={[styles.Button, { opacity: buttonDisabled ? 0.5 : 1 }]}
-                         onPress={ verifyLogin }
-                         disabled={buttonDisabled}
-                         >
-                              <Text style={styles.Title}>PREENCHER OCORRÊNCIA</Text>
-                         </TouchableOpacity>
-                    </View>
+                         <View style={styles.ImageContainer}>
+                              <Image
+                              style={{width: 280, height: 280}}
+                              source={require('../../../assets/bombeirosLogo.png')}
+                              />
+                         </View>
+                         <View style={styles.ButtonContainer}>
+                              <TouchableOpacity 
+                              style={[styles.Button, { opacity: buttonDisabled ? 0.5 : 1 }]}
+                              onPress={ verifyLogin }
+                              disabled={buttonDisabled}
+                              >
+                                   <Text style={styles.Title}>PREENCHER OCORRÊNCIA</Text>
+                              </TouchableOpacity>
+                         </View>
     
                     </View>
                </ScrollView>

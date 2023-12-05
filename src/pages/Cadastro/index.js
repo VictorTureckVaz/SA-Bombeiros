@@ -26,20 +26,20 @@ export default function MainCadastro() {
     const [emailError, setEmailError] = useState(false);
     
     useEffect(() => {
-        if(show == true) {
+        if (show) {
             setEye(require('../../../assets/invisible.png'));
         } else {
             setEye(require('../../../assets/show.png'));
         }
-    })
-
+    }, [show]);
+    
     useEffect(() => {
-        if(showB == true) {
+        if (showB) {
             setEyeB(require('../../../assets/invisible.png'));
         } else {
             setEyeB(require('../../../assets/show.png'));
         }
-    })
+    }, [showB]);
 
     async function cadastrar() {
         if(nome == null || nome == ""){
@@ -73,7 +73,6 @@ export default function MainCadastro() {
             console.log("boa mlk");
             try {
                 console.log("a principio enviou :)");
-                navigation.navigate('login');
                 const apiReply = await api.post("/cadastro", { nome: nome, sobrenome: sobrenome, pass: password, email: email, cpf: cpf });
             } catch (error) {
                 setCadastroError(current => !current);
@@ -83,6 +82,17 @@ export default function MainCadastro() {
         }else{//pop-up dizendo q nao deu certo
             setError("Senhas Não Batem");
             console.log("as senhas nao batem");
+        }
+    }
+    async function logoutAdm(){
+        try{
+            await AsyncStorage.removeItem('token');
+            await AsyncStorage.removeItem('ADMid');
+            await AsyncStorage.removeItem('ADMcpf');
+            await AsyncStorage.removeItem('ADMemail');
+            navigation.navigate('login');
+        } catch (error) {
+            console.error(error);
         }
     }
     
@@ -164,8 +174,8 @@ export default function MainCadastro() {
                 <Text style={styles.ButtonText}>CADASTRAR</Text>
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={() => navigation.navigate("login")}>
-                    <Text style={{fontSize: 16, color: '#313131',}}>Já Possui Cadastro? Clique aqui!</Text>
+            <TouchableOpacity onPress={logoutAdm}>
+                <Text style={{fontSize: 16, color: '#313131'}}>Sair</Text>
             </TouchableOpacity>
 
             <View style={[styles.ErrorContainer, {display: error !== null ? 'flex' : 'none'}]}>
