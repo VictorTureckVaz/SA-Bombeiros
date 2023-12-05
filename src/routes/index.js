@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-
+import React, { useState, useEffect, useContext } from 'react';
 import MainLogin from '../pages/Login';
 import Header from '../pages/Header';
 import MainHome from '../pages/Home';
@@ -25,13 +25,21 @@ import MainAnamneseGestacional from '../pages/Ocorrencia/Anamnese Gestacional';
 import MainTraumas from '../pages/Ocorrencia/Localizacao dos Traumas';
 import MainCadastro from '../pages/Cadastro';
 import MainLoginAdm from '../pages/Login Adm';
-
+import MainHistorico from '../pages/Historico';
+// import { OcorrenciaContext } from "../context/ocorrenciaContext";
 
 const Stack = createNativeStackNavigator()
-
 export default function Routes(){
-
-
+     
+     
+     // const context = useContext(OcorrenciaContext);
+     
+     // if(context.ehAdm.state == 1){
+     //      context.homePage.setState(MainCadastro);
+     // }else{
+     //      context.homePage.setState(MainHome);
+     // }
+     
      return(
           <Stack.Navigator>
                <Stack.Screen
@@ -57,6 +65,11 @@ export default function Routes(){
                <Stack.Screen
                name="profile"
                component={ MainProfile }
+               options={ {headerShown: false}}
+               />
+               <Stack.Screen
+               name="historico"
+               component={ MainHistorico }
                options={ {headerShown: false}}
                />
                {/* <Stack.Screen
