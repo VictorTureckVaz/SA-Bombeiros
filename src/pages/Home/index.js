@@ -15,6 +15,8 @@ export default function MainHome(){
      const context = useContext(OcorrenciaContext);
      const [buttonDisabled, setButtonDisabled] = useState(false); // Estado para controlar se o botão está desativado
      console.log(localStorage.getItem('token'));
+
+     //pra quando o cara tiver logado como adm e der refresh na pagina, ele identificar que é adm, e limpar o localstorage e enviar pro login
      if(localStorage.getItem('ADMid') !== null){
           localStorage.removeItem('ADMid');
           localStorage.removeItem('ADMemail');
@@ -30,25 +32,21 @@ export default function MainHome(){
           // }
           // setButtonDisabled(true); // Desativar o botão
           const token = await AsyncStorage.getItem('token');
-          // navigation.navigate('ocorrencia');
           try {
                if (token) {
-                    // console.log("Null sumit home");
-                    // console.log('temos o token: ' + token);
-                    // console.log('id do report: ', localStorage.getItem('idReport'));
+                    console.log("Null sumit home");
                     if(localStorage.getItem('idReport') == null){
-                         // console.log('id do report dnv: ', localStorage.getItem('idReport'));
                          try {
-                              // const reponse = await api.post("/nullSubmit", {}, {
-                              //      headers: {
-                              //           Authorization: `Bearer ${token}`,
-                              //      },
-                              // });
-                              // const id = reponse.data.id;
-                              // if (!id) throw "Não recebemos o id";
-                              // await AsyncStorage.setItem('idReport', id);
-                              // context.IdReport.setState(id);
-                              // console.log('Pegamos o id da report nova:', id);
+                              const reponse = await api.post("/nullSubmit", {}, {
+                                   headers: {
+                                        Authorization: `Bearer ${token}`,
+                                   },
+                              });
+                              const id = reponse.data.id;
+                              if (!id) throw "Não recebemos o id";
+                              await AsyncStorage.setItem('idReport', id);
+                              context.IdReport.setState(id);
+                              console.log('Pegamos o id da report nova:', id);
                               navigation.navigate('ocorrencia');
                          } catch(e) {
                               console.error(e);
@@ -62,9 +60,10 @@ export default function MainHome(){
                }
           } catch (e) {
                console.error(e)
-          } finally {
-               setButtonDisabled(false); // Reativar o botão após a execução da função
-          }
+          } 
+          // finally {
+          //      setButtonDisabled(false); // Reativar o botão após a execução da função
+          // }
      }
      return(
           <View style={styles.Body}>

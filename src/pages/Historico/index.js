@@ -45,9 +45,9 @@ export default function MainHistorico(){
 
                     
                     {ocorrencias.map((ocorrencia, i) => (
-                         <View key={i} style={styles.UsingMenu}>
+                     <View key={i} style={styles.UsingMenu}>
                          <TouchableOpacity style={styles.UsingMenuTitle} onPress={ () => setUsingMenu(!usingMenu)}>
-                             <Text style={{fontSize: 17}}>Nº da Ocorrência {ocorrencia.idIdentificacao_do_paciente}</Text>
+                             <Text style={{fontSize: 17}}>Nº da Ocorrência: {ocorrencia.idIdentificacao_do_paciente}</Text>
                              <View style={styles.UsingMenuIconContainer}>
                                  <Image
                                      style={[
@@ -65,17 +65,17 @@ export default function MainHistorico(){
                          <View style={{display: usingMenu ? "flex" : "none", gap: 5}}>
  
                              <View style={styles.BorderContainer}>
-                                    <Text style={{fontSize: 15}}>Vitima Era {ocorrencia.Vitima_era}</Text>
+                                    <Text style={{fontSize: 15}}>Vitima Era: {ocorrencia.Vitima_era !== null ? ocorrencia.Vitima_era : 'N/A'}</Text>
                              </View>
                              <View style={styles.BorderContainer}>
-                                    <Text style={{fontSize: 15}}>Tipo de Ocorrência {ocorrencia.tipo_de_ocorrencia}</Text>
+                                    <Text style={{fontSize: 15}}>Tipo de Ocorrência: {ocorrencia.tipo_de_ocorrencia !== null ? ocorrencia.tipo_de_ocorrencia : 'N/A'}</Text>
                              </View>
                              <View style={{gap: 5, flexDirection: "row"}}>
                                     <View style={styles.BorderContainer}>
-                                         <Text style={{fontSize: 15}}>Idade {ocorrencia.PacienteIdade}</Text>
+                                    <Text style={{fontSize: 15}}>Idade: {ocorrencia.PacienteIdade !== null ? ocorrencia.PacienteIdade : 'N/A'}</Text>
                                     </View>
                                     <View style={styles.BorderContainer}>
-                                         <Text style={{fontSize: 15}}>Sexo {ocorrencia.PacienteSexo === "m" ? "Masculino" : ocorrencia.PacienteSexo === "f" ? "Feminino" : "N/A"}</Text>
+                                         <Text style={{fontSize: 15}}>Sexo: {ocorrencia.PacienteSexo === "m" ? "Masculino" : ocorrencia.PacienteSexo === "f" ? "Feminino" : "N/A"}</Text>
                                     </View>
                              </View>
  
