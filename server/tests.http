@@ -2,8 +2,8 @@ POST http://localhost:15600/login HTTP/1.1
 content-type: application/json
 
 {
-    "user": "11111111111",
-    "pass": "opa"
+    "user": "adm",
+    "pass": "adm"
 }
 
 ###
@@ -40,3 +40,8 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6M
     "idadeAcom": 455,
     "vitimaEra": "Meio sangue"
 }
+
+###
+
+GET http://localhost:15600/historico HTTP/1.1
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjI2LCJpYXQiOjE3MDE3NzYzODIsImV4cCI6MTcwMTgzNjM4Mn0.qmI3tFaxEUUXJ5mO8OCs7EYGt-htX6IWCw5tVPBC_eQ

@@ -26,17 +26,17 @@ module.exports.LOGINADM = (email, cpf) => {
     `;
 };
 
-module.exports.HISTORICO = (vitimaera, tipo, idade, sexo, bombeiro) => {
+module.exports.HISTORICO = (bombeiro) => {
     return `
         SELECT *
         FROM identificacao_do_paciente
-        WHERE id_bombeiro=${bombeiro};
+        WHERE fk_bombeiro = ${bombeiro};
     `;
 };
 
 
-module.exports.NULLQry = () => {
-    return `INSERT INTO identificacao_do_paciente () VALUES ();`;
+module.exports.NULLQry = (bombeiro) => {
+    return `INSERT INTO identificacao_do_paciente (fk_bombeiro) VALUES (${bombeiro});`;
     
 };
 
@@ -145,14 +145,26 @@ module.exports.SUBMIT17 = (
 };
 
 module.exports.SUBMIT1 = (
-    nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue, sexoPac
+    nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue, sexoPac, bombeiro
 ) => {
     console.log(typeof idadePac);
     return `
-        INSERT INTO identificacao_do_paciente (PacienteNome, PacienteSexo, NomeHospital, PacienteIdade, PacienteRGouCPF, PacienteFone, AcompanhanteNome, AcompanhanteIdade, LocalDaOcorrencia, Vitima_era
-        ) VALUES ("${nomePac}", "${sexoPac}", "${nomeHosp}", ${idadePac}, "${docPac}", "${telefonePac}", "${acompanhante}", ${idadeAcom}, "${local}", "${vitimaEraValue}");
+        INSERT INTO identificacao_do_paciente (PacienteNome, PacienteSexo, NomeHospital, PacienteIdade, PacienteRGouCPF, PacienteFone, AcompanhanteNome, AcompanhanteIdade, LocalDaOcorrencia, Vitima_era, fk_bombeiro
+        ) VALUES ("${nomePac}", "${sexoPac}", "${nomeHosp}", ${idadePac}, "${docPac}", "${telefonePac}", "${acompanhante}", ${idadeAcom}, "${local}", "${vitimaEraValue}", ${bombeiro});
     `;
 };
+
+
+// module.exports.SUBMIT1 = (
+//     nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue, sexoPac, bombeiro
+// ) => {
+//     console.log(typeof idadePac);
+//     return `
+//        UPDATE identificacao_do_paciente SET PacienteNome = "${nomePac}", PacienteSexo="${sexoPac}", NomeHospital="${nomeHosp}", PacienteIdade=${idadePac}, PacienteRGouCPF="${docPac}", PacienteFone="${telefonePac}", AcompanhanteNome="${acompanhante}", AcompanhanteIdade=${idadeAcom}, LocalDaOcorrencia="${local}", Vitima_era="${vitimaEraValue}"
+//        WHERE ;
+//     `;
+// };
+
 
 module.exports.SUBMIT15 = (obs) => {
     return `

@@ -452,6 +452,11 @@ export default function MainOcorrencia() {
 
 
     }
+    function cancelar(){
+        
+    }
+        
+    
 
     return(
         <View style={styles.Body}>
@@ -507,6 +512,11 @@ export default function MainOcorrencia() {
                         <TouchableOpacity style={styles.Enviar} onPress={transformarEmJson} >
                             <Text style={styles.OcStepText}>
                                 ENVIAR OCORRENCIA
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.Enviar, {backgroundColor: "#E74428"}]} onPress={cancelar} >
+                            <Text style={styles.OcStepText}>
+                                CANCELAR OCORRENCIA
                             </Text>
                         </TouchableOpacity>
                     </View>

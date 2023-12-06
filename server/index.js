@@ -27,7 +27,7 @@ const postobs = require("./handlers/relatoriosubmit/obs/post");
 const postmateriais = require("./handlers/relatoriosubmit/materiais/post");
 const postferimentos = require("./handlers/relatoriosubmit/ferimentos/post");
 const postqueimaduras = require("./handlers/relatoriosubmit/queimaduras/post");
-
+const gethistorico = require("./handlers/historico/get")
 
 
 app.use(express.json());
@@ -37,10 +37,10 @@ app.use(cors());
 app.post("/login", postLoginHandler);
 app.post("/loginADM", postLoginADMHandler);
 app.post("/cadastro", postCadastroHandler);
-app.post("/nullSubmit", nullSubmit);
+app.post("/nullSubmit", validateToken, nullSubmit);
 
 //post's do submit (cada tabela)
-app.post("/infpac", postinfpac);
+app.post("/infpac", validateToken, postinfpac);
 app.post("/infamb", postinfamb);
 app.post("/tipooc", posttipooc);
 app.post("/infconetrans", postinfconetrans);
@@ -56,6 +56,7 @@ app.post("/obs", postobs);
 app.post("/materiais", postmateriais);
 app.post("/ferimentos", postferimentos);
 app.post("/queimaduras", postqueimaduras);
+app.get("/historico", validateToken, gethistorico);
 
 app.listen(15600, () => {
     console.log("Server rodante")

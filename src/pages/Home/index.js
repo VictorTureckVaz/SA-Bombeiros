@@ -24,22 +24,28 @@ export default function MainHome(){
      }
 
      async function verifyLogin(){
-          if (buttonDisabled) {
-            // Se o botão já estiver desativado, não faça nada
-            return;
-          }
-          setButtonDisabled(true); // Desativar o botão
+          // if (buttonDisabled) {
+          //   // Se o botão já estiver desativado, não faça nada
+          //   return;
+          // }
+          // setButtonDisabled(true); // Desativar o botão
           const token = await AsyncStorage.getItem('token');
-
+          // navigation.navigate('ocorrencia');
           try {
                if (token) {
+                    console.log("Null sumit home");
                     console.log('temos o token: ' + token);
                     console.log('id do report: ', localStorage.getItem('idReport'));
                     if(localStorage.getItem('idReport') == null){
                          console.log('id do report dnv: ', localStorage.getItem('idReport'));
                          try {
-                              const reponse = await api.post("/nullSubmit");
+                              const reponse = await api.post("/nullSubmit", {}, {
+                                   headers: {
+                                        Authorization: `Bearer ${token}`,
+                                   },
+                              });
                               const id = reponse.data.id;
+                              if (!id) throw "Não recebemos o id";
                               await AsyncStorage.setItem('idReport', id);
                               context.IdReport.setState(id);
                               console.log('Pegamos o id da report nova:', id);
@@ -77,7 +83,7 @@ export default function MainHome(){
                               <TouchableOpacity 
                               style={[styles.Button, { opacity: buttonDisabled ? 0.5 : 1 }]}
                               onPress={ verifyLogin }
-                              disabled={buttonDisabled}
+                              // disabled={buttonDisabled}
                               >
                                    <Text style={styles.Title}>PREENCHER OCORRÊNCIA</Text>
                               </TouchableOpacity>

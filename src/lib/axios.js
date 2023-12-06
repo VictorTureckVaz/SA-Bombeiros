@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
 /**
@@ -8,11 +9,10 @@ import axios from "axios";
  * IP do Vitin na sala de segunda a quinta: 127.0.0.1
  * IP do Vitin na sala de sexta:            0.0.0.0
  */
-
 const api = axios.create({
     baseURL: "http://localhost:15600",
     headers: {
-        "Access-Control-Allow-Origin": "http://localhost:15600"
+        "Access-Control-Allow-Origin": "http://localhost:15600",
     }
 });
 

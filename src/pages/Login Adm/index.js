@@ -19,7 +19,6 @@ export default function MainLoginAdm() {
 
     async function login() {
         try {
-            await AsyncStorage.removeItem('EXPO_CONSTANTS_INSTALLATION_ID');
             const apiReply = await api.post("/loginADM", { user: email, pass: password });
             console.log(apiReply)
             

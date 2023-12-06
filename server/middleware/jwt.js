@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
     const tokenHeader = req.headers.authorization;
     
     if (!tokenHeader) return res.send({ error: "Cade o kbssalho mn?" });
-    
+    console.log(tokenHeader);
     /**
      * @type {string}
      * 
@@ -34,10 +34,13 @@ module.exports = (req, res, next) => {
     
     if (!token) return res.send({ error: "Cade o token mn?" });
 
-    console.log(`Token: ${token}`);
+    console.log(`tokenHeader: '${tokenHeader}'`);
+    console.log(`Token: '${token}'`);
 
     try {
-        jwt.verify(token, "cecedilha");
+        const sessionData = jwt.verify(token, "cecedilha");
+        req.user = { _id: sessionData._id }
+        console.log(req.user);
         return next();
     } catch(err) {
         console.log(err);

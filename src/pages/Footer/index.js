@@ -15,14 +15,20 @@ export default function Footer(){
 
         try {
              if (token) {
+                    console.log("Null sumit footer");
                   console.log('temos o token: ' + token);
                   
                   if(localStorage.getItem('idReport') == null){
                     try {
                          if(page == "ocorrencia" && context.currentPage.state !== "ocorrencia") {
 
-                              const reponse = await api.post("/nullSubmit");
+                              const reponse = await api.post("/nullSubmit", {}, {
+                                   headers: {
+                                        Authorization: `Bearer ${token}`,
+                                   },
+                              });
                               const id = reponse.data.id;
+                              if (!id) throw "Sem id novo"
                               await AsyncStorage.setItem('idReport', id);
                               context.IdReport.setState(id);
                               console.log('Pegamos o id da report nova:', id);
