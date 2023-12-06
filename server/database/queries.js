@@ -121,10 +121,13 @@ module.exports.SUBMIT16 = (
 };
 
 module.exports.SUBMIT3 = (
-    tipoOc
+    tipoOc, idOcorrencia
 ) => {
+    console.log(tipoOc, idOcorrencia);
     return `
-        INSERT INTO tipo_de_ocorrencia (Tipo_Oc) VALUES ("${tipoOc}");
+        UPDATE identificacao_do_paciente
+        SET tipo_de_ocorrencia = "${tipoOc}"
+        WHERE idIdentificacao_do_paciente = "${idOcorrencia}";
     `;
 };
 
@@ -145,12 +148,12 @@ module.exports.SUBMIT17 = (
 };
 
 module.exports.SUBMIT1 = (
-    nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue, sexoPac, bombeiro
+    nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue, sexoPac, bombeiro, tipoOc
 ) => {
     console.log(typeof idadePac);
     return `
-        INSERT INTO identificacao_do_paciente (PacienteNome, PacienteSexo, NomeHospital, PacienteIdade, PacienteRGouCPF, PacienteFone, AcompanhanteNome, AcompanhanteIdade, LocalDaOcorrencia, Vitima_era, fk_bombeiro
-        ) VALUES ("${nomePac}", "${sexoPac}", "${nomeHosp}", ${idadePac}, "${docPac}", "${telefonePac}", "${acompanhante}", ${idadeAcom}, "${local}", "${vitimaEraValue}", ${bombeiro});
+        INSERT INTO identificacao_do_paciente (PacienteNome, PacienteSexo, NomeHospital, PacienteIdade, PacienteRGouCPF, PacienteFone, AcompanhanteNome, AcompanhanteIdade, LocalDaOcorrencia, Vitima_era, tipo_de_ocorrencia, fk_bombeiro
+        ) VALUES ("${nomePac}", "${sexoPac}", "${nomeHosp}", ${idadePac}, "${docPac}", "${telefonePac}", "${acompanhante}", ${idadeAcom}, "${local}", "${vitimaEraValue}", "${tipoOc}", ${bombeiro});
     `;
 };
 

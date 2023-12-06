@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
             DisturbioComportamento, EncontradoCapacete, EncontradoCinto, ParaBrisasAvariado, CaminhandoCena, PainelAvariado, VolanteTorcido, ObjetoRecolhido
             ), function(err, result) {
             if (err) throw err;
-            console.log(result);
+            // console.log(result);
             res.send({result});
         });
     });

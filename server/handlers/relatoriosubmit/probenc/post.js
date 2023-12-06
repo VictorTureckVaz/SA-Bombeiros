@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
             psico, resp, diabetes, outrosProblemas, partoEmergencial, problemaGestante, hemorragiaExcessiva, aereo, clinico, emergencial, posTrauma, samu, semRemocao, outrosProblemaTransporte
             ), function(err, result) {
             if (err) throw err;
-            console.log(result);
+            // console.log(result);
             res.send({result});
         });
     });

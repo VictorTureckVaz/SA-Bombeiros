@@ -72,43 +72,43 @@ export default function MainInfoPac(){
                             options={[
                                 {
                                     optionName: "Ciclista",
-                                    optionValue: "ciclista"
+                                    optionValue: "Ciclista"
                                 },
                                 {
                                     optionName: "Condutor de Moto",
-                                    optionValue: "condutorMoto"
+                                    optionValue: "Condutor Moto"
                                 },
                                 {
                                     optionName: "Condutor de Carro",
-                                    optionValue: "condutorCarro"
+                                    optionValue: "Condutor Carro"
                                 },
                                 {
                                     optionName: "Clínico",
-                                    optionValue: "clinico"
+                                    optionValue: "Clinico"
                                 },
                                 {
                                     optionName: "Gestante",
-                                    optionValue: "gestante"
+                                    optionValue: "Gestante"
                                 },
                                 {
                                     optionName: "Pass. Banco da Frente",
-                                    optionValue: "passBancoFrente"
+                                    optionValue: "Pass Banco Frente"
                                 },
                                 {
                                     optionName: "Pass. Banco de Trás",
-                                    optionValue: "passBancoTras"
+                                    optionValue: "Pass Banco Tras"
                                 },
                                 {
                                     optionName: "Pass. Moto",
-                                    optionValue: "passMoto"
+                                    optionValue: "Pass Moto"
                                 },
                                 {
                                     optionName: "Pedestre",
-                                    optionValue: "pedestre"
+                                    optionValue: "Pedestre"
                                 },
                                 {
                                     optionName: "Trauma",
-                                    optionValue: "trauma"
+                                    optionValue: "Trauma"
                                 },
                             ]}
                             selectedOptionName={context.vitimaEraName.state}

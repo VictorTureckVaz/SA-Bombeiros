@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
             aberturaOcular, respostaVerbal, respostaMotora
             ), function(err, result) {
             if (err) throw err;
-            console.log(result);
+            // console.log(result);
             res.send({result});
         });
     });

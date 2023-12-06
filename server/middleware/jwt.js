@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 module.exports = (req, res, next) => {
     const tokenHeader = req.headers.authorization;
     
-    if (!tokenHeader) return res.send({ error: "Cade o kbssalho mn?" });
+    if (!tokenHeader) return res.status(400).send({ error: "Cade o kbssalho mn?" });
     console.log(tokenHeader);
     /**
      * @type {string}
@@ -32,7 +32,7 @@ module.exports = (req, res, next) => {
      */
     const token = tokenHeader.split(" ")[1];
     
-    if (!token) return res.send({ error: "Cade o token mn?" });
+    if (!token) return res.status(400).send({ error: "Cade o token mn?" });
 
     console.log(`tokenHeader: '${tokenHeader}'`);
     console.log(`Token: '${token}'`);
@@ -44,6 +44,6 @@ module.exports = (req, res, next) => {
         return next();
     } catch(err) {
         console.log(err);
-        return res.send({ error: "Neh segredo neh hari" });
+        return res.status(400).send({ error: "Neh segredo neh hari" });
     }
 }

@@ -68,14 +68,14 @@ export default function MainHistorico(){
                                     <Text style={{fontSize: 15}}>Vitima Era {ocorrencia.Vitima_era}</Text>
                              </View>
                              <View style={styles.BorderContainer}>
-                                    <Text style={{fontSize: 15}}>Tipo de Ocorrência</Text>
+                                    <Text style={{fontSize: 15}}>Tipo de Ocorrência {ocorrencia.tipo_de_ocorrencia}</Text>
                              </View>
                              <View style={{gap: 5, flexDirection: "row"}}>
                                     <View style={styles.BorderContainer}>
                                          <Text style={{fontSize: 15}}>Idade {ocorrencia.PacienteIdade}</Text>
                                     </View>
                                     <View style={styles.BorderContainer}>
-                                         <Text style={{fontSize: 15}}>Sexo {ocorrencia.PacienteSexo}</Text>
+                                         <Text style={{fontSize: 15}}>Sexo {ocorrencia.PacienteSexo === "m" ? "Masculino" : ocorrencia.PacienteSexo === "f" ? "Feminino" : "N/A"}</Text>
                                     </View>
                              </View>
  

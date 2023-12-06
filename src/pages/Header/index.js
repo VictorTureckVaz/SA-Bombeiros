@@ -11,9 +11,12 @@ export default function Header(){
     return(
         <View style={styles.Container}>
             <View style={styles.Menu}>
-                <Image
-                style={styles.Image}
-                />
+                <TouchableOpacity onPress={ () => navigation.navigate("profile") }>
+                    <Image
+                    style={styles.Image}
+                    source={require('../../../assets/profile.png')}
+                    />
+                </TouchableOpacity>
                 <View style={styles.Line}/>
             </View>
         </View>

@@ -48,11 +48,11 @@ export default function MainTipoOc() {
                 options={[
                     {
                         optionName: "Causado por Animais",
-                        optionValue: "CausadoPorAnimais",
+                        optionValue: "Causado Por Animais",
                     },
                     {
                         optionName: "Com Meio de Transporte",
-                        optionValue: "ComMeioDeTransporte"
+                        optionValue: "Com Meio De Transporte"
                     },
                     {
                         optionName: "Desmoronamento",
@@ -60,19 +60,19 @@ export default function MainTipoOc() {
                     },
                     {
                         optionName: "Emergência Médica ",
-                        optionValue: "EmergênciaMédica "
+                        optionValue: "Emergencia Médica "
                     },
                     {
                         optionName: "Queda de Altura 2M",
-                        optionValue: "QuedaDeAltura2M"
+                        optionValue: "Queda De Altura 2M"
                     },
                     {
                         optionName: "Tentativa de Suícido",
-                        optionValue: "TentativaDeSuicido"
+                        optionValue: "Tentativa De Suicido"
                     },
                     {
                         optionName: "Queda Própria Altura ",
-                        optionValue: "QuedaPropriaAltura "
+                        optionValue: "Queda Propria Altura "
                     },
                     {
                         optionName: "Afogamento",
@@ -88,7 +88,7 @@ export default function MainTipoOc() {
                     },
                     {
                         optionName: "Choque Elétrico",
-                        optionValue: "ChoqueEletrico"
+                        optionValue: "Choque Eletrico"
                     },
                     {
                         optionName: "Desabamento",
@@ -108,19 +108,19 @@ export default function MainTipoOc() {
                     },
                     {
                         optionName: "Queda de Bicicleta",
-                        optionValue: "QuedaDeBicicleta"
+                        optionValue: "Queda De Bicicleta"
                     },
                     {
                         optionName: "Queda de Moto",
-                        optionValue: "QuedaDeMoto"
+                        optionValue: "Queda De Moto"
                     },
                     {
                         optionName: "Queda de Nível 2M ",
-                        optionValue: "QuedaDeNivel2M"
+                        optionValue: "Queda De Nivel 2M"
                     },
                     {
                         optionName: "Queda de Nível Menor que 2M",
-                        optionValue: "QuedaDeNivelMenorQue2M"
+                        optionValue: "Queda De Nivel Menor Que 2M"
                     },
                     {
                         optionName: "Trabalho",

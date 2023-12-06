@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
             fezPreNatalValue, nomeMedico, possibilidadeDeComplicacoesValue, primeiroFilhoValue, filhos, dateContracoesInicio, dateContracoesDuracao, dateContracoesIntervalo, pressaoEvacuarValue, rupturaBolsaValue, feitoInspecaoValue, partoRealizadoValue, sexoBebeValue, nomeBebe, dateNascimento
             ), function(err, result) {
             if (err) throw err;
-            console.log(result);
+            // console.log(result);
             res.send({result});
         });
     });

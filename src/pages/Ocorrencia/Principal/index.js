@@ -86,13 +86,10 @@ export default function MainOcorrencia() {
         } = jsonData;
 
         const infPac = {//1
-            nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue, sexoPac
+            nomePac, nomeHosp, docPac, idadePac, telefonePac, local, acompanhante, idadeAcom, vitimaEraValue, sexoPac, tipoOc
         };
         const InfAmb = {//2
             numUsb, numOc, despachante, kmFinal, codIr, codPs, codSia
-        };
-        const TipoOc = {//3
-            tipoOc, outroTipoOc
         };
         const InfConETrans = {//4
             decisao, transporteValue, socorristaA, socorristaB, socorristaC, motorista, demandante
@@ -137,43 +134,90 @@ export default function MainOcorrencia() {
         console.log(jsonData);
 
         try {
-            const InfPacPost = await api.post("/infpac", infPac);
+            const token = await AsyncStorage.getItem("token");
+            const InfPacPost = await api.post("/infpac", infPac, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(InfPacPost);
 
-            const InfAmbPost = await api.post("/infamb", InfAmb);
+            const InfAmbPost = await api.post("/infamb", InfAmb, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(InfAmbPost);
 
-            const TipoOcPost = await api.post("/tipooc", TipoOc);
-            console.log(TipoOcPost);
 
-            const InfConETransPost = await api.post("/infconetrans", InfConETrans);
+            const InfConETransPost = await api.post("/infconetrans", InfConETrans, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(InfConETransPost);
 
-            // const SinaisVitaisPost = await api.post("/sinaisvitais", SinaisVitais);
+            // const SinaisVitaisPost = await api.post("/sinaisvitais", SinaisVitais, {
+            //     headers: {
+            //         Authorization: `Bearer ${token}`,
+            //     }
+            // });
             // console.log(SinaisVitaisPost);
 
-            const SinaisSintomasPost = await api.post("/sinaissintomas", SinaisSintomas);
+            const SinaisSintomasPost = await api.post("/sinaissintomas", SinaisSintomas, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(SinaisSintomasPost);
 
-            const ProbEncPost = await api.post("/probenc", ProbEnc);
+            const ProbEncPost = await api.post("/probenc", ProbEnc, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(ProbEncPost);
             
-            const ProcEfetuadosPost = await api.post("/procefetuados", ProcEfetuados);
+            const ProcEfetuadosPost = await api.post("/procefetuados", ProcEfetuados, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(ProcEfetuadosPost);
 
-            const AnamnesePost = await api.post("/anamnese", Anamnese);
+            const AnamnesePost = await api.post("/anamnese", Anamnese, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(AnamnesePost);
 
-            const CinObjRecPost = await api.post("/cinobjrec", CinObjRec);
+            const CinObjRecPost = await api.post("/cinobjrec", CinObjRec, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(CinObjRecPost);
 
-            const ObsPost = await api.post("/obs", Obs);
+            const ObsPost = await api.post("/obs", Obs, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(ObsPost);
 
-            const AnamneseGestPost = await api.post("/anamnesegest", AnamneseGest);
+            const AnamneseGestPost = await api.post("/anamnesegest", AnamneseGest, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(AnamneseGestPost);
 
-            const QueimadurasPost = await api.post("/queimaduras", Queimaduras);
+            const QueimadurasPost = await api.post("/queimaduras", Queimaduras, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
             console.log(QueimadurasPost);
 
 

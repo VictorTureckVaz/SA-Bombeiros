@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
     const promise = new Promise((resolve, reject) => {
         db.query(FERIMENTOS(local, face, lado, tipo), function(err, result) {
             if (err) throw err;
-            console.log(result);
+            // console.log(result);
         });
     });
 };

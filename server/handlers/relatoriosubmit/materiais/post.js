@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
     const promise = new Promise((resolve, reject) => {
         db.query(MATERIAIS(tipo, material, tamanho, quantidade), function(err, result) {
             if (err) throw err;
-            console.log(result);
+            // console.log(result);
         });
     });
 };
